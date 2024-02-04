@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<div class="container">
+  <div class="projName">
+    <div>
+      <img src="../../../assets/images/Icon.png" alt="Logo" />
+      <p style="display: inline-block; padding-bottom: 20px">CMS Software</p>
+    </div>
+
+    <div class="selDiv">
+      <select name="language">
+        <option value="en">English</option>
+        <option value="en">Arabic</option>
+      </select>
+    </div>
+  </div>
+  <div class="loginContainer">
+    <div class="bg">
+      <div class="loginDiv">
+        <h1>
+          Welcome! 👋
+          <!-- <i class="fa-solid fa-hand fa-flip-horizontal fa-lg" style="color: #FFD43B;"></i> -->
+        </h1>
+        <p class="info1">Login in to your CMS System account</p>
+        <div>
+          <form action="" (submit)="Submit()" #form="ngForm">
+            <div>
+              <label for="email" class="labelInput">Email</label>
+              <input
+                type="text"
+                class="inputstyle"
+                id="email"
+                name="email"
+                placeholder=""
+              />
+            </div>
+            <div>
+              <label for="password" class="labelInput">Pasaword</label>
+              <input
+                type="text"
+                class="inputstyle"
+                id="password"
+                name="password"
+              />
+            </div>
+            <div>
+              <input type="checkbox" id="checkbox" name="checkbox" />
+              <label for="checkbox" id="checkLabel">Remember me</label>
+              <a href="#"><p>Forget password?</p></a>
+            </div>
+            <button type="submit" [disabled]="!form.valid">LOG IN</button>
+            <p class="info2">
+              Dont't have an account? <a href="#">Register</a>
+            </p>
+            <!-- <input type="submit"> -->
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="resetContainer">
+    <div class="bg2">
+      <div class="resetDiv">
+        <form action="" #resetform="ngForm">
+          <div>
+            <h1>Forget Password</h1>
+            <p class="info1">Enter your email , send link to reset password</p>
+          </div>
+          <div>
+            <label for="email" class="labelInput">Email</label>
+            <input
+              type="text"
+              class="inputstyle"
+              id="email"
+              name="email"
+              placeholder="Haithammo@company.info"
+            />
+          </div>
+          <button type="submit" [disabled]="!resetform.valid">LOG IN</button>
+          <p class="info2">
+            Did you remember your password? <a href="#">LOG IN</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

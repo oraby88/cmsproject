@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<div class="container">
+  <div class="formDiv">
+    <div class="projName">
+      <img src="../../../assets/images/Icon.png" alt="ProjectIcon" />
+      <p>CMS Software</p>
+    </div>
+
+    <h1>
+      Welcome! 👋
+      <!-- <i class="fa-solid fa-hand fa-flip-horizontal fa-lg" style="color: #FFD43B;"></i> -->
+    </h1>
+    <p class="info">Sign Up to Manage Blog post account</p>
+
+    <form
+      class="form-group"
+      [formGroup]="formInfo"
+      (ngSubmit)="Submit()"
+      #form="ngForm"
+    >
+      <div class="FLinksContainer">
+        <div class="formLinks">
+          <a href="https://www.google.com/">
+            <p>
+              <fa-icon
+                [icon]="faGoogle"
+                style="color: red; font-size: 20px"
+              ></fa-icon>
+              &nbsp;
+              <!-- <i class="fa-brands fa-google"></i> -->
+              <!-- <i class="fa fa-user "></i> -->
+              <!-- <i class="fa-brands fa-google-play"></i> -->
+              <!-- <img src="Logo.png" alt="LogoImage"> -->
+              <span>Sign up with Google</span>
+            </p>
+          </a>
+        </div>
+        <div class="formLinks">
+          <a href="https://www.facebook.com/">
+            <p>
+              <fa-icon
+                [icon]="faFacebook"
+                style="color: blue; font-size: 20px"
+              ></fa-icon>
+              &nbsp;
+              <span>Sign up with Facebook</span>
+            </p>
+          </a>
+        </div>
+      </div>
+
+      <div class="line">
+        <hr />
+        <span>OR</span>
+        <hr />
+      </div>
+      <div>
+        <label class="form-label" for="fromInput1">Full Name:</label>
+        <input
+          type="text"
+          class="form-input"
+          formControlName="fullName"
+          [ngClass]="{ 'is-invalid': submitted && f['fullName'].errors }"
+          id="fromInput1"
+          placeholder="i.e. Haitham mohamed"
+        />
+        @if (submitted && f['fullName'].errors) {
+        <div class="invalid-feedback">
+          @if (f['fullName'].errors['required']) {
+          <div>Fullname is required</div>
+          }
+        </div>
+        }
+      </div>
+      <div>
+        <label class="form-label" for="fromInput2">Email:</label>
+        <input
+          type="email"
+          class="form-input"
+          id="fromInput2"
+          placeholder="i.e. Haitham.mo@company.com"
+          formControlName="email"
+          [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
+        />
+        @if (submitted && f['email'].errors) {
+        <div class="invalid-feedback">
+          @if (f['email'].errors['required']) {
+          <div>Email is required</div>
+          } @if (f['email'].errors['email']) {
+          <div>Email is invalid</div>
+          }
+        </div>
+        }
+      </div>
+      <div class="label-div">
+        <label class="form-label" for="fromInput3">Password:</label>
+        <!-- <span class="p-viewer">
+					<fa-icon [icon]="faEye"></fa-icon>
+				</span> -->
+
+        <input
+          type="password"
+          class="form-input"
+          id="fromInput3"
+          placeholder="********************"
+          formControlName="password"
+          [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
+        />
+        @if (submitted && f['password'].errors) {
+        <div class="invalid-feedback">
+          @if (f['password'].errors['required']) {
+          <div>Password is required</div>
+          } @if (f['password'].errors['minlength']) {
+          <div>Password must be at least 6 characters</div>
+          } @if (f['password'].errors['maxlength']) {
+          <div>Username must not exceed 40 characters</div>
+          }
+        </div>
+        }
+        <p>Password hint : 8 characters minimum</p>
+      </div>
+      <div class="label-div">
+        <label class="form-label" for="fromInput4">Confirm Password:</label>
+        <!-- <span class="p-viewer1">
+					<fa-icon [icon]="faEye"></fa-icon>
+				</span> -->
+        <input
+          type="password"
+          class="form-input"
+          id="fromInput4"
+          formControlName="confirmPassword"
+          placeholder="********************"
+          [ngClass]="{ 'is-invalid': submitted && f['confirmPassword'].errors }"
+        />
+        @if (submitted && f['confirmPassword'].errors) {
+        <div class="invalid-feedback">
+          @if (f['confirmPassword'].errors['required']) {
+          <div>Confirm Password is required</div>
+          } @if (f['confirmPassword'].errors['matching']) {
+          <div>Confirm Password does not match</div>
+          }
+        </div>
+        }
+      </div>
+
+      <button
+        routerLink="/signin"
+        type="submit"
+        class="submitButton"
+        [disabled]="!form.valid"
+      >
+        Sign Up
+      </button>
+    </form>
+    <p class="info">Have an Account? <a routerLink="/signin">Login</a></p>
+    <p class="info">
+      By signing up you agree to out <a href="">Terms</a> and
+      <a href="">privacy policy</a>
+    </p>
+  </div>
+
+  <div class="SlidesContainer">
+    <!-- Slideshow container -->
+    <div class="slideshow-container">
+      <!-- Full-width images with number and caption text -->
+      <div id="mySlide" class="mySlides fade">
+        <div class="cardDiv">
+          <div class="avatar">
+            <img
+              src="../../../assets/images/data.svg"
+              alt="Data"
+              class="insideImg"
+              id="inside"
+            />
+          </div>
+
+          <img src="{{ showSlides() }}" alt="Slides" class="img1" />
+        </div>
+        <div class="text">
+          <p>Manage Any Content Anywhere</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
+            repellat modi dicta suscipit vero
+          </p>
+        </div>
+      </div>
+      <!-- Next and previous buttons -->
+      <!-- <div style="display: flex; justify-content: space-between; position: relative; top: -50%;">
+        <a class="prev" (click)="prevSlides()">&#10094;</a>
+        <a class="next" (click)="nextSlides()">&#10095;</a>
+      </div> -->
+    </div>
+
+    <div class="dots" style="text-align: center">
+      <span id="dot1" class="dot" (click)="currentSlide(0)"></span>
+      <span id="dot2" class="dot" (click)="currentSlide(1)"></span>
+    </div>
+
+    <!-- The dots/circles -->
+  </div>
+</div>
