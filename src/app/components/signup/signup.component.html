@@ -31,7 +31,8 @@
               <!-- <i class="fa fa-user "></i> -->
               <!-- <i class="fa-brands fa-google-play"></i> -->
               <!-- <img src="Logo.png" alt="LogoImage"> -->
-              <span>Sign up with Google</span>
+              <span class="whenComputer">Sign up with Google</span>
+              <span class="whenPhone">whit Google</span>
             </p>
           </a>
         </div>
@@ -43,7 +44,8 @@
                 style="color: blue; font-size: 20px"
               ></fa-icon>
               &nbsp;
-              <span>Sign up with Facebook</span>
+              <span class="whenComputer">Sign up with Facebook</span>
+              <span class="whenPhone">With Facebook</span>
             </p>
           </a>
         </div>
@@ -55,72 +57,85 @@
         <hr />
       </div>
       <div>
-        <label class="form-label" for="fromInput1">Full Name:</label>
+        <label class="form-label" for="fromInput1">Full Name</label>
         <input
           type="text"
           class="form-input"
           formControlName="fullName"
-          [ngClass]="{ 'is-invalid': submitted && f['fullName'].errors }"
+          [ngClass]="{
+            'is-invalid':
+              formInfo.controls.fullName.touched &&
+              formInfo.controls.fullName.errors
+          }"
           id="fromInput1"
           placeholder="i.e. Haitham mohamed"
         />
-        @if (submitted && f['fullName'].errors) {
+        @if (formInfo.controls.fullName.errors &&
+        formInfo.controls.fullName.touched) {
         <div class="invalid-feedback">
-          @if (f['fullName'].errors['required']) {
-          <div>Fullname is required</div>
+          @if (formInfo.controls.fullName.errors['required']) {
+          <p class="required">Fullname is required</p>
           }
         </div>
         }
       </div>
       <div>
-        <label class="form-label" for="fromInput2">Email:</label>
+        <label class="form-label" for="fromInput2">Email</label>
         <input
           type="email"
           class="form-input"
           id="fromInput2"
           placeholder="i.e. Haitham.mo@company.com"
           formControlName="email"
-          [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
+          [ngClass]="{
+            'is-invalid':
+              formInfo.controls.email.touched && formInfo.controls.email.errors
+          }"
         />
-        @if (submitted && f['email'].errors) {
+        @if (formInfo.controls.email.touched && formInfo.controls.email.errors)
+        {
         <div class="invalid-feedback">
-          @if (f['email'].errors['required']) {
-          <div>Email is required</div>
-          } @if (f['email'].errors['email']) {
-          <div>Email is invalid</div>
+          @if (formInfo.controls.email.errors['required']) {
+          <p class="required">Email is required</p>
+          } @if (formInfo.controls.email.errors['email']) {
+          <p>Email is invalid</p>
           }
         </div>
         }
       </div>
       <div class="label-div">
-        <label class="form-label" for="fromInput3">Password:</label>
-        <!-- <span class="p-viewer">
-					<fa-icon [icon]="faEye"></fa-icon>
-				</span> -->
-
+        <label class="form-label" for="fromInput3">Password</label>
         <input
           type="password"
           class="form-input"
           id="fromInput3"
           placeholder="********************"
           formControlName="password"
-          [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
+          [ngClass]="{
+            'is-invalid':
+              formInfo.controls.password.touched &&
+              formInfo.controls.password.errors
+          }"
         />
-        @if (submitted && f['password'].errors) {
+        @if (formInfo.controls.password.touched &&
+        formInfo.controls.password.errors) {
         <div class="invalid-feedback">
-          @if (f['password'].errors['required']) {
-          <div>Password is required</div>
-          } @if (f['password'].errors['minlength']) {
-          <div>Password must be at least 6 characters</div>
-          } @if (f['password'].errors['maxlength']) {
-          <div>Username must not exceed 40 characters</div>
+          @if (formInfo.controls.password.errors['required']) {
+          <p class="required">Password is required</p>
+          } @if (formInfo.controls.password.errors['minlength']) {
+          <p>Password must be at least 6 characters</p>
+          } @if (formInfo.controls.password.errors['maxlength']) {
+          <p>Username must not exceed 40 characters</p>
           }
         </div>
         }
-        <p>Password hint : 8 characters minimum</p>
+        <p>Password hint : 8 characters minimum !</p>
+        <!-- <progress class="progressPass" mode="determinate" value="10"></progress><br> -->
+        
+
       </div>
       <div class="label-div">
-        <label class="form-label" for="fromInput4">Confirm Password:</label>
+        <label class="form-label" for="fromInput4">Confirm Password</label>
         <!-- <span class="p-viewer1">
 					<fa-icon [icon]="faEye"></fa-icon>
 				</span> -->
@@ -130,14 +145,19 @@
           id="fromInput4"
           formControlName="confirmPassword"
           placeholder="********************"
-          [ngClass]="{ 'is-invalid': submitted && f['confirmPassword'].errors }"
+          [ngClass]="{
+            'is-invalid':
+              formInfo.controls.confirmPassword.touched &&
+              formInfo.controls.confirmPassword.errors
+          }"
         />
-        @if (submitted && f['confirmPassword'].errors) {
+        @if (formInfo.controls.confirmPassword.touched &&
+        formInfo.controls.confirmPassword.errors) {
         <div class="invalid-feedback">
-          @if (f['confirmPassword'].errors['required']) {
-          <div>Confirm Password is required</div>
-          } @if (f['confirmPassword'].errors['matching']) {
-          <div>Confirm Password does not match</div>
+          @if (formInfo.controls.confirmPassword.errors['required']) {
+          <p class="required">Confirm Password is required</p>
+          } @if (formInfo.controls.confirmPassword.errors['matching']) {
+          <p>Confirm Password does not match</p>
           }
         </div>
         }

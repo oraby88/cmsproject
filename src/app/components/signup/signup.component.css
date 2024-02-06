@@ -63,7 +63,7 @@
 .form-label {
   display: block;
   font-weight: bold;
-  margin-bottom: 5px;
+  margin-bottom: 0px;
   color: #5E6278;
   font-weight: 450;
 }
@@ -151,7 +151,12 @@
   color: black;
   /* margin-bottom: 30px; */
 }
-
+.whenComputer{
+  display: inline;
+}
+.whenPhone{
+  display: none;
+}
 
 .FLinksContainer {
   display: flex;
@@ -402,11 +407,27 @@ hr {
 	color: #000;
 } */
 
+.is-invalid{
+  border: 1px solid red;
+}
+.invalid-feedback{
+  color: red; 
+}
+.progressPass {
+  /* width: 200px; */
+  height: 5px;
+  color: red;
+  border-radius: 5px;
+}
+
 
 
 @media  screen and (max-width: 1200px) and (min-width:992px) {
   .projName{
     padding-left: 18%;
+  }
+  .is-invalid{
+    border: 1px solid red;
   }
   
 }
@@ -440,6 +461,9 @@ hr {
     left: 35%;
     width: 48%;
     
+  }
+  .is-invalid{
+    border: 1px solid red;
   }
   
 }
@@ -479,6 +503,9 @@ hr {
   h1{
     font-size: 14px;
   }
+  .is-invalid{
+    border: 1px solid red;
+  }
 }
 @media  screen and (max-width: 600px){
   .SlidesContainer{
@@ -517,6 +544,9 @@ hr {
   h1{
     font-size: 14px;
   }
+  .is-invalid{
+    border: 1px solid red;
+  }
   
 }
 @media screen and (max-width:480px){
@@ -549,23 +579,33 @@ hr {
   }
   .form-input {
     max-width: 100%;
-    width: 330px;
+    width: 375px;
     font-size: 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    border: 1px solid #E3EEF5;
+  }
+  .label-div{
+    color: #A1A5B7;
   }
   .formLinks{
-    width: 158px;
+    width: 177px;
     padding-left: 0;
     padding-right: 0;
     /* height: auto; */
+    border-radius: 5px;
+    border: 1px solid #E3EEF5;
   }  
   .formLinks p{
     font-size: 12px;
   }
   .submitButton{
-    width: 330px;
+    width: 375px;
+    border-radius: 5px;
   }
   hr{
-    width: 115px;  
+    width: 165px;  
+    border: 1px solid #E3EEF5;
   }
   h1{
     font-size: 18px;
@@ -581,9 +621,18 @@ hr {
   .info{
     margin: 10px;
   }
+  .is-invalid{
+    border: 1px solid red;
+  }
+  .required{
+    display: none;
+  }
   
 }
 @media screen and (max-width:380px){
+  .container{
+    background-color: #FFFFFF;
+  }
   .SlidesContainer{
     /* max-width: 100%; */
     width: 100%;
@@ -596,45 +645,91 @@ hr {
     width: 100%;
   }
   .formDiv p{
-    font-size: 8px;
+    font-size: 14px;
+  }
+  .form-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #5E6278;
+    font-weight: 500;
+    font-size: 14px;
   }
   .form-input {
     max-width: 100%;
-    width: 250px;
+    width: 330px;
+    border: 1px solid #E3EEF5;
+    font-size: 14px;
+    border-radius: 5px;
+  }
+  .label-div p{
+    padding: 5px 0 0px 0;
+    font-size: 12px;
+    color: #A1A5B7;
   }
   .formLinks{
-    width: 100%;
+    width: 157px;
     padding-left: 0;
     padding-right: 0;
     /* height: auto; */
+    border-radius: 5px;
+    border: 1px solid #E3EEF5;
   }  
   .formLinks p{
-    font-size: 8px;
-    padding-right: 7px;
-    padding-left: 7px;
+    font-size: 14px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: 5px;
+    
   }
-  .submitButton{
-    width: 250px;
+  .whenComputer{
+    display: none;
+  }
+  .whenPhone{
+    display: inline;
+  }
+  .submitButton{  
+    width: 330px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    margin-top: 15px;
   }
   hr{
-    width: 95px;  
+    width: 145px;  
+    border: 1px solid #E3EEF5;
   }
   h1{
     font-size: 12px;
+    padding: 0;
+    margin: 0;
   }
   .projName {
     /* margin: 0px 0px 0px 300px; */
     
-    margin-top: 30px;
+    margin-top: 5px;
     margin-right:220px ;
     padding-bottom: 0px;
     display: flex;
   }
   .info{
-    padding: 0px;
-    margin: 5px;
+    /* padding-left: 20px; */
+    margin: 0px 0px 15px 0px;
+    text-align: center;
   }
-  
+  .line{
+    padding: 0;
+    margin: 0;
+    color: #E3EEF5;
+  }
+  .FLinksContainer{
+    margin: 0;
+  }
+  .required{
+    display: none;
+  }
+  .is-invalid{
+    border: 1px solid red;
+  }
 }
 @media screen and (max-width:300px){
   .SlidesContainer{
@@ -656,13 +751,14 @@ hr {
     width: 250px;
   }
   .formLinks{
-    width: 60%;
+    width: 115px;
     padding-left: 0;
     padding-right: 0;
     /* height: auto; */
   }  
   .formLinks p{
     font-size: 8px;
+    padding: 0;
   }
   .submitButton{
     width: 250px;

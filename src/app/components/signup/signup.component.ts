@@ -14,11 +14,12 @@ import { faFilm } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { get } from 'node:http';
 import { RouterModule } from '@angular/router';
+import { MatProgressBar } from '@angular/material/progress-bar';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, FontAwesomeModule, RouterModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, FontAwesomeModule, RouterModule, MatProgressBar],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css',
 })
@@ -45,7 +46,7 @@ export class SignupComponent implements OnInit {
   }
   ngOnInit(): void {
     this.formInfo = this.formBuilder.group({
-      fullName: ['', [Validators.required,Validators.minLength(4)]],
+      fullName: ['', [Validators.required,Validators.minLength(4),Validators.maxLength(16)]],
       email: ['', [Validators.required , Validators.email]],
       password: [
         '',
@@ -53,17 +54,22 @@ export class SignupComponent implements OnInit {
           Validators.required,
           Validators.maxLength(40),
           Validators.minLength(6),
-          Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$")
+          Validators.pattern("^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$")
         ],
       ],
-      confirmPassword: ['', [Validators.required]],
+      confirmPassword: ['', [Validators.required ]],
     });
   }
 
   slidIndex: number = 0;
-  get f(): { [key: string]: AbstractControl } {
-    return this.formInfo.controls;
-  }
+
+
+  // get f(): { [key: string]: AbstractControl } {
+  //   return this.formInfo.controls;
+  // }
+
+
+
   public slides: string[] = [
     '../../../assets/images/illustration (1).svg',
     '../../../assets/images/Frame 1000016152.svg',
