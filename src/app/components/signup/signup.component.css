@@ -350,6 +350,85 @@ hr {
   
   
 } */
+
+.strongth-password{
+  display: inline-block;
+  margin-top: 2px;
+  width: 50%;
+
+}
+.bar{
+  display:inline-block;
+  height: 5px;
+  flex-grow: 1;
+  margin: 0px 2px;
+  border-radius: 5px;
+  width: 30%;
+}
+#week:hover{
+  content: "Password is Week";
+}
+
+#week{
+  background-color: red;
+}
+#medium{
+  background-color: orange;
+}
+#strong{
+  background-color: rgb(64, 161, 64);
+}
+#weekH{
+  background-color: lightgray;
+}
+#mediumH{
+  background-color: lightgray;
+}
+#strongH{
+  background-color: lightgray;
+}
+#passHint{
+  display: inline-block;
+}
+.hideHint{
+  display: none;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border: 1px solid #f1f1f1;
+  /* padding: 8px 16px; */
+  margin-left: 60px;
+  background-color: #f1f1f1;
+  color: #333;
+  border-radius: 50%;
+  
+}
+
+.tooltip::before {
+  content: "Your Password must be contain: ";
+  position: absolute;
+  background-color: #333;
+  color: #fff;
+  padding: 7px 15px;
+  border-radius: 4px;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  width: 200px;
+}
+
+.tooltip:hover::before {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+
 .avatar {
 	
 	position: absolute ;

@@ -1,5 +1,14 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  DoCheck,
+  ElementRef,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+  ViewChild,
+} from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
@@ -19,17 +28,29 @@ import { MatProgressBar } from '@angular/material/progress-bar';
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, FontAwesomeModule, RouterModule, MatProgressBar],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    FontAwesomeModule,
+    RouterModule,
+    MatProgressBar,
+  ],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css',
 })
-export class SignupComponent implements OnInit {
+export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
   [x: string]: any;
   filmIcon = faFilm;
   faFacebook = faFacebook;
   faGoogle = faGoogle;
   submitted = false;
+
   constructor(private formBuilder: FormBuilder) {}
+  ngAfterViewInit(): void {
+  }
+
+  ngDoCheck(): void { }
 
   formInfo = new FormGroup({
     fullName: new FormControl(''),
@@ -37,38 +58,67 @@ export class SignupComponent implements OnInit {
     password: new FormControl(''),
     confirmPassword: new FormControl(''),
   });
-  match(){
-    if(this.formInfo.controls.password.value == this.formInfo.controls.confirmPassword.value){
+  match() {
+    if (
+      this.formInfo.controls.password.value ==
+      this.formInfo.controls.confirmPassword.value
+    ) {
       return true;
-    }else{
+    } else {
       return false;
     }
   }
   ngOnInit(): void {
     this.formInfo = this.formBuilder.group({
-      fullName: ['', [Validators.required,Validators.minLength(4),Validators.maxLength(16)]],
-      email: ['', [Validators.required , Validators.email]],
+      fullName: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(4),
+          Validators.maxLength(16),
+        ],
+      ],
+      email: ['', [Validators.required, Validators.email]],
       password: [
         '',
         [
           Validators.required,
           Validators.maxLength(40),
           Validators.minLength(6),
-          Validators.pattern("^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$")
+          Validators.pattern(
+            '^(?=.*d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$'
+          ),
         ],
       ],
-      confirmPassword: ['', [Validators.required ]],
+      confirmPassword: ['', [Validators.required]],
     });
+
+    // const password = document.getElementsByClassName('passwordCheck');
+
+    // const mediumBar = document.getElementById('medium');
+    // const strongBar = document.getElementById('strong');
+
+    // if (password?.length < 5) {
+    //   document.getElementById('week')!.style.flexGrow = '1';
+    //   document.getElementById('medium')!.style.flexGrow = 'none';
+    //   document.getElementById('strong')!.style.flexGrow = 'none';
+    //   console.log(password.length);
+    // } else if (password.length > 5 && password.length < 15) {
+    //   document.getElementById('week')!.style.flexGrow = 'none';
+    //   document.getElementById('medium')!.style.flexGrow = '1';
+    //   document.getElementById('strong')!.style.flexGrow = 'none';
+    // } else if (password.length > 15) {
+    //   document.getElementById('week')!.style.flexGrow = 'none';
+    //   document.getElementById('medium')!.style.flexGrow = 'none';
+    //   document.getElementById('strong')!.style.flexGrow = '1';
+    // }
   }
 
   slidIndex: number = 0;
 
-
   // get f(): { [key: string]: AbstractControl } {
   //   return this.formInfo.controls;
   // }
-
-
 
   public slides: string[] = [
     '../../../assets/images/illustration (1).svg',
@@ -83,8 +133,6 @@ export class SignupComponent implements OnInit {
     console.log(JSON.stringify(this.formInfo.value, null, 2));
 
     console.log(this.formInfo.value);
-
-
   }
   Reset(): void {
     this.submitted = false;
@@ -140,7 +188,4 @@ export class SignupComponent implements OnInit {
     this.slidIndex = i;
     return this.showSlides();
   }
-}
-function f() {
-  throw new Error('Function not implemented.');
 }

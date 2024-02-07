@@ -107,7 +107,7 @@
         <label class="form-label" for="fromInput3">Password</label>
         <input
           type="password"
-          class="form-input"
+          class="form-input passwordCheck"
           id="fromInput3"
           placeholder="********************"
           formControlName="password"
@@ -116,23 +116,37 @@
               formInfo.controls.password.touched &&
               formInfo.controls.password.errors
           }"
-        />
+        /><br />
         @if (formInfo.controls.password.touched &&
         formInfo.controls.password.errors) {
         <div class="invalid-feedback">
-          @if (formInfo.controls.password.errors['required']) {
-          <p class="required">Password is required</p>
-          } @if (formInfo.controls.password.errors['minlength']) {
-          <p>Password must be at least 6 characters</p>
-          } @if (formInfo.controls.password.errors['maxlength']) {
-          <p>Username must not exceed 40 characters</p>
-          }
+          <div class="strongth-password">
+            @if(formInfo.controls.password.value!.length < 6 ){
+            <div class="bar" id="week"></div>
+            <div class="bar" id="mediumH"></div>
+            <div class="bar" id="strongH"></div>
+            } @if(formInfo.controls.password.value!.length >= 6 &&
+            formInfo.controls.password.value!.length < 15 ){
+            <div class="bar" id="weekH"></div>
+            <div class="bar" id="medium" #medium></div>
+            <div class="bar" id="strongH"></div>
+            } @if(formInfo.controls.password.value!.length >= 15 ){
+            <div class="bar" id="weekH"></div>
+            <div class="bar" id="mediumH" #medium></div>
+            <div class="bar" id="strong" #strong></div>
+            }
+          </div>
         </div>
         }
-        <p>Password hint : 8 characters minimum !</p>
-        <!-- <progress class="progressPass" mode="determinate" value="10"></progress><br> -->
-        
+        <p
+          id="passHint"
+          [ngClass]="{ 'hideHint': formInfo.controls.password.touched }"
+        >
+          Password hint : 8 characters minimum
+        </p>
+        <button class="tooltip">!</button>
 
+        <!-- <progress class="progressPass" mode="determinate" value="10"></progress><br> -->
       </div>
       <div class="label-div">
         <label class="form-label" for="fromInput4">Confirm Password</label>

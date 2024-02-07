@@ -560,4 +560,7 @@ p {
   .is-invalid {
     border: 1px solid red;
   }
+  a p{
+    padding-left:135px ;
+  }
 }
