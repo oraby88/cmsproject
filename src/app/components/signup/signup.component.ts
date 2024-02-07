@@ -31,7 +31,7 @@ import { MatProgressBar } from '@angular/material/progress-bar';
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule,  
     FontAwesomeModule,
     RouterModule,
     MatProgressBar,
@@ -45,7 +45,7 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
   faFacebook = faFacebook;
   faGoogle = faGoogle;
   submitted = false;
-
+  passwordHint:boolean=false;
   constructor(private formBuilder: FormBuilder) {}
   ngAfterViewInit(): void {
   }
@@ -62,6 +62,7 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
     if (
       this.formInfo.controls.password.value ==
       this.formInfo.controls.confirmPassword.value
+      // this.formInfo.controls.password.untouched
     ) {
       return true;
     } else {
@@ -86,7 +87,7 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
           Validators.maxLength(40),
           Validators.minLength(6),
           Validators.pattern(
-            '^(?=.*d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$'
+            '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$'
           ),
         ],
       ],
@@ -112,6 +113,7 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
     //   document.getElementById('medium')!.style.flexGrow = 'none';
     //   document.getElementById('strong')!.style.flexGrow = '1';
     // }
+    
   }
 
   slidIndex: number = 0;
@@ -188,4 +190,11 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
     this.slidIndex = i;
     return this.showSlides();
   }
+
+  test (){
+    this.passwordHint = !this.passwordHint;    
+    console.log(this.passwordHint);
+    
+  }
+  
 }

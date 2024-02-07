@@ -53,7 +53,7 @@ export class SigninComponent implements OnInit {
           Validators.required,
           Validators.maxLength(40),
           Validators.minLength(6),
-          Validators.pattern("^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"),
+          Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"),
         ],
       ],
       confirmPassword: ['', [Validators.required]],

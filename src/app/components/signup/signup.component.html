@@ -10,7 +10,7 @@
       Welcome! 👋
       <!-- <i class="fa-solid fa-hand fa-flip-horizontal fa-lg" style="color: #FFD43B;"></i> -->
     </h1>
-    <p class="info">Sign Up to Manage Blog post account</p>
+    <p id="info" class="info">Sign Up to Manage Blog post account</p>
 
     <form
       class="form-group"
@@ -64,9 +64,15 @@
           formControlName="fullName"
           [ngClass]="{
             'is-invalid':
-              formInfo.controls.fullName.touched &&
-              formInfo.controls.fullName.errors
-          }"
+            formInfo.controls.fullName.touched &&
+            formInfo.controls.fullName.errors,
+            'is-valid':
+            formInfo.controls.fullName.touched && 
+            formInfo.controls.fullName.errors == null ,
+            'is-touched':
+            formInfo.controls.fullName.untouched && 
+            formInfo.controls.fullName.errors == null,
+        }"
           id="fromInput1"
           placeholder="i.e. Haitham mohamed"
         />
@@ -89,8 +95,15 @@
           formControlName="email"
           [ngClass]="{
             'is-invalid':
-              formInfo.controls.email.touched && formInfo.controls.email.errors
-          }"
+            formInfo.controls.email.touched &&
+            formInfo.controls.email.errors,
+            'is-valid':
+            formInfo.controls.email.touched && 
+            formInfo.controls.email.errors == null ,
+            'is-touched':
+            formInfo.controls.email.untouched && 
+            formInfo.controls.email.errors == null,
+        }"
         />
         @if (formInfo.controls.email.touched && formInfo.controls.email.errors)
         {
@@ -112,39 +125,51 @@
           placeholder="********************"
           formControlName="password"
           [ngClass]="{
-            'is-invalid':
+              'is-invalid':
               formInfo.controls.password.touched &&
-              formInfo.controls.password.errors
+              formInfo.controls.password.errors,
+              'is-valid':
+              formInfo.controls.password.touched && 
+              formInfo.controls.password.errors == null ,
+              'is-touched':
+              formInfo.controls.password.untouched && 
+              formInfo.controls.password.errors == null,
           }"
+          (focusin)="test()"
+          (focusout)="test()"
         /><br />
-        @if (formInfo.controls.password.touched &&
-        formInfo.controls.password.errors) {
-        <div class="invalid-feedback">
-          <div class="strongth-password">
-            @if(formInfo.controls.password.value!.length < 6 ){
-            <div class="bar" id="week"></div>
-            <div class="bar" id="mediumH"></div>
-            <div class="bar" id="strongH"></div>
-            } @if(formInfo.controls.password.value!.length >= 6 &&
-            formInfo.controls.password.value!.length < 15 ){
-            <div class="bar" id="weekH"></div>
-            <div class="bar" id="medium" #medium></div>
-            <div class="bar" id="strongH"></div>
-            } @if(formInfo.controls.password.value!.length >= 15 ){
-            <div class="bar" id="weekH"></div>
-            <div class="bar" id="mediumH" #medium></div>
-            <div class="bar" id="strong" #strong></div>
-            }
+        <div style="display: flex; justify-content: space-between;">
+          <div class="invalid-feedback" [hidden]="!passwordHint">
+            <div class="strongth-password">
+              @if(formInfo.controls.password.value!.length < 6 || formInfo.controls.password.value!.length > 6  && formInfo.controls.password.errors){
+              <div class="bar" id="week"></div>
+              <div class="bar" id="mediumH"></div>
+              <div class="bar" id="strongH"></div>
+              <p style="display: inline-block; font-size: 12px;">Week Password</p>
+              } @if(formInfo.controls.password.value!.length >= 6 &&
+              formInfo.controls.password.value!.length < 15 &&  formInfo.controls.password.errors==null){
+              <div class="bar" id="weekH"></div>
+              <div class="bar" id="medium" #medium></div>
+              <div class="bar" id="strongH"></div>
+              <p style="display: inline-block;font-size: 12px;">Meduim Password</p>
+              } @if(formInfo.controls.password.value!.length >= 15 &&  formInfo.controls.password.errors==null){
+              <div class="bar" id="weekH"></div>
+              <div class="bar" id="mediumH" #medium></div>
+              <div class="bar" id="strong" #strong></div>
+              <p style="display: inline-block;font-size: 12px;">Strong Password</p>
+              }
+            </div>
           </div>
+          <p
+            id="passHint"
+            [ngClass]="{ show: passwordHint }"
+            [ngClass]="{ hide: passwordHint }"
+          >
+            Password hint : 8 characters minimum
+          </p>
+          
+          <button class="tooltip">!</button>
         </div>
-        }
-        <p
-          id="passHint"
-          [ngClass]="{ 'hideHint': formInfo.controls.password.touched }"
-        >
-          Password hint : 8 characters minimum
-        </p>
-        <button class="tooltip">!</button>
 
         <!-- <progress class="progressPass" mode="determinate" value="10"></progress><br> -->
       </div>
@@ -161,9 +186,15 @@
           placeholder="********************"
           [ngClass]="{
             'is-invalid':
-              formInfo.controls.confirmPassword.touched &&
-              formInfo.controls.confirmPassword.errors
-          }"
+            formInfo.controls.confirmPassword.touched &&
+            formInfo.controls.confirmPassword.errors,
+            'is-valid':
+            formInfo.controls.confirmPassword.touched && 
+            formInfo.controls.confirmPassword.errors == null ,
+            'is-touched':
+            formInfo.controls.confirmPassword.untouched && 
+            formInfo.controls.confirmPassword.errors == null,
+        }"
         />
         @if (formInfo.controls.confirmPassword.touched &&
         formInfo.controls.confirmPassword.errors) {
@@ -188,8 +219,8 @@
     </form>
     <p class="info">Have an Account? <a routerLink="/signin">Login</a></p>
     <p class="info">
-      By signing up you agree to out <a href="">Terms</a> and
-      <a href="">privacy policy</a>
+      By signing up you agree to out <a style="font-weight: 400;" href="">Terms</a> and
+      <a href="" style="font-weight: 400;">privacy policy</a>
     </p>
   </div>
 

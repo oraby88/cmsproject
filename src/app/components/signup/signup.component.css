@@ -63,9 +63,10 @@
 .form-label {
   display: block;
   font-weight: bold;
-  margin-bottom: 0px;
+  margin-bottom: 3px;
   color: #5E6278;
   font-weight: 450;
+  font-size: 12px;
 }
 .form-input {
   padding: 10px;
@@ -75,6 +76,7 @@
   height: 42px;
   /* box-shadow: 1px 1px 1px white; */
 }
+
 .submitButton {
   width: 409px;
   padding: 10px;
@@ -90,16 +92,21 @@
   text-align: center;
   margin-bottom: 0px;
   color: #3f4254;
-  font-size: 26px;
+  font-size: 30px;
 }
 .info {
   color: #7e8299;
   padding: 0px;
   margin: 0px;
   margin-bottom: 15px;
-  margin-top: 20px;
+  margin-top: 25px;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 14px;
+}
+#info{
+  margin-top: 5px;
+  margin-bottom: 20px;
+  font-size: 16px;
 }
 .info1{
   color: #7e8299;
@@ -117,11 +124,11 @@
 }
 
 .formLinks {
-  border: 1px solid lightgray;
+  border: 1px solid #BFD4E466;
   /* padding: 5px; */
   /* padding: 0px 5px; */
   width: 198px;
-  border-radius: 10px;
+  border-radius: 8px;
   /* height: 42px; */
   
 }
@@ -132,6 +139,8 @@
   /* padding-bottom: 8px; */
    font-size: 14px;
    width: 100%;
+   margin: 7px 0px;
+   padding: 0px 5px;
    /* font-weight: 500; */
    font-weight: 550;
    /* height: 30px; */
@@ -181,18 +190,19 @@
     height: 1px;
     background-color: #E3EEF5;
     margin: 12px 0px ; */
+    color: #E3EEF5;
 }
 .line span {
   font-size: 14px;
   font-weight: 400;
   color: #7e8299;
   padding: 0px 10px;
+  
 }
 hr {
   flex-grow: 1px;
   height: 0px;
-  /* background-color: #E3EEF5; */
-  color: #E3EEF5;
+  border: 1px solid #E3EEF5;
   /* margin: 0px 2px; */
   width: 180px;
 }
@@ -249,6 +259,9 @@ hr {
   border-radius: 0 3px 3px 0;
   user-select: none;
 } */
+.TAP{
+  font-weight: 300;
+}
 
 /* Position the "next button" to the right */
 .next {
@@ -352,18 +365,19 @@ hr {
 } */
 
 .strongth-password{
-  display: inline-block;
+  display: flex;
   margin-top: 2px;
-  width: 50%;
-
+  /* width: 50%; */
+  justify-content: space-between;
 }
 .bar{
-  display:inline-block;
+  display:flex;
   height: 5px;
   flex-grow: 1;
   margin: 0px 2px;
   border-radius: 5px;
-  width: 30%;
+  width: 20%;
+  
 }
 #week:hover{
   content: "Password is Week";
@@ -389,9 +403,15 @@ hr {
 }
 #passHint{
   display: inline-block;
+  color: #A1A5B7;
+  font-size: 12px;
+  padding-top: 8px;
 }
-.hideHint{
-  display: none;
+.hide{
+  display: none !important;
+}
+.show{
+  display: block !important;
 }
 
 .tooltip {
@@ -399,7 +419,7 @@ hr {
   display: inline-block;
   border: 1px solid #f1f1f1;
   /* padding: 8px 16px; */
-  margin-left: 60px;
+  /* margin-left: 60px; */
   background-color: #f1f1f1;
   color: #333;
   border-radius: 50%;
@@ -486,11 +506,18 @@ hr {
 	color: #000;
 } */
 
-.is-invalid{
-  border: 1px solid red;
+.is-invalid:focus{
+  outline: 1px solid red;
 }
 .invalid-feedback{
   color: red; 
+  width: 80%;
+}
+.is-valid:focus{
+  outline: 1px solid blue;
+}
+.is-untouched{
+  outline: 1px solid lightgray;
 }
 .progressPass {
   /* width: 200px; */
@@ -700,7 +727,7 @@ hr {
   .info{
     margin: 10px;
   }
-  .is-invalid{
+  .form-input.is-invalid{
     border: 1px solid red;
   }
   .required{
@@ -732,7 +759,7 @@ hr {
     margin-bottom: 8px;
     color: #5E6278;
     font-weight: 500;
-    font-size: 14px;
+    font-size: 12px;
   }
   .form-input {
     max-width: 100%;
