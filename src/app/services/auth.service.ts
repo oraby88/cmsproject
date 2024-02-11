@@ -18,4 +18,8 @@ export class AuthService {
     return this.http.post(environment.BASEURL+'/',loginData);
   }
 
+  setToken(){
+    
+  }
+
 }

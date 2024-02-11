@@ -24,7 +24,7 @@ import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { get } from 'node:http';
 import { Router, RouterModule } from '@angular/router';
 import { MatProgressBar } from '@angular/material/progress-bar';
-import { group } from 'node:console';
+import { error, group } from 'node:console';
 import { AuthService } from '../../services/auth.service';
 // import { Router } from 'express';
 
@@ -159,25 +159,30 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
   ];
 
   Submit() {
-    this.submitted = true;
+    //this.submitted = true;
     if (this.formInfo.invalid) {
       console.log(this.formInfo);
       return;
     }
-    this._authService.signUp(this.formInfo.value).subscribe((response) => {
-      if (response.message == 'success') {
-        localStorage.setItem('token',response.token);
-        this._Router.navigateByUrl('/signin');
+    this._authService.signUp(this.formInfo.value).subscribe({
+      next:(res)=>{
+        this._Router.navigateByUrl('/otp');
+      },
+      error:(err)=>{
+        err.message
       }
     });
 
     // console.log(JSON.stringify(this.formInfo.value, null, 2));
+
+
+    // (response) => {
+    //   if (response.message == 'success') {
+    //     localStorage.setItem('token',response.token);
+    //     this._Router.navigateByUrl('/signin');
+    //   }
+    // }
   }
-  Reset(): void {
-    this.submitted = false;
-    this.formInfo.reset();
-  }
-  
 
   showSlides(i = this.slidIndex) {
     //   let i = 0;
