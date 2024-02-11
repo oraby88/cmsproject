@@ -19,7 +19,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faFilm , faEye  } from '@fortawesome/free-solid-svg-icons';
+import { faFilm } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { get } from 'node:http';
 import { RouterModule } from '@angular/router';
@@ -44,24 +44,13 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
   filmIcon = faFilm;
   faFacebook = faFacebook;
   faGoogle = faGoogle;
-  faEye = faEye;
   submitted = false;
   passwordHint:boolean=false;
-  eyeshow:boolean = false
-  uppercase : boolean = false;
-  specialChar : boolean = false;
-  Number : boolean = false;
-  numberLength : boolean = false;
   constructor(private formBuilder: FormBuilder) {}
   ngAfterViewInit(): void {
   }
 
-  ngDoCheck(): void {
-    this.numberLength = /.{8,}/.test(this.formInfo.controls.password.value!);
-    this.uppercase = /[A-Z]/.test(this.formInfo.controls.password.value!);
-    this.specialChar = /[#?!@$%^&*-]/.test(this.formInfo.controls.password.value!);
-    this.Number = /[0-9]/.test(this.formInfo.controls.password.value!);
-  }
+  ngDoCheck(): void { }
 
   formInfo = new FormGroup({
     fullName: new FormControl(''),
@@ -69,7 +58,6 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
     password: new FormControl(''),
     confirmPassword: new FormControl(''),
   });
-
   match() {
     if (
       this.formInfo.controls.password.value ==
@@ -81,7 +69,6 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
       return false;
     }
   }
-  
   ngOnInit(): void {
     this.formInfo = this.formBuilder.group({
       fullName: [
@@ -169,15 +156,15 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
     //     slides[i].classList.toggle('active');
     //   }
     // }
-    // if (this.slidIndex == 1) {
-      // document.getElementById('inside')!.style.display = 'none';
-      // document.getElementById('dot2')!.className = 'active-dot';
-      // document.getElementById('dot1')!.className = 'dot';
-    // } else {
-      // document.getElementById('inside')!.style.display = 'flex';
-      // document.getElementById('dot2')!.className = 'dot';
-      // document.getElementById('dot1')!.className = 'active-dot';
-    // }
+    if (this.slidIndex == 1) {
+      document.getElementById('inside')!.style.display = 'none';
+      document.getElementById('dot2')!.className = 'active-dot';
+      document.getElementById('dot1')!.className = 'dot';
+    } else {
+      document.getElementById('inside')!.style.display = 'flex';
+      document.getElementById('dot2')!.className = 'dot';
+      document.getElementById('dot1')!.className = 'active-dot';
+    }
 
     // if()
     let silde = this.slides[i];
@@ -210,16 +197,4 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
     
   }
   
-  eyeShow(){
-    this.eyeshow =! this.eyeshow;
-  }
-  
-  // uppercase(stringVlaue:string){
-  //   return /[A-Z]/.test(stringVlaue);
-
-    
-  // }
-  
 }
-
-

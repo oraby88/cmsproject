@@ -137,45 +137,26 @@
           }"
           (focusin)="test()"
           (focusout)="test()"
-        />
-
-        <!-- <span
-          class="p-viewer"
-          [ngClass]="{ show: !passwordHint }"
-          [ngClass]="{ hide: !passwordHint }"
-        >
-          <fa-icon [icon]="faEye" class="faEye" (click)="eyeShow()"></fa-icon>
-          <hr
-            [ngClass]="{ show: eyeshow }"
-            [ngClass]="{ hide: eyeshow }"
-            class="eyeHr"
-          />
-        </span> -->
-
-        <br />
-        <div class="passwordCheckContainer">
+        /><br />
+        <div style="display: flex; justify-content: space-between;">
           <div class="invalid-feedback" [hidden]="!passwordHint">
             <div class="strongth-password">
-              @if(formInfo.controls.password.value!.length < 6 ||
-              formInfo.controls.password.value!.length >= 6 &&
-              formInfo.controls.password.errors){
+              @if(formInfo.controls.password.value!.length < 6 || formInfo.controls.password.value!.length > 6  && formInfo.controls.password.errors){
               <div class="bar" id="week"></div>
               <div class="bar" id="mediumH"></div>
               <div class="bar" id="strongH"></div>
-
+              <p style="display: inline-block; font-size: 12px;">Week Password</p>
               } @if(formInfo.controls.password.value!.length >= 6 &&
-              formInfo.controls.password.value!.length < 15 &&
-              formInfo.controls.password.errors==null){
-              <div class="bar" id="mediumS"></div>
+              formInfo.controls.password.value!.length < 15 &&  formInfo.controls.password.errors==null){
+              <div class="bar" id="weekH"></div>
               <div class="bar" id="medium" #medium></div>
               <div class="bar" id="strongH"></div>
-
-              } @if(formInfo.controls.password.value!.length >= 15 &&
-              formInfo.controls.password.errors==null){
+              <p style="display: inline-block;font-size: 12px;">Meduim Password</p>
+              } @if(formInfo.controls.password.value!.length >= 15 &&  formInfo.controls.password.errors==null){
               <div class="bar" id="weekH"></div>
-              <div class="bar" id="strongS" #medium></div>
+              <div class="bar" id="mediumH" #medium></div>
               <div class="bar" id="strong" #strong></div>
-
+              <p style="display: inline-block;font-size: 12px;">Strong Password</p>
               }
             </div>
           </div>
@@ -186,74 +167,11 @@
           >
             Password hint : 8 characters minimum
           </p>
-          <div
-            style="
-              display: flex;
-              align-items: center;
-              justify-content: space-around;
-            "
-          >
-            <div style="margin-right: 5px" [hidden]="!passwordHint">
-              @if(formInfo.controls.password.value!.length < 6 ||
-              formInfo.controls.password.value!.length >= 6 &&
-              formInfo.controls.password.errors){
-              <p class="passCheckWord">Password: week</p>
-              } @if(formInfo.controls.password.value!.length >= 6 &&
-              formInfo.controls.password.value!.length < 15 &&
-              formInfo.controls.password.errors==null){
-              <p class="passCheckWord">Password: Meduim</p>
-              } @if(formInfo.controls.password.value!.length >= 15 &&
-              formInfo.controls.password.errors==null){
-              <p class="passCheckWord">Password: Strong</p>
-              }
-            </div>
-            <button class="tooltip">
-              !
-              <ul class="tooltiptext">
-                Your Password Must Contain:
-                <li>
-                  <span
-                    class="correctIcon"
-                    [ngClass]="{
-                      changeBG: numberLength
-                    }"
-                    >✔</span
-                  >At least 8 characters
-                </li>
-                <li>
-                  <span
-                    class="correctIcon"
-                    [ngClass]="{
-                      changeBG: uppercase
-                    }"
-                    >✔</span
-                  >At least One Capital Letter
-                </li>
-                <li>
-                  <span
-                    class="correctIcon"
-                    [ngClass]="{
-                      changeBG: Number
-                    }"
-                    >✔</span
-                  >At least One Numbers
-                </li>
-                <li>
-                  <span
-                    class="correctIcon"
-                    [ngClass]="{
-                      changeBG: specialChar
-                    }"
-                    >✔</span
-                  >At least One Special Character:!#$%^&*()_+.
-                </li>
-              </ul>
-              <!-- <span id="length"></span> -->
-              <!-- <span id="upercase">At least contain 1 upercase</span>
-            <span id="number">At least contain 3 numbers</span> -->
-            </button>
-          </div>
+          
+          <button class="tooltip">!</button>
         </div>
+
+        <!-- <progress class="progressPass" mode="determinate" value="10"></progress><br> -->
       </div>
       <div class="label-div">
         <label class="form-label" for="fromInput4">Confirm Password</label>
@@ -301,9 +219,8 @@
     </form>
     <p class="info">Have an Account? <a routerLink="/signin">Login</a></p>
     <p class="info">
-      By signing up you agree to out
-      <a style="font-weight: 400" href="">Terms</a> and
-      <a href="" style="font-weight: 400">privacy policy</a>
+      By signing up you agree to out <a style="font-weight: 400;" href="">Terms</a> and
+      <a href="" style="font-weight: 400;">privacy policy</a>
     </p>
   </div>
 
@@ -313,7 +230,7 @@
       <!-- Full-width images with number and caption text -->
       <div id="mySlide" class="mySlides fade">
         <div class="cardDiv">
-          <div class="avatar" [ngClass]="{'hide':slidIndex == 1}">
+          <div class="avatar">
             <img
               src="../../../assets/images/data.svg"
               alt="Data"
@@ -340,8 +257,8 @@
     </div>
 
     <div class="dots" style="text-align: center">
-      <span id="dot1" class="active-dot" (click)="currentSlide(0)"  [ngClass]="{'dot': slidIndex == 1 , 'active-dot':slidIndex == 0}"></span>
-      <span id="dot2" class="dot" (click)="currentSlide(1)" [ngClass]="{'active-dot': slidIndex == 1}"></span>
+      <span id="dot1" class="dot" (click)="currentSlide(0)"></span>
+      <span id="dot2" class="dot" (click)="currentSlide(1)"></span>
     </div>
 
     <!-- The dots/circles -->
