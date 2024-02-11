@@ -197,7 +197,7 @@
               @if(formInfo.controls.password.value!.length < 6 ||
               formInfo.controls.password.value!.length >= 6 &&
               formInfo.controls.password.errors){
-              <p class="passCheckWord">Password: week</p>
+              <p class="passCheckWord">Password: Week</p>
               } @if(formInfo.controls.password.value!.length >= 6 &&
               formInfo.controls.password.value!.length < 15 &&
               formInfo.controls.password.errors==null){
@@ -283,19 +283,14 @@
         <div class="invalid-feedback">
           @if (formInfo.controls.confirmPassword.errors['required']) {
           <p class="required">Confirm Password is required</p>
-          } @if (formInfo.controls.confirmPassword.errors['matching']) {
+          } @if (formInfo.controls.confirmPassword.errors['passwordMismatch']) {
           <p>Confirm Password does not match</p>
           }
         </div>
         }
       </div>
 
-      <button
-        routerLink="/signin"
-        type="submit"
-        class="submitButton"
-        [disabled]="!form.valid"
-      >
+      <button type="submit" class="submitButton" [disabled]="formInfo.invalid">
         Sign Up
       </button>
     </form>
@@ -313,7 +308,7 @@
       <!-- Full-width images with number and caption text -->
       <div id="mySlide" class="mySlides fade">
         <div class="cardDiv">
-          <div class="avatar" [ngClass]="{'hide':slidIndex == 1}">
+          <div class="avatar" [ngClass]="{ hide: slidIndex == 1 }">
             <img
               src="../../../assets/images/data.svg"
               alt="Data"
@@ -340,8 +335,18 @@
     </div>
 
     <div class="dots" style="text-align: center">
-      <span id="dot1" class="active-dot" (click)="currentSlide(0)"  [ngClass]="{'dot': slidIndex == 1 , 'active-dot':slidIndex == 0}"></span>
-      <span id="dot2" class="dot" (click)="currentSlide(1)" [ngClass]="{'active-dot': slidIndex == 1}"></span>
+      <span
+        id="dot1"
+        class="active-dot"
+        (click)="currentSlide(0)"
+        [ngClass]="{ dot: slidIndex == 1, 'active-dot': slidIndex == 0 }"
+      ></span>
+      <span
+        id="dot2"
+        class="dot"
+        (click)="currentSlide(1)"
+        [ngClass]="{ 'active-dot': slidIndex == 1 }"
+      ></span>
     </div>
 
     <!-- The dots/circles -->

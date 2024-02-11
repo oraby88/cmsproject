@@ -126,7 +126,7 @@ option {
   height: 40px;
   width: 98%;
   border-radius: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   border: 1px solid #bfd4e466;
   padding: 10px;
 }
@@ -353,18 +353,163 @@ p {
       transform: rotateY(0deg);
     }
 }
-@media screen and (max-width: 1500px) {
+
+.passwordCheckContainer{
+  /* width: 409px; */
+  display: flex;
+  justify-content: space-between;
+   
+}
+
+.bar{
+  display:flex;
+  height: 5px;
+  flex-grow: 1;
+  margin: 0px 2px;
+  border-radius: 5px;
+  width: 20%;
+  
+}
+#week:hover{
+  content: "Password is Week";
+}
+
+#week{
+  background-color: red;
+}
+#medium{
+  background-color: orange;
+}
+#strong{
+  background-color: rgb(64, 161, 64);
+}
+#weekH{
+  background-color: lightgray;
+}
+#mediumH{
+  background-color: lightgray;
+}
+#strongH{
+  background-color: lightgray;
+}
+#strongS{
+  background-color: rgb(153, 202, 153);;
+}
+#mediumS{
+  background-color: rgb(243, 221, 179);
+}
+.strongth-password{
+  display: flex;
+  margin-top: 7px ;
+  justify-content: space-between;
+  width: 200px;
+  
+  
+}
+#passHint{
+  display: inline-block;
+  color: #A1A5B7;
+  font-size: 12px;
+  padding-top: 8px;
+}
+.hide{
+  display: none !important;
+}
+.show{
+  display: block !important;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border: 1px solid #f1f1f1;
+  /* padding: 8px 16px; */
+  /* margin-left: 60px; */
+  background-color: #b4cbf3;
+  color: #0660FC;
+  /* padding-bottom: 3px; */
+  border-radius: 50%;
+  width: 17px;
+  height: 17px;
+  margin: 7px 0 0 0px;
+  text-align: center;
+  font-size: 12px;
+  
+}
+
+.tooltip .tooltiptext{
+  visibility: hidden;
+  text-align: center;
+  z-index: 1;
+  background-color: #181C32;
+  color: #FFFFFF;
+  position: absolute;
+  border-radius: 5px;
+  padding: 12px 16px;
+  width: 250px;
+  font-size: 12px;
+  text-align: left;
+  top: -22px;
+  left: 30px;
+  font-weight: 500;
+}
+.tooltip:hover .tooltiptext{
+  visibility: visible;
+}
+.tooltip .tooltiptext li{
+  /* text-decoration: none; */
+  list-style-type: none;
+  
+}
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 10%;
+  left: -2%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent black transparent  transparent;
+}
+
+.correctIcon{
+  border-radius: 50%;
+  background-color: #2B3153;
+  color: black;
+  margin: 5px;
+  width: 17px;
+  height: 17px;
+  text-align: center;
+  display: inline-block;
+}
+.changeBG{
+  background-color: #0660FC;
+}
+
+.label-div{
+  position: relative;
+}
+
+@media screen and (max-width: 1800px) {
+  .checkbox a p{
+    padding-left: 18%;
+  }
+}
+@media screen and (max-width: 1600px) {
   .loginDiv {
     width: 70%;
   }
   .resetDiv {
     /* width: 70%; */
   }
+  .checkbox a p{
+    padding-left: 22%;
+  }
 }
 @media screen and (max-width: 1200px) and (min-width: 992px) {
   .loginDiv {
     position: static;
-    width: 100%;
+    width: 70%;
   }
   .bg,
   .bg2,
@@ -374,7 +519,7 @@ p {
     padding: 10px;
   }
   .resetContainer {
-    width: 100%;
+    width: 70%;
   }
   .resetDiv {
     width: 100%;
