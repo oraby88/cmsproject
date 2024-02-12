@@ -83,4 +83,8 @@ export class AuthService {
     return this.http.post(
       environment.BASEURL + "api/Authentication/ConfirmEmail", obj)
   }
+
+  sendMail(email:string):Observable<any>{
+    return this.http.post<any>(environment.BASEURL + "api/Authentication/ForgetPassword", email)
+  }
 }

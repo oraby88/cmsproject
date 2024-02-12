@@ -44,6 +44,8 @@
                   class="inputVerificationStyle"
                   id="verificationCode"
                   formControlName="verificationCode1"
+                  [(ngModel)]="str1"
+
                   [ngClass]="{
                     'is-invalid':
                       formVerification.controls.verificationCode1.touched &&
@@ -57,7 +59,7 @@
                   minlength="1"
                   class="inputVerificationStyle"
                   id="verificationNum"
-
+                  [(ngModel)]="str2"
 
                   formControlName="verificationCode2"
                   [ngClass]="{
@@ -72,6 +74,7 @@
                   minlength="1"
                   class="inputVerificationStyle"
                   id="verificationNum"
+                  [(ngModel)]="str3"
 
                   formControlName="verificationCode3"
                   [ngClass]="{
@@ -87,6 +90,8 @@
                   class="inputVerificationStyle"
                   id="verificationNum"
                   formControlName="verificationCode4"
+                  [(ngModel)]="str4"
+
                   [ngClass]="{
                     'is-invalid':
                       formVerification.controls.verificationCode4.touched &&
@@ -100,6 +105,8 @@
                   class="inputVerificationStyle"
                   id="verificationNum"
                   formControlName="verificationCode5"
+                  [(ngModel)]="str5"
+
                   [ngClass]="{
                     'is-invalid':
                       formVerification.controls.verificationCode5.touched &&
@@ -113,6 +120,8 @@
                   class="inputVerificationStyle"
                   id="verificationNum"
                   formControlName="verificationCode6"
+                  [(ngModel)]="str6"
+
                   [ngClass]="{
                     'is-invalid':
                       formVerification.controls.verificationCode6.touched &&

@@ -24,7 +24,14 @@ import { animate, style, transition, trigger } from '@angular/animations';
 })
 export class EmailVerificationComponent implements OnInit {
 
+  str1!: string;
+  str2!: string;
+  str3!: string;
+  str4!: string;
+  str5!: string;
+  str6!: string;
 
+  str: string = '';
   formVerification = new FormGroup({
     verificationCode1 : new FormControl(''),
     verificationCode2 : new FormControl(''),
@@ -45,15 +52,17 @@ export class EmailVerificationComponent implements OnInit {
     });
   }
 
-
+  
 
   verificationSubmit() { // send mail
     if (this.formVerification.invalid) {
       console.log(this.formVerification);
       return;
     }
+    this.str = `${this.str1}${this.str2}${this.str3}${this.str4}${this.str5}${this.str6}`;
+  console.log(this.str);
     // this.showSetNewPass();
-    this._authService.signIn(this.formVerification.value).subscribe({
+    this._authService.signIn(this.str).subscribe({
       next:(res)=>{
         this._Router.navigateByUrl('setnewpassword');
         this._authService.setToken(res.token);

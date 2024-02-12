@@ -15,7 +15,7 @@ export class ResetPasswordService {
     this.authenticationURL = '/api/Authentication'
   }
 
-  resetPassword(password: string, confirm_password: string): Observable<any> {
+  resetPassword(password?: string, confirm_password?: string): Observable<any> {
     return this._HttpClient.post<any>(`${this.baseURL}${this.authenticationURL}/ConfirmForgetPassword`, {
       email: sessionStorage.getItem('email'),
       token: sessionStorage.getItem('token'),
