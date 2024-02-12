@@ -90,17 +90,16 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
     };
   }
 
-  match() {
-    if (
-      this.formInfo.controls.password.value ===
-      this.formInfo.controls.confirmPassword.value
-      // this.formInfo.controls.password.untouched
-    ) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+  // match() {
+  //   if (
+  //     this.formInfo.controls.password.value ===
+  //     this.formInfo.controls.confirmPassword.value
+  //   ) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
 
   ngOnInit(): void {
     this.formInfo = this.formBuilder.group(
@@ -166,22 +165,14 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
     }
     this._authService.signUp(this.formInfo.value).subscribe({
       next:(res)=>{
-        this._Router.navigateByUrl('/otp');
+        this._Router.navigateByUrl('/emailverification');
+        this._authService.setTokenInSessionStorage(res['token']);
       },
       error:(err)=>{
         err.message
       }
     });
 
-    // console.log(JSON.stringify(this.formInfo.value, null, 2));
-
-
-    // (response) => {
-    //   if (response.message == 'success') {
-    //     localStorage.setItem('token',response.token);
-    //     this._Router.navigateByUrl('/signin');
-    //   }
-    // }
   }
 
   showSlides(i = this.slidIndex) {

@@ -10,6 +10,7 @@ import { environment } from '../components/environments/environment';
 export class AuthService {
 
   constructor(private http:HttpClient) { }
+
   signUp(registerData:any):Observable<any>{
     return this.http.post(environment.BASEURL+'/',registerData);
   }
@@ -18,8 +19,11 @@ export class AuthService {
     return this.http.post(environment.BASEURL+'/',loginData);
   }
 
-  setToken(){
-    
+  setToken(token:string){
+    localStorage.setItem('token', token);
+  }
+  setTokenInSessionStorage(token:string){
+    sessionStorage.setItem('token' , token);
   }
 
 }

@@ -23,7 +23,7 @@ html, body {
   /* margin-right:400px ; */
   display: flex;
   padding-top: 50px;
-  padding-left: 90px;
+  /* padding-left: 90px; */
   padding-right: 90px;
   display: flex;
   justify-content: space-between;
@@ -44,6 +44,7 @@ html, body {
 }
 .nameContainer {
   display: flex;
+  padding-left: 90px;
 }
 .Name {
   display: inline-block;
@@ -350,32 +351,6 @@ p {
     100% {
       transform: rotateY(0deg);
     }
-}
-
-@keyframes flipIn {
-  from {
-    transform: rotateY(-180deg);
-  }
-  to {
-    transform: rotateY(0deg);
-  }
-}
-@keyframes flipOut {
-  0% {
-    transform: rotateY(0deg);
-  }
-  25%{
-    transform: rotateY(45deg);
-  }
-  50% {
-    transform: rotateY(90deg);
-  }
-  75%{
-    transform: rotateY(135deg);
-  }
-  100% {
-    transform: rotateY(0deg);
-  }
 }
 
 .passwordCheckContainer{
