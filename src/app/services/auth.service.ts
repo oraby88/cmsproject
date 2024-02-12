@@ -73,15 +73,15 @@ export class AuthService {
     );
   }
 
-  verificationCode(res:any):Observable<any>{
-    return this.http.post<any>(
-      environment.BASEURL + "api/Authentication/Register", 
-      {
-        token: sessionStorage.getItem('token'),
-        email: sessionStorage.getItem('email'),
-        opt: res
-      }
-    )
+  verificationCode(res:string){
+    var obj={
+      email: sessionStorage.getItem('email')?.toString(),
+      otp: res.toString(),
+      token: sessionStorage.getItem('token')?.toString()
+    }
+    console.log(obj);
+    return this.http.post(
+      environment.BASEURL + "api/Authentication/ConfirmEmail", obj)
   }
 
 }

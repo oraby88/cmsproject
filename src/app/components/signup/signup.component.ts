@@ -165,6 +165,7 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
     }
     this._authService.signUp(this.formInfo.value).subscribe({
       next:(res)=>{
+        console.log(res);
         sessionStorage.setItem('token' , res.token);
         sessionStorage.setItem('email' , res.email);
         this._Router.navigateByUrl('/signupverification');

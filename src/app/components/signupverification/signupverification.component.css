@@ -5,7 +5,7 @@
   
   }
   html, body {
-    height: 100%;
+    /* height: 100%; */
     margin: 0;
     padding: 0;
   }
@@ -16,8 +16,8 @@
       background-color: #f9fafc;
       font-family: "DM Sans";
       /* color: lightgray; */
+      /* min-height: 100vh; */
       min-height: 100vh;
-      /* height: 100%; */
       /* margin-top: 50px; */
       /* padding: 50px; */
       justify-content: center;
@@ -49,7 +49,7 @@
       display: inline;
   } */
   .formDiv {
-    max-width: 100%;
+    /* max-width: 100%; */
     display: flex;
     flex-direction: column;
     /* padding: 50px; */
@@ -219,11 +219,11 @@
     display: flex;
     flex-direction: column;
     width: 50%;
-    height: 100%;
+    /* height: 100%; */
     background-image: url("../../../assets/images/Right\ side\ \(4\).svg");
     background-size: cover;
-    
-    min-height: 100vh;
+    /* min-height: 100vh; */
+    /* height: 100vh; */
     /* max-width: 100%;  */
   }
   
@@ -246,11 +246,7 @@
   }
   
   /* Hide the images by default */
-  .mySlides {
-    display: flex;
-    flex-direction: column;
-    /* height: 800px; */
-  }
+
   
   
   /* Next & previous buttons */
@@ -717,16 +713,29 @@
   
   }
   
-  
-  @media  screen and (max-width: 1200px) and (min-width:992px) {
-    .projName{
-      padding-left: 18%;
+  @media  screen and (max-width: 1400px){
+    .loginDiv{
+      margin: 0;
+      width: 70%;
     }
-    .is-invalid{
+
+    .projName{
+      margin-left: 30%;
+    }
+  }
+  @media  screen and (max-width: 1200px) and (min-width:992px) {
+    /* .projName{
+      /* padding-left: 18%; 
+    }*/
+    .is-invalid{ 
       border: 1px solid red;
     }
     .container{
       height: 100%;
+    }
+    .loginDiv{
+      margin: 0;
+      width: 100%;
     }
   
   }
@@ -785,8 +794,14 @@
       padding: 5%;
       width: 100%;
     }
+    .loginDiv{
+      padding: 0;
+    }
     .formDiv p{
       font-size: 14px;
+    }
+    .projName{
+      margin-left: 20%;
     }
     .formLinks{
       width: 195px;
@@ -823,7 +838,7 @@
       margin: 1px;
     }
     .projName{
-      padding-left: 15%;
+      margin-left: 35%;
     }
     .formDiv p{
       font-size: 14px;
