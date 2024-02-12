@@ -83,5 +83,4 @@ export class AuthService {
     return this.http.post(
       environment.BASEURL + "api/Authentication/ConfirmEmail", obj)
   }
-
 }

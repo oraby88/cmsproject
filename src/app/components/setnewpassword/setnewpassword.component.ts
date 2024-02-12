@@ -10,6 +10,8 @@ import {
 } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { animate, style, transition, trigger } from '@angular/animations';
+
 
 @Component({
   selector: 'app-setnewpassword',
@@ -17,6 +19,17 @@ import { AuthService } from '../../services/auth.service';
   imports: [RouterModule, FormsModule, ReactiveFormsModule, CommonModule],
   templateUrl: './setnewpassword.component.html',
   styleUrl: './setnewpassword.component.css',
+  animations: [
+    trigger('flipInOut', [
+      transition(':enter', [
+        animate('1s', style({ transform: 'rotateY(90deg)' })),
+      ]),
+      transition(':leave', [
+        animate('1s', style({ transform: 'rotateY(180deg)' })),
+      ]),
+    ]),
+  ],
+
 })
 export class SetnewpasswordComponent implements OnInit, DoCheck {
   eyeshow: boolean = false;

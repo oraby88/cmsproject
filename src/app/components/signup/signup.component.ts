@@ -26,6 +26,7 @@ import { Router, RouterModule } from '@angular/router';
 import { MatProgressBar } from '@angular/material/progress-bar';
 import { error, group } from 'node:console';
 import { AuthService } from '../../services/auth.service';
+import { animate, style, transition, trigger } from '@angular/animations';
 // import { Router } from 'express';
 
 @Component({
@@ -42,6 +43,16 @@ import { AuthService } from '../../services/auth.service';
   ],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css',
+  animations: [
+    trigger('flipInOut', [
+      transition(':enter', [
+        animate('1s', style({ transform: 'rotateY(90deg)' })),
+      ]),
+      transition(':leave', [
+        animate('1s', style({ transform: 'rotateY(180deg)' })),
+      ]),
+    ]),
+  ],
 })
 export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
   [x: string]: any;

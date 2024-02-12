@@ -1,0 +1,147 @@
+<div class="container sidebar">
+  <div class="row">
+    <div class="col-12 sidebar-header">
+      <div class="col-5">
+        <div class="image">
+          <img src="assets/images/Icon.png" alt="Logo" />
+        </div>
+      </div>
+      <div class="col-7">
+        <div class="title">
+          <h4>CMS Software</h4>
+          <small>Manage your blog</small>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 sidebar-menu">
+      <h5>Home</h5>
+    </div>
+    <div class="col-12">
+      <ul>
+        <li>
+          <a href="dashboard">
+            <div class="icon">
+              <img src="assets/images/dashboard.svg" alt="dashboard" />
+            </div>
+            <div class="link-title">Dashboard</div>
+          </a>
+        </li>
+        <li>
+          <a href="blogpost">
+            <div class="icon">
+              <img src="assets/images/blog-posts.svg" alt="blog-posts" />
+            </div>
+            <div class="link-title">Blog Posts</div>
+          </a>
+        </li>
+        <li>
+          <a href="media">
+            <div class="icon">
+              <img
+                src="assets/images/media-management.svg"
+                alt="media-management"
+              />
+            </div>
+            <div class="link-title">Media Management</div>
+          </a>
+        </li>
+        <li>
+          <a href="seo">
+            <div class="icon">
+              <img src="assets/images/seo.svg" alt="seo" />
+            </div>
+            <div class="link-title">SEO</div>
+          </a>
+        </li>
+        <li>
+          <a href="reporting an">
+            <div class="icon">
+              <img src="assets/images/analytic.svg" alt="report&analytic" />
+            </div>
+            <div class="link-title">Report & analytic</div>
+          </a>
+        </li>
+        <li>
+          <a href="comments">
+            <div class="icon">
+              <img src="assets/images/comments.svg" alt="comments" />
+            </div>
+            <div class="link-title">Comments</div>
+          </a>
+        </li>
+        <li id="active" (click)="showSublinks($event)">
+          <div class="drop-down">
+            <div class="icon">
+              <img src="assets/images/profile-circle.svg" alt="profile" />
+            </div>
+            <div class="link-title">
+              <div>User Management</div>
+              <img src="assets/images/down-arrow.svg" alt="down-arrow" />
+              @if(openDropdown){
+              <div
+                class="sub-links"
+                [ngClass]="{
+                  showSublinks: openDropdown,
+                  hideSublinks: openDropdown
+                }"
+              >
+                <ul>
+                  <li id="active-sublink">Manage Users</li>
+                  <li>Manage Roles</li>
+                </ul>
+              </div>
+              }
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 sidebar-menu">
+      <h5>Pages</h5>
+    </div>
+    <div class="col-12">
+      <ul>
+        <li>
+          <a href="dashboard">
+            <div class="icon">
+              <img src="assets/images/settings.svg" alt="settings" />
+            </div>
+            <div class="link-title">Settings</div>
+          </a>
+        </li>
+        <li>
+          <a href="blogpost">
+            <div class="icon">
+              <img src="assets/images/help-center.svg" alt="help-center" />
+            </div>
+            <div class="link-title">Help Center</div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 dark-mode">
+      <div class="dark-mode-section">
+        <div class="dark-mode-icon">
+          <img src="assets/images/moon.svg" alt="moon" />
+        </div>
+        <div class="link-title">Dark Mode</div>
+      </div>
+      <div class="toggle">
+        <div class="toggle">
+          <label class="switch">
+            <input type="checkbox" />
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

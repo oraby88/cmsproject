@@ -1,0 +1,276 @@
+* {
+  box-sizing: border-box;
+}
+.container {
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+h5 {
+  margin: 0px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 15px 15px;
+}
+
+.sidebar {
+  height: 59.09rem;
+  border-right: 1px solid #e7e7e9;
+  /* height: 821px; */
+}
+
+.sidebar-header {
+  border: 1px solid #e7e7e9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fcfcfc;
+  border-radius: 10px;
+  padding: 10px 5px;
+}
+
+.sidebar-header .image {
+  text-align: center;
+}
+
+.title h4 {
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-menu h5 {
+  color: #a1a5b7;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+ul {
+  padding: 0px;
+}
+
+ul li {
+  list-style-type: none;
+  font-weight: 700;
+  line-height: 20px;
+  padding: 15px 0px;
+}
+
+ul li a {
+  text-decoration: none;
+  color: #3f4254;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+ul li a div {
+  margin: 0px 5px;
+}
+
+ul li div {
+  text-decoration: none;
+  color: #3f4254;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.drop-down {
+  position: relative;
+}
+
+.drop-down .icon img {
+  margin-left: 5px;
+}
+
+.drop-down .link-title div {
+  margin: 0px;
+  color: #fff;
+}
+
+.drop-down .link-title img {
+  width: 15px;
+  position: absolute;
+
+  right: 30px;
+}
+
+.sub-links {
+  position: absolute;
+  top: 35px;
+  width: 95%;
+}
+
+.sub-links ul {
+  width: 80%;
+}
+
+.sub-links ul li {
+  color: #000;
+  padding: 15px;
+}
+
+ul li div div {
+  margin: 0px 5px;
+}
+
+#active {
+  background-color: rgba(6, 96, 252, 1);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#active-sublink {
+  background-color: rgba(6, 96, 252, 0.12);
+  border-radius: 10px;
+  width: 100%;
+  color: rgba(6, 96, 252, 1);
+}
+
+.showSublinks {
+  display: block;
+  transition: all 2s;
+}
+
+.hideSublinks {
+  display: none;
+  transition: all 2s;
+}
+
+.dark-mode {
+  background-color: #fcfcfc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  padding: 20px 5px;
+}
+
+.dark-mode-icon {
+  margin-right: 10px;
+}
+.dark-mode-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* toggle btn */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(24px);
+  -ms-transform: translateX(24px);
+  transform: translateX(24px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 24px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+/* end toggle btn */
+
+/* grid */
+.col-1 {
+  width: 8.33%;
+}
+.col-2 {
+  width: 16.66%;
+}
+.col-3 {
+  width: 25%;
+}
+.col-4 {
+  width: 33.33%;
+}
+.col-5 {
+  width: 41.66%;
+}
+.col-6 {
+  width: 50%;
+}
+.col-7 {
+  width: 58.33%;
+}
+.col-8 {
+  width: 66.66%;
+}
+.col-9 {
+  width: 75%;
+}
+.col-10 {
+  width: 83.33%;
+}
+.col-11 {
+  width: 91.66%;
+}
+.col-12 {
+  width: 100%;
+}
+
+@media screen and (max-width: 1200px) and (min-width: 992px) {
+  .sidebar {
+    background-color: antiquewhite;
+    height: 59.09rem;
+    /* height: 821px; */
+  }
+}
+@media screen and (max-width: 992px) and (min-width: 786px) {
+}
+@media screen and (max-width: 786px) and (min-width: 600px) {
+}
+@media screen and (max-width: 600px) {
+}
