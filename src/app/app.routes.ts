@@ -6,6 +6,7 @@ import { SendmailComponent } from './components/sendmail/sendmail.component';
 import { EmailVerificationComponent } from './components/email-verification/email-verification.component';
 import { SetnewpasswordComponent } from './components/setnewpassword/setnewpassword.component';
 import { CorrectchagesComponent } from './components/correctchages/correctchages.component';
+import { SignupverificationComponent } from './components/signupverification/signupverification.component';
 
 export const routes: Routes = [
     {path:'signin',component:SigninComponent},
@@ -14,6 +15,7 @@ export const routes: Routes = [
     {path:'emailverification',component:EmailVerificationComponent},
     {path:'setnewpassword',component:SetnewpasswordComponent},
     {path:'correctchange',component:CorrectchagesComponent},
+    {path:'signupverification',component:SignupverificationComponent},
     {path:'', redirectTo:'/signup',pathMatch:'full'},
     {path:'**',component:NotfoundComponent},
 ];

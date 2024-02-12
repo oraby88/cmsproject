@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<div class="container">
+  <div class="formDiv">
+    <div class="projName">
+      <img src="../../../assets/images/Icon.png" alt="ProjectIcon" />
+      <p>CMS Software</p>
+    </div>
+
+    <div style="text-align: center" class="loginDiv">
+        <h1>Email Verification</h1>
+        <p class="info1">We sent OTP code to <span style="color: #0660FC;">Hait*********.com</span></p>
+        <img
+          style="margin-left: auto; margin-right: auto"
+          src="../../../assets/images/smartphone.svg"
+          alt="OTP photo"
+        />
+        
+        <form
+            action=""
+            [formGroup]="formVerification"
+            (ngSubmit)="verificationSubmit()"
+            #form="ngForm"
+          >
+            <div>
+              <label for="verificationCode" class="labelInput"
+                >Type your 6 digit security code </label
+              ><br />
+              <div class="verificationInpts">
+                <input
+                  type="number"
+                  maxlength="1"
+                  minlength="1"
+                  class="inputVerificationStyle"
+                  id="verificationCode"
+                  formControlName="verificationCode1"
+                  [ngClass]="{
+                    'is-invalid':
+                      formVerification.controls.verificationCode1.touched &&
+                      formVerification.controls.verificationCode1.errors
+                  }"
+
+                />
+                <input
+                  type="number"
+                  maxlength="1"
+                  minlength="1"
+                  class="inputVerificationStyle"
+                  id="verificationNum"
+
+                  formControlName="verificationCode2"
+                  [ngClass]="{
+                    'is-invalid':
+                    formVerification.controls.verificationCode2.touched &&
+                    formVerification.controls.verificationCode2.errors
+                  }"
+                />
+                <input
+                  type="number"
+                  maxlength="1"
+                  minlength="1"
+                  class="inputVerificationStyle"
+                  id="verificationNum"
+
+                  formControlName="verificationCode3"
+                  [ngClass]="{
+                    'is-invalid':
+                      formVerification.controls.verificationCode3.touched &&
+                      formVerification.controls.verificationCode3.errors
+                  }"
+                />
+                <input
+                  type="number"
+                  maxlength="1"
+                  minlength="1"
+                  class="inputVerificationStyle"
+                  id="verificationNum"
+
+                  formControlName="verificationCode4"
+                  [ngClass]="{
+                    'is-invalid':
+                      formVerification.controls.verificationCode4.touched &&
+                      formVerification.controls.verificationCode4.errors
+                  }"
+                />
+                <input
+                  type="number"
+                  maxlength="1"
+                  minlength="1"
+                  class="inputVerificationStyle"
+                  id="verificationNum"
+
+                  formControlName="verificationCode5"
+                  [ngClass]="{
+                    'is-invalid':
+                      formVerification.controls.verificationCode5.touched &&
+                      formVerification.controls.verificationCode5.errors
+                  }"
+                />
+                <input
+                  type="number"
+                  maxlength="1"
+                  minlength="1"
+                  class="inputVerificationStyle"
+                  id="verificationNum"
+
+                  formControlName="verificationCode6"
+                  [ngClass]="{
+                    'is-invalid':
+                      formVerification.controls.verificationCode6.touched &&
+                      formVerification.controls.verificationCode6.errors
+                  }"
+                />
+              </div>
+            </div>
+            <button
+              type="submit"
+              [disabled]="formVerification.invalid"
+            >
+              Submit Code
+            </button>
+            <p class="info2">
+              Dont't get the code ? <a routerLink="/signup">Resend</a> or
+              <a routerLink="/signup">call us</a>
+            </p>
+            <!-- <input type="submit"> -->
+          </form>
+    </div>
+    <p class="info">
+      By signing up you agree to out
+      <a style="font-weight: 400" href="">Terms</a> and
+      <a href="" style="font-weight: 400">privacy policy</a>
+    </p>
+  </div>
+
+  <div class="SlidesContainer">
+    <!-- Slideshow container -->
+    <div class="slideshow-container">
+      <!-- Full-width images with number and caption text -->
+      <div id="mySlide" class="mySlides fade">
+        <div class="cardDiv">
+
+          <!-- <img src="../../../assets/images/Right side (4).svg" alt="Slides" class="img1" /> -->
+        </div>
+        <!-- <div class="text">
+          <p>Manage Any Content Anywhere</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
+            repellat modi dicta suscipit vero
+          </p>
+        </div> -->
+      </div>
+      <!-- Next and previous buttons -->
+      <!-- <div style="display: flex; justify-content: space-between; position: relative; top: -50%;">
+        <a class="prev" (click)="prevSlides()">&#10094;</a>
+        <a class="next" (click)="nextSlides()">&#10095;</a>
+      </div> -->
+    </div>
+
+
+    <!-- The dots/circles -->
+  </div>
+</div>

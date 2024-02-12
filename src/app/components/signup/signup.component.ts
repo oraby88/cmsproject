@@ -165,11 +165,13 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
     }
     this._authService.signUp(this.formInfo.value).subscribe({
       next:(res)=>{
-        this._Router.navigateByUrl('/emailverification');
-        this._authService.setTokenInSessionStorage(res['token']);
+        sessionStorage.setItem('token' , res.token);
+        sessionStorage.setItem('email' , res.email);
+        this._Router.navigateByUrl('/signupverification');
+        // this._authService.setTokenInSessionStorage(res['token']);
       },
       error:(err)=>{
-        err.message
+        console.log(err);
       }
     });
 
