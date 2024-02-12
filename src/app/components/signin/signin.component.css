@@ -340,7 +340,7 @@ p {
     transform: rotateY(0deg);
   }
 }
-  @keyframes fadeInAnim {
+@keyframes fadeInAnim {
     0% {
       transform: rotateY(0deg);
     }

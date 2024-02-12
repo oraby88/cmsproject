@@ -3,13 +3,24 @@ import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, 
 import { AuthService } from '../../services/auth.service';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-email-verification',
   standalone: true,
-  imports: [RouterModule, FormsModule , ReactiveFormsModule , CommonModule ],
+  imports: [RouterModule, FormsModule, ReactiveFormsModule, CommonModule],
   templateUrl: './email-verification.component.html',
-  styleUrl: './email-verification.component.css'
+  styleUrl: './email-verification.component.css',
+  animations: [
+    trigger('flipInOut', [
+      transition(':enter', [
+        animate('1s', style({ transform: 'rotateY(90deg)' })),
+      ]),
+      transition(':leave', [
+        animate('1s', style({ transform: 'rotateY(180deg)' })),
+      ]),
+    ]),
+  ],
 })
 export class EmailVerificationComponent implements OnInit {
 

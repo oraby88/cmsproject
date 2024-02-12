@@ -11,7 +11,6 @@ import { Observable } from 'rxjs';
 import { AuthService } from '../services/auth.service';
 
 export const authGuard: CanActivateFn = (
-  
   route: ActivatedRouteSnapshot,
   state: RouterStateSnapshot
 ) =>{

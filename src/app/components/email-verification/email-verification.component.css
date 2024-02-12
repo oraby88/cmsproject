@@ -331,6 +331,7 @@ p {
   height: 5px;
   background-color: red;
 }
+
 @keyframes fadeInAnimation {
   0% {
     transform: rotateY(0deg);
