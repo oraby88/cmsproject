@@ -52,7 +52,6 @@ export class SendmailComponent implements OnInit {
         sessionStorage.setItem('token' , res.token);
         sessionStorage.setItem('email' , res.email);
         this._Router.navigateByUrl('/emailverification')
-    
     },
       error:(err)=>{alert(err.message)}
     });

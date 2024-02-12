@@ -164,7 +164,7 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
   slidIndex: number = 0;
 
   public slides: string[] = [
-    '../../../assets/images/illustration (1).svg',
+    '../../../assets/images/illustration.png',
     '../../../assets/images/Frame 1000016152.svg',
   ];
 
