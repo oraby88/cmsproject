@@ -78,9 +78,6 @@ export class SigninComponent implements OnInit,DoCheck {
         '',
         [
           Validators.required,
-          Validators.maxLength(40),
-          Validators.minLength(6),
-          Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"),
         ],
       ],
 
@@ -94,14 +91,15 @@ export class SigninComponent implements OnInit,DoCheck {
       console.log(this.formInfo);
       return;
     }
-    this._authService.signIn(this.formInfo.value).subscribe({
+    
+    this._authService.Login(this.formInfo.value).subscribe({
       next: (res) => {
         // localStorage.setItem('token',response.token);
         this._Router.navigateByUrl('/home');
         this._authService.setToken(res['token']);
       },
       error: (err)=>{
-        err.message
+        console.log(err);
       }
 
     });

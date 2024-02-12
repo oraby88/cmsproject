@@ -15,10 +15,10 @@ import { error } from 'console';
   animations: [
     trigger('flipInOut', [
       transition(':enter', [
-        animate('1s', style({ transform: 'rotateY(90deg)' })),
+        animate('0.5s', style({ transform: 'rotateY(90deg)' })),
       ]),
       transition(':leave', [
-        animate('1s', style({ transform: 'rotateY(180deg)' })),
+        animate('0.5s', style({ transform: 'rotateY(180deg)' })),
       ]),
     ]),
   ],

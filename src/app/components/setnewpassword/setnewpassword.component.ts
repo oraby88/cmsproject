@@ -12,6 +12,7 @@ import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { animate, style, transition, trigger } from '@angular/animations';
 
+
 @Component({
   selector: 'app-setnewpassword',
   standalone: true,
@@ -28,6 +29,7 @@ import { animate, style, transition, trigger } from '@angular/animations';
       ]),
     ]),
   ],
+
 })
 export class SetnewpasswordComponent implements OnInit, DoCheck {
   eyeshow: boolean = false;

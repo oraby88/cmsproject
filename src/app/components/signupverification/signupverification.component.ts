@@ -1,29 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
-import { Router, RouterModule } from '@angular/router';
+import { Route, Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
-  selector: 'app-email-verification',
+  selector: 'app-signupverification',
   standalone: true,
-  imports: [RouterModule, FormsModule, ReactiveFormsModule, CommonModule],
-  templateUrl: './email-verification.component.html',
-  styleUrl: './email-verification.component.css',
-  animations: [
-    trigger('flipInOut', [
-      transition(':enter', [
-        animate('1s', style({ transform: 'rotateY(90deg)' })),
-      ]),
-      transition(':leave', [
-        animate('1s', style({ transform: 'rotateY(180deg)' })),
-      ]),
-    ]),
-  ],
+  imports: [RouterModule, FormsModule , ReactiveFormsModule , CommonModule ],
+  templateUrl: './signupverification.component.html',
+  styleUrl: './signupverification.component.css'
 })
-export class EmailVerificationComponent implements OnInit {
-
+export class SignupverificationComponent implements OnInit {
 
   formVerification = new FormGroup({
     verificationCode1 : new FormControl(''),
@@ -45,22 +33,20 @@ export class EmailVerificationComponent implements OnInit {
     });
   }
 
-
-
   verificationSubmit() { // send mail
     if (this.formVerification.invalid) {
       console.log(this.formVerification);
       return;
     }
     // this.showSetNewPass();
-    this._authService.signIn(this.formVerification.value).subscribe({
+    this._authService.verificationCode(this.formVerification.value).subscribe({
       next:(res)=>{
-        this._Router.navigateByUrl('setnewpassword');
-        this._authService.setToken(res.token);
+        this._Router.navigateByUrl('/signin');
+        // this._authService.setToken(res.token);
         // this.showSetNewPass();
       },
       error:err=>{
-        alert(err.message);
+        console.log(err);
       }
     });
   }

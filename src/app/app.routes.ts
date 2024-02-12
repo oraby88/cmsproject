@@ -7,6 +7,7 @@ import { EmailVerificationComponent } from './components/email-verification/emai
 import { SetnewpasswordComponent } from './components/setnewpassword/setnewpassword.component';
 import { CorrectchagesComponent } from './components/correctchages/correctchages.component';
 import { UserManagementComponent } from './components/user-management/user-management.component';
+import { SignupverificationComponent } from './components/signupverification/signupverification.component';
 
 export const routes: Routes = [
     {path:'signin',component:SigninComponent},
@@ -16,6 +17,7 @@ export const routes: Routes = [
     {path:'setnewpassword',component:SetnewpasswordComponent},
     {path:'correctchange',component:CorrectchagesComponent},
     {path:'user-manangement', component:UserManagementComponent},
+    {path:'signupverification',component:SignupverificationComponent},
     {path:'', redirectTo:'/signup',pathMatch:'full'},
     {path:'**',component:NotfoundComponent},
 ];

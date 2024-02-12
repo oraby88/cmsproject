@@ -221,6 +221,7 @@ hr {
   height: 100%;
   background-image: url("../../../assets/images/Variant5.svg");
   background-size: cover;
+  min-height: 100vh;
   /* max-width: 100%;  */
 }
 

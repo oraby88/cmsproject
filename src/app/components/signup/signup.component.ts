@@ -26,8 +26,6 @@ import { Router, RouterModule } from '@angular/router';
 import { MatProgressBar } from '@angular/material/progress-bar';
 import { error, group } from 'node:console';
 import { AuthService } from '../../services/auth.service';
-import { animate, style, transition, trigger } from '@angular/animations';
-
 // import { Router } from 'express';
 
 @Component({
@@ -177,11 +175,13 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
     }
     this._authService.signUp(this.formInfo.value).subscribe({
       next:(res)=>{
-        this._Router.navigateByUrl('/emailverification');
-        this._authService.setTokenInSessionStorage(res['token']);
+        sessionStorage.setItem('token' , res.token);
+        sessionStorage.setItem('email' , res.email);
+        this._Router.navigateByUrl('/signupverification');
+        // this._authService.setTokenInSessionStorage(res['token']);
       },
       error:(err)=>{
-        err.message
+        console.log(err);
       }
     });
 

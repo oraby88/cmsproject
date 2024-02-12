@@ -1,32 +1,21 @@
 <!DOCTYPE html>
 <div class="container">
-  <div class="projName">
-    <div class="nameContainer">
-      <div><img src="../../../assets/images/Icon.png" alt="Logo" /></div>
-      <div class="projNDiv"><p class="Name">CMS Software</p></div>
+  <div class="formDiv">
+    <div class="projName">
+      <img src="../../../assets/images/Icon.png" alt="ProjectIcon" />
+      <p>CMS Software</p>
     </div>
 
-    <div class="selDiv">
-      <select name="language">
-        <option value="en">English</option>
-        <option value="en">Arabic</option>
-      </select>
-    </div>
-  </div>
-
-  <div class="loginContainer" id="loginContainerId" [@flipInOut]>
-
-    <div class="bg3">
-      <div style="text-align: center" class="loginDiv">
+    <div style="text-align: center" class="loginDiv">
         <h1>Email Verification</h1>
-        <p class="info1">We sent OTP code to</p>
+        <p class="info1">We sent OTP code to <span style="color: #0660FC;">Hait*********.com</span></p>
         <img
           style="margin-left: auto; margin-right: auto"
           src="../../../assets/images/smartphone.svg"
           alt="OTP photo"
         />
-        <div>
-          <form
+        
+        <form
             action=""
             [formGroup]="formVerification"
             (ngSubmit)="verificationSubmit()"
@@ -34,7 +23,7 @@
           >
             <div>
               <label for="verificationCode" class="labelInput"
-                >Type your 6 digit security code</label
+                >Type your 6 digit security code </label
               ><br />
               <div class="verificationInpts">
                 <input
@@ -57,7 +46,6 @@
                   minlength="1"
                   class="inputVerificationStyle"
                   id="verificationNum"
-
 
                   formControlName="verificationCode2"
                   [ngClass]="{
@@ -86,6 +74,7 @@
                   minlength="1"
                   class="inputVerificationStyle"
                   id="verificationNum"
+
                   formControlName="verificationCode4"
                   [ngClass]="{
                     'is-invalid':
@@ -99,6 +88,7 @@
                   minlength="1"
                   class="inputVerificationStyle"
                   id="verificationNum"
+
                   formControlName="verificationCode5"
                   [ngClass]="{
                     'is-invalid':
@@ -112,6 +102,7 @@
                   minlength="1"
                   class="inputVerificationStyle"
                   id="verificationNum"
+
                   formControlName="verificationCode6"
                   [ngClass]="{
                     'is-invalid':
@@ -125,7 +116,7 @@
               type="submit"
               [disabled]="formVerification.invalid"
             >
-              Reset password
+              Submit Code
             </button>
             <p class="info2">
               Dont't get the code ? <a routerLink="/signup">Resend</a> or
@@ -133,8 +124,39 @@
             </p>
             <!-- <input type="submit"> -->
           </form>
-        </div>
-      </div>
     </div>
+    <p class="info">
+      By signing up you agree to out
+      <a style="font-weight: 400" href="">Terms</a> and
+      <a href="" style="font-weight: 400">privacy policy</a>
+    </p>
+  </div>
+
+  <div class="SlidesContainer">
+    <!-- Slideshow container -->
+    <div class="slideshow-container">
+      <!-- Full-width images with number and caption text -->
+      <div id="mySlide" class="mySlides fade">
+        <div class="cardDiv">
+
+          <!-- <img src="../../../assets/images/Right side (4).svg" alt="Slides" class="img1" /> -->
+        </div>
+        <!-- <div class="text">
+          <p>Manage Any Content Anywhere</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
+            repellat modi dicta suscipit vero
+          </p>
+        </div> -->
+      </div>
+      <!-- Next and previous buttons -->
+      <!-- <div style="display: flex; justify-content: space-between; position: relative; top: -50%;">
+        <a class="prev" (click)="prevSlides()">&#10094;</a>
+        <a class="next" (click)="nextSlides()">&#10095;</a>
+      </div> -->
+    </div>
+
+
+    <!-- The dots/circles -->
   </div>
 </div>
