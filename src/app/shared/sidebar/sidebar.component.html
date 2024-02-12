@@ -71,13 +71,30 @@
             <div class="link-title">Comments</div>
           </a>
         </li>
-        <li>
-          <a href="user">
-            <div class="div">
+        <li id="active" (click)="showSublinks($event)">
+          <div class="drop-down">
+            <div class="icon">
               <img src="assets/images/profile-circle.svg" alt="profile" />
             </div>
-            <div class="link-title">User Management</div>
-          </a>
+            <div class="link-title">
+              <div>User Management</div>
+              <img src="assets/images/down-arrow.svg" alt="down-arrow" />
+              @if(openDropdown){
+              <div
+                class="sub-links"
+                [ngClass]="{
+                  showSublinks: openDropdown,
+                  hideSublinks: openDropdown
+                }"
+              >
+                <ul>
+                  <li id="active-sublink">Manage Users</li>
+                  <li>Manage Roles</li>
+                </ul>
+              </div>
+              }
+            </div>
+          </div>
         </li>
       </ul>
     </div>
@@ -117,7 +134,14 @@
         </div>
         <div class="link-title">Dark Mode</div>
       </div>
-      <div class="toggle">Toggle</div>
+      <div class="toggle">
+        <div class="toggle">
+          <label class="switch">
+            <input type="checkbox" />
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </div>
     </div>
   </div>
 </div>
