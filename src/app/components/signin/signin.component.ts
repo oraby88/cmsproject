@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -8,45 +8,72 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
+import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-signin',
   standalone: true,
   imports: [RouterModule, FormsModule , ReactiveFormsModule , CommonModule ],
-  templateUrl: './signin.component.html', 
+  templateUrl: './signin.component.html',
   styleUrl: './signin.component.css',
+  animations: [
+    trigger('flipInOut', [
+      transition(':enter', [
+        animate('1s', style({ transform: 'rotateY(0deg)' })),
+      ]),
+      transition(':leave', [
+        animate('1s', style({ transform: 'rotateY(180deg)' })),
+      ]),
+    ]),
+  ],
 })
-export class SigninComponent implements OnInit {
+export class SigninComponent implements OnInit,DoCheck {
 
   Index:number = 1;
   submitted: boolean = false;
-  constructor(private formBuilder:FormBuilder){}
+  passwordHint: boolean = false;
+  eyeshow: boolean = false;
+  uppercase: boolean = false;
+  specialChar: boolean = false;
+  Number: boolean = false;
+  numberLength: boolean = false;
+
+
+
+  constructor(private formBuilder:FormBuilder,private _authService:AuthService , private _Router:Router){}
 
   formInfo = new FormGroup({
-    fullName: new FormControl(''),
     email: new FormControl(''),
-    forgetEmail : new FormControl(''),
     password: new FormControl(''),
-    confirmPassword: new FormControl(''),
-    verificationCode : new FormControl(''),
   });
 
 
-  match(){
-    if(this.formInfo.controls.password.value == this.formInfo.controls.confirmPassword.value){
-      return true;
-    }else{
-      return false;
-    }
-  }
+  // validateAreEqual(pass:string , confimPass:string) {
+  //   return (group:FormGroup) => {
+  //     const password = group.controls[pass];
+  //     const confimPassword = group.controls[confimPass];
+  //     if(password.value !== confimPassword.value){
+  //       confimPassword.setErrors({passwordMismatch: true});
+  //     }
+  //   }
+  // }
+
+
+  // match(){
+  //   if(this.formInfo.controls.password.value == this.formSetNewPassword.controls.confirmPassword.value){
+  //     return true;
+  //   }else{
+  //     return false;
+  //   }
+  // }
+  ngDoCheck(): void {}
 
 
   ngOnInit(): void {
     this.formInfo = this.formBuilder.group({
-      fullName: ['', [Validators.required,Validators.minLength(4),Validators.maxLength(16)]],
       email: ['', [Validators.required , Validators.email]],
-      forgetEmail: ['', [Validators.required , Validators.email]],
       password: [
         '',
         [
@@ -56,55 +83,115 @@ export class SigninComponent implements OnInit {
           Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"),
         ],
       ],
-      confirmPassword: ['', [Validators.required]],
-      verificationCode : ['' , Validators.required],
+
     });
   }
 
 
-  Submit() {
+  Submit() { //login
     this.submitted = true;
     if (this.formInfo.invalid) {
+      console.log(this.formInfo);
       return;
     }
-    console.log(JSON.stringify(this.formInfo.value, null, 2));
+    this._authService.signIn(this.formInfo.value).subscribe({
+      next: (res) => {
+        // localStorage.setItem('token',response.token);
+        this._Router.navigateByUrl('/home');
+        this._authService.setToken(res['token']);
+      },
+      error: (err)=>{
+        err.message
+      }
 
-    console.log(this.formInfo.value);
+    });
   }
 
-  Reset(): void {
-    this.submitted = false;
-    this.formInfo.reset();
-  }
-  flipCotainer = document.getElementById('loginContainerId');
-  loginCotainerId = document.getElementById('loginContainerId');
-  resetCotainerId = document.getElementById('resetContainerId');
-  showForgetPassForm() {
-    document.getElementById('resetContainerId')?.classList.add('flip-out');
+  // resetSubmit() { // send mail
+  //   if (this.formSendMail.invalid) {
+  //     console.log(this.formInfo);
+  //     return;
+  //   }
+  //   this.showVerification();
+  //   this._authService.signIn(this.formSendMail.value).subscribe((response) => {
+  //     if (response.message == 'success') {
+  //       localStorage.setItem('token',response.token);
+  //       this.showVerification();
+  //     }else{
+  //       alert(response.message);
+  //     }
+  //   });
+  // }
+
+  // verificationSubmit() { // send mail
+  //   if (this.formVerification.invalid) {
+  //     console.log(this.formVerification);
+  //     return;
+  //   }
+  //   this.showSetNewPass();
+  //   this._authService.signIn(this.formVerification.value).subscribe((response) => {
+  //     if (response.message == 'success') {
+  //       localStorage.setItem('token',response.token);
+  //       this.showSetNewPass();
+  //     }else{
+  //       alert(response.message);
+  //     }
+  //   });
+  // }
+
+  // setNewPassword(){
+  //   if (this.formSetNewPassword.invalid) {
+  //     console.log(this.formSetNewPassword);
+  //     return;
+  //   }
+  //   this.showChangePass()
+  //   this._authService.signIn(this.formSetNewPassword.value).subscribe((response) => {
+  //     if (response.message == 'success') {
+  //       localStorage.setItem('token',response.token);
+  //       this.showChangePass();
+  //     }else{
+  //       alert(response.message);
+  //     }
+  //   });
+  // }
+
+  // flipCotainer = document.getElementById('loginContainerId');
+  // loginCotainerId = document.getElementById('loginContainerId');
+  // resetCotainerId = document.getElementById('resetContainerId');
+  // showForgetPassForm() {
+  //   document.getElementById('resetContainerId')?.classList.add('flip-out');
     // flipCotainer?.s
     // this.flipCotainer?.classList.add('flip');
     // this.loginCotainerId?.style.display != 'none';
     // this.resetCotainerId?.style.display != 'block';
     // console.log('flip');
-    this.Index = 2 ;
-  }
-  resetPass(){
-    this.Index = 3 ;
-  }
-  showLoginin(){
-    
-    this.Index = 1 ;
-  }
-  showVerification(){
-    this.Index = 3;
-  }
-  showSetNewPass(){
-    this.Index = 4;
-  }
-  showChangePass(){
-    this.Index = 5;
-  }
-  showLogout(){
-    this.Index = 6;
-  }
+    // this.Index = 2 ;
+  // }
+
+  // showLoginin(){
+
+  //   this.Index = 1 ;
+  // }
+  // showVerification(){
+  //   this.Index = 3;
+  // }
+  // showSetNewPass(){
+  //   this.Index = 4;
+  // }
+  // showChangePass(){
+  //   this.Index = 5;
+  // }
+  // showLogout(){
+  //   this.Index = 6;
+  // }
+
+
+  // test() {
+  //   this.passwordHint = !this.passwordHint;
+  //   console.log(this.passwordHint);
+  // }
+
+  // eyeShow() {
+  //   this.eyeshow = !this.eyeshow;
+  // }
 }
