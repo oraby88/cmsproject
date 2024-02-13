@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -29,7 +29,7 @@ import { AuthService } from '../../../services/auth.service';
     ]),
   ],
 })
-export class EmailVerificationComponent implements OnInit {
+export class EmailVerificationComponent implements OnInit, DoCheck {
   str1!: string;
   str2!: string;
   str3!: string;
@@ -51,6 +51,7 @@ export class EmailVerificationComponent implements OnInit {
     private _authService: AuthService,
     private _Router: Router
   ) {}
+  ngDoCheck(): void {}
   ngOnInit(): void {
     this.formVerification = this.formBuilder.group({
       verificationCode1: ['', [Validators.required, Validators.maxLength(1)]],

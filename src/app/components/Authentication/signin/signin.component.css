@@ -81,6 +81,7 @@ option {
 .bg {
   background-image: url("../../../../assets/images/_Path_.svg");
   /* background-size: cover; */
+  background-size: 800px 550px;
   background-repeat: no-repeat;
   /* height: 100vh; */
   margin: auto;
@@ -88,6 +89,7 @@ option {
   height: 600px;
   position: relative;
   margin-left: 40px;
+  
 }
 .loginDiv {
   margin: auto;
@@ -147,7 +149,7 @@ label {
 }
 #checkbox {
   display: inline-block;
-  border: 1px solid #bfd4e466;
+  border: 1px solid #bfd4e466 !important;
   color: #bfd4e466;
   padding: 0px;
 }
@@ -515,7 +517,7 @@ p {
 }
 
 @media screen and (max-width: 1800px) {
-  .checkbox a p{
+  .checkbox  p{
     padding-left: 18%;
   }
 }
@@ -529,18 +531,30 @@ p {
   .checkbox a p{
     padding-left: 22%;
   }
+  .bg,
+  .bg2,
+  .bg3 {
+    background-size: 700px 550px;
+    margin: 0;
+    padding: 10px;
+    position: relative;
+    margin-left: 0px;
+  }
 }
 @media screen and (max-width: 1200px) and (min-width: 992px) {
   .loginDiv {
-    position: static;
-    width: 70%;
+    /* position: static; */
+    width: 85%;
+    left: 25px;
   }
   .bg,
   .bg2,
   .bg3 {
-    background-image: none;
+    background-size: 550px 500px;
     margin: 0;
     padding: 10px;
+    position: relative;
+    margin-left: 0px;
   }
   .resetContainer {
     width: 70%;
@@ -686,6 +700,9 @@ p {
   .resetContainer {
     width: 100%;
   }
+  .form-input {
+    margin-bottom: 20px;
+  }
   .resetDiv {
     width: 100%;
     margin: 0;
@@ -731,5 +748,19 @@ p {
   }
   a p{
     padding-left:135px ;
+  }
+  .checkbox a p{
+    padding-left: 28%;
+  }
+}
+@media screen and (max-width: 380px) {
+  .checkbox a p{
+    padding-left: 23%;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .checkbox a p{
+    padding-left: 22%;
   }
 }

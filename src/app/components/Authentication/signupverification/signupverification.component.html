@@ -27,87 +27,97 @@
               ><br />
               <div class="verificationInpts">
                 <input
-                  type="number"
+                  type="text"
                   maxlength="1"
-                  minlength="1"
+                  min="0"
+                  max="9"
+                  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
                   class="inputVerificationStyle"
                   id="verificationCode"
                   [(ngModel)]="str1"
                   formControlName="verificationCode1"
                   [ngClass]="{
-                    'is-invalid':
+                    'is-invalid1':
                       formVerification.controls.verificationCode1.touched &&
                       formVerification.controls.verificationCode1.errors
                   }"
 
                 />
                 <input
-                  type="number"
+                  type="text"
                   maxlength="1"
-                  minlength="1"
+                  min="0"
+                  max="9"
+                  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
                   class="inputVerificationStyle"
                   id="verificationNum"
                   [(ngModel)]="str2"
                   formControlName="verificationCode2"
                   [ngClass]="{
-                    'is-invalid':
+                    'is-invalid1':
                     formVerification.controls.verificationCode2.touched &&
                     formVerification.controls.verificationCode2.errors
                   }"
                 />
                 <input
-                  type="number"
+                  type="text"
                   maxlength="1"
-                  minlength="1"
+                  min="0"
+                  max="9"
+                  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
                   [(ngModel)]="str3"
                   class="inputVerificationStyle"
                   id="verificationNum"
 
                   formControlName="verificationCode3"
                   [ngClass]="{
-                    'is-invalid':
+                    'is-invalid1':
                       formVerification.controls.verificationCode3.touched &&
                       formVerification.controls.verificationCode3.errors
                   }"
                 />
                 <input
-                  type="number"
+                  type="text"
                   maxlength="1"
-                  minlength="1"
+                  min="0"
+                  max="9"
+                  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
                   class="inputVerificationStyle"
                   id="verificationNum"
                   [(ngModel)]="str4"
                   formControlName="verificationCode4"
                   [ngClass]="{
-                    'is-invalid':
+                    'is-invalid1':
                       formVerification.controls.verificationCode4.touched &&
                       formVerification.controls.verificationCode4.errors
                   }"
                 />
                 <input
-                  type="number"
+                  type="text"
                   maxlength="1"
-                  minlength="1"
+                  min="0"
+                  max="9"
+                  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
                   class="inputVerificationStyle"
                   id="verificationNum"
                   [(ngModel)]="str5"
                   formControlName="verificationCode5"
                   [ngClass]="{
-                    'is-invalid':
+                    'is-invalid1':
                       formVerification.controls.verificationCode5.touched &&
                       formVerification.controls.verificationCode5.errors
                   }"
                 />
                 <input
-                  type="number"
+                  type="text"
                   maxlength="1"
-                  minlength="1"
+                  
                   class="inputVerificationStyle"
                   id="verificationNum"
                   [(ngModel)]="str6"
                   formControlName="verificationCode6"
                   [ngClass]="{
-                    'is-invalid':
+                    'is-invalid1':
                       formVerification.controls.verificationCode6.touched &&
                       formVerification.controls.verificationCode6.errors
                   }"
