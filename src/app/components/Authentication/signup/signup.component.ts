@@ -164,7 +164,7 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
   slidIndex: number = 0;
 
   public slides: string[] = [
-    '../../../assets/images/illustration (1).svg',
+    '../../../assets/images/illustration.png',
     '../../../assets/images/Frame 1000016152.svg',
   ];
 
@@ -175,9 +175,10 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
       return;
     }
     this._authService.signUp(this.formInfo.value).subscribe({
-      next: (res) => {
-        sessionStorage.setItem('token', res.token);
-        sessionStorage.setItem('email', res.email);
+      next:(res)=>{
+        console.log(res);
+        sessionStorage.setItem('token' , res.token);
+        sessionStorage.setItem('email' , res.email);
         this._Router.navigateByUrl('/signupverification');
         // this._authService.setTokenInSessionStorage(res['token']);
       },

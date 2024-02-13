@@ -47,9 +47,13 @@ export class SendmailComponent implements OnInit {
       return;
     }
 
-    this._authService.signIn(this.formSendMail.value).subscribe({
-      next: () => { this._Router.navigateByUrl('/emailverification') },
-      error: (err) => { alert(err.message) }
+    this._authService.sendMail(this.formSendMail.controls.forgetEmail.value!).subscribe({
+      next: (res)=>{ 
+        sessionStorage.setItem('token' , res.token);
+        sessionStorage.setItem('email' , res.email);
+        this._Router.navigateByUrl('/emailverification')
+    },
+      error:(err)=>{alert(err.message)}
     });
   }
 

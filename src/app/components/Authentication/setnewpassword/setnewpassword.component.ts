@@ -11,6 +11,7 @@ import {
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
 import { animate, style, transition, trigger } from '@angular/animations';
+import { ResetPasswordService } from '../../services/reset-password.service';
 
 
 @Component({
@@ -45,7 +46,8 @@ export class SetnewpasswordComponent implements OnInit, DoCheck {
   });
 
   constructor(
-    private _authService: AuthService,
+    private _authService: ResetPasswordService,
+
     private _Router: Router,
     private formBuilder: FormBuilder
   ) { }
@@ -91,10 +93,12 @@ export class SetnewpasswordComponent implements OnInit, DoCheck {
       return;
     }
     // this.showChangePass()
-    this._authService.signIn(this.formSetNewPassword.value).subscribe({
+    this._authService.resetPassword(this.formSetNewPassword.controls.password.value! , this.formSetNewPassword.controls.confirmPassword.value!).subscribe({
       next: (res) => {
+
+        
         this._Router.navigateByUrl('/correctchange');
-        this._authService.setToken(res.token);
+        
       },
       error: (err) => {
         alert(err.message);

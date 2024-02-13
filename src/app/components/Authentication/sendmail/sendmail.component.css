@@ -135,7 +135,7 @@ h1 {
   border-radius: 5px;
   margin-bottom: 5px;
   border: 1px solid #bfd4e466;
-  padding: 10px;
+  padding: 10px 0 10px 10px;
 }
 
 .is-invalid {
@@ -173,6 +173,8 @@ button {
   color: white;
   border: 0px;
   width: 98%;
+  /* margin-left: 12px; */
+  /* margin-right: 12px; */
 }
 
 @keyframes flipIn {
@@ -223,6 +225,7 @@ button {
   .loginDiv {
     position: static;
     width: 70%;
+    /* padding: 30px; */
   }
   .bg,
   .bg2,
@@ -238,7 +241,7 @@ button {
     width: 100%;
     margin: 0;
     position: static;
-    padding: 0;
+    padding: 30px;
     background: #ffffff;
   }
   h1 {
@@ -247,6 +250,7 @@ button {
   .is-invalid {
     border: 1px solid red;
   }
+  
 }
 @media screen and (max-width: 992px) and (min-width: 786px) {
   .container {
