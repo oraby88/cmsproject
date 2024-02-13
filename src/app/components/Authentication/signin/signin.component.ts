@@ -9,8 +9,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
-import { AuthService } from '../../../services/auth.service';
 import { animate, style, transition, trigger } from '@angular/animations';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-signin',
@@ -59,8 +59,6 @@ export class SigninComponent implements OnInit, DoCheck {
   //     }
   //   }
   // }
-
-
   // match(){
   //   if(this.formInfo.controls.password.value == this.formSetNewPassword.controls.confirmPassword.value){
   //     return true;

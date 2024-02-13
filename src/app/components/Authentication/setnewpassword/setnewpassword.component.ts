@@ -94,13 +94,13 @@ export class SetnewpasswordComponent implements OnInit, DoCheck {
     }
     // this.showChangePass()
     this._authService.resetPassword(this.formSetNewPassword.controls.password.value! , this.formSetNewPassword.controls.confirmPassword.value!).subscribe({
-      next: (res) => {
+      next: (res:any) => {
 
         
         this._Router.navigateByUrl('/correctchange');
         
       },
-      error: (err) => {
+      error: (err:any) => {
         alert(err.message);
       },
     });
