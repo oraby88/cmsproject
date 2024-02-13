@@ -11,7 +11,7 @@ import {
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
 import { animate, style, transition, trigger } from '@angular/animations';
-import { ResetPasswordService } from '../../services/reset-password.service';
+import { ResetPasswordService } from '../../../services/reset-password.service';
 
 
 @Component({

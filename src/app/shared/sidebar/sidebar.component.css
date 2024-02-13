@@ -127,6 +127,14 @@ ul li div div {
   cursor: pointer;
 }
 
+.active::before {
+  content: "";
+  width: 5px;
+  height: 10px;
+  color: red;
+  left: 0px;
+position: absolute;}
+
 .active-sublink {
   background-color: rgba(6, 96, 252, 0.12);
   border-radius: 10px;

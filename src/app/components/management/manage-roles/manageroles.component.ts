@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './manageroles.component.html',
   styleUrl: './manageroles.component.css'
 })
-export class ManagerolesComponent {
+export class ManageRolesComponent {
 
 }

@@ -6,10 +6,10 @@ import { SendmailComponent } from './components/Authentication/sendmail/sendmail
 import { EmailVerificationComponent } from './components/Authentication/email-verification/email-verification.component';
 import { SetnewpasswordComponent } from './components/Authentication/setnewpassword/setnewpassword.component';
 import { CorrectchagesComponent } from './components/Authentication/correctchages/correctchages.component';
-import { UserManagementComponent } from './components/user-managment/user-management/user-management.component';
 import { SignupverificationComponent } from './components/Authentication/signupverification/signupverification.component';
-import { ManageUsersComponent } from './components/user-managment/manage-users/manage-users.component';
-import { ManagerolesComponent } from './components/user-managment/manageroles/manageroles.component';
+import { UserManagementComponent } from './components/management/user-role-combine/user-management.component';
+import { ManageUsersComponent } from './components/management/manage-users/manage-users.component';
+import { ManageRolesComponent } from './components/management/manage-roles/manageroles.component';
 
 export const routes: Routes = [
     { path: 'signin', component: SigninComponent },
@@ -19,12 +19,13 @@ export const routes: Routes = [
     { path: 'setnewpassword', component: SetnewpasswordComponent },
     { path: 'correctchange', component: CorrectchagesComponent },
     {
-        path: 'user-management', children: [
+        path: 'management', children: [
+            { path: '', redirectTo: 'users', pathMatch: 'full' },
             {
-                path: 'manageusers', component: ManageUsersComponent
+                path: 'users', component: ManageUsersComponent
             },
             {
-                path: 'manageroles', component: ManagerolesComponent
+                path: 'roles', component: ManageRolesComponent
             }
         ], component: UserManagementComponent
     },
