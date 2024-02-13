@@ -81,7 +81,7 @@ option {
   /* transform: rotateY(0deg); */
 }
 .bg {
-  background-image: url("../../../assets/images/_Path_.svg");
+  background-image: url("../../../../assets/images/_Path_.svg");
   /* background-size: cover; */
   background-repeat: no-repeat;
   /* height: 100vh; */
@@ -202,7 +202,7 @@ a {
   /* transform: rotateY(180deg); */
 }
 .bg2 {
-  background-image: url("../../../assets/images/_Path_\ \(1\).svg");
+  background-image: url("../../../../assets/images/_Path_\ \(1\).svg");
   /* background-size: cover; */
   background-repeat: no-repeat;
   /* height: 100vh; */
@@ -263,7 +263,7 @@ input[type="number"] {
   justify-content: space-between;
 }
 .bg3 {
-  background-image: url("../../../assets/images/_Path_\ \(2\).svg");
+  background-image: url("../../../../assets/images/_Path_\ \(2\).svg");
   /* background-size: cover; */
   background-repeat: no-repeat;
   /* height: 100vh; */
