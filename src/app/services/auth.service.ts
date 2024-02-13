@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from '../components/environments/environment';
+import { environment } from '../../environments/environment';
 
 
 @Injectable({
@@ -9,21 +9,22 @@ import { environment } from '../components/environments/environment';
 })
 export class AuthService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  signUp(registerData:any):Observable<any>{
-    return this.http.post(environment.BASEURL+'api/Authentication/Register',registerData);
+
+  signUp(registerData: any): Observable<any> {
+    return this.http.post(environment.BASEURL + 'api/Authentication/Register', registerData);
   }
 
-  signIn(loginData:any):Observable<any>{
-    return this.http.post(environment.BASEURL+'/',loginData);
+  signIn(loginData: any): Observable<any> {
+    return this.http.post(environment.BASEURL + '/', loginData);
   }
 
-  setToken(token:string){
+  setToken(token: string) {
     localStorage.setItem('token', token);
   }
-  setTokenInSessionStorage(token:string){
-    sessionStorage.setItem('token' , token);
+  setTokenInSessionStorage(token: string) {
+    sessionStorage.setItem('token', token);
   }
 
 
@@ -68,14 +69,14 @@ export class AuthService {
 
   Login(request: any): Observable<any> {
     return this.http.post<any>(
-      environment.BASEURL+"api/Authentication/Login",
+      environment.BASEURL + "api/Authentication/Login",
       request
     );
   }
 
-  verificationCode(res:any):Observable<any>{
+  verificationCode(res: any): Observable<any> {
     return this.http.post<any>(
-      environment.BASEURL + "api/Authentication/Register", 
+      environment.BASEURL + "api/Authentication/Register",
       {
         token: sessionStorage.getItem('token'),
         email: sessionStorage.getItem('email'),

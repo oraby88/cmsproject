@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-2 sidebar">
-        <app-sidebar></app-sidebar>
+      <app-sidebar></app-sidebar>
     </div>
     <div class="col-10">
       <div class="row body">
@@ -9,7 +9,9 @@
           <header>header</header>
         </div>
         <div class="col-12 content">
-          <main>content</main>
+          <main>
+            <router-outlet></router-outlet>
+          </main>
         </div>
       </div>
     </div>

@@ -105,6 +105,7 @@ ul li div {
   position: absolute;
   top: 35px;
   width: 95%;
+  transition: position 2s;
 }
 
 .sub-links ul {
@@ -120,13 +121,13 @@ ul li div div {
   margin: 0px 5px;
 }
 
-#active {
+.active {
   background-color: rgba(6, 96, 252, 1);
   border-radius: 10px;
   cursor: pointer;
 }
 
-#active-sublink {
+.active-sublink {
   background-color: rgba(6, 96, 252, 0.12);
   border-radius: 10px;
   width: 100%;
@@ -135,12 +136,10 @@ ul li div div {
 
 .showSublinks {
   display: block;
-  transition: all 2s;
 }
 
 .hideSublinks {
   display: none;
-  transition: all 2s;
 }
 
 .dark-mode {

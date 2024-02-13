@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../../services/auth.service';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { animate, style, transition, trigger } from '@angular/animations';
@@ -9,7 +9,7 @@ import { error } from 'console';
 @Component({
   selector: 'app-sendmail',
   standalone: true,
-  imports: [RouterModule, FormsModule , ReactiveFormsModule , CommonModule ],
+  imports: [RouterModule, FormsModule, ReactiveFormsModule, CommonModule],
   templateUrl: './sendmail.component.html',
   styleUrl: './sendmail.component.css',
   animations: [
@@ -25,19 +25,19 @@ import { error } from 'console';
 })
 export class SendmailComponent implements OnInit {
 
-  constructor(private formBuilder:FormBuilder, private _authService:AuthService ,private _Router:Router){}
+  constructor(private formBuilder: FormBuilder, private _authService: AuthService, private _Router: Router) { }
 
 
   ngOnInit(): void {
 
     this.formSendMail = this.formBuilder.group({
-      forgetEmail: ['', [Validators.required , Validators.email]],
+      forgetEmail: ['', [Validators.required, Validators.email]],
     });
 
   }
 
   formSendMail = new FormGroup({
-    forgetEmail : new FormControl(''),
+    forgetEmail: new FormControl(''),
   });
 
 
@@ -48,8 +48,8 @@ export class SendmailComponent implements OnInit {
     }
 
     this._authService.signIn(this.formSendMail.value).subscribe({
-      next: ()=>{ this._Router.navigateByUrl('/emailverification')},
-      error:(err)=>{alert(err.message)}
+      next: () => { this._Router.navigateByUrl('/emailverification') },
+      error: (err) => { alert(err.message) }
     });
   }
 

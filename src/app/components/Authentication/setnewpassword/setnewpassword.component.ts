@@ -9,7 +9,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../../services/auth.service';
 import { animate, style, transition, trigger } from '@angular/animations';
 
 
@@ -48,7 +48,7 @@ export class SetnewpasswordComponent implements OnInit, DoCheck {
     private _authService: AuthService,
     private _Router: Router,
     private formBuilder: FormBuilder
-  ) {}
+  ) { }
 
   ngDoCheck(): void {
     this.numberLength = /.{8,}/.test(

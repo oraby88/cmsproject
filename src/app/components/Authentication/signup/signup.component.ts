@@ -25,7 +25,7 @@ import { get } from 'node:http';
 import { Router, RouterModule } from '@angular/router';
 import { MatProgressBar } from '@angular/material/progress-bar';
 import { error, group } from 'node:console';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../../services/auth.service';
 import { animate, style, transition, trigger } from '@angular/animations';
 // import { Router } from 'express';
 
@@ -72,9 +72,9 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
     private formBuilder: FormBuilder,
     private _authService: AuthService,
     private _Router: Router
-  ) {}
+  ) { }
 
-  ngAfterViewInit(): void {}
+  ngAfterViewInit(): void { }
 
   ngDoCheck(): void {
     this.numberLength = /.{8,}/.test(this.formInfo.controls.password.value!);
@@ -175,13 +175,13 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
       return;
     }
     this._authService.signUp(this.formInfo.value).subscribe({
-      next:(res)=>{
-        sessionStorage.setItem('token' , res.token);
-        sessionStorage.setItem('email' , res.email);
+      next: (res) => {
+        sessionStorage.setItem('token', res.token);
+        sessionStorage.setItem('email', res.email);
         this._Router.navigateByUrl('/signupverification');
         // this._authService.setTokenInSessionStorage(res['token']);
       },
-      error:(err)=>{
+      error: (err) => {
         console.log(err);
       }
     });

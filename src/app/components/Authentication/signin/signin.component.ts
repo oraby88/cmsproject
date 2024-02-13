@@ -9,13 +9,13 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../../services/auth.service';
 import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-signin',
   standalone: true,
-  imports: [RouterModule, FormsModule , ReactiveFormsModule , CommonModule ],
+  imports: [RouterModule, FormsModule, ReactiveFormsModule, CommonModule],
   templateUrl: './signin.component.html',
   styleUrl: './signin.component.css',
   animations: [
@@ -29,9 +29,9 @@ import { animate, style, transition, trigger } from '@angular/animations';
     ]),
   ],
 })
-export class SigninComponent implements OnInit,DoCheck {
+export class SigninComponent implements OnInit, DoCheck {
 
-  Index:number = 1;
+  Index: number = 1;
   submitted: boolean = false;
   passwordHint: boolean = false;
   eyeshow: boolean = false;
@@ -42,7 +42,7 @@ export class SigninComponent implements OnInit,DoCheck {
 
 
 
-  constructor(private formBuilder:FormBuilder,private _authService:AuthService , private _Router:Router){}
+  constructor(private formBuilder: FormBuilder, private _authService: AuthService, private _Router: Router) { }
 
   formInfo = new FormGroup({
     email: new FormControl(''),
@@ -68,12 +68,12 @@ export class SigninComponent implements OnInit,DoCheck {
   //     return false;
   //   }
   // }
-  ngDoCheck(): void {}
+  ngDoCheck(): void { }
 
 
   ngOnInit(): void {
     this.formInfo = this.formBuilder.group({
-      email: ['', [Validators.required , Validators.email]],
+      email: ['', [Validators.required, Validators.email]],
       password: [
         '',
         [
@@ -91,14 +91,14 @@ export class SigninComponent implements OnInit,DoCheck {
       console.log(this.formInfo);
       return;
     }
-    
+
     this._authService.Login(this.formInfo.value).subscribe({
       next: (res) => {
         // localStorage.setItem('token',response.token);
         this._Router.navigateByUrl('/home');
         this._authService.setToken(res['token']);
       },
-      error: (err)=>{
+      error: (err) => {
         console.log(err);
       }
 
@@ -158,12 +158,12 @@ export class SigninComponent implements OnInit,DoCheck {
   // resetCotainerId = document.getElementById('resetContainerId');
   // showForgetPassForm() {
   //   document.getElementById('resetContainerId')?.classList.add('flip-out');
-    // flipCotainer?.s
-    // this.flipCotainer?.classList.add('flip');
-    // this.loginCotainerId?.style.display != 'none';
-    // this.resetCotainerId?.style.display != 'block';
-    // console.log('flip');
-    // this.Index = 2 ;
+  // flipCotainer?.s
+  // this.flipCotainer?.classList.add('flip');
+  // this.loginCotainerId?.style.display != 'none';
+  // this.resetCotainerId?.style.display != 'block';
+  // console.log('flip');
+  // this.Index = 2 ;
   // }
 
   // showLoginin(){
