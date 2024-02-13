@@ -12,10 +12,10 @@ body {
 .container {
   display: flex;
   /* width: 100%; */
-  background-color: #f9fafc;
+  background-color:var(white);
   font-family: "DM Sans";
   /* color: lightgray; */
-  min-height: 100vh;
+  /* min-height: 100vh; */
   /* height: 100%; */
   /* margin-top: 50px; */
   /* padding: 50px; */
@@ -54,6 +54,7 @@ body {
   padding-top: 10px;
   width: 50%;
   height: 100vh;
+  margin-top: 2%;
 }
 
 .form-group {
@@ -74,7 +75,7 @@ body {
   padding: 10px;
   border-radius: 10px;
   width: 409px;
-  border: 1px solid lightgray;
+  border: 1px solid #BFD4E466;
   height: 42px;
   /* box-shadow: 1px 1px 1px white; */
 }
@@ -100,12 +101,17 @@ body {
   color: #7e8299;
   padding: 0px;
   margin: 0px;
-  margin-bottom: 15px;
+  margin-bottom: 60px;
   margin-top: 25px;
   font-weight: 400;
   font-size: 14px;
 }
 #info {
+  color: #7e8299;
+  padding: 0px;
+  margin: 0px;
+  font-weight: 400;
+  font-size: 14px;
   margin-top: 5px;
   margin-bottom: 20px;
   font-size: 16px;
@@ -132,20 +138,23 @@ body {
   width: 198px;
   border-radius: 8px;
   /* height: 42px; */
+  text-align: center;
 }
-.formLinks p {
-  /* padding-top: 7px; */
-  /* padding-right: 14px; */
-  /* padding-left: 14px; */
-  /* padding-bottom: 8px; */
+.formLinks a p {
+  
+  box-sizing: border-box;
+  display: flex;
   font-size: 14px;
-  width: 100%;
-  margin: 7px 0px;
-  padding: 0px 5px;
+  /* width: 100%; */
+  /* margin: 7px 0px; */
+  /* padding: 0px 5px; */
+  /* padding-right: 10px; */
   /* font-weight: 500; */
-  font-weight: 550;
+  font-weight: 500;
   /* height: 30px; */
   align-items: center;
+  justify-content: space-around;
+  text-align: center;
 }
 .label-div p {
   padding: 0px;
@@ -171,7 +180,7 @@ body {
   display: flex;
   column-gap: 16px;
   width: 409;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
 }
 .FLinksContainer p {
   text-align: center;
@@ -191,6 +200,7 @@ body {
     background-color: #E3EEF5;
     margin: 12px 0px ; */
   color: #e3eef5;
+  margin: 0;
 }
 .line span {
   font-size: 14px;
@@ -204,6 +214,9 @@ hr {
   border: 1px solid #e3eef5;
   /* margin: 0px 2px; */
   width: 180px;
+}
+.paragraphs{
+  text-align: center;
 }
 
 .SlidesContainer {
@@ -479,7 +492,7 @@ hr {
   background-color: #181c32;
   color: #ffffff;
   position: absolute;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 12px 16px;
   width: 250px;
   font-size: 12px;
@@ -631,6 +644,7 @@ hr {
   .container {
     display: flex;
     flex-direction: column-reverse;
+    overflow: hidden;
   }
   .SlidesContainer {
     /* max-width: 100%; */
@@ -664,6 +678,7 @@ hr {
   .container {
     display: flex;
     flex-direction: column-reverse;
+    overflow: hidden;
   }
   .SlidesContainer {
     /* max-width: 100%; */
@@ -688,7 +703,21 @@ hr {
     padding-right: 0;
     /* height: auto; */
   }
-
+  .tooltip .tooltiptext {
+    position: absolute;
+    left: -265px;
+    top: -30px;
+    right: 100px;
+  }
+  .tooltip .tooltiptext::after {
+    top: 10%;
+    left: 255px;
+    margin-left: -5px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent transparent black;
+    border-radius: 30%;
+  }
   .formLinks p {
     font-size: 14px;
   }
@@ -701,23 +730,30 @@ hr {
   }
 }
 @media screen and (max-width: 600px) {
+  .container{
+    min-height: 0;
+    overflow: hidden;
+  }
   .SlidesContainer {
     /* max-width: 100%; */
-    width: 100%;
+    /* width: 100%; */
     display: none;
   }
   .formDiv {
-    box-sizing: border-box;
     /* max-width: 100%; */
     /* padding: 100px; */
     width: 100%;
+    overflow: hidden;
   }
   .info {
-    padding: 0px;
+    text-align: center;
+    padding-top: 5px;
     margin: 1px;
   }
   .projName {
     padding-left: 15%;
+    margin: 10px 200px 0px 0px;
+    width: 400px;
   }
   .formDiv p {
     font-size: 14px;
@@ -731,6 +767,21 @@ hr {
 
   .formLinks p {
     font-size: 14px;
+  }
+  .tooltip .tooltiptext {
+    position: absolute;
+    left: -265px;
+    top: -30px;
+    right: 100px;
+  }
+  .tooltip .tooltiptext::after {
+    top: 10%;
+    left: 255px;
+    margin-left: -5px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent transparent black;
+    border-radius: 30%;
   }
 
   h1 {
@@ -763,9 +814,8 @@ hr {
     overflow: hidden;
   }
   .projName {
-    padding: 0;
-    margin: 0;
-    margin-top: 0;
+    margin-right: 15% !important;
+    margin-top: 10px;
     padding-left: 47px;
   }
   .formDiv p {
@@ -793,6 +843,21 @@ hr {
   .formLinks p {
     font-size: 12px;
   }
+  .tooltip .tooltiptext {
+    position: absolute;
+    left: -265px;
+    top: -30px;
+    right: 100px;
+  }
+  .tooltip .tooltiptext::after {
+    top: 10%;
+    left: 255px;
+    margin-left: -5px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent transparent black;
+    border-radius: 30%;
+  }
   .submitButton {
     width: 375px;
     border-radius: 5px;
@@ -812,6 +877,10 @@ hr {
     padding-bottom: 0px;
     display: flex;
   }
+  .paragraphs{
+    width: 375px;
+    text-align: center;
+  }
   .info {
     margin: 10px;
   }
@@ -825,6 +894,7 @@ hr {
 @media screen and (max-width: 380px) {
   .container {
     background-color: #ffffff;
+    overflow: visible;
   }
   .SlidesContainer {
     /* max-width: 100%; */
@@ -836,6 +906,7 @@ hr {
     /* max-width: 100%; */
     padding: 0px;
     width: 100%;
+    overflow: visible;
   }
   .formDiv p {
     font-size: 14px;
@@ -848,12 +919,30 @@ hr {
     font-weight: 500;
     font-size: 12px;
   }
+  .tooltip .tooltiptext {
+    position: absolute;
+    left: -265px;
+    top: -30px;
+    right: 100px;
+  }
+  .tooltip .tooltiptext::after {
+    top: 10%;
+    left: 255px;
+    margin-left: -5px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent transparent black;
+    border-radius: 30%;
+  }
   .form-input {
     max-width: 100%;
     width: 330px;
     border: 1px solid #e3eef5;
     font-size: 14px;
     border-radius: 5px;
+  }
+  .paragraphs{
+    width: 330px;
   }
   .label-div p {
     padding: 5px 0 0px 0;
@@ -891,15 +980,15 @@ hr {
     border: 1px solid #e3eef5;
   }
   h1 {
-    font-size: 12px;
+    font-size: 25px !important;
     padding: 0;
     margin: 0;
   }
   .projName {
     /* margin: 0px 0px 0px 300px; */
 
-    margin-top: 5px;
-    margin-right: 220px;
+    margin: 30px 0% 30px 5% !important;
+    /* margin-right: 220px; */
     padding-bottom: 0px;
     display: flex;
   }
@@ -907,6 +996,117 @@ hr {
     /* padding-left: 20px; */
     margin: 0px 0px 15px 0px;
     text-align: center;
+  }
+  .line {
+    padding: 0;
+    margin: 0;
+    color: #e3eef5;
+  }
+  .FLinksContainer {
+    margin: 0;
+    padding: 0;
+  }
+  .required {
+    display: none;
+  }
+  .is-invalid {
+    border: 1px solid red;
+  }
+}
+@media screen and (max-width: 360px) {
+  .container {
+    background-color: #ffffff;
+  }
+  .SlidesContainer {
+    /* max-width: 100%; */
+    width: 100%;
+    display: none;
+  }
+  .formDiv {
+    box-sizing: border-box;
+    /* max-width: 100%; */
+    padding: 0px;
+    width: 100%;
+  }
+  
+  
+  .form-input {
+    max-width: 100%;
+    width: 280px;
+    border: 1px solid #e3eef5;
+    font-size: 14px;
+    border-radius: 5px;
+  }
+  .tooltip .tooltiptext {
+    position: absolute;
+    left: -265px;
+    top: -30px;
+    right: 100px;
+  }
+  .tooltip .tooltiptext::after {
+    top: 10%;
+    left: 255px;
+    margin-left: -5px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent transparent black;
+    border-radius: 30%;
+  }
+  .formLinks {
+    width: 130px;
+    padding-left: 0;
+    padding-right: 0;
+    /* height: auto; */
+    border-radius: 5px;
+    border: 1px solid #e3eef5;
+  }
+  .formLinks a p {
+    font-size: 12px;
+    /* padding-top: 5px; */
+    /* padding-bottom: 5px; */
+    /* margin: 5px; */
+  }
+  .whenComputer {
+    display: none;
+  }
+  .whenPhone {
+    display: inline;
+  }
+  .submitButton {
+    width: 280px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    margin-top: 15px;
+  }
+  hr {
+    width: 120px;
+    border: 1px solid #e3eef5;
+  }
+  h1 {
+    font-size: 20px;
+    padding: 0;
+    margin: 0;
+  }
+  .projName {
+    /* margin: 0px 0px 0px 300px; */
+
+    margin-top: 5px;
+    margin-right: 180px;
+    padding-bottom: 0px;
+    display: flex;
+  }
+  .paragraphs{
+    box-sizing: border-box;
+    width: 290px;
+  }
+  #info{
+    font-size: 14px;
+  }
+  .info {
+    /* padding-left: 20px; */
+    margin: 0px 0px 15px 0px;
+    text-align: center;
+    
   }
   .line {
     padding: 0;
@@ -935,21 +1135,18 @@ hr {
     padding: 0px;
     width: 100%;
   }
-  .formDiv p {
-    font-size: 8px;
-  }
+  
   .form-input {
     max-width: 100%;
     width: 250px;
   }
   .formLinks {
     width: 115px;
-    padding-left: 0;
-    padding-right: 0;
+    padding: 0;
     /* height: auto; */
   }
   .formLinks p {
-    font-size: 8px;
+    font-size: 10px;
     padding: 0;
   }
   .submitButton {
@@ -958,21 +1155,47 @@ hr {
   hr {
     width: 95px;
   }
+  #welcomeId{
+    font-size: 25px;
+  }
   h1 {
-    font-size: 12px;
+    font-size: 18px;
   }
   .projName {
     /* margin: 0px 0px 0px 300px; */
 
-    padding-left: 30%;
+    padding-left: 25%;
   }
-  .projName p {
-  }
+  
   .info {
+    font-size: 14px;
     padding: 0px;
     margin: 5px;
   }
+  #info{
+    font-size: 14px !important;
+  }
+  .paragraphs{
+    font-size: 10px !important;
+    width: 250px;
+  }
   .form-group {
     gap: 5px;
+  }
+  .tooltip .tooltiptext {
+    position: absolute;
+    left: -230px;
+    top: -30px;
+    right: 100px;
+    width: 220px;
+  }
+  .tooltip .tooltiptext::after {
+    top: 10%;
+    left: 225px;
+    margin-left: -5px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent transparent black;
+    border-radius: 30%;
   }
 }

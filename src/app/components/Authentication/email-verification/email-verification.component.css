@@ -132,12 +132,12 @@ option {
 }
 button {
   height: 40px;
-  width: 100%;
+  
   background-color: #0660fc;
   border-radius: 5px;
   color: white;
   border: 0px;
-  width: 98%;
+  width: 96%;
 }
 label {
   display: inline-block;
@@ -246,6 +246,12 @@ a {
   margin-bottom: 10px;
   border: 2px solid #bfd4e466;
   padding: 10px;
+  font-size: 18px;
+  text-align: center;
+  font-weight: 600;
+}
+.is-invalid1{
+  border: 2px solid red;
 }
 .inputVerificationStyle::-webkit-outer-spin-button,
 .inputVerificationStyle::-webkit-inner-spin-button {
@@ -260,7 +266,7 @@ input[type="number"] {
 
 .verificationInpts {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .bg3 {
   background-image: url("../../../../assets/images/_Path_\ \(2\).svg");

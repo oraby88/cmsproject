@@ -60,7 +60,7 @@ export class SignupverificationComponent implements OnInit {
     }
     // this.showSetNewPass();
     this.str = `${this.str1}${this.str2}${this.str3}${this.str4}${this.str5}${this.str6}`
-      console.log(this.str);
+    console.log(this.str);
     this._authService.verificationCode(this.str).subscribe({
       next: (res) => {
         this._Router.navigateByUrl('/signin');
