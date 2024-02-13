@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, RouterLink, RouterModule, Routes } from '@angular/router';
 
-import { SidebarComponent } from '../../../shared/sidebar/sidebar.component';
+import { SidebarComponent } from '../../../../shared/sidebar/sidebar.component';
 import { RouterOutlet } from '@angular/router';
 
 @Component({

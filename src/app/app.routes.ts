@@ -7,9 +7,11 @@ import { EmailVerificationComponent } from './components/Authentication/email-ve
 import { SetnewpasswordComponent } from './components/Authentication/setnewpassword/setnewpassword.component';
 import { CorrectchagesComponent } from './components/Authentication/correctchages/correctchages.component';
 import { SignupverificationComponent } from './components/Authentication/signupverification/signupverification.component';
-import { UserManagementComponent } from './components/management/user-role-combine/user-management.component';
-import { ManageUsersComponent } from './components/management/manage-users/manage-users.component';
-import { ManageRolesComponent } from './components/management/manage-roles/manageroles.component';
+import { UserManagementComponent } from './components/core/management/user-role-combine/user-management.component';
+import { ManageUsersComponent } from './components/core/management/manage-users/manage-users.component';
+import { ManageRolesComponent } from './components/core/management/manage-roles/manageroles.component';
+import { BlogComponent } from './components/core/blog/blog.component';
+import { CmsMainComponent } from './components/core/cms-main/cms-main.component';
 
 export const routes: Routes = [
     { path: 'signin', component: SigninComponent },
@@ -19,16 +21,22 @@ export const routes: Routes = [
     { path: 'setnewpassword', component: SetnewpasswordComponent },
     { path: 'correctchange', component: CorrectchagesComponent },
     {
-        path: 'management', children: [
-            { path: '', redirectTo: 'users', pathMatch: 'full' },
+        path: 'cms', children: [
             {
-                path: 'users', component: ManageUsersComponent
+                path: 'management', canActivate: [], children: [
+                    { path: '', redirectTo: 'users', pathMatch: 'full' },
+                    {
+                        path: 'users', component: ManageUsersComponent
+                    },
+                    {
+                        path: 'roles', component: ManageRolesComponent
+                    }
+                ], component: UserManagementComponent
             },
-            {
-                path: 'roles', component: ManageRolesComponent
-            }
-        ], component: UserManagementComponent
+            { path: 'blogs', canActivate: [], component: BlogComponent },
+        ], component: CmsMainComponent
     },
+
     { path: 'signupverification', component: SignupverificationComponent },
     { path: '', redirectTo: '/signup', pathMatch: 'full' },
     { path: '**', component: NotfoundComponent },
