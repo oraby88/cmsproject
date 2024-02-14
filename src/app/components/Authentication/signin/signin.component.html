@@ -79,23 +79,17 @@
                 @if (formInfo.controls.password.touched &&
                 formInfo.controls.password.errors) {
                 <div class="invalid-feedback">
-                  @if (formInfo.controls.password.errors['required']) {
-                  <p>Password is required</p>
-                  } @if (formInfo.controls.password.errors['minlength']) {
-                  <p>Password must be at least 6 characters</p>
-                  } @if (formInfo.controls.password.errors['maxlengthle1gth']) {
-                  <p>Username must not exceed 40 characterslminlength</p>
-                  }
+                
                 </div>
                 }
-
-                <p style="margin: 0">Password hint : 8 characters minimum</p>
-                <!-- <progress class="progressPass" mode="determinate" value="100"></progress> -->
               </div>
               <div class="checkbox">
+                <div>
+                  <input type="checkbox" id="checkbox" name="checkbox" />
+                  <label for="checkbox" id="checkLabel">Remember me</label>
+                </div>
                 <!-- <label style="display: inline; border: 1px solid #BFD4E466; width: 18px; height: 18px;"></label> -->
-                <input type="checkbox" id="checkbox" name="checkbox" />
-                <label for="checkbox" id="checkLabel">Remember me</label>
+                
                 <a routerLink="/sendmail"><p>Forget password?</p></a>
               </div>
               <button type="submit" [disabled]="!form.valid">LOG IN</button>
