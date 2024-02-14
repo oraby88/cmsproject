@@ -71,11 +71,30 @@ h5 {
   border-radius: 15px;
   cursor: pointer;
   box-shadow: 5px 5px 30px #e4e4e4;
+  transition: all 1s;
 }
 
 .toggle-sidebar-btn {
   width: 30px;
   height: 30px;
+}
+
+.toggle-sidebar-btn-rotated {
+  position: absolute;
+  top: 10px;
+  right: -15px;
+  background-color: #fff;
+  border: 1px solid #e7e7e9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 5px 5px 30px #e4e4e4;
+  width: 30px;
+  height: 30px;
+  transform: rotate(180deg);
+  transition: all 1s;
 }
 
 .sidebar-toggle {
@@ -187,6 +206,10 @@ ul li div div {
   color: #fff;
 }
 
+.active .drop-down .link-title div {
+  color: #fff;
+}
+
 .active::before {
   content: "";
   width: 5px;
@@ -216,11 +239,9 @@ ul li div div {
   color: #fff;
 }
 
+.darkTheme_active .drop-down .link-title div,
+.darkTheme_active .link-title,
 .darkTheme_active a .link-title {
-  color: #fff;
-}
-
-.darkTheme_active .link-title {
   color: #fff;
 }
 

@@ -33,8 +33,6 @@ export class SidebarComponent {
 
   Dropdowntoggle() {
     this.active = !this.active;
-    console.log(this.active);
-
   }
 
   toggleAppearance() {

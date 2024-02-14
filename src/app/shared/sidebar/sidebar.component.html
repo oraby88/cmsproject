@@ -2,7 +2,12 @@
   class="container sidebar"
   [ngClass]="{ darkTheme: darkMode, 'sidebar-toggle': sidebarToggler }"
 >
-  <div class="toggle-sidebar-btn" (click)="togglesidebar()">
+  <div
+    [ngClass]="
+      sidebarToggler ? 'toggle-sidebar-btn-rotated' : 'toggle-sidebar-btn'
+    "
+    (click)="togglesidebar()"
+  >
     <div class="arrow">
       <img src="assets/images/toggle-sidebar.svg" alt="toggle-sidebar" />
     </div>
@@ -96,8 +101,12 @@
               </div>
             </a>
           </li>
-          <li (click)="Dropdowntoggle()">
-            <div class="drop-down drop-down-active">
+          <li
+            (click)="Dropdowntoggle()"
+            [ngClass]="{ darkTheme_active: darkMode }"
+            [routerLinkActive]="['active', 'darkTheme_active']"
+          >
+            <div class="drop-down">
               <div class="icon">
                 @if (darkMode) {
                 <img src="assets/images/profile-circle.svg" alt="profile" />
@@ -110,13 +119,26 @@
                 }
               </div>
               <div class="link-title" [ngClass]="{ hide: sidebarToggler }">
-                <div [ngClass]="{ hide: sidebarToggler }">User Management</div>
+                <div
+                  [ngClass]="{
+                    hide: sidebarToggler,
+                  }"
+                >
+                  User Management
+                </div>
+
+                @if(darkMode){
+                <img
+                  [ngClass]="{ rotate: active, 'reverse-rotate': !active }"
+                  src="assets/images/angle-up-solid-dark.svg"
+                  alt="up-arrow"
+                />} @else{
                 <img
                   [ngClass]="{ rotate: active, 'reverse-rotate': !active }"
                   src="assets/images/up-arrow.svg"
                   alt="up-arrow"
                 />
-                @if(active){
+                } @if(active){
                 <div class="sub-links">
                   <ul>
                     <li
