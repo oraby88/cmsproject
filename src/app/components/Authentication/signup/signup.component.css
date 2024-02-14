@@ -20,6 +20,7 @@ body {
   /* margin-top: 50px; */
   /* padding: 50px; */
   justify-content: center;
+  transition: all 1s;
 }
 
 .projName {
@@ -30,12 +31,14 @@ body {
   padding-bottom: 0px;
   display: flex;
   width: 200px;
+  transition: ease all 1s;
 }
 .projName img {
   max-width: 100%;
   width: 40px;
   height: 40px;
   padding-top: 3px;
+
 }
 .projName p {
   font-size: 15px;
@@ -55,6 +58,7 @@ body {
   width: 50%;
   height: 100vh;
   margin-top: 2%;
+  transition: ease all 1s;
 }
 
 .form-group {
@@ -62,6 +66,7 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 12px;
+  transition: ease all 1s;
 }
 .form-label {
   display: block;
@@ -70,6 +75,7 @@ body {
   color: #5e6278;
   font-weight: 450;
   font-size: 12px;
+  transition: ease all 1s;
 }
 .form-input {
   padding: 10px;
@@ -78,6 +84,7 @@ body {
   border: 1px solid #BFD4E466;
   height: 42px;
   /* box-shadow: 1px 1px 1px white; */
+  transition: ease all 1s;
 }
 
 .submitButton {
@@ -90,12 +97,14 @@ body {
   color: white;
   height: 42px;
   font-weight: 500;
+  transition: ease all 1s;
 }
 .formDiv h1 {
   text-align: center;
   margin-bottom: 0px;
   color: #3f4254;
   font-size: 30px;
+  transition: ease all 1s;
 }
 .info {
   color: #7e8299;
@@ -139,6 +148,7 @@ body {
   border-radius: 8px;
   /* height: 42px; */
   text-align: center;
+  transition: ease all 1s;
 }
 .formLinks a p {
   
@@ -217,6 +227,10 @@ hr {
 }
 .paragraphs{
   text-align: center;
+  transition: ease all 1s;
+}
+.paragraphs p{
+  transition: ease all 1s;
 }
 
 .SlidesContainer {
@@ -228,6 +242,7 @@ hr {
   background-size: cover;
   min-height: 100vh;
   /* max-width: 100%;  */
+  transition: ease all 1s;
 }
 
 /* Slideshow container */
@@ -243,6 +258,7 @@ hr {
 
   /* width: 500px; */
   /* height: 800px ; */
+  transition: ease all 1s;
 }
 
 /* Hide the images by default */
@@ -250,6 +266,7 @@ hr {
   display: flex;
   flex-direction: column;
   /* height: 800px; */
+  transition: ease all 1s;
 }
 
 /* Next & previous buttons */
@@ -638,6 +655,13 @@ hr {
   }
   .container {
     height: 100%;
+    transition: all 1s;
+  }
+  .formDiv{
+    padding: 20px;
+  }
+  .SlidesContainer{
+    transition: ease all 1s;
   }
 }
 @media screen and (max-width: 992px) and (min-width: 786px) {
@@ -645,11 +669,14 @@ hr {
     display: flex;
     flex-direction: column-reverse;
     overflow: hidden;
+    transition:ease all 1s;
   }
   .SlidesContainer {
     /* max-width: 100%; */
+    transition: width ease all 1s;
     display: none;
     width: 100%;
+    
   }
   /* .slideshow-container {
     width: 95%;
@@ -698,6 +725,7 @@ hr {
     font-size: 14px;
   }
   .formLinks {
+    transition: ease all 1s;
     width: 195px;
     padding-left: 0;
     padding-right: 0;
@@ -744,6 +772,7 @@ hr {
     /* padding: 100px; */
     width: 100%;
     overflow: hidden;
+    padding: 20px;
   }
   .info {
     text-align: center;
@@ -812,6 +841,7 @@ hr {
   }
   .formDiv {
     overflow: hidden;
+    padding: 20px;
   }
   .projName {
     margin-right: 15% !important;
@@ -823,7 +853,7 @@ hr {
   }
   .form-input {
     max-width: 100%;
-    width: 375px;
+    width: 360px;
     font-size: 20px;
     border-radius: 5px;
     font-size: 14px;
@@ -833,7 +863,7 @@ hr {
     color: #a1a5b7;
   }
   .formLinks {
-    width: 177px;
+    width: 170px;
     padding-left: 0;
     padding-right: 0;
     /* height: auto; */
@@ -859,7 +889,7 @@ hr {
     border-radius: 30%;
   }
   .submitButton {
-    width: 375px;
+    width: 360px;
     border-radius: 5px;
   }
   hr {
@@ -880,6 +910,7 @@ hr {
   .paragraphs{
     width: 375px;
     text-align: center;
+    transition: ease all 1s;
   }
   .info {
     margin: 10px;
@@ -1013,6 +1044,23 @@ hr {
     border: 1px solid red;
   }
 }
+@media screen and (max-width: 420px) {
+  .form-input{
+    width: 340px;
+  }
+  .submitButton{
+    width: 340px;
+  }
+  .formLinks{
+    width: 161px;
+  }
+  .paragraphs{
+    width: 340px;
+  }
+  .projName{
+    padding-left: 15%;
+  }
+}
 @media screen and (max-width: 360px) {
   .container {
     background-color: #ffffff;
@@ -1138,10 +1186,10 @@ hr {
   
   .form-input {
     max-width: 100%;
-    width: 250px;
+    width: 230px;
   }
   .formLinks {
-    width: 115px;
+    width: 107px;
     padding: 0;
     /* height: auto; */
   }
@@ -1150,21 +1198,22 @@ hr {
     padding: 0;
   }
   .submitButton {
-    width: 250px;
+    width: 230px;
   }
   hr {
     width: 95px;
   }
   #welcomeId{
-    font-size: 25px;
+    font-size: 20px;
   }
+  
   h1 {
     font-size: 18px;
   }
   .projName {
     /* margin: 0px 0px 0px 300px; */
 
-    padding-left: 25%;
+    padding-left: 32%;
   }
   
   .info {
@@ -1173,11 +1222,11 @@ hr {
     margin: 5px;
   }
   #info{
-    font-size: 14px !important;
+    font-size: 12px !important;
   }
   .paragraphs{
     font-size: 10px !important;
-    width: 250px;
+    width: 230px;
   }
   .form-group {
     gap: 5px;

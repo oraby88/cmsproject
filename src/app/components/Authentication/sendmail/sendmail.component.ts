@@ -46,15 +46,34 @@ export class SendmailComponent implements OnInit {
       console.log(this.formSendMail);
       return;
     }
-
-    this._authService.sendMail(this.formSendMail.controls.forgetEmail.value!).subscribe({
-      next: (res)=>{ 
-        sessionStorage.setItem('token' , res.token);
+    const email=this.formSendMail.controls.forgetEmail.value?.toString()??'';
+    this._authService.sendMail(email).subscribe({
+      next:(res)=>{
+        sessionStorage.removeItem('token');
+        sessionStorage.setItem('token1' , res.token);
         sessionStorage.setItem('email' , res.email);
-        this._Router.navigateByUrl('/emailverification')
-    },
-      error:(err)=>{alert(err.message)}
-    });
+        sessionStorage.setItem('message',res.message);
+        console.log(res);
+        this._Router.navigateByUrl('/emailverification');
+      },error:(err)=>{
+        console.log(err);
+      }
+    })
+    // this._authService.sendMail(email).subscribe({
+    //   next: (res)=>{ 
+    //     sessionStorage.setItem('token' , res.token);
+    //     sessionStorage.setItem('email' , res.email);
+    //     sessionStorage.setItem('message',res.message);
+    //     console.log(this.formSendMail.controls.forgetEmail.value);
+        
+    //     console.log(res.message);
+    //     console.log(res.token)
+    //     console.log(res);
+        
+    //     this._Router.navigateByUrl('/emailverification');
+    // },
+    //   error:(err)=>{alert(err.message)}
+    // });
   }
 
 }

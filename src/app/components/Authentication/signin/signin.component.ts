@@ -11,6 +11,7 @@ import {
 import { Router, RouterModule } from '@angular/router';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { AuthService } from '../../../services/auth.service';
+import { ILogin } from '../../../interfaces/logininterface';
 
 @Component({
   selector: 'app-signin',
@@ -39,7 +40,7 @@ export class SigninComponent implements OnInit, DoCheck {
   specialChar: boolean = false;
   Number: boolean = false;
   numberLength: boolean = false;
-
+  signInRequest : ILogin = {} as ILogin;
 
 
   constructor(private formBuilder: FormBuilder, private _authService: AuthService, private _Router: Router) { }
@@ -89,12 +90,15 @@ export class SigninComponent implements OnInit, DoCheck {
       console.log(this.formInfo);
       return;
     }
+    const fv = this.formInfo.value!;
+    this.signInRequest = {
+      email :JSON.stringify(fv.email),
+      password :JSON.stringify(fv.password),
+    }
 
-    this._authService.Login(this.formInfo.value).subscribe({
+    this._authService.Login(this.signInRequest).subscribe({
       next: (res) => {
-        // localStorage.setItem('token',response.token);
         this._Router.navigateByUrl('/home');
-        this._authService.setToken(res['token']);
       },
       error: (err) => {
         console.log(err);

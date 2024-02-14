@@ -11,6 +11,7 @@ import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { AuthService } from '../../../services/auth.service';
+import { ILogin } from '../../../interfaces/logininterface';
 
 @Component({
   selector: 'app-email-verification',
@@ -38,6 +39,7 @@ export class EmailVerificationComponent implements OnInit, DoCheck {
   str6!: string;
 
   str: string = '';
+
   formVerification = new FormGroup({
     verificationCode1: new FormControl(''),
     verificationCode2: new FormControl(''),
@@ -63,21 +65,31 @@ export class EmailVerificationComponent implements OnInit, DoCheck {
     });
   }
 
-  // send mail
+  // send otp
   verificationSubmit() {
     if (this.formVerification.invalid) {
       console.log(this.formVerification);
       return;
     }
+
     this.str = `${this.str1}${this.str2}${this.str3}${this.str4}${this.str5}${this.str6}`;
     console.log(this.str);
-    this._authService.signIn(this.str).subscribe({
+
+    this._authService.verificationCode(this.str).subscribe({
       next: (res) => {
+        console.log(res);
         this._Router.navigateByUrl('setnewpassword');
       },
       error: (err) => {
         alert(err.message);
       },
     });
+    
+  }
+
+
+
+  resendOTP(){
+    this._authService.resendOTP()
   }
 }

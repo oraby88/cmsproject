@@ -41,6 +41,18 @@
                       formVerification.controls.verificationCode1.touched &&
                       formVerification.controls.verificationCode1.errors
                   }"
+                  [ngClass]="{
+                    'is-valid':
+                      formVerification.controls.verificationCode1.touched &&
+                      formVerification.controls.verificationCode1.errors ==
+                        null &&
+                      formVerification.controls.verificationCode1.dirty
+                  }"
+                  [ngClass]="{
+                    'is-invalid1':
+                      formVerification.controls.verificationCode1.errors &&
+                      formVerification.controls.verificationCode1.dirty, 
+                  }"
 
                 />
                 <input
@@ -57,6 +69,18 @@
                     'is-invalid1':
                     formVerification.controls.verificationCode2.touched &&
                     formVerification.controls.verificationCode2.errors
+                  }"
+                  [ngClass]="{
+                    'is-valid':
+                      formVerification.controls.verificationCode2.touched &&
+                      formVerification.controls.verificationCode2.errors ==
+                        null &&
+                      formVerification.controls.verificationCode2.dirty
+                  }"
+                  [ngClass]="{
+                    'is-invalid1':
+                      formVerification.controls.verificationCode2.errors &&
+                      formVerification.controls.verificationCode2.dirty, 
                   }"
                 />
                 <input
@@ -75,6 +99,18 @@
                       formVerification.controls.verificationCode3.touched &&
                       formVerification.controls.verificationCode3.errors
                   }"
+                  [ngClass]="{
+                    'is-valid':
+                      formVerification.controls.verificationCode3.touched &&
+                      formVerification.controls.verificationCode3.errors ==
+                        null &&
+                      formVerification.controls.verificationCode3.dirty
+                  }"
+                  [ngClass]="{
+                    'is-invalid1':
+                      formVerification.controls.verificationCode3.errors &&
+                      formVerification.controls.verificationCode3.dirty, 
+                  }"
                 />
                 <input
                   type="text"
@@ -90,6 +126,18 @@
                     'is-invalid1':
                       formVerification.controls.verificationCode4.touched &&
                       formVerification.controls.verificationCode4.errors
+                  }"
+                  [ngClass]="{
+                    'is-valid':
+                      formVerification.controls.verificationCode4.touched &&
+                      formVerification.controls.verificationCode4.errors ==
+                        null &&
+                      formVerification.controls.verificationCode4.dirty
+                  }"
+                  [ngClass]="{
+                    'is-invalid1':
+                      formVerification.controls.verificationCode4.errors &&
+                      formVerification.controls.verificationCode4.dirty, 
                   }"
                 />
                 <input
@@ -107,6 +155,18 @@
                       formVerification.controls.verificationCode5.touched &&
                       formVerification.controls.verificationCode5.errors
                   }"
+                  [ngClass]="{
+                    'is-valid':
+                      formVerification.controls.verificationCode5.touched &&
+                      formVerification.controls.verificationCode5.errors ==
+                        null &&
+                      formVerification.controls.verificationCode5.dirty
+                  }"
+                  [ngClass]="{
+                    'is-invalid1':
+                      formVerification.controls.verificationCode5.errors &&
+                      formVerification.controls.verificationCode5.dirty, 
+                  }"
                 />
                 <input
                   type="text"
@@ -121,6 +181,18 @@
                       formVerification.controls.verificationCode6.touched &&
                       formVerification.controls.verificationCode6.errors
                   }"
+                  [ngClass]="{
+                    'is-valid':
+                      formVerification.controls.verificationCode6.touched &&
+                      formVerification.controls.verificationCode6.errors ==
+                        null &&
+                      formVerification.controls.verificationCode6.dirty
+                  }"
+                  [ngClass]="{
+                    'is-invalid1':
+                      formVerification.controls.verificationCode6.errors &&
+                      formVerification.controls.verificationCode6.dirty, 
+                  }"
                 />
               </div>
             </div>
@@ -131,8 +203,8 @@
               Submit Code
             </button>
             <p class="info2">
-              Dont't get the code ? <a routerLink="/signup">Resend</a> or
-              <a routerLink="/signup">call us</a>
+              Dont't get the code ? <a (click)="resendOTP()">Resend</a> or
+              <a>call us</a>
             </p>
             <!-- <input type="submit"> -->
           </form>
