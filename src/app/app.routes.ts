@@ -12,6 +12,8 @@ import { ManageUsersComponent } from './components/core/management/manage-users/
 import { ManageRolesComponent } from './components/core/management/manage-roles/manageroles.component';
 import { BlogComponent } from './components/core/blog/blog.component';
 import { CmsMainComponent } from './components/core/cms-main/cms-main.component';
+import { UserProfileComponent } from './components/core/user-profile/user-profile.component';
+import { EditUserComponent } from './components/core/user-profile/edit-user/edit-user.component';
 
 export const routes: Routes = [
     { path: 'signin', component: SigninComponent },
@@ -34,8 +36,23 @@ export const routes: Routes = [
                 ], component: UserManagementComponent
             },
             { path: 'blogs', canActivate: [], component: BlogComponent },
+
         ], component: CmsMainComponent
     },
+    { path: 'profile', 
+    children: [
+        { path: '', redirectTo: 'profile', pathMatch: 'full' },
+        {
+            path: 'edit', component: EditUserComponent
+        },
+        
+    ], 
+
+    
+    component: UserProfileComponent  
+
+},
+   
 
     { path: 'signupverification', component: SignupverificationComponent },
     { path: '', redirectTo: '/signup', pathMatch: 'full' },

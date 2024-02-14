@@ -51,6 +51,11 @@
                       formVerification.controls.verificationCode1.touched &&
                       formVerification.controls.verificationCode1.errors
                   }"
+                  [ngClass]="{
+                    'is-valid':
+                      formVerification.controls.verificationCode1.touched &&
+                      formVerification.controls.verificationCode1.errors == null
+                  }"
                 />&#32;
                 <input
                   type="text"
@@ -66,6 +71,11 @@
                     'is-invalid1':
                       formVerification.controls.verificationCode2.touched &&
                       formVerification.controls.verificationCode2.errors
+                  }"
+                  [ngClass]="{
+                    'is-valid':
+                      formVerification.controls.verificationCode2.touched &&
+                      formVerification.controls.verificationCode2.errors == null
                   }"
                 />
                 <input
@@ -84,6 +94,11 @@
                       formVerification.controls.verificationCode3.touched &&
                       formVerification.controls.verificationCode3.errors
                   }"
+                  [ngClass]="{
+                    'is-valid':
+                      formVerification.controls.verificationCode3.touched &&
+                      formVerification.controls.verificationCode3.errors == null
+                  }"
                 />
                 <input
                   type="text"
@@ -100,6 +115,11 @@
                     'is-invalid1':
                       formVerification.controls.verificationCode4.touched &&
                       formVerification.controls.verificationCode4.errors
+                  }"
+                  [ngClass]="{
+                    'is-valid':
+                      formVerification.controls.verificationCode4.touched &&
+                      formVerification.controls.verificationCode4.errors == null
                   }"
                 />
                 <input
@@ -118,6 +138,11 @@
                       formVerification.controls.verificationCode5.touched &&
                       formVerification.controls.verificationCode5.errors
                   }"
+                  [ngClass]="{
+                    'is-valid':
+                      formVerification.controls.verificationCode5.touched &&
+                      formVerification.controls.verificationCode5.errors == null
+                  }"
                 />
                 <input
                   type="text"
@@ -134,6 +159,11 @@
                     'is-invalid1':
                       formVerification.controls.verificationCode6.touched &&
                       formVerification.controls.verificationCode6.errors
+                  }"
+                  [ngClass]="{
+                    'is-valid':
+                      formVerification.controls.verificationCode6.touched &&
+                      formVerification.controls.verificationCode6.errors == null
                   }"
                 />
               </div>
