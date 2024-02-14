@@ -19,66 +19,33 @@
       ></app-card>
     </div>
     <div class="col-3">
-      <div class="card">
-        <div class="info">
-          <div class="main-info">
-            <div class="icon">
-              <img
-                src="assets/images/user-management-count.svg"
-                alt="user-count"
-              />
-            </div>
-            <div class="title">Active Users</div>
-          </div>
-          <small class="description"
-            >Total user number <br />
-            in this system</small
-          >
-        </div>
-        <div class="total-number">3,500</div>
-      </div>
+      <app-card
+        [icon_path]="'assets/images/user-management-count.svg'"
+        [title]="'Active Users'"
+        [description]="'Total user number'"
+        [description_continue]="'in this system'"
+        [total_number]="'3500'"
+      ></app-card>
     </div>
 
     <div class="col-3">
-      <div class="card">
-        <div class="info">
-          <div class="main-info">
-            <div class="icon">
-              <img
-                src="assets/images/user-management-count.svg"
-                alt="user-count"
-              />
-            </div>
-            <div class="title">Total Users</div>
-          </div>
-          <small class="description"
-            >Total user number <br />
-            in this system</small
-          >
-        </div>
-        <div class="total-number">3,500</div>
-      </div>
+      <app-card
+        [icon_path]="'assets/images/user-square.svg'"
+        [title]="'Deactive Users'"
+        [description]="'Total user number'"
+        [description_continue]="'in this system'"
+        [total_number]="'1500'"
+      ></app-card>
     </div>
 
     <div class="col-3">
-      <div class="card">
-        <div class="info">
-          <div class="main-info">
-            <div class="icon">
-              <img
-                src="assets/images/user-management-count.svg"
-                alt="user-count"
-              />
-            </div>
-            <div class="title">Total Users</div>
-          </div>
-          <small class="description"
-            >Total user number <br />
-            in this system</small
-          >
-        </div>
-        <div class="total-number">3,500</div>
-      </div>
+      <app-card
+      [icon_path]="'assets/images/user-management-count.svg'"
+      [title]="'Active Users'"
+      [description]="'Total user number'"
+      [description_continue]="'in this system'"
+      [total_number]="'3500'"
+    ></app-card>
     </div>
   </div>
 </div>

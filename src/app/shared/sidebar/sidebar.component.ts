@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ToggleService } from '../../services/toggleBtn/toggle.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -10,19 +11,34 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
   styleUrl: './sidebar.component.css'
 })
 export class SidebarComponent {
+
   openDropdown!: Boolean;
   active!: Boolean;
+  darkMode!: Boolean;
+  sidebarToggler!: Boolean;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private _Toggle: ToggleService) {
     this.openDropdown = true;
+    this.darkMode = false;
+    this.sidebarToggler = false;
   }
 
   ngOnInit(): void { }
+
+  togglesidebar() {
+    this._Toggle.toggle();
+    this.sidebarToggler = !this.sidebarToggler;
+  }
+
 
   Dropdowntoggle() {
     this.active = !this.active;
     console.log(this.active);
 
+  }
+
+  toggleAppearance() {
+    this.darkMode = !this.darkMode;
   }
 
   showSublinks(event: any) {

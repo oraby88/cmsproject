@@ -1,0 +1,26 @@
+.container {
+  width: 100%;
+}
+
+.row {
+  display: flex;
+}
+
+.breadcrumb {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgba(102, 112, 133, 1);
+  font-size: large;
+  padding: 15px;
+}
+
+.stage {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.breadcrumb img,
+span {
+  margin: 0px 5px;
+}
