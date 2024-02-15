@@ -14,6 +14,8 @@ import { BlogComponent } from './components/core/blog/blog.component';
 import { CmsMainComponent } from './components/core/cms-main/cms-main.component';
 import { UserProfileComponent } from './components/core/user-profile/user-profile.component';
 import { EditUserComponent } from './components/core/user-profile/edit-user/edit-user.component';
+import { ChangePasswordComponent } from './components/core/user-profile/change-password/change-password.component';
+import { ActivityLogComponent } from './components/core/user-profile/activity-log/activity-log.component';
 
 export const routes: Routes = [
     { path: 'signin', component: SigninComponent },
@@ -39,20 +41,24 @@ export const routes: Routes = [
 
         ], component: CmsMainComponent
     },
-    { path: 'profile', 
-    children: [
-        { path: '', redirectTo: 'profile', pathMatch: 'full' },
-        {
-            path: 'edit', component: EditUserComponent
-        },
-        
-    ], 
+    {
+        path: 'profile',
+        component: UserProfileComponent,
+        children: [
+            { path: '', redirectTo: 'edit', pathMatch: 'full' },
+            {
+                path: 'edit', component: EditUserComponent
+            },
+            {
+                path: 'change-password', component: ChangePasswordComponent
+            },
+            {
+                path: 'activity-log', component: ActivityLogComponent
+            },
+        ],
 
-    
-    component: UserProfileComponent  
+    },
 
-},
-   
 
     { path: 'signupverification', component: SignupverificationComponent },
     { path: '', redirectTo: '/signup', pathMatch: 'full' },
