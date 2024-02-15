@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
+import { IForgetPassRequest } from '../interfaces/iforget-pass-request';
 
 @Injectable({
   providedIn: 'root'
@@ -15,12 +16,14 @@ export class ResetPasswordService {
     this.authenticationURL = '/api/Authentication'
   }
 
-  resetPassword(password?: string, confirm_password?: string): Observable<any> {
-    return this._HttpClient.post<any>(`${this.baseURL}${this.authenticationURL}/ConfirmForgetPassword`, {
-      email: sessionStorage.getItem('email'),
-      token: sessionStorage.getItem('token'),
-      newPassword: password,
-      confirmNewPassword: confirm_password
-    })
+  resetPassword(res:IForgetPassRequest): Observable<any> {
+    const obj = {
+      email: sessionStorage.getItem('email')?.toString(),
+      token: sessionStorage.getItem('token')?.toString(),
+      message: sessionStorage.getItem('message')?.toString(),
+      password: res.password.toString(),
+      confirmNewPassword: res.confirmNewPassword.toString()
+    }
+    return this._HttpClient.post<any>(`${this.baseURL}${this.authenticationURL}/ConfirmForgetPassword`, obj);
   }
 }

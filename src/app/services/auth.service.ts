@@ -2,31 +2,51 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
-
+import { ISignupRequest } from '../interfaces/signupinterface';
+import { ILogin } from '../interfaces/logininterface';
+import { ISignUpResponse } from '../interfaces/isign-up-response';
+import { ISignInResponse } from '../interfaces/isign-in-response';
+import { error } from 'console';
+import { IForgetPassRequest } from '../interfaces/iforget-pass-request';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-
-  signUp(registerData: any): Observable<any> {
-    return this.http.post(environment.BASEURL + 'api/Authentication/Register', registerData);
+  signUp(registerData: ISignupRequest): Observable<ISignUpResponse> {
+    return this.http.post<ISignUpResponse>(
+      environment.BASEURL + 'api/Authentication/Register',
+      registerData
+    );
   }
 
-  signIn(loginData: any): Observable<any> {
-    return this.http.post(environment.BASEURL + '/', loginData);
+  resendOTP() {
+    var obj = {
+      email: sessionStorage.getItem('email')?.toString(),
+    };
+    console.log(obj);
+    return this.http.post(
+      environment.BASEURL + `api/Authentication/ResendOTP?email=${obj.email}`,
+      {}
+    );
+  }
+
+  signIn(loginData: ILogin): Observable<ISignInResponse> {
+    return this.http.post<ISignInResponse>(
+      environment.BASEURL + '/',
+      loginData
+    );
   }
 
   setToken(token: string) {
     localStorage.setItem('token', token);
   }
+
   setTokenInSessionStorage(token: string) {
     sessionStorage.setItem('token', token);
   }
-
 
   get isLoggedIn(): boolean {
     // return true;
@@ -34,7 +54,8 @@ export class AuthService {
     if (userData) {
       const jsonUserData = JSON.parse(userData);
       const token = jsonUserData[localStorage['token']];
-      const tokenExpireDate = jsonUserData[localStorage['token'].tokenExpireDate];
+      const tokenExpireDate =
+        jsonUserData[localStorage['token'].tokenExpireDate];
       return token && new Date(tokenExpireDate) >= new Date();
     }
     return false;
@@ -67,25 +88,69 @@ export class AuthService {
     }
   }
 
-  Login(request: any): Observable<any> {
+
+  verificationCode(res: string):Observable<any> {
+    var obj = {
+      email: sessionStorage.getItem('email')?.toString(),
+      otp: res.toString(),
+      token: sessionStorage.getItem('token')?.toString(),
+    };
+    // console.log(obj);
+    return this.http.post(
+      `${environment.BASEURL}api/Authentication/ConfirmEmail`,
+      obj
+    );
+  }
+
+
+  resetVerificationCode(res: string):Observable<any> {
+    var obj = {
+      email: sessionStorage.getItem('email')?.toString(),
+      otp: res.toString(),
+      token: sessionStorage.getItem('token1')?.toString(),
+    };
+    // console.log(obj);
+    return this.http.post(
+      `${environment.BASEURL}api/Authentication/ConfirmEmail`,
+      obj
+    );
+  }
+
+
+  Login(request: ILogin): Observable<any> {
     return this.http.post<any>(
-      environment.BASEURL + "api/Authentication/Login",
+      environment.BASEURL + 'api/Authentication/Login',
       request
     );
   }
 
-  verificationCode(res:string){
-    var obj={
-      email: sessionStorage.getItem('email')?.toString(),
-      otp: res.toString(),
-      token: sessionStorage.getItem('token')?.toString()
-    }
-    console.log(obj);
+
+  sendMail(email: string): Observable<any> {
+    console.log(email);
     return this.http.post(
-      environment.BASEURL + "api/Authentication/ConfirmEmail", obj)
+      environment.BASEURL + `api/Authentication/ForgetPassword?email=${email}`,
+      {}
+    );
   }
 
-  sendMail(email:string):Observable<any>{
-    return this.http.post<any>(environment.BASEURL + "api/Authentication/ForgetPassword", email)
+  // setNewPass(res:IForgetPassRequest){
+  //   var obj={
+  //     email: sessionStorage.getItem('email')?.toString(),
+  //     token: sessionStorage.getItem('token')?.toString(),
+  //     message: sessionStorage.getItem('message')?.toString(),
+  //     password: res.password.toString(),
+  //     confirmNewPassword: res.confirmNewPassword.toString()
+  //   }
+  //   console.log(obj);
+  //   return this.http.post(
+  //     environment.BASEURL + `api/Authentication/ConfirmForgetPassword`, obj);
+  // }
+
+  forgetPassword(email: string) {
+    console.log(email);
+    return this.http.post<any>(
+      `${environment.BASEURL}api/Authentication/ForgetPassword?email=${email}`,
+      {}
+    );
   }
 }

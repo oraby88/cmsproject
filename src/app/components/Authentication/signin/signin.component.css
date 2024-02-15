@@ -13,6 +13,7 @@ html, body {
   /* color: lightgray; */
   min-height: 100vh;
   /*transition-duration: 0.5s;*/
+  transition: ease all 1.5s;
 }
 .projName {
   /* margin: 0px 0px 0px 300px; */
@@ -28,12 +29,14 @@ html, body {
   display: flex;
   justify-content: space-between;
   /* width: 200px; */
+  transition: ease all 1.5s;
 }
 .projName img {
   max-width: 100%;
   width: 40px;
   height: 43px;
   padding-top: 3px;
+  transition: ease all 1.5s;
 }
 .projName p {
   font-size: 15px;
@@ -41,18 +44,22 @@ html, body {
   padding-left: 10px;
   color: black;
   /* margin-bottom: 50px; */
+  transition: ease all 1.5s;
 }
 .nameContainer {
   display: flex;
+  transition: ease all 1.5s;
 }
 .Name {
   display: inline-block;
   margin: 0px;
+  transition: ease all 1.5s;
 }
 .projNDiv {
   /* display: inline-block; */
   /* padding-bottom: 10px; */
   padding-top: 13px;
+  transition: ease all 1.5s;
 }
 
 select {
@@ -60,6 +67,7 @@ select {
   border: 1px solid #bfd4e466;
   /* padding-right: 20px; */
   border-radius: 7px;
+  transition: ease all 1.5s;
 }
 option {
   padding: 10px;
@@ -77,6 +85,7 @@ option {
   /* position: relative; */
   /* backface-visibility: hidden; */
   /* transform: rotateY(0deg); */
+  transition: ease all 1.5s;
 }
 .bg {
   background-image: url("../../../../assets/images/_Path_.svg");
@@ -89,7 +98,7 @@ option {
   height: 600px;
   position: relative;
   margin-left: 40px;
-  
+  transition: ease all 1.5s;
 }
 .loginDiv {
   margin: auto;
@@ -108,11 +117,13 @@ option {
   position: absolute;
   /* text-align: center; */
   transition: 0.5s;
+  transition: ease all 1.5s;
 }
 .info1 {
   text-align: center;
   margin-top: 2px;
   padding-bottom: 10px;
+  transition: ease all 1.5s;
 }
 .inputstyle {
   height: 40px;
@@ -121,6 +132,7 @@ option {
   margin-bottom: 10px;
   border: 1px solid #bfd4e466;
   padding: 10px;
+  transition: ease all 1.5s;
 }
 .form-input {
   height: 40px;
@@ -129,6 +141,7 @@ option {
   margin-bottom: 5px;
   border: 1px solid #bfd4e466;
   padding: 10px;
+  transition: ease all 1.5s;
 }
 button {
   height: 40px;
@@ -138,11 +151,13 @@ button {
   color: white;
   border: 0px;
   width: 98%;
+  transition: ease all 1.5s;
 }
 label {
   display: inline-block;
   /* text-align: left; */
   color: black;
+  transition: ease all 1.5s;
 }
 .labelInput {
   margin-bottom: 10px;
@@ -157,8 +172,13 @@ label {
   display: inline-block;
 }
 .checkbox {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  display: flex;
+  padding: 10px;
+  transition: ease all 1.5s;
+  justify-content: space-between;
+}
+.checkbox a p{
+  width: 200px;
 }
 h1 {
   text-align: center;
@@ -170,6 +190,7 @@ h1 {
   margin-bottom: 0px;
   padding-bottom: 10px;
   padding-top: 10px;
+  transition: ease all 1.5s;
 }
 .info2 a {
   text-decoration: none;
@@ -190,6 +211,7 @@ a {
   backface-visibility: hidden;
   /* transform: rotate(0deg); */
   /* transition: all 2s ; */
+  transition: ease all 1.5s;
 }
 .loginContainer:hover {
   /* transform: rotate(180deg); */
@@ -200,6 +222,7 @@ a {
   /* display: none; */
   /* backface-visibility: hidden; */
   /* transform: rotateY(180deg); */
+  transition: ease all 1.5s;
 }
 .bg2 {
   background-image: url("../../../../assets/images/_Path_\ \(1\).svg");
@@ -229,6 +252,7 @@ a {
   background-color: white;
   border-radius: 10px;
   /* position: relative; */
+  transition: ease all 1.5s;
 }
 
 /* .container.filp {
@@ -237,6 +261,7 @@ a {
 
 .loginDiv img {
   text-align: center;
+  transition: ease all 1.5s;
 }
 
 .inputVerificationStyle {
@@ -246,6 +271,7 @@ a {
   margin-bottom: 10px;
   border: 2px solid #bfd4e466;
   padding: 10px;
+  transition: ease all 1.5s;
 }
 .inputVerificationStyle::-webkit-outer-spin-button,
 .inputVerificationStyle::-webkit-inner-spin-button {
@@ -380,12 +406,6 @@ p {
   }
 }
 
-.passwordCheckContainer{
-  /* width: 409px; */
-  display: flex;
-  justify-content: space-between;
-
-}
 
 .bar{
   display:flex;
@@ -478,6 +498,7 @@ p {
   top: -22px;
   left: 30px;
   font-weight: 500;
+  transition: ease all 1.5s;
 }
 .tooltip:hover .tooltiptext{
   visibility: visible;
@@ -517,9 +538,7 @@ p {
 }
 
 @media screen and (max-width: 1800px) {
-  .checkbox  p{
-    padding-left: 18%;
-  }
+  
 }
 @media screen and (max-width: 1600px) {
   .loginDiv {
@@ -749,18 +768,12 @@ p {
   a p{
     padding-left:135px ;
   }
-  .checkbox a p{
-    padding-left: 28%;
-  }
+  
 }
 @media screen and (max-width: 380px) {
-  .checkbox a p{
-    padding-left: 23%;
-  }
+  
 }
 
 @media screen and (max-width: 360px) {
-  .checkbox a p{
-    padding-left: 22%;
-  }
+  
 }

@@ -175,68 +175,11 @@ h1 {
   color: #0660fc;
   font-weight: 600;
 }
-a p {
-  display: inline-block;
-  text-align: right;
-  padding-left: 38%;
-}
-a {
-  cursor: pointer;
-  color: #0660fc;
-}
-.loginContainer,
-.resetContainer {
-  backface-visibility: hidden;
-  /* transform: rotate(0deg); */
-  /* transition: all 2s ; */
-}
-.loginContainer:hover {
-  /* transform: rotate(180deg); */
-}
-.resetContainer {
-  margin: auto;
-  width: 50%;
-  /* display: none; */
-  /* backface-visibility: hidden; */
-  /* transform: rotateY(180deg); */
-}
-.bg2 {
-  background-image: url("../../../../assets/images/_Path_\ \(1\).svg");
-  /* background-size: cover; */
-  background-repeat: no-repeat;
-  /* height: 100vh; */
 
-  margin: auto;
-  width: 100%;
-  height: 600px;
-  position: relative;
-  margin-left: 150px;
-}
 
-.resetDiv {
-  margin: auto;
-  /* text-align: center; */
-  position: absolute;
-  top: -8%;
-  left: 5%;
-  /* width: 50%; */
-  /* height: 100vh; */
-  padding: 30px 40px;
-  margin-top: 10%;
-  /* transform: translate(-50%, -60%); */
-  width: 55%;
-  background-color: white;
-  border-radius: 10px;
-  /* position: relative; */
-}
 
-/* .container.filp {
-    transform: rotateY('180deg');
-} */
 
-.loginDiv img {
-  text-align: center;
-}
+
 
 .inputVerificationStyle {
   height: 50px;

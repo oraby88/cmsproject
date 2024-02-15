@@ -253,8 +253,8 @@ a {
 .is-invalid1{
   border: 2px solid red;
 }
-.is-valid:focus {
-  outline: 2px solid blue;
+.is-valid {
+  outline: 2px solid #48B29A;
 }
 .inputVerificationStyle::-webkit-outer-spin-button,
 .inputVerificationStyle::-webkit-inner-spin-button {
@@ -521,7 +521,7 @@ p {
 @media screen and (max-width: 1200px) and (min-width: 992px) {
   .loginDiv {
     position: static;
-    width: 70%;
+    width: 100%;
   }
   .bg,
   .bg2,
@@ -557,9 +557,10 @@ p {
     background-image: none;
     margin: 0;
     padding: 10px;
+    text-align: center;
   }
   .loginContainer {
-    width: 100%;
+    width: 80%;
   }
   .loginDiv {
     width: 100%;
@@ -567,6 +568,7 @@ p {
     position: static;
     padding: 0;
     background: #ffffff;
+    text-align: center;
   }
   .loginDiv h1 {
     font-size: 20px;
@@ -614,7 +616,7 @@ p {
     padding: 10px;
   }
   .loginContainer {
-    width: 100%;
+    width: 80%;
   }
   .loginDiv {
     width: 100%;
@@ -669,7 +671,7 @@ p {
     padding: 10px;
   }
   .loginContainer {
-    width: 100%;
+    width: 80%;
   }
   .resetContainer {
     width: 100%;
@@ -700,7 +702,7 @@ p {
     color: #a1a5b7;
   }
   .projName {
-    padding: 50px 10px 10px 10px;
+    padding: 50px 10px 10px 0px;
   }
   .label-div p {
     display: none;
@@ -721,4 +723,29 @@ p {
     padding-left:135px ;
   }
 }
-
+@media screen and (max-width: 400px) {
+  .inputVerificationStyle{
+    height: 40px;
+    font-size: 12px !important;
+  }
+  .projName{
+    padding-left: 10%;
+    /* margin-right: 10%; */
+  }
+  .nameContainer{
+    padding-left: 0;
+  }
+}
+@media screen and (max-width: 345px) {
+  .inputVerificationStyle{
+    height: 40px;
+    font-size: 12px !important;
+  }
+  .projName{
+    padding-left: 10%;
+    /* margin-right: 10%; */
+  }
+  .nameContainer{
+    padding-left: 0;
+  }
+}

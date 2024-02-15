@@ -12,6 +12,7 @@ import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { ResetPasswordService } from '../../../services/reset-password.service';
+import { IForgetPassRequest } from '../../../interfaces/iforget-pass-request';
 
 
 @Component({
@@ -39,7 +40,7 @@ export class SetnewpasswordComponent implements OnInit, DoCheck {
   specialChar: boolean = false;
   Number: boolean = false;
   numberLength: boolean = false;
-
+  forgetPassRequest : IForgetPassRequest ={} as IForgetPassRequest; 
   formSetNewPassword = new FormGroup({
     password: new FormControl(''),
     confirmPassword: new FormControl(''),
@@ -92,13 +93,16 @@ export class SetnewpasswordComponent implements OnInit, DoCheck {
       console.log(this.formSetNewPassword);
       return;
     }
-    // this.showChangePass()
-    this._authService.resetPassword(this.formSetNewPassword.controls.password.value! , this.formSetNewPassword.controls.confirmPassword.value!).subscribe({
-      next: (res:any) => {
 
-        
+    const fv = this.formSetNewPassword.value!;
+    this.forgetPassRequest = {
+      password :JSON.stringify(fv.password),
+      confirmNewPassword :JSON.stringify(fv.confirmPassword)
+    }
+    
+    this._authService.resetPassword(this.forgetPassRequest).subscribe({
+      next: (res:any) => {
         this._Router.navigateByUrl('/correctchange');
-        
       },
       error: (err:any) => {
         alert(err.message);

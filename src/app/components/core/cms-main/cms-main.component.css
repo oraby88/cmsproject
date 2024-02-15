@@ -22,12 +22,12 @@
 
 .toggle {
   width: 3.2%;
-  transition: width 2s;
+  transition: width 1s;
 }
 
 .beforeToggle {
   width: 20%;
-  transition: width 2s;
+  transition: width 1s;
 }
 
 .col-1 {

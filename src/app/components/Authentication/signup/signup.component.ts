@@ -27,6 +27,8 @@ import { MatProgressBar } from '@angular/material/progress-bar';
 import { error, group } from 'node:console';
 import { AuthService } from '../../../services/auth.service';
 import { animate, style, transition, trigger } from '@angular/animations';
+import { ISignupRequest } from '../../../interfaces/signupinterface';
+import { BehaviorSubject } from 'rxjs';
 // import { Router } from 'express';
 
 @Component({
@@ -67,6 +69,8 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
   specialChar: boolean = false;
   Number: boolean = false;
   numberLength: boolean = false;
+  signUpRequest:ISignupRequest= {} as ISignupRequest;
+
 
   constructor(
     private formBuilder: FormBuilder,
@@ -167,14 +171,21 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
     '../../../assets/images/illustration.png',
     '../../../assets/images/Frame 1000016152.svg',
   ];
-
+  
   Submit() {
     //this.submitted = true;
     if (this.formInfo.invalid) {
       console.log(this.formInfo);
       return;
     }
-    this._authService.signUp(this.formInfo.value).subscribe({
+    const fv = this.formInfo.value!;
+    this.signUpRequest = {
+      fullName :JSON.stringify(fv.fullName),
+      email :JSON.stringify(fv.email),
+      password :JSON.stringify(fv.password),
+      confirmPassword :JSON.stringify(fv.confirmPassword)
+    }
+    this._authService.signUp(this.signUpRequest).subscribe({
       next:(res)=>{
         console.log(res);
         sessionStorage.setItem('token' , res.token);

@@ -73,4 +73,20 @@ export class SignupverificationComponent implements OnInit {
       },
     });
   }
+
+
+  resendOTP(){
+    this._authService.resendOTP().subscribe({
+      next: (res) => {
+        console.log(res);
+        // this._authService.setToken(res.token);
+        // this.showSetNewPass();
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    })
+
+  }
+  
 }
