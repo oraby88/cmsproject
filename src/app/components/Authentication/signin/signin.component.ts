@@ -92,8 +92,8 @@ export class SigninComponent implements OnInit, DoCheck {
     }
     const fv = this.formInfo.value!;
     this.signInRequest = {
-      email :JSON.stringify(fv.email),
-      password :JSON.stringify(fv.password),
+      email :fv.email?.toString()??'',
+      password :fv.password?.toString()??'',
     }
 
     this._authService.Login(this.signInRequest).subscribe({

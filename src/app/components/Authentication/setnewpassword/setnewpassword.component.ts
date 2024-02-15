@@ -96,12 +96,14 @@ export class SetnewpasswordComponent implements OnInit, DoCheck {
 
     const fv = this.formSetNewPassword.value!;
     this.forgetPassRequest = {
-      password :JSON.stringify(fv.password),
-      confirmNewPassword :JSON.stringify(fv.confirmPassword)
+      password :fv.password?.toString()??'',
+      confirmNewPassword :fv.confirmPassword?.toString()??''
     }
-    
+    console.log(fv);
     this._authService.resetPassword(this.forgetPassRequest).subscribe({
       next: (res:any) => {
+        sessionStorage.getItem('token');
+        console.log(res);
         this._Router.navigateByUrl('/correctchange');
       },
       error: (err:any) => {

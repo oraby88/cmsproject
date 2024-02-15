@@ -3,14 +3,9 @@ import {
   AfterViewInit,
   Component,
   DoCheck,
-  ElementRef,
-  OnChanges,
   OnInit,
-  SimpleChanges,
-  ViewChild,
 } from '@angular/core';
 import {
-  AbstractControl,
   FormBuilder,
   FormControl,
   FormGroup,
@@ -21,15 +16,11 @@ import {
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faFilm, faEye } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
-import { get } from 'node:http';
 import { Router, RouterModule } from '@angular/router';
 import { MatProgressBar } from '@angular/material/progress-bar';
-import { error, group } from 'node:console';
 import { AuthService } from '../../../services/auth.service';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { ISignupRequest } from '../../../interfaces/signupinterface';
-import { BehaviorSubject } from 'rxjs';
-// import { Router } from 'express';
 
 @Component({
   selector: 'app-signup',
@@ -180,11 +171,12 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
     }
     const fv = this.formInfo.value!;
     this.signUpRequest = {
-      fullName :JSON.stringify(fv.fullName),
-      email :JSON.stringify(fv.email),
-      password :JSON.stringify(fv.password),
-      confirmPassword :JSON.stringify(fv.confirmPassword)
+      fullName :fv.fullName?.toString()??'',
+      email :fv.email?.toString()??'',
+      password :fv.password?.toString()??'',
+      confirmPassword :fv.confirmPassword?.toString()??''
     }
+    console.log(fv);
     this._authService.signUp(this.signUpRequest).subscribe({
       next:(res)=>{
         console.log(res);

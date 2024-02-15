@@ -63,6 +63,8 @@ export class SignupverificationComponent implements OnInit {
     console.log(this.str);
     this._authService.verificationCode(this.str).subscribe({
       next: (res) => {
+        //Clear the session
+        sessionStorage.clear();
         this._Router.navigateByUrl('/signin');
         // this._authService.setToken(res.token);
         // this.showSetNewPass();

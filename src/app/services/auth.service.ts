@@ -5,9 +5,6 @@ import { environment } from '../../environments/environment';
 import { ISignupRequest } from '../interfaces/signupinterface';
 import { ILogin } from '../interfaces/logininterface';
 import { ISignUpResponse } from '../interfaces/isign-up-response';
-import { ISignInResponse } from '../interfaces/isign-in-response';
-import { error } from 'console';
-import { IForgetPassRequest } from '../interfaces/iforget-pass-request';
 
 @Injectable({
   providedIn: 'root',
@@ -16,9 +13,23 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   signUp(registerData: ISignupRequest): Observable<ISignUpResponse> {
+    console.log(registerData);
     return this.http.post<ISignUpResponse>(
       environment.BASEURL + 'api/Authentication/Register',
       registerData
+    );
+  }
+
+  verificationCode(otp: string):Observable<any> {
+    var obj = {
+      email: sessionStorage.getItem('email')?.toString(),
+      otp: otp.toString(),
+      token: sessionStorage.getItem('token')?.toString(),
+    };
+     console.log(obj);
+    return this.http.post(
+      `${environment.BASEURL}api/Authentication/ConfirmEmail`,
+      obj
     );
   }
 
@@ -30,13 +41,6 @@ export class AuthService {
     return this.http.post(
       environment.BASEURL + `api/Authentication/ResendOTP?email=${obj.email}`,
       {}
-    );
-  }
-
-  signIn(loginData: ILogin): Observable<ISignInResponse> {
-    return this.http.post<ISignInResponse>(
-      environment.BASEURL + '/',
-      loginData
     );
   }
 
@@ -87,18 +91,13 @@ export class AuthService {
       return null;
     }
   }
-
-
-  verificationCode(res: string):Observable<any> {
-    var obj = {
-      email: sessionStorage.getItem('email')?.toString(),
-      otp: res.toString(),
-      token: sessionStorage.getItem('token')?.toString(),
-    };
-    // console.log(obj);
+  
+  
+  sendMail(email: string): Observable<any> {
+    console.log(email);
     return this.http.post(
-      `${environment.BASEURL}api/Authentication/ConfirmEmail`,
-      obj
+      environment.BASEURL + `api/Authentication/ForgetPassword?email=${email}`,
+      {}
     );
   }
 
@@ -107,17 +106,18 @@ export class AuthService {
     var obj = {
       email: sessionStorage.getItem('email')?.toString(),
       otp: res.toString(),
-      token: sessionStorage.getItem('token1')?.toString(),
+      //token: sessionStorage.getItem('token')?.toString(),
     };
-    // console.log(obj);
+     console.log(obj);
     return this.http.post(
-      `${environment.BASEURL}api/Authentication/ConfirmEmail`,
+      `${environment.BASEURL}api/Authentication/ConfirmForgetPasswordOTP`,
       obj
     );
   }
 
 
   Login(request: ILogin): Observable<any> {
+    console.log(request);
     return this.http.post<any>(
       environment.BASEURL + 'api/Authentication/Login',
       request
@@ -125,13 +125,7 @@ export class AuthService {
   }
 
 
-  sendMail(email: string): Observable<any> {
-    console.log(email);
-    return this.http.post(
-      environment.BASEURL + `api/Authentication/ForgetPassword?email=${email}`,
-      {}
-    );
-  }
+  
 
   // setNewPass(res:IForgetPassRequest){
   //   var obj={

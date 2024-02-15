@@ -20,10 +20,10 @@ export class ResetPasswordService {
     const obj = {
       email: sessionStorage.getItem('email')?.toString(),
       token: sessionStorage.getItem('token')?.toString(),
-      message: sessionStorage.getItem('message')?.toString(),
-      password: res.password.toString(),
+      // message: sessionStorage.getItem('message')?.toString(),
+      newPassword: res.password.toString(),
       confirmNewPassword: res.confirmNewPassword.toString()
     }
-    return this._HttpClient.post<any>(`${this.baseURL}${this.authenticationURL}/ConfirmForgetPassword`, obj);
+    return this._HttpClient.post<any>(`${this.baseURL}api/Authentication/ConfirmForgetPassword`, obj);
   }
 }
