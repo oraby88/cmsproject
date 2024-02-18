@@ -19,7 +19,13 @@ h5 {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 15px 15px;
+}
+
+.sidebar-menu-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .sidebar {
@@ -41,7 +47,13 @@ h5 {
 }
 
 .hide {
-  display: none !important;
+  margin-left: -400px !important;
+  transition: margin-left 1s;
+}
+
+.show {
+  margin-left: -0px !important;
+  transition: margin-left 1s;
 }
 
 .sidebar-header .image {
@@ -57,6 +69,8 @@ h5 {
   color: #a1a5b7;
   font-weight: 500;
   line-height: 18px;
+  padding: 0px 10px;
+
 }
 
 .toggle-sidebar-btn {
@@ -135,6 +149,8 @@ ul li div {
 .drop-down {
   position: relative;
   transition: transform 1s;
+  display: flex;
+  justify-content: space-between;
 }
 
 .drop-down .icon img {
@@ -163,6 +179,7 @@ ul li div {
   transform: translate(20px);
   transition: transform 1s;
   z-index: 2;
+  left: 40px;
 }
 
 .sub-links ul {
@@ -242,7 +259,7 @@ ul li div div {
 .darkTheme_active .drop-down .link-title div,
 .darkTheme_active .link-title,
 .darkTheme_active a .link-title {
-  color: #fff;
+  color: #fff !important;
 }
 
 .darkTheme_active::before {

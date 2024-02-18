@@ -16,7 +16,12 @@
   z-index: -1;
 }
 
+.head-side {
+  padding: 0px 10px;
+}
+
 .content {
+  padding: 10px;
   background-color: #f9fafc;
 }
 
