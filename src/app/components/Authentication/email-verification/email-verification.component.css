@@ -16,19 +16,11 @@ html, body {
   /*transition-duration: 0.5s;*/
 }
 .projName {
-  /* margin: 0px 0px 0px 300px; */
-  /* margin: 20px; */
-  /* margin-top: 30px; */
-  /* margin-left: 70px; */
-  /* margin-top: 30px; */
-  /* margin-right:400px ; */
-  display: flex;
-  padding-top: 50px;
-  /* padding-left: 90px; */
-  padding-right: 90px;
+  
   display: flex;
   justify-content: space-between;
-  /* width: 200px; */
+  padding: 3%;
+  
 }
 .projName img {
   max-width: 100%;
@@ -39,22 +31,23 @@ html, body {
 .projName p {
   font-size: 15px;
   font-weight: 700;
-  padding-left: 10px;
+  padding-left: 3%;
   color: black;
   /* margin-bottom: 50px; */
 }
 .nameContainer {
   display: flex;
-  padding-left: 90px;
+  /* padding-left: 90px; */
+  justify-content: space-between;
+  align-items: center;
+
 }
-.Name {
-  display: inline-block;
-  margin: 0px;
-}
+
 .projNDiv {
   /* display: inline-block; */
   /* padding-bottom: 10px; */
-  padding-top: 13px;
+  /* padding-top: 13px; */
+  width: 150px;
 }
 
 select {

@@ -6,6 +6,7 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+
 }
 .container {
   background-color: #f9fafc;
@@ -13,6 +14,7 @@ html, body {
   /* color: lightgray; */
   min-height: 100vh;
   /*transition-duration: 0.5s;*/
+  transition: ease all 1.5s;
 }
 .projName {
   /* margin: 0px 0px 0px 300px; */
@@ -22,12 +24,14 @@ html, body {
   /* margin-top: 30px; */
   /* margin-right:400px ; */
   display: flex;
-  padding-top: 50px;
+  padding-top: 2%;
   /* padding-left: 90px; */
-  padding-right: 90px;
+  /* padding-right: 10%; */
   display: flex;
   justify-content: space-between;
   /* width: 200px; */
+  padding-left: 6%;
+  transition: ease all 1.5s;
 }
 .projName img {
   max-width: 100%;
@@ -44,7 +48,7 @@ html, body {
 }
 .nameContainer {
   display: flex;
-  padding-left: 90px;
+  /* padding-left: 90px; */
 }
 .Name {
   display: inline-block;
@@ -78,6 +82,7 @@ option {
   /* position: relative; */
   /* backface-visibility: hidden; */
   /* transform: rotateY(0deg); */
+  transition: ease all 1.5s;
 }
 .bg {
   background-image: url("../../../../assets/images/_Path_.svg");
@@ -106,12 +111,17 @@ option {
   border-radius: 10px;
   position: absolute;
   /* text-align: center; */
-  transition: 0.5s;
+  /* transition: 0.5s; */
+  transition: ease all 1.5s;
 }
 .info1 {
   text-align: center;
   margin-top: 2px;
   padding-bottom: 10px;
+}
+.Link{
+  text-decoration: none;
+  color: #FFFFFF;
 }
 .inputstyle {
   height: 40px;
@@ -128,15 +138,17 @@ option {
   margin-bottom: 5px;
   border: 1px solid #bfd4e466;
   padding: 10px;
+  transition: ease all 1.5s;
 }
 button {
   height: 40px;
-  width: 100%;
+  /* width: 100%; */
   background-color: #0660fc;
   border-radius: 5px;
   color: white;
   border: 0px;
   width: 98%;
+  transition: ease all 1.5s;
 }
 label {
   display: inline-block;
@@ -145,24 +157,6 @@ label {
 }
 .labelInput {
   margin-bottom: 10px;
-}
-#checkbox {
-  display: inline-block;
-  border: 1px solid #bfd4e466;
-  color: #bfd4e466;
-  padding: 0px;
-}
-#checkLabel {
-  display: inline-block;
-}
-.checkbox {
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-h1 {
-  text-align: center;
-  margin: 0%;
-  color: black;
 }
 .info2 {
   text-align: center;
@@ -175,11 +169,6 @@ h1 {
   color: #0660fc;
   font-weight: 600;
 }
-
-
-
-
-
 
 .inputVerificationStyle {
   height: 50px;

@@ -18,19 +18,9 @@ html, body {
 
 
 .projName {
-  /* margin: 0px 0px 0px 300px; */
-  /* margin: 20px; */
-  /* margin-top: 30px; */
-  /* margin-left: 70px; */
-  /* margin-top: 30px; */
-  /* margin-right:400px ; */
   display: flex;
-  padding-top: 50px;
-  /* padding-left: 90px; */
-  /* padding-right: 90px; */
-  display: flex;
+  padding: 3%;
   justify-content: space-between;
-  /* width: 200px; */
 }
 .projName img {
   max-width: 100%;
@@ -41,22 +31,18 @@ html, body {
 .projName p {
   font-size: 15px;
   font-weight: 700;
-  padding-left: 10px;
   color: black;
-  /* margin-bottom: 50px; */
+  padding-left: 3%;
 }
 .nameContainer {
   display: flex;
-  padding-left: 90px;
+  justify-content: space-between;
 }
 .Name {
-  display: inline-block;
-  margin: 0px;
+  padding: 0;
 }
 .projNDiv {
-  /* display: inline-block; */
-  /* padding-bottom: 10px; */
-  padding-top: 13px;
+  width: 150px;
 }
 
 select {
@@ -176,6 +162,12 @@ button {
   /* margin-left: 12px; */
   /* margin-right: 12px; */
 }
+  .bg,
+  .bg2,
+  .bg3 {
+    /* margin: 0; */
+    padding: 30px;
+  }
 
 @keyframes flipIn {
   from {
@@ -205,11 +197,7 @@ button {
 
 
 
-@media screen and (max-width: 1800px) {
-  .checkbox a p{
-    padding-left: 18%;
-  }
-}
+
 @media screen and (max-width: 1600px) {
   .loginDiv {
     width: 70%;
@@ -232,7 +220,7 @@ button {
   .bg3 {
     background-image: none;
     margin: 0;
-    padding: 10px;
+    /* padding: 10px; */
   }
   .resetContainer {
     width: 70%;
@@ -241,7 +229,7 @@ button {
     width: 100%;
     margin: 0;
     position: static;
-    padding: 30px;
+    padding: 10%;
     background: #ffffff;
   }
   h1 {
@@ -261,7 +249,7 @@ button {
   .bg3 {
     background-image: none;
     margin: 0;
-    padding: 10px;
+    /* padding: 30px; */
   }
   .loginContainer {
     width: 100%;
@@ -284,15 +272,14 @@ button {
     font-size: 14px;
     color: #a1a5b7;
   }
-  .projName {
-    padding: 50px 10px 10px 10px;
-  }
+  
   .label-div p {
     display: none;
   }
   .selDiv {
     display: none;
   }
+  
   .resetContainer {
     width: 100%;
   }
@@ -316,7 +303,7 @@ button {
   .bg3 {
     background-image: none;
     margin: 0;
-    padding: 10px;
+    /* padding: 10px; */
   }
   .loginContainer {
     width: 100%;
@@ -339,9 +326,7 @@ button {
     font-size: 14px;
     color: #a1a5b7;
   }
-  .projName {
-    padding: 50px 10px 10px 10px;
-  }
+  
   .label-div p {
     display: none;
   }
@@ -371,7 +356,7 @@ button {
   .bg3 {
     background-image: none;
     margin: 0;
-    padding: 10px;
+    /* padding: 10px; */
   }
   .loginContainer {
     width: 100%;
@@ -403,9 +388,6 @@ button {
   .info2 {
     font-size: 14px;
     color: #a1a5b7;
-  }
-  .projName {
-    padding: 50px 0px 0px 0px;
   }
   .nameContainer{
     padding: 0;

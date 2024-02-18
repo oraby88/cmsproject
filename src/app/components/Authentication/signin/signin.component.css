@@ -177,9 +177,6 @@ label {
   transition: ease all 1.5s;
   justify-content: space-between;
 }
-.checkbox a p{
-  width: 200px;
-}
 h1 {
   text-align: center;
   margin: 0%;
@@ -197,14 +194,11 @@ h1 {
   color: #0660fc;
   font-weight: 600;
 }
-a p {
-  display: inline-block;
-  text-align: right;
-  padding-left: 38%;
-}
+
 a {
   cursor: pointer;
   color: #0660fc;
+  text-decoration: none;
 }
 .loginContainer,
 .resetContainer {
@@ -444,6 +438,7 @@ p {
 #mediumS{
   background-color: rgb(243, 221, 179);
 }
+
 .strongth-password{
   display: flex;
   margin-top: 7px ;
@@ -537,18 +532,13 @@ p {
   position: relative;
 }
 
-@media screen and (max-width: 1800px) {
-  
-}
+
 @media screen and (max-width: 1600px) {
   .loginDiv {
     width: 70%;
   }
   .resetDiv {
     /* width: 70%; */
-  }
-  .checkbox a p{
-    padding-left: 22%;
   }
   .bg,
   .bg2,
@@ -765,15 +755,13 @@ p {
   .is-invalid {
     border: 1px solid red;
   }
-  a p{
-    padding-left:135px ;
+  
+}
+@media screen and (max-width: 300px) {
+  .checkbox{
+    font-size: 14px;
   }
   
 }
-@media screen and (max-width: 380px) {
-  
-}
 
-@media screen and (max-width: 360px) {
-  
-}
+

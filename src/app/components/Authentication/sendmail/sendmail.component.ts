@@ -46,12 +46,11 @@ export class SendmailComponent implements OnInit {
       console.log(this.formSendMail);
       return;
     }
-    const email=this.formSendMail.controls.forgetEmail.value?.toString()??'';
+    const email = this.formSendMail.controls.forgetEmail.value?.toString()??'';
     this._authService.sendMail(email).subscribe({
       next:(res)=>{
-        sessionStorage.removeItem('token');
-        sessionStorage.setItem('token1' , res.token);
-        sessionStorage.setItem('email' , res.email);
+        // sessionStorage.setItem('token' , res.token);
+        sessionStorage.setItem('email' , email);
         sessionStorage.setItem('message',res.message);
         console.log(res);
         this._Router.navigateByUrl('/emailverification');

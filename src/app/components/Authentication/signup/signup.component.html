@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <div class="container">
+
+  
   <div class="formDiv">
     <div class="projName">
       <img src="../../../assets/images/Icon.png" alt="ProjectIcon" />
@@ -10,7 +12,7 @@
       Welcome! 👋
       <!-- <i class="fa-solid fa-hand fa-flip-horizontal fa-lg" style="color: #FFD43B;"></i> -->
     </h1>
-    <p id="info" >Sign Up to Manage Blog post account</p>
+    <p id="info" style="text-align: center;">Sign Up to Manage Blog post account</p>
 
     <form
       class="form-group"
@@ -306,11 +308,11 @@
               id="inside"
             />
           </div>
-
+          
           <img src="{{ showSlides() }}" alt="Slides" class="img1" />
         </div>
         <div class="text">
-          <p>Manage Any Content Anywhere</p>
+          <p style="font-size: 22px;font-weight: 500;">Manage Any Content Anywhere</p>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
             repellat modi dicta suscipit vero
@@ -325,6 +327,7 @@
     </div>
 
     <div class="dots" style="text-align: center">
+      <span style="text-align: center; color: white;cursor: pointer;align-items: center;" (click)="currentSlide(0)">&#x2190;</span>
       <span
         id="dot1"
         class="active-dot"
@@ -337,6 +340,7 @@
         (click)="currentSlide(1)"
         [ngClass]="{ 'active-dot': slidIndex == 1 }"
       ></span>
+      <span style="text-align: center; color: white;cursor: pointer;align-items: center;" (click)="currentSlide(1)">&#x2192;</span>
     </div>
 
     <!-- The dots/circles -->
