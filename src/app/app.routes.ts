@@ -39,9 +39,7 @@ export const routes: Routes = [
         ], component: CmsMainComponent
     },
     {
-        path: 'profile',component: UserProfileComponent,
-        
-
+        path: 'profile', component: UserProfileComponent
     },
 
 

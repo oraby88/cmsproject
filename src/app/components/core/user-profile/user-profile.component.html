@@ -1,6 +1,8 @@
 <div class="container">
+@if( isavailable){
 
-    <div class="user-profile-container">
+
+    <div class="user-profile-container" >
 
         <div class="user-header">
             <div class="header-icons">
@@ -11,7 +13,7 @@
                 </div>
 
 
-                <img src="assets/images/cross-square.svg" alt="">
+                <img src="assets/images/cross-square.svg" alt="" (click)="close()">
 
             </div>
 
@@ -228,5 +230,7 @@
 
         </div>
     }
-    </div>
+   </div>
+} 
 </div>
+
