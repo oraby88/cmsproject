@@ -13,8 +13,13 @@ export class UserProfileComponent {
 
   searchText: string = '';
   activeTab: string = 'edit';
+  isavailable:boolean=true;
 
   display(tab: string) {
     this.activeTab = tab;
+  }
+  close()
+  {
+   this.isavailable=false;
   }
 }
