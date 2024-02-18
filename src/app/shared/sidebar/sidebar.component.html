@@ -15,7 +15,7 @@
 
   <div class="sidebar-top-section">
     <div
-      class="row"
+      class="row sidebar-card"
       [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
     >
       <div
@@ -227,27 +227,31 @@
         <ul>
           <li>
             <a href="dashboard">
-              <div class="icon">
-                <img src="assets/images/settings.svg" alt="settings" />
-              </div>
-              <div
-                class="link-title"
-                [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
-              >
-                Settings
+              <div>
+                <div class="icon">
+                  <img src="assets/images/settings.svg" alt="settings" />
+                </div>
+                <div
+                  class="link-title"
+                  [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
+                >
+                  Settings
+                </div>
               </div>
             </a>
           </li>
           <li>
             <a href="blogpost">
-              <div class="icon">
-                <img src="assets/images/help-center.svg" alt="help-center" />
-              </div>
-              <div
-                class="link-title"
-                [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
-              >
-                Help Center
+              <div>
+                <div class="icon">
+                  <img src="assets/images/help-center.svg" alt="help-center" />
+                </div>
+                <div
+                  class="link-title"
+                  [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
+                >
+                  Help Center
+                </div>
               </div>
             </a>
           </li>
@@ -256,7 +260,7 @@
     </div>
 
     <div
-      class="row"
+      class="row sidebar-card"
       [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
     >
       <div

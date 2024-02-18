@@ -70,7 +70,6 @@ h5 {
   font-weight: 500;
   line-height: 18px;
   padding: 0px 10px;
-
 }
 
 .toggle-sidebar-btn {
@@ -402,6 +401,9 @@ input:checked + .slider:before {
   -webkit-transform: translateX(24px);
   -ms-transform: translateX(24px);
   transform: translateX(24px);
+}
+.sidebar-card {
+  margin: 0px 20px;
 }
 
 /* Rounded sliders */
