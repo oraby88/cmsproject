@@ -7,27 +7,27 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 .container {
   display: flex;
   /* width: 100%; */
-  background-color:var(white);
+  background-color: var(white);
   font-family: "DM Sans";
   /* color: lightgray; */
   /* min-height: 100vh; */
   /* height: 100%; */
   /* margin-top: 50px; */
   /* padding: 50px; */
-  overflow: hidden;
+  
   justify-content: space-between;
   transition: all 1s;
 }
 
 .projName {
   /* margin: 0px 0px 0px 300px; */
-  align-items:start;
+  align-items: start;
   display: flex;
   padding: 3%;
   transition: ease all 1s;
@@ -42,7 +42,6 @@ body {
   font-size: 15px;
   font-weight: 700;
   padding-left: 10px;
-
 }
 
 .formDiv {
@@ -50,11 +49,8 @@ body {
   display: flex;
   flex-direction: column;
   /* padding: 50px; */
-  
-  
   width: 50%;
   height: 100%;
-  
   transition: ease all 1s;
 }
 
@@ -68,9 +64,9 @@ body {
 .form-label {
   display: block;
   font-weight: bold;
-  margin-bottom: 3px;
+  margin-bottom: 1.5%;
   color: #5e6278;
-  font-weight: 450;
+  font-weight: 500;
   font-size: 12px;
   transition: ease all 1s;
 }
@@ -78,10 +74,11 @@ body {
   /* padding: 10px; */
   border-radius: 10px;
   width: 409px;
-  border: 1px solid #BFD4E466;
+  border: 1px solid #bfd4e466;
   padding: 3%;
   /* box-shadow: 1px 1px 1px white; */
   transition: ease all 1s;
+  cursor: pointer;
 }
 
 .submitButton {
@@ -149,7 +146,6 @@ body {
   transition: ease all 1s;
 }
 .formLinks a p {
-  
   box-sizing: border-box;
   display: flex;
   font-size: 14px;
@@ -228,9 +224,26 @@ hr {
   padding: 0% 8%;
   transition: ease all 1s;
 }
-.paragraphs p{
+.paragraphs p {
   transition: ease all 1s;
 }
+.EyeIcon{
+  margin-left: -30px;
+  margin-top: -25px;
+  position: relative;
+  z-index: 2;
+  width: 25px !important;
+  display: inline-block;
+  transition: ease all 1s;
+  color: rgb(201, 198, 198);
+}
+
+input[type=password]::-ms-reveal,
+input[type=password]::-ms-clear
+{
+    display: none;
+}
+
 
 .SlidesContainer {
   display: flex;
@@ -251,12 +264,6 @@ hr {
   display: flex;
   flex-direction: column;
   width: 100%;
-  /* position: relative; */
-  /* margin: auto; */
-  /* height: 100%; */
-
-  /* width: 500px; */
-  /* height: 800px ; */
   transition: ease all 1s;
 }
 
@@ -310,12 +317,19 @@ hr {
   text-align: center;
   padding: 0px 50px 0px 50px;
 }
+.disabled{
+  background-color: #adc4ec;
+}
 
 .dots {
   display: flex;
   justify-content: center;
   /* padding: 40px; */
   /* padding-bottom: 20px; */
+  height: 20px;
+  text-align: center;
+  align-items: center;
+  gap: 6px;
 }
 
 /* The dots/bullets/indicators */
@@ -330,7 +344,7 @@ hr {
   transition: background-color 0.6s ease;
   align-items: center;
   text-align: center;
-  margin: 0.8%;
+  /* margin: 0.8%; */
 }
 .active-dot {
   cursor: pointer;
@@ -341,7 +355,15 @@ hr {
   border-radius: 15%;
   display: inline-block;
   transition: background-color 0.6s ease;
-  margin: 0.8%;
+  /* margin: 0.8%; */
+}
+.arrows {
+  text-align: center;
+  color: white;
+  cursor: pointer;
+  align-items: center;
+  font-size: 28px;
+  font-weight: 500;
 }
 
 .active,
@@ -497,18 +519,20 @@ hr {
   height: 17px;
   margin: 7px 0 0 0px;
   text-align: center;
+  align-items: center;
   font-size: 12px;
 }
 
 .tooltip .tooltiptext {
   visibility: hidden;
   text-align: center;
+  align-items: center;
   z-index: 1;
   background-color: #181c32;
   color: #ffffff;
   position: absolute;
   border-radius: 10px;
-  padding: 12px 16px;
+  padding: 12px 8px;
   width: 250px;
   font-size: 12px;
   text-align: left;
@@ -645,7 +669,6 @@ hr {
 }
 
 @media screen and (max-width: 1200px) and (min-width: 992px) {
-  
   .is-invalid {
     border: 1px solid red;
   }
@@ -653,10 +676,10 @@ hr {
     height: 100%;
     transition: all 1s;
   }
-  .formDiv{
+  .formDiv {
     padding: 20px;
   }
-  .SlidesContainer{
+  .SlidesContainer {
     transition: ease all 1s;
   }
 }
@@ -665,14 +688,13 @@ hr {
     display: flex;
     flex-direction: column-reverse;
     overflow: hidden;
-    transition:ease all 1s;
+    transition: ease all 1s;
   }
   .SlidesContainer {
     /* max-width: 100%; */
     transition: width ease all 1s;
     display: none;
     width: 100%;
-    
   }
   /* .slideshow-container {
     width: 95%;
@@ -754,7 +776,7 @@ hr {
   }
 }
 @media screen and (max-width: 600px) {
-  .container{
+  .container {
     min-height: 0;
     overflow: hidden;
   }
@@ -775,7 +797,7 @@ hr {
     padding-top: 5px;
     margin: 1px;
   }
-  
+
   .formDiv p {
     font-size: 14px;
   }
@@ -835,7 +857,7 @@ hr {
     overflow: hidden;
     padding: 20px;
   }
-  
+
   .formDiv p {
     font-size: 14px;
   }
@@ -887,8 +909,14 @@ hr {
   h1 {
     font-size: 18px;
   }
-  
-  
+  .text p{
+    margin-bottom: 3%;
+  }
+  #info3{
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 25px;
+  }
   .info {
     margin: 10px;
   }
@@ -949,7 +977,7 @@ hr {
     font-size: 14px;
     border-radius: 5px;
   }
-  
+
   .label-div p {
     padding: 5px 0 0px 0;
     font-size: 12px;
@@ -990,7 +1018,7 @@ hr {
     padding: 0;
     margin: 0;
   }
-  
+
   .info {
     /* padding-left: 20px; */
     margin: 0px 0px 15px 0px;
@@ -1013,17 +1041,15 @@ hr {
   }
 }
 @media screen and (max-width: 420px) {
-  .form-input{
+  .form-input {
     width: 340px;
   }
-  .submitButton{
+  .submitButton {
     width: 340px;
   }
-  .formLinks{
+  .formLinks {
     width: 161px;
   }
-  
-  
 }
 @media screen and (max-width: 360px) {
   .container {
@@ -1040,8 +1066,7 @@ hr {
     padding: 0px;
     width: 100%;
   }
-  
-  
+
   .form-input {
     max-width: 100%;
     width: 280px;
@@ -1099,16 +1124,14 @@ hr {
     padding: 0;
     margin: 0;
   }
-  
-  
-  #info{
+
+  #info {
     font-size: 14px;
   }
   .info {
     /* padding-left: 20px; */
     margin: 0px 0px 15px 0px;
     text-align: center;
-    
   }
   .line {
     padding: 0;
@@ -1137,7 +1160,7 @@ hr {
     padding: 0px;
     width: 100%;
   }
-  
+
   .form-input {
     max-width: 100%;
     width: 230px;
@@ -1157,23 +1180,23 @@ hr {
   hr {
     width: 95px;
   }
-  #welcomeId{
+  #welcomeId {
     font-size: 20px;
   }
-  
+
   h1 {
     font-size: 18px;
   }
-  
+
   .info {
     font-size: 14px;
     padding: 0px;
     margin: 5px;
   }
-  #info{
+  #info {
     font-size: 12px !important;
   }
-  
+
   .form-group {
     gap: 5px;
   }

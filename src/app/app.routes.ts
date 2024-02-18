@@ -13,40 +13,45 @@ import { ManageRolesComponent } from './components/core/management/manage-roles/
 import { BlogComponent } from './components/core/blog/blog.component';
 import { CmsMainComponent } from './components/core/cms-main/cms-main.component';
 import { UserProfileComponent } from './components/core/user-profile/user-profile.component';
+import { TableComponent } from './shared/table/table.component';
 
 export const routes: Routes = [
-    { path: 'signin', component: SigninComponent },
-    { path: 'signup', component: SignupComponent },
-    { path: 'sendmail', component: SendmailComponent },
-    { path: 'emailverification', component: EmailVerificationComponent },
-    { path: 'setnewpassword', component: SetnewpasswordComponent },
-    { path: 'correctchange', component: CorrectchagesComponent },
-    {
-        path: 'cms', children: [
-            {
-                path: 'management', canActivate: [], children: [
-                    { path: '', redirectTo: 'users', pathMatch: 'full' },
-                    {
-                        path: 'users', component: ManageUsersComponent
-                    },
-                    {
-                        path: 'roles', component: ManageRolesComponent
-                    }
-                ], component: UserManagementComponent
-            },
-            { path: 'blogs', canActivate: [], component: BlogComponent },
+  { path: 'signin', component: SigninComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'sendmail', component: SendmailComponent },
+  { path: 'emailverification', component: EmailVerificationComponent },
+  { path: 'setnewpassword', component: SetnewpasswordComponent },
+  { path: 'correctchange', component: CorrectchagesComponent },
+  {
+    path: 'cms',
+    children: [
+      {
+        path: 'management',
+        canActivate: [],
+        children: [
+          { path: '', redirectTo: 'users', pathMatch: 'full' },
+          {
+            path: 'users',
+            component: ManageUsersComponent,
+          },
+          {
+            path: 'roles',
+            component: ManageRolesComponent,
+          },
+        ],
+        component: UserManagementComponent,
+      },
+      { path: 'blogs', canActivate: [], component: BlogComponent },
+    ],
+    component: CmsMainComponent,
+  },
+  {
+    path: 'profile',
+    component: UserProfileComponent,
+  },
 
-        ], component: CmsMainComponent
-    },
-    {
-        path: 'profile',component: UserProfileComponent,
-        
-
-    },
-
-
-    { path: 'signupverification', component: SignupverificationComponent },
-    { path: '', redirectTo: '/signup', pathMatch: 'full' },
-    { path: '**', component: NotfoundComponent },
+  { path: 'signupverification', component: SignupverificationComponent },
+  { path: '', redirectTo: '/signup', pathMatch: 'full' },
+  { path: 'table', component: TableComponent },
+  { path: '**', component: NotfoundComponent },
 ];
-

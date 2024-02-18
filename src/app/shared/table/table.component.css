@@ -1,0 +1,33 @@
+*{
+    box-sizing: border-box;
+    font-family: 'DM sans';
+}
+
+html, body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    
+}
+.container{
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    align-items: center;
+    padding: 1%;
+    background-color: #f9fafc;
+}
+table{
+    background-color: white;
+    border-radius: 5px;
+    width: 100%;
+    
+}
+thead tr{
+    border: 1px solid #BFD4E466 ;
+}
+tr th,td{
+    padding: 3%;
+}
+
+
