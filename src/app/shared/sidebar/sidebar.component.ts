@@ -33,19 +33,11 @@ export class SidebarComponent {
 
   Dropdowntoggle() {
     this.active = !this.active;
+
   }
 
   toggleAppearance() {
     this.darkMode = !this.darkMode;
-  }
-
-  showSublinks(event: any) {
-    this.openDropdown = true;
-  }
-
-  ngOnDestroy(): void {
-    this.openDropdown = false;
-    console.log(this.openDropdown);
   }
 
 }
