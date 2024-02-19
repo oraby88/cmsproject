@@ -53,16 +53,9 @@ export const routes: Routes = [
   },
 
   {
-    path: 'profile', component: UserProfileComponent
-  },
-  {
     path: 'add-user', component: AddUserComponent
   },
 
-
-  { path: '', redirectTo: '/signup', pathMatch: 'full' },
-  { path: '**', component: NotfoundComponent },
-  { path: 'signupverification', component: SignupverificationComponent },
   { path: '', redirectTo: '/signup', pathMatch: 'full' },
   { path: 'table', component: TableComponent },
   { path: 'cardmodal', component: CardModalComponent},

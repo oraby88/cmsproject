@@ -347,7 +347,7 @@
           @if (formInfo.controls.confirmPassword.errors['required']) {
           <p class="required">Confirm Password is required</p>
           } @if (formInfo.controls.confirmPassword.errors['passwordMismatch']) {
-          <p>Confirm Password does not match</p>
+          <p class="required">Confirm Password does not match</p>
           }
         </div>
         }

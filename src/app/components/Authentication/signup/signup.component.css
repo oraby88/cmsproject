@@ -573,7 +573,11 @@ input[type=password]::-ms-clear
 .changeBG {
   background-color: #0660fc;
 }
-
+.required{
+  padding: 5px 0 0 0;
+  margin: 0;
+  font-size: 14px;
+}
 /* .tooltip::before {
   content: "";
   position: absolute;
