@@ -13,6 +13,7 @@ import { ManageRolesComponent } from './components/core/management/manage-roles/
 import { BlogComponent } from './components/core/blog/blog.component';
 import { CmsMainComponent } from './components/core/cms-main/cms-main.component';
 import { UserProfileComponent } from './components/core/user-profile/user-profile.component';
+import { AddUserComponent } from './components/core/add-user/add-user.component';
 import { TableComponent } from './shared/table/table.component';
 import { CardModalComponent } from './shared/pop-up-card/card-modal/card-modal.component';
 
@@ -51,6 +52,16 @@ export const routes: Routes = [
     component: UserProfileComponent,
   },
 
+  {
+    path: 'profile', component: UserProfileComponent
+  },
+  {
+    path: 'add-user', component: AddUserComponent
+  },
+
+
+  { path: '', redirectTo: '/signup', pathMatch: 'full' },
+  { path: '**', component: NotfoundComponent },
   { path: 'signupverification', component: SignupverificationComponent },
   { path: '', redirectTo: '/signup', pathMatch: 'full' },
   { path: 'table', component: TableComponent },

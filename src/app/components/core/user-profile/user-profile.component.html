@@ -10,7 +10,46 @@
         <div class="refresh">
           <img src="assets/images/refresh-2.svg" alt="" />
 
-          <p>Last update : Today,15:05pm</p>
+    <div class="user-profile-container">
+
+        <div class="user-header">
+            <div class="header-icons">
+                <div class="refresh">
+                    <img src="assets/images/refresh-2.svg" alt="">
+
+                    <p>Last update : Today,15:05pm</p>
+                </div>
+
+
+                <img src="assets/images/cross-square.svg" alt="" (click)="close()">
+
+            </div>
+
+
+            <div class="user-info">
+                <img src="assets/images/Screenshot 2024-02-14 092120.png" alt="user-img">
+                <div class="edit"> <img src="assets/images/edit.svg" alt=""></div>
+                <h3>Haitham Mohamed</h3>
+                <p>Supper Admin</p>
+            </div>
+
+
+
+            <div class="user-actions">
+                <div class="a-box">
+                    <a (click)="display('edit')" [class.active]="activeTab =='edit'"> Information</a>
+                </div>
+
+                <div class="hr"></div>
+                <div class="a-box">
+                    <a (click)="display('change-password')" [class.active]="activeTab =='change-password'">Password</a>
+                </div>
+
+                <div class="hr"></div>
+                <div class="a-box">
+                    <a (click)="display('activity')" [class.active]="activeTab =='activity'">Activity log</a>
+                </div>
+            </div>
         </div>
 
         <img src="assets/images/cross-square.svg" alt="" (click)="close()" />
