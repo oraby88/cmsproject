@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CardComponent } from '../../../../shared/card/card.component';
-
+import { userManagementCard } from '../../../../../stories/card.stories';
 
 @Component({
   selector: 'app-manage-users',
@@ -10,6 +10,7 @@ import { CardComponent } from '../../../../shared/card/card.component';
   styleUrl: './manage-users.component.css'
 })
 export class ManageUsersComponent {
+
 
 
 }
