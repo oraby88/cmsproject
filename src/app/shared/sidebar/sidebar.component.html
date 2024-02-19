@@ -133,8 +133,9 @@
           </li>
           <li
             (click)="Dropdowntoggle()"
-            [ngClass]="{ darkTheme_active: darkMode }"
-            [routerLinkActive]="['active', 'darkTheme_active']"
+            [ngClass]="{ darkTheme_active: darkMode, active: !darkMode }"
+            [routerLinkActive]="darkMode ? 'darkTheme_active' : 'active'"
+            [routerLinkActiveOptions]="{ exact: false }"
           >
             <div class="drop-down">
               <div class="icon">
