@@ -61,7 +61,7 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
   specialChar: boolean = false;
   Number: boolean = false;
   numberLength: boolean = false;
-  signUpRequest:ISignupRequest= {} as ISignupRequest;
+  signUpRequest: ISignupRequest = {} as ISignupRequest;
 
 
   constructor(
@@ -163,7 +163,7 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
     '../../../assets/images/illustration.png',
     '../../../assets/images/Frame 1000016152.svg',
   ];
-  
+
   Submit() {
     //this.submitted = true;
     if (this.formInfo.invalid) {
@@ -172,17 +172,17 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
     }
     const fv = this.formInfo.value!;
     this.signUpRequest = {
-      fullName :fv.fullName?.toString()??'',
-      email :fv.email?.toString()??'',
-      password :fv.password?.toString()??'',
-      confirmPassword :fv.confirmPassword?.toString()??''
+      fullName: fv.fullName?.toString() ?? '',
+      email: fv.email?.toString() ?? '',
+      password: fv.password?.toString() ?? '',
+      confirmPassword: fv.confirmPassword?.toString() ?? ''
     }
     console.log(fv);
     this._authService.signUp(this.signUpRequest).subscribe({
-      next:(res)=>{
+      next: (res) => {
         console.log(res);
-        sessionStorage.setItem('token' , res.token);
-        sessionStorage.setItem('email' , res.email);
+        sessionStorage.setItem('token', res.token);
+        sessionStorage.setItem('email', res.email);
         this._Router.navigateByUrl('/signupverification');
         // this._authService.setTokenInSessionStorage(res['token']);
       },
@@ -192,17 +192,17 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
     });
 
   }
-  showConfirmPass:boolean = false
-  showConfirmPassword(){
+  showConfirmPass: boolean = false
+  showConfirmPassword() {
     this.showConfirmPass = !this.showConfirmPass
   }
-  showPass:boolean =false;
-  showPassword(){
+  showPass: boolean = false;
+  showPassword() {
     this.showPass = !this.showPass;
   }
-  unshowPassAfter2S(){
-    setTimeout(()=>{
-      
+  unshowPassAfter2S() {
+    setTimeout(() => {
+
     })
   }
 
