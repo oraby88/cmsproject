@@ -129,6 +129,7 @@
           }"
           (focusin)="test()"
           (focusout)="test()"
+          appPassword
         />
         }@else {
         <input
@@ -137,6 +138,7 @@
           id="fromInput3"
           placeholder="********************"
           formControlName="password"
+          (change)="unshowPassAfter2S()"
           [ngClass]="{
               'is-invalid':
               formInfo.controls.password.touched &&
@@ -150,6 +152,7 @@
           }"
           (focusin)="test()"
           (focusout)="test()"
+          appPassword
         />
         } @if(showPass){
         <fa-icon
@@ -304,6 +307,7 @@
             formInfo.controls.confirmPassword.untouched && 
             formInfo.controls.confirmPassword.errors == null,
         }"
+        appPassword
         />
         }@else {
         <input
@@ -323,6 +327,7 @@
             formInfo.controls.confirmPassword.untouched && 
             formInfo.controls.confirmPassword.errors == null,
         }"
+        appPassword
         />
         } @if(showConfirmPass){
         <fa-icon
@@ -356,7 +361,7 @@
     </form>
     <div class="paragraphs">
       <p class="info">Have an Account? <a routerLink="/signin">Login</a></p>
-      <p class="info">
+      <p class="para">
         By signing up you agree to out
         <a style="font-weight: 400" href="">Terms</a> and
         <a href="" style="font-weight: 400">privacy policy</a>
@@ -418,3 +423,4 @@
     <!-- The dots/circles -->
   </div>
 </div>
+

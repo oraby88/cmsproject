@@ -2,7 +2,8 @@
   box-sizing: border-box;
   font-family: "DM Sans";
 }
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -141,6 +142,7 @@ option {
   margin-bottom: 5px;
   border: 1px solid #bfd4e466;
   padding: 10px;
+  margin-bottom: 10px;
   transition: ease all 1.5s;
 }
 button {
@@ -157,6 +159,7 @@ label {
   display: inline-block;
   /* text-align: left; */
   color: black;
+  margin-bottom: 4px;
   transition: ease all 1.5s;
 }
 .labelInput {
@@ -165,17 +168,32 @@ label {
 #checkbox {
   display: inline-block;
   border: 1px solid #bfd4e466 !important;
-  color: #bfd4e466;
-  padding: 0px;
+  /* color: #bfd4e466; */
+  accent-color: #0660fc;
+  margin: 0 5px 0 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  /* -webkit-appearance: none;	 */
+  
+}
+input[id='checkbox']{
+  border: 2px solid #bfd4e466;
 }
 #checkLabel {
   display: inline-block;
 }
 .checkbox {
   display: flex;
-  padding: 10px;
+  padding: 15px 0px;
   transition: ease all 1.5s;
   justify-content: space-between;
+}
+#forget{
+  margin-right: 8px !important;
+}
+.disabled {
+  background-color: #adc4ec;
 }
 h1 {
   text-align: center;
@@ -189,6 +207,13 @@ h1 {
   padding-top: 10px;
   transition: ease all 1.5s;
 }
+.info22 {
+  text-align: center;
+
+  padding-top: 5%;
+  transition: ease all 1.5s;
+}
+
 .info2 a {
   text-decoration: none;
   color: #0660fc;
@@ -318,8 +343,9 @@ p {
   border: 1px solid red;
 }
 .invalid-feedback {
+  padding: 5px 0px;
   color: red;
-
+  font-size: 14px;
 }
 
 .container1 {
@@ -363,15 +389,15 @@ p {
   }
 }
 @keyframes fadeInAnim {
-    0% {
-      transform: rotateY(0deg);
-    }
-    50% {
-      transform: rotateY(90deg);
-    }
-    100% {
-      transform: rotateY(0deg);
-    }
+  0% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(90deg);
+  }
+  100% {
+    transform: rotateY(0deg);
+  }
 }
 
 @keyframes flipIn {
@@ -386,13 +412,13 @@ p {
   0% {
     transform: rotateY(0deg);
   }
-  25%{
+  25% {
     transform: rotateY(45deg);
   }
   50% {
     transform: rotateY(90deg);
   }
-  75%{
+  75% {
     transform: rotateY(135deg);
   }
   100% {
@@ -400,63 +426,59 @@ p {
   }
 }
 
-
-.bar{
-  display:flex;
+.bar {
+  display: flex;
   height: 5px;
   flex-grow: 1;
   margin: 0px 2px;
   border-radius: 5px;
   width: 20%;
-
 }
-#week:hover{
+#week:hover {
   content: "Password is Week";
 }
 
-#week{
+#week {
   background-color: red;
 }
-#medium{
+#medium {
   background-color: orange;
 }
-#strong{
+#strong {
   background-color: rgb(64, 161, 64);
 }
-#weekH{
+#weekH {
   background-color: lightgray;
 }
-#mediumH{
+#mediumH {
   background-color: lightgray;
 }
-#strongH{
+#strongH {
   background-color: lightgray;
 }
-#strongS{
-  background-color: rgb(153, 202, 153);;
+#strongS {
+  background-color: rgb(153, 202, 153);
 }
-#mediumS{
+#mediumS {
   background-color: rgb(243, 221, 179);
 }
 
-.strongth-password{
+.strongth-password {
   display: flex;
-  margin-top: 7px ;
+  margin-top: 7px;
   justify-content: space-between;
   width: 200px;
-
-
 }
-#passHint{
+#passHint {
   display: inline-block;
-  color: #A1A5B7;
+  color: #a1a5b7;
   font-size: 12px;
   padding-top: 8px;
 }
-.hide{
+.hide {
   display: none !important;
 }
-.show{
+.show {
   display: block !important;
 }
 
@@ -467,7 +489,7 @@ p {
   /* padding: 8px 16px; */
   /* margin-left: 60px; */
   background-color: #b4cbf3;
-  color: #0660FC;
+  color: #0660fc;
   /* padding-bottom: 3px; */
   border-radius: 50%;
   width: 17px;
@@ -475,15 +497,14 @@ p {
   margin: 7px 0 0 0px;
   text-align: center;
   font-size: 12px;
-
 }
 
-.tooltip .tooltiptext{
+.tooltip .tooltiptext {
   visibility: hidden;
   text-align: center;
   z-index: 1;
-  background-color: #181C32;
-  color: #FFFFFF;
+  background-color: #181c32;
+  color: #ffffff;
   position: absolute;
   border-radius: 5px;
   padding: 12px 16px;
@@ -495,13 +516,12 @@ p {
   font-weight: 500;
   transition: ease all 1.5s;
 }
-.tooltip:hover .tooltiptext{
+.tooltip:hover .tooltiptext {
   visibility: visible;
 }
-.tooltip .tooltiptext li{
+.tooltip .tooltiptext li {
   /* text-decoration: none; */
   list-style-type: none;
-
 }
 .tooltip .tooltiptext::after {
   content: "";
@@ -511,12 +531,12 @@ p {
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: transparent black transparent  transparent;
+  border-color: transparent black transparent transparent;
 }
 
-.correctIcon{
+.correctIcon {
   border-radius: 50%;
-  background-color: #2B3153;
+  background-color: #2b3153;
   color: black;
   margin: 5px;
   width: 17px;
@@ -524,14 +544,17 @@ p {
   text-align: center;
   display: inline-block;
 }
-.changeBG{
-  background-color: #0660FC;
+.changeBG {
+  background-color: #0660fc;
 }
 
-.label-div{
+.label-div {
   position: relative;
 }
-
+.checkDiv{
+  display: flex; 
+  
+}
 
 @media screen and (max-width: 1600px) {
   .loginDiv {
@@ -595,6 +618,7 @@ p {
   }
   .loginContainer {
     width: 100%;
+    padding: 150px;
   }
   .loginDiv {
     width: 100%;
@@ -650,6 +674,7 @@ p {
   }
   .loginContainer {
     width: 100%;
+    padding: 50px;
   }
   .loginDiv {
     width: 100%;
@@ -705,6 +730,7 @@ p {
   }
   .loginContainer {
     width: 100%;
+    padding: 30px;
   }
   .resetContainer {
     width: 100%;
@@ -755,13 +781,21 @@ p {
   .is-invalid {
     border: 1px solid red;
   }
-  
+}
+@media screen and (max-width: 400px) {
+  .loginContainer {
+    width: 100%;
+    padding: 8px;
+  }
+  .info22{
+    font-size: 12px;
+  }
+
 }
 @media screen and (max-width: 300px) {
-  .checkbox{
-    font-size: 14px;
+  .checkbox {
+    font-size: 12px;
+    display: block;
   }
   
 }
-
-
