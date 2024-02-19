@@ -14,20 +14,22 @@
   </div>
 
   <div class="sidebar-top-section">
-    <div
-      class="row sidebar-card"
-      [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
-    >
+    <div class="row">
       <div
-        class="col-12 sidebar-header"
-        [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
+        class="col-12"
+        [ngClass]="
+          !sidebarToggler ? 'sidebar-header' : 'sidebar-header-show-logo-only'
+        "
       >
         <div class="col-5">
           <div class="image">
             <img src="assets/images/Icon.png" alt="Logo" />
           </div>
         </div>
-        <div class="col-7 sidebar-header-content">
+        <div
+          class="col-7 sidebar-header-content"
+          [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
+        >
           <div class="title">
             <h4>CMS Software</h4>
             <small>Manage your blog</small>
@@ -35,9 +37,8 @@
         </div>
       </div>
     </div>
-    <div
-      [ngClass]="{ row: sidebarToggler, 'sidebar-menu-row': !sidebarToggler }"
-    >
+
+    <div class="row">
       <div
         class="col-12 sidebar-menu"
         [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
@@ -48,142 +49,127 @@
         <ul class="main-list">
           <li>
             <a href="dashboard">
-              <div>
-                <div class="icon">
-                  <img src="assets/images/dashboard.svg" alt="dashboard" />
-                </div>
-                <div
-                  class="link-title"
-                  [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
-                >
-                  Dashboard
-                </div>
+              <div class="icon">
+                <img src="assets/images/dashboard.svg" alt="dashboard" />
+              </div>
+              <div
+                class="link-title"
+                [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
+              >
+                Dashboard
               </div>
             </a>
           </li>
           <li
             [routerLink]="['/cms/blogs']"
-            [routerLinkActive]="darkMode ? 'darkTheme_active' : 'active'"
+            [routerLinkActive]="sidebarToggler ? 'active' : 'darkTheme_active'"
           >
             <a>
-              <div>
-                <div class="icon">
-                  <img src="assets/images/blog-posts.svg" alt="blog-posts" />
-                </div>
-                <div
-                  class="link-title"
-                  [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
-                >
-                  Blog Posts
-                </div>
+              <div class="icon">
+                <img src="assets/images/blog-posts.svg" alt="blog-posts" />
+              </div>
+              <div
+                class="link-title"
+                [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
+              >
+                Blog Posts
               </div>
             </a>
           </li>
-          <li
-            [routerLink]="['/cms/media-management']"
-            [routerLinkActive]="darkMode ? 'darkTheme_active' : 'active'"
-          >
+          <li>
             <a href="media">
-              <div>
-                <div class="icon">
-                  <img
-                    src="assets/images/media-management.svg"
-                    alt="media-management"
-                  />
-                </div>
-                <div
-                  class="link-title"
-                  [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
-                >
-                  Media Management
-                </div>
+              <div class="icon">
+                <img
+                  src="assets/images/media-management.svg"
+                  alt="media-management"
+                />
+              </div>
+              <div
+                class="link-title"
+                [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
+              >
+                Media Management
               </div>
             </a>
           </li>
           <li>
             <a href="seo">
-              <div>
-                <div class="icon">
-                  <img src="assets/images/seo.svg" alt="seo" />
-                </div>
-                <div
-                  class="link-title"
-                  [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
-                >
-                  SEO
-                </div>
+              <div class="icon">
+                <img src="assets/images/seo.svg" alt="seo" />
+              </div>
+              <div
+                class="link-title"
+                [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
+              >
+                SEO
               </div>
             </a>
           </li>
           <li>
             <a href="reporting an">
-              <div>
-                <div class="icon">
-                  <img src="assets/images/analytic.svg" alt="report&analytic" />
-                </div>
-                <div
-                  class="link-title"
-                  [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
-                >
-                  Report & analytic
-                </div>
+              <div class="icon">
+                <img src="assets/images/analytic.svg" alt="report&analytic" />
+              </div>
+              <div
+                class="link-title"
+                [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
+              >
+                Report & analytic
               </div>
             </a>
           </li>
           <li>
             <a href="comments">
-              <div>
-                <div class="icon">
-                  <img src="assets/images/comments.svg" alt="comments" />
-                </div>
-                <div
-                  class="link-title"
-                  [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
-                >
-                  Comments
-                </div>
+              <div class="icon">
+                <img src="assets/images/comments.svg" alt="comments" />
+              </div>
+              <div
+                class="link-title"
+                [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
+              >
+                Comments
               </div>
             </a>
           </li>
           <li
             (click)="Dropdowntoggle()"
-            [routerLinkActive]="darkMode ? 'darkTheme_active' : 'active'"
+            [ngClass]="{ darkTheme_active: darkMode }"
+            [routerLinkActive]="['active', 'darkTheme_active']"
           >
             <div class="drop-down">
-              <div>
-                <div class="icon">
-                  @if (darkMode) {
-                  <img src="assets/images/profile-circle.svg" alt="profile" />
-                  } @else{
-                  <img
-                    src="assets/images/profile-circle-dark.svg"
-                    alt="profile"
-                  />
-                  }
-                </div>
-                <div
-                  class="link-title"
-                  [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
-                >
-                  <div>User Management</div>
-                </div>
-              </div>
+              <div class="icon">
+                @if (darkMode) {
+                <img src="assets/images/profile-circle.svg" alt="profile" />
 
-              <div [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }">
-                @if(darkMode){
+                } @else{
                 <img
+                  src="assets/images/profile-circle-dark.svg"
+                  alt="profile"
+                />
+                }
+              </div>
+              <div
+                class="link-title"
+                [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
+              >
+                <div
                   [ngClass]="{
-                    rotate: active,
-                    'reverse-rotate': !active
+                    hide: sidebarToggler,
                   }"
+                >
+                  User Management
+                </div>
+
+                @if(darkMode && sidebarToggler ){
+                <img
+                  [hidden]="sidebarToggler"
+                  [ngClass]="{ rotate: active, 'reverse-rotate': !active }"
                   src="assets/images/angle-up-solid-dark.svg"
                   alt="up-arrow"
                 />} @else{
                 <img
-                  [ngClass]="{
-                    rotate: active,
-                    'reverse-rotate': !active
-                  }"
+                  [hidden]="sidebarToggler"
+                  [ngClass]="{ rotate: active, 'reverse-rotate': !active }"
                   src="assets/images/up-arrow.svg"
                   alt="up-arrow"
                 />
@@ -200,7 +186,7 @@
                     <li
                       [routerLink]="['/cms/management/roles']"
                       routerLinkActive="active-sublink"
-                      (click)="[Dropdowntoggle(), showSublinks(3)]"
+                      (click)="[Dropdowntoggle()]"
                     >
                       <a>Manage Roles</a>
                     </li>
@@ -214,7 +200,6 @@
       </div>
     </div>
   </div>
-
   <div class="sidebar-bottom-section">
     <div class="row">
       <div
@@ -227,31 +212,27 @@
         <ul>
           <li>
             <a href="dashboard">
-              <div>
-                <div class="icon">
-                  <img src="assets/images/settings.svg" alt="settings" />
-                </div>
-                <div
-                  class="link-title"
-                  [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
-                >
-                  Settings
-                </div>
+              <div class="icon">
+                <img src="assets/images/settings.svg" alt="settings" />
+              </div>
+              <div
+                class="link-title"
+                [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
+              >
+                Settings
               </div>
             </a>
           </li>
           <li>
             <a href="blogpost">
-              <div>
-                <div class="icon">
-                  <img src="assets/images/help-center.svg" alt="help-center" />
-                </div>
-                <div
-                  class="link-title"
-                  [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
-                >
-                  Help Center
-                </div>
+              <div class="icon">
+                <img src="assets/images/help-center.svg" alt="help-center" />
+              </div>
+              <div
+                class="link-title"
+                [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
+              >
+                Help Center
               </div>
             </a>
           </li>
@@ -260,12 +241,14 @@
     </div>
 
     <div
-      class="row sidebar-card"
+      class="row"
       [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
     >
       <div
         class="col-12 dark-mode"
-        [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
+        [ngClass]="
+          !sidebarToggler ? 'dark-mode' : 'dark-mode-without-background'
+        "
       >
         <div class="dark-mode-section">
           <div class="dark-mode-icon">

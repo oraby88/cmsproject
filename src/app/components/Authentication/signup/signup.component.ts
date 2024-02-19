@@ -14,7 +14,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faFilm, faEye } from '@fortawesome/free-solid-svg-icons';
+import { faFilm, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { Router, RouterModule } from '@angular/router';
 import { MatProgressBar } from '@angular/material/progress-bar';
@@ -53,6 +53,7 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
   faFacebook = faFacebook;
   faGoogle = faGoogle;
   faEye = faEye;
+  faEyaSlash = faEyeSlash;
   submitted = false;
   passwordHint: boolean = false;
   eyeshow: boolean = false;
@@ -190,6 +191,19 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
       }
     });
 
+  }
+  showConfirmPass:boolean = false
+  showConfirmPassword(){
+    this.showConfirmPass = !this.showConfirmPass
+  }
+  showPass:boolean =false;
+  showPassword(){
+    this.showPass = !this.showPass;
+  }
+  unshowPassAfter2S(){
+    setTimeout(()=>{
+      
+    })
   }
 
   showSlides(i = this.slidIndex) {

@@ -11,7 +11,7 @@
 }
 
 h5 {
-  margin: 0px;
+  margin-top: 10px;
 }
 
 .row {
@@ -26,6 +26,7 @@ h5 {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding: 0px 10px;
 }
 
 .sidebar {
@@ -34,6 +35,7 @@ h5 {
   position: sticky;
   transition: 1s;
   /* height: 821px; */
+  padding: 10px;
 }
 
 .sidebar-header {
@@ -43,6 +45,13 @@ h5 {
   align-items: center;
   background-color: #fcfcfc;
   border-radius: 10px;
+  padding: 10px 5px;
+}
+
+.sidebar-header-show-logo-only {
+  display: flex;
+  justify-content: start;
+  align-items: center;
   padding: 10px 5px;
 }
 
@@ -228,12 +237,12 @@ ul li div div {
 
 .active::before {
   content: "";
+  position: absolute;
   width: 5px;
   border-radius: 12px;
   height: 30px;
   background-color: rgba(6, 96, 252, 1);
-  left: 0px;
-  position: absolute;
+  left: -20px;
 }
 
 .active-sublink {
@@ -342,6 +351,10 @@ ul li div div {
   padding: 20px 5px;
 }
 
+.dark-mode-without-background {
+  background-color: inherit;
+}
+
 .dark-mode-icon {
   margin-right: 10px;
 }
@@ -355,8 +368,8 @@ ul li div div {
 .switch {
   position: relative;
   display: inline-block;
-  width: 50px;
-  height: 25px;
+  width: 40px;
+  height: 20px;
 }
 
 .switch input {
@@ -380,8 +393,8 @@ ul li div div {
 .slider:before {
   position: absolute;
   content: "";
-  height: 18px;
-  width: 18px;
+  height: 15px;
+  width: 15px;
   left: 3px;
   bottom: 3px;
   background-color: white;
@@ -398,12 +411,12 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(24px);
-  -ms-transform: translateX(24px);
-  transform: translateX(24px);
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
 }
 .sidebar-card {
-  margin: 0px 20px;
+  margin: 0px 20px !important;
 }
 
 /* Rounded sliders */
@@ -423,9 +436,9 @@ input:checked + .slider:before {
 .darkTheme .row .sidebar-header .sidebar-header-content .title h4,
 .darkTheme .row .sidebar-header .sidebar-header-content .title small,
 .darkTheme .sidebar-menu h5,
-.darkTheme .main ul li a .link-title,
-.darkTheme .main ul li a .link-title div,
-.darkTheme .main ul li a .link-title div .sub-links ul li a,
+.darkTheme .main ul li a div .link-title,
+.darkTheme .main ul li a div .link-title div,
+.darkTheme .main ul li a div .link-title div .sub-links ul li a,
 .darkTheme .main ul li .drop-down .link-title div,
 .darkTheme .main ul li .drop-down .link-title .sub-links ul li a,
 .darkTheme .sidebar-bottom-section .row .sidebar-menu h5,
@@ -437,11 +450,11 @@ input:checked + .slider:before {
 
 .darkTheme .row .sidebar-header .sidebar-header-content .title h4,
 .darkTheme .row .sidebar-header .sidebar-header-content .title small,
-.darkTheme .main ul li:hover > a .link-title,
-.darkTheme .main ul li:hover > a .link-title div,
-.darkTheme .main ul li a .link-title div .sub-links ul li:hover > a,
+.darkTheme .main ul li:hover > a div .link-title,
+.darkTheme .main ul li:hover > a div .link-title div,
+.darkTheme .main ul li a div .link-title div .sub-links ul li:hover > a,
 .darkTheme .main ul li:hover > .drop-down .link-title div,
-.darkTheme .main ul li:hover > a,
+.darkTheme .main ul li:hover > a div,
 .darkTheme .main ul li .drop-down .link-title .sub-links ul li:hover > a,
 .darkTheme
   .sidebar-bottom-section

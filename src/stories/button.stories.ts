@@ -1,52 +1,54 @@
-import type { Meta, StoryObj } from '@storybook/angular';
+import { argsToTemplate, type Meta, type StoryObj } from '@storybook/angular';
 
-import { ButtonComponent } from './button.component';
+import { CardComponent } from '../app/shared/card/card.component';
+
+import { action } from '@storybook/addon-actions';
+
+
+export const actionsData = {
+  onCall: action('onCall'),
+};
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
-const meta: Meta<ButtonComponent> = {
-  title: 'Example/Button',
-  component: ButtonComponent,
+const meta: Meta<CardComponent> = {
+  title: 'Example/mario/Button',
+  component: CardComponent,
   tags: ['autodocs'],
-  render: (args: ButtonComponent) => ({
+  render: (args: CardComponent) => ({
     props: {
-      backgroundColor: null,
       ...args,
+      onCall: actionsData.onCall,
     },
+    template: `<app-card ${argsToTemplate(args)}></app-card>`,
+
   }),
   argTypes: {
-    backgroundColor: {
+    title: {
       control: 'color',
     },
   },
 };
 
 export default meta;
-type Story = StoryObj<ButtonComponent>;
+type Story = StoryObj<CardComponent>;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Primary: Story = {
+export const FirstCard: Story = {
   args: {
-    primary: true,
-    label: 'Button',
+    description: 'true',
+    total_number: '5000',
   },
 };
 
 export const Secondary: Story = {
   args: {
-    label: 'Add Role',
+    ...FirstCard.args,
+    total_number: '90000'
   },
 };
 
 export const Large: Story = {
   args: {
-    size: 'large',
-    label: 'Button',
-  },
-};
-
-export const Small: Story = {
-  args: {
-    size: 'small',
-    label: 'Button',
+    icon_path: 'large',
   },
 };

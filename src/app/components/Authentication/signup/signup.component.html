@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <div class="container">
-
-  
   <div class="formDiv">
     <div class="projName">
       <img src="../../../assets/images/Icon.png" alt="ProjectIcon" />
@@ -12,7 +10,9 @@
       Welcome! 👋
       <!-- <i class="fa-solid fa-hand fa-flip-horizontal fa-lg" style="color: #FFD43B;"></i> -->
     </h1>
-    <p id="info" style="text-align: center;">Sign Up to Manage Blog post account</p>
+    <p id="info" style="text-align: center">
+      Sign Up to Manage Blog post account
+    </p>
 
     <form
       class="form-group"
@@ -24,7 +24,7 @@
         <div class="formLinks">
           <a href="https://www.google.com/">
             <p>
-              <img src="../../../../assets/images/Logo.png" alt="">
+              <img src="../../../../assets/images/google.svg" alt="" />
               <span class="whenComputer">Sign up with Google</span>
               <span class="whenPhone">With Google</span>
             </p>
@@ -33,8 +33,8 @@
         <div class="formLinks">
           <a href="https://www.facebook.com/">
             <p>
-              <img src="../../../../assets/images/Logo (1).png" alt="">
-              
+              <img src="../../../../assets/images/facebook.svg" alt="" />
+
               <span class="whenComputer">Sign up with Facebook</span>
               <span class="whenPhone">With Facebook</span>
             </p>
@@ -109,6 +109,28 @@
       </div>
       <div class="label-div">
         <label class="form-label" for="fromInput3">Password</label>
+        @if (showPass) {
+        <input
+          type="text"
+          class="form-input passwordCheck"
+          id="fromInput3"
+          placeholder="********************"
+          formControlName="password"
+          [ngClass]="{
+              'is-invalid':
+              formInfo.controls.password.touched &&
+              formInfo.controls.password.errors,
+              'is-valid':
+              formInfo.controls.password.touched && 
+              formInfo.controls.password.errors == null ,
+              'is-touched':
+              formInfo.controls.password.untouched && 
+              formInfo.controls.password.errors == null,
+          }"
+          (focusin)="test()"
+          (focusout)="test()"
+        />
+        }@else {
         <input
           type="password"
           class="form-input passwordCheck"
@@ -129,6 +151,19 @@
           (focusin)="test()"
           (focusout)="test()"
         />
+        } @if(showPass){
+        <fa-icon
+          [icon]="faEye"
+          class="EyeIcon"
+          (click)="showPassword()"
+        ></fa-icon>
+        }@else {
+        <fa-icon
+          [icon]="faEyaSlash"
+          class="EyeIcon"
+          (click)="showPassword()"
+        ></fa-icon>
+        }
 
         <!-- <span
           class="p-viewer"
@@ -226,7 +261,7 @@
                       changeBG: Number
                     }"
                     >✔</span
-                  >At least One Numbers
+                  >At least One Number
                 </li>
                 <li>
                   <span
@@ -235,7 +270,8 @@
                       changeBG: specialChar
                     }"
                     >✔</span
-                  >At least One Special Character:!#$%^&*()_+.
+                  >At least One Special
+                  <span style="margin-left: 12%">Character:!#$%^&*()_+.</span>
                 </li>
               </ul>
               <!-- <span id="length"></span> -->
@@ -250,6 +286,26 @@
         <!-- <span class="p-viewer1">
 					<fa-icon [icon]="faEye"></fa-icon>
 				</span> -->
+        @if (showConfirmPass) {
+        <input
+          type="text"
+          class="form-input"
+          id="fromInput4"
+          formControlName="confirmPassword"
+          placeholder="********************"
+          [ngClass]="{
+            'is-invalid':
+            formInfo.controls.confirmPassword.touched &&
+            formInfo.controls.confirmPassword.errors,
+            'is-valid':
+            formInfo.controls.confirmPassword.touched && 
+            formInfo.controls.confirmPassword.errors == null ,
+            'is-touched':
+            formInfo.controls.confirmPassword.untouched && 
+            formInfo.controls.confirmPassword.errors == null,
+        }"
+        />
+        }@else {
         <input
           type="password"
           class="form-input"
@@ -268,7 +324,19 @@
             formInfo.controls.confirmPassword.errors == null,
         }"
         />
-        @if (formInfo.controls.confirmPassword.touched &&
+        } @if(showConfirmPass){
+        <fa-icon
+          [icon]="faEye"
+          class="EyeIcon"
+          (click)="showConfirmPassword()"
+        ></fa-icon>
+        }@else {
+        <fa-icon
+          [icon]="faEyaSlash"
+          class="EyeIcon"
+          (click)="showConfirmPassword()"
+        ></fa-icon>
+        } @if (formInfo.controls.confirmPassword.touched &&
         formInfo.controls.confirmPassword.errors) {
         <div class="invalid-feedback">
           @if (formInfo.controls.confirmPassword.errors['required']) {
@@ -279,8 +347,10 @@
         </div>
         }
       </div>
-
-      <button type="submit" class="submitButton" [disabled]="formInfo.invalid">
+      
+      <button type="submit" class="submitButton" [disabled]="formInfo.invalid" 
+      [ngClass]="{'disabled':formInfo.invalid}"
+      >
         Sign Up
       </button>
     </form>
@@ -308,11 +378,13 @@
               id="inside"
             />
           </div>
-          
+
           <img src="{{ showSlides() }}" alt="Slides" class="img1" />
         </div>
         <div class="text">
-          <p style="font-size: 22px;font-weight: 500;">Manage Any Content Anywhere</p>
+          <p style="font-size: 22px; font-weight: 500">
+            Manage Any Content Anywhere
+          </p>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
             repellat modi dicta suscipit vero
@@ -327,7 +399,7 @@
     </div>
 
     <div class="dots" style="text-align: center">
-      <span style="text-align: center; color: white;cursor: pointer;align-items: center;" (click)="currentSlide(0)">&#x2190;</span>
+      <a class="arrows" (click)="currentSlide(0)">&#x2190;</a>
       <span
         id="dot1"
         class="active-dot"
@@ -340,7 +412,7 @@
         (click)="currentSlide(1)"
         [ngClass]="{ 'active-dot': slidIndex == 1 }"
       ></span>
-      <span style="text-align: center; color: white;cursor: pointer;align-items: center;" (click)="currentSlide(1)">&#x2192;</span>
+      <a class="arrows" (click)="currentSlide(1)">&#x2192;</a>
     </div>
 
     <!-- The dots/circles -->

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CardComponent } from '../../../../shared/card/card.component';
 
+
 @Component({
   selector: 'app-manage-users',
   standalone: true,
@@ -9,5 +10,6 @@ import { CardComponent } from '../../../../shared/card/card.component';
   styleUrl: './manage-users.component.css'
 })
 export class ManageUsersComponent {
+
 
 }

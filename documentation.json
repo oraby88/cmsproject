@@ -1078,7 +1078,7 @@
         },
         {
             "name": "CardComponent",
-            "id": "component-CardComponent-48c3284f84c034811cd789b706560a1b4f0c6c06910a4de933a1ff253cb9436815a8060cb8c3ebcd30580849f8f5d64d24a4ff60aebd52c833b8a13d71b56ab1",
+            "id": "component-CardComponent-aa4adca5307bc8d2d5052dc4b1ebee025ebfd1bca6622409b7506dd52d77aa7cbe42a305f9dfb4c69a3613d6e6fa6e17105f43ca885041675c8870118d936495",
             "file": "src/app/shared/card/card.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1135,7 +1135,16 @@
                     "decorators": []
                 }
             ],
-            "outputsClass": [],
+            "outputsClass": [
+                {
+                    "name": "onCall",
+                    "defaultValue": "new EventEmitter<String>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "EventEmitter"
+                }
+            ],
             "propertiesClass": [],
             "methodsClass": [
                 {
@@ -1157,6 +1166,16 @@
                     "line": 20,
                     "deprecated": false,
                     "deprecationMessage": ""
+                },
+                {
+                    "name": "something",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 24,
+                    "deprecated": false,
+                    "deprecationMessage": ""
                 }
             ],
             "deprecated": false,
@@ -1168,7 +1187,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit, } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-card',\r\n  standalone: true,\r\n  imports: [],\r\n  templateUrl: './card.component.html',\r\n  styleUrl: './card.component.css'\r\n})\r\nexport class CardComponent implements OnInit {\r\n\r\n  @Input('icon_path') icon_path!: string;\r\n  @Input('title') title!: string;\r\n  @Input('description') description!: string;\r\n  @Input('description_continue') description_continue!: string;\r\n  @Input('total_number') total_number!: string;\r\n\r\n  constructor() { }\r\n\r\n  ngOnInit(): void { }\r\n\r\n  ngOnChanges(): void {\r\n\r\n  }\r\n}\r\n",
+            "sourceCode": "import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-card',\r\n  standalone: true,\r\n  imports: [],\r\n  templateUrl: './card.component.html',\r\n  styleUrl: './card.component.css'\r\n})\r\nexport class CardComponent implements OnInit {\r\n\r\n  @Input('icon_path') icon_path!: string;\r\n  @Input('title') title!: string;\r\n  @Input('description') description!: string;\r\n  @Input('description_continue') description_continue!: string;\r\n  @Input('total_number') total_number!: string;\r\n  @Output() onCall = new EventEmitter<String>();\r\n  constructor() { }\r\n\r\n  ngOnInit(): void { }\r\n\r\n  ngOnChanges(): void { }\r\n\r\n  something() {\r\n    this.onCall.emit('ssssssssssss');\r\n  }\r\n}\r\n",
             "styleUrl": "./card.component.css",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -1179,13 +1198,13 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 16
+                "line": 17
             },
             "extends": [],
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"card\">\r\n  <div class=\"info\">\r\n    <div class=\"main-info\">\r\n      <div class=\"icon\">\r\n        <img [src]=\"icon_path\" alt=\"icon\" />\r\n      </div>\r\n      <div class=\"title\">{{ title }}</div>\r\n    </div>\r\n    <small class=\"description\"\r\n      >{{ description }} <br />\r\n      {{ description_continue }}</small\r\n    >\r\n  </div>\r\n  <div class=\"total-number\">{{ total_number }}</div>\r\n</div>\r\n"
+            "templateData": "<div class=\"card\" (click)=\"something()\">\r\n  <div class=\"info\">\r\n    <div class=\"main-info\">\r\n      <div class=\"icon\">\r\n        <img [src]=\"icon_path\" alt=\"icon\" />\r\n      </div>\r\n      <div class=\"title\">{{ title }}</div>\r\n    </div>\r\n    <small class=\"description\"\r\n      >{{ description }} <br />\r\n      {{ description_continue }}</small\r\n    >\r\n  </div>\r\n  <div class=\"total-number\">{{ total_number }}</div>\r\n\r\n</div>\r\n"
         },
         {
             "name": "CmsMainComponent",
@@ -1729,7 +1748,7 @@
         },
         {
             "name": "ManageUsersComponent",
-            "id": "component-ManageUsersComponent-5bb93f493ea187c86082201d8e483d37f8c0fa6adb3a02d538218835da0755dd91adafa678b8787d86e86f62938d125c8394449e1a40d4cbdcf01fa70b5d5611",
+            "id": "component-ManageUsersComponent-660f189a170cda8a24d0e8b49354f84b8205c7335ec21650d4adbf27cca89e9ad7f7d5fe2b5d3fc1c7eb5c797f0ebe3e1146e1e5b75d332429c673f68df5306c",
             "file": "src/app/components/core/management/manage-users/manage-users.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1762,13 +1781,13 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\r\nimport { CardComponent } from '../../../../shared/card/card.component';\r\n\r\n@Component({\r\n  selector: 'app-manage-users',\r\n  standalone: true,\r\n  imports: [CardComponent],\r\n  templateUrl: './manage-users.component.html',\r\n  styleUrl: './manage-users.component.css'\r\n})\r\nexport class ManageUsersComponent {\r\n\r\n}\r\n",
+            "sourceCode": "import { Component } from '@angular/core';\r\nimport { CardComponent } from '../../../../shared/card/card.component';\r\n\r\n@Component({\r\n  selector: 'app-manage-users',\r\n  standalone: true,\r\n  imports: [CardComponent],\r\n  templateUrl: './manage-users.component.html',\r\n  styleUrl: './manage-users.component.css'\r\n})\r\nexport class ManageUsersComponent {\r\n\r\n\r\n}\r\n",
             "styleUrl": "./manage-users.component.css",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "extends": [],
-            "templateData": "<div class=\"container\">\r\n  <div>\r\n    <div class=\"col-12\">\r\n      <div class=\"section-title\">\r\n        <h3>User Management</h3>\r\n        <small>Mange your users and roles</small>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"row\">\r\n    <div class=\"col-3\">\r\n      <app-card\r\n        [icon_path]=\"'assets/images/user-management-count.svg'\"\r\n        [title]=\"'Active Users'\"\r\n        [description]=\"'Total user number'\"\r\n        [description_continue]=\"'in this system'\"\r\n        [total_number]=\"'3500'\"\r\n      ></app-card>\r\n    </div>\r\n    <div class=\"col-3\">\r\n      <app-card\r\n        [icon_path]=\"'assets/images/user-management-count.svg'\"\r\n        [title]=\"'Active Users'\"\r\n        [description]=\"'Total user number'\"\r\n        [description_continue]=\"'in this system'\"\r\n        [total_number]=\"'3500'\"\r\n      ></app-card>\r\n    </div>\r\n\r\n    <div class=\"col-3\">\r\n      <app-card\r\n        [icon_path]=\"'assets/images/user-square.svg'\"\r\n        [title]=\"'Deactive Users'\"\r\n        [description]=\"'Total user number'\"\r\n        [description_continue]=\"'in this system'\"\r\n        [total_number]=\"'1500'\"\r\n      ></app-card>\r\n    </div>\r\n\r\n    <div class=\"col-3\">\r\n      <app-card\r\n      [icon_path]=\"'assets/images/user-management-count.svg'\"\r\n      [title]=\"'Active Users'\"\r\n      [description]=\"'Total user number'\"\r\n      [description_continue]=\"'in this system'\"\r\n      [total_number]=\"'3500'\"\r\n    ></app-card>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+            "templateData": "<div class=\"container\">\r\n  <div>\r\n    <div class=\"col-12\">\r\n      <div class=\"section-title\">\r\n        <h3>User Management</h3>\r\n        <small>Mange your users and roles</small>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"row\">\r\n    <div class=\"col-3\">\r\n      <app-card\r\n        [icon_path]=\"'assets/images/user-management-count.svg'\"\r\n        [title]=\"'Active Users'\"\r\n        [description]=\"'Total user number'\"\r\n        [description_continue]=\"'in this system'\"\r\n        [total_number]=\"'3500'\"\r\n        (c)=\"'sss'\"\r\n      ></app-card>\r\n    </div>\r\n    <div class=\"col-3\">\r\n      <app-card\r\n        [icon_path]=\"'assets/images/user-management-count.svg'\"\r\n        [title]=\"'Active Users'\"\r\n        [description]=\"'Total user number'\"\r\n        [description_continue]=\"'in this system'\"\r\n        [total_number]=\"'3500'\"\r\n      ></app-card>\r\n    </div>\r\n\r\n    <div class=\"col-3\">\r\n      <app-card\r\n        [icon_path]=\"'assets/images/user-square.svg'\"\r\n        [title]=\"'Deactive Users'\"\r\n        [description]=\"'Total user number'\"\r\n        [description_continue]=\"'in this system'\"\r\n        [total_number]=\"'1500'\"\r\n      ></app-card>\r\n    </div>\r\n\r\n    <div class=\"col-3\">\r\n      <app-card\r\n        [icon_path]=\"'assets/images/user-management-count.svg'\"\r\n        [title]=\"'Active Users'\"\r\n        [description]=\"'Total user number'\"\r\n        [description_continue]=\"'in this system'\"\r\n        [total_number]=\"'3500'\"\r\n      ></app-card>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
         },
         {
             "name": "NotfoundComponent",
@@ -3616,6 +3635,16 @@
     "miscellaneous": {
         "variables": [
             {
+                "name": "actionsData",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  onCall: action('onCall'),\n}"
+            },
+            {
                 "name": "appConfig",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -3674,6 +3703,16 @@
                 "deprecationMessage": "",
                 "type": "object",
                 "defaultValue": "{\r\n    BASEURL:'https://192.168.1.74:7109/',\r\n    production: false\r\n}"
+            },
+            {
+                "name": "FirstCard",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    description: 'true',\n    total_number: '5000',\n  },\n}"
             },
             {
                 "name": "Large",
@@ -3812,7 +3851,7 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ButtonComponent>",
+                "rawtype": "StoryObj<CardComponent>",
                 "file": "src/stories/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -3844,6 +3883,58 @@
         ],
         "enumerations": [],
         "groupedVariables": {
+            "src/stories/button.stories.ts": [
+                {
+                    "name": "actionsData",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  onCall: action('onCall'),\n}"
+                },
+                {
+                    "name": "FirstCard",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    description: 'true',\n    total_number: '5000',\n  },\n}"
+                },
+                {
+                    "name": "Large",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    icon_path: 'large',\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<CardComponent>",
+                    "defaultValue": "{\n  title: 'Example/mario/Button',\n  component: CardComponent,\n  tags: ['autodocs'],\n  render: (args: CardComponent) => ({\n    props: {\n      ...args,\n      onCall: actionsData.onCall,\n    },\n    template: `<app-card ${argsToTemplate(args)}></app-card>`,\n\n  }),\n  argTypes: {\n    title: {\n      control: 'color',\n    },\n  },\n}"
+                },
+                {
+                    "name": "Secondary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    ...FirstCard.args,\n    total_number: '90000'\n  },\n}"
+                }
+            ],
             "src/app/app.config.ts": [
                 {
                     "name": "appConfig",
@@ -4063,7 +4154,7 @@
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<ButtonComponent>",
+                    "rawtype": "StoryObj<CardComponent>",
                     "file": "src/stories/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
@@ -4376,7 +4467,7 @@
                 "linktype": "component",
                 "name": "CardComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/9",
+                "coverageCount": "0/11",
                 "status": "low"
             },
             {
@@ -4450,6 +4541,26 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
+                "name": "actionsData",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "FirstCard",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
                 "name": "Large",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
@@ -4470,27 +4581,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Primary",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
                 "name": "Secondary",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Small",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
