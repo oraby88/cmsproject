@@ -13,6 +13,7 @@ import { ManageRolesComponent } from './components/core/management/manage-roles/
 import { BlogComponent } from './components/core/blog/blog.component';
 import { CmsMainComponent } from './components/core/cms-main/cms-main.component';
 import { UserProfileComponent } from './components/core/user-profile/user-profile.component';
+import { AddUserComponent } from './components/core/add-user/add-user.component';
 
 export const routes: Routes = [
     { path: 'signin', component: SigninComponent },
@@ -40,6 +41,9 @@ export const routes: Routes = [
     },
     {
         path: 'profile', component: UserProfileComponent
+    },
+    {
+        path: 'add-user', component:AddUserComponent
     },
 
 

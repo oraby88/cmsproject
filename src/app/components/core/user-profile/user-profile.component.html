@@ -1,8 +1,8 @@
 <div class="container">
-@if( isavailable){
+    @if( isavailable){
 
 
-    <div class="user-profile-container" >
+    <div class="user-profile-container">
 
         <div class="user-header">
             <div class="header-icons">
@@ -79,7 +79,7 @@
                         <label for="number">Phone</label>
                         <div class="phone">
                             <select name="" id="">
-                                <!-- <option value=""><img src="Group.svg" alt=""></option> -->
+                                <!-- <option value="" style="background-image: url('assets/images/Group.svg');"></option> -->
                             </select>
                             <input type="text" value="+1258525645-555" disabled>
 
@@ -105,11 +105,11 @@
             </div>
 
         </div>
-    }
+        }
 
 
-    
-    @if(activeTab=='change-password'){
+
+        @if(activeTab=='change-password'){
 
         <div class="user-form">
 
@@ -144,10 +144,10 @@
 
 
         </div>
-    }
-    
+        }
+
         @if(activeTab=='activity'){
-        <div class="user-form" >
+        <div class="user-form">
 
             <div class="user-form-header">
                 <div class="inner-text">
@@ -229,8 +229,7 @@
             </div>
 
         </div>
+        }
+    </div>
     }
-   </div>
-} 
 </div>
-
