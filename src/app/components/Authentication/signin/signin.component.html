@@ -6,12 +6,7 @@
       <div class="projNDiv"><p class="Name">CMS Software</p></div>
     </div>
 
-    <div class="selDiv">
-      <select name="language">
-        <option value="en">English</option>
-        <option value="en">Arabic</option>
-      </select>
-    </div>
+    
   </div>
 
   <div
@@ -79,22 +74,25 @@
                 @if (formInfo.controls.password.touched &&
                 formInfo.controls.password.errors) {
                 <div class="invalid-feedback">
-                
+                  @if (formInfo.controls.password.errors['required']) {
+                  <p>Password is required</p>
+                  }
                 </div>
-                }
-              </div>
+              }</div>
               <div class="checkbox">
-                <div style="display: flex; align-items: center;">
-                  <input type="checkbox" id="checkbox" name="checkbox" />
+                <div class="checkDiv">
+                  <input type="checkbox" id="checkbox" (change)="checkbox()" name="checkbox" />
                   <label for="checkbox" id="checkLabel">Remember me</label>
                 </div>
                 <!-- <label style="display: inline; border: 1px solid #BFD4E466; width: 18px; height: 18px;"></label> -->
                 
-                <a routerLink="/sendmail"><p>Forget password?</p></a>
+                <a routerLink="/sendmail"><p id="forget">Forget password?</p></a>
               </div>
-              <button type="submit" [disabled]="!form.valid">LOG IN</button>
-              <p class="info2">
-                Dont't have an account? <a routerLink="/signup">Register</a>
+              <button 
+              [ngClass]="{disabled:formInfo.invalid}" 
+              type="submit" [disabled]="!form.valid">LOG IN</button>
+              <p class="info22">
+                Dont't have an Account? <a routerLink="/signup">Register</a>
               </p>
               <!-- <input type="submit"> -->
             </form>

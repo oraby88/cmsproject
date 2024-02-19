@@ -62,6 +62,7 @@ option {
   /* display: none; */
   /* backface-visibility: hidden; */
   /* transform: rotateY(180deg); */
+  transition: ease all 1.5s;
 }
 
 .bg2 {
@@ -161,6 +162,7 @@ button {
   width: 98%;
   /* margin-left: 12px; */
   /* margin-right: 12px; */
+  margin-top: 15px;
 }
   .bg,
   .bg2,
@@ -253,6 +255,7 @@ button {
   }
   .loginContainer {
     width: 100%;
+    padding: 100px;
   }
   .loginDiv {
     width: 100%;
@@ -282,6 +285,7 @@ button {
   
   .resetContainer {
     width: 100%;
+    padding: 100px;
   }
   .resetDiv {
     width: 100%;
@@ -335,6 +339,7 @@ button {
   }
   .resetContainer {
     width: 100%;
+    padding: 70px;
   }
   .resetDiv {
     width: 100%;
@@ -378,15 +383,15 @@ button {
     padding: 0;
     background: #ffffff;
   }
-  .loginDiv h1 {
-    font-size: 20px;
+  h1 {
+    font-size: 24px;
   }
   .info1 {
     font-size: 14px;
     color: #a1a5b7;
   }
   .info2 {
-    font-size: 14px;
+    font-size: 12px;
     color: #a1a5b7;
   }
   .nameContainer{

@@ -9,16 +9,17 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
-import { AuthService } from '../../../services/auth.service';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { ResetPasswordService } from '../../../services/reset-password.service';
 import { IForgetPassRequest } from '../../../interfaces/iforget-pass-request';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @Component({
   selector: 'app-setnewpassword',
   standalone: true,
-  imports: [RouterModule, FormsModule, ReactiveFormsModule, CommonModule],
+  imports: [RouterModule, FormsModule, ReactiveFormsModule, CommonModule, FontAwesomeModule],
   templateUrl: './setnewpassword.component.html',
   styleUrl: './setnewpassword.component.css',
   animations: [
@@ -35,6 +36,8 @@ import { IForgetPassRequest } from '../../../interfaces/iforget-pass-request';
 })
 export class SetnewpasswordComponent implements OnInit, DoCheck {
   eyeshow: boolean = false;
+  faEye = faEye;
+  faEyaSlash = faEyeSlash;
   passwordHint: boolean = false;
   uppercase: boolean = false;
   specialChar: boolean = false;
@@ -129,5 +132,14 @@ export class SetnewpasswordComponent implements OnInit, DoCheck {
 
   eyeShow() {
     this.eyeshow = !this.eyeshow;
+  }
+
+  showConfirmPass:boolean = false
+  showConfirmPassword(){
+    this.showConfirmPass = !this.showConfirmPass
+  }
+  showPass:boolean =false;
+  showPassword(){
+    this.showPass = !this.showPass;
   }
 }

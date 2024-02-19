@@ -106,6 +106,10 @@ export class SigninComponent implements OnInit, DoCheck {
 
     });
   }
+  checkbox(){
+    localStorage.setItem('email',this.formInfo.controls.email?.toString()??'');
+    localStorage.setItem('password',this.formInfo.controls.password?.toString()??'');
+  }
 
   // resetSubmit() { // send mail
   //   if (this.formSendMail.invalid) {

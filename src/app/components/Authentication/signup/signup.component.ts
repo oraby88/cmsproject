@@ -3,6 +3,8 @@ import {
   AfterViewInit,
   Component,
   DoCheck,
+  ElementRef,
+  HostListener,
   OnInit,
 } from '@angular/core';
 import {
@@ -21,6 +23,7 @@ import { MatProgressBar } from '@angular/material/progress-bar';
 import { AuthService } from '../../../services/auth.service';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { ISignupRequest } from '../../../interfaces/signupinterface';
+import { PasswordDirective } from '../password.directive';
 
 @Component({
   selector: 'app-signup',
@@ -32,7 +35,7 @@ import { ISignupRequest } from '../../../interfaces/signupinterface';
     FontAwesomeModule,
     RouterModule,
     MatProgressBar,
-
+    PasswordDirective
   ],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css',
@@ -67,7 +70,8 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
   constructor(
     private formBuilder: FormBuilder,
     private _authService: AuthService,
-    private _Router: Router
+    private _Router: Router,
+    private element:ElementRef
   ) { }
 
   ngAfterViewInit(): void { }
@@ -97,17 +101,6 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
     };
   }
 
-  // match() {
-  //   if (
-  //     this.formInfo.controls.password.value ===
-  //     this.formInfo.controls.confirmPassword.value
-  //   ) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // }
-
   ngOnInit(): void {
     this.formInfo = this.formBuilder.group(
       {
@@ -116,7 +109,7 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
           [
             Validators.required,
             Validators.minLength(4),
-            Validators.maxLength(16),
+            Validators.maxLength(60),
           ],
         ],
         email: ['', [Validators.required, Validators.email]],
@@ -125,7 +118,7 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
           [
             Validators.required,
             Validators.maxLength(40),
-            Validators.minLength(6),
+            Validators.minLength(8),
             Validators.pattern(
               '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$'
             ),
@@ -135,26 +128,6 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
       },
       { validator: this.validateAreEqual('password', 'confirmPassword') }
     );
-
-    // const password = document.getElementsByClassName('passwordCheck');
-
-    // const mediumBar = document.getElementById('medium');
-    // const strongBar = document.getElementById('strong');
-
-    // if (password?.length < 5) {
-    //   document.getElementById('week')!.style.flexGrow = '1';
-    //   document.getElementById('medium')!.style.flexGrow = 'none';
-    //   document.getElementById('strong')!.style.flexGrow = 'none';
-    //   console.log(password.length);
-    // } else if (password.length > 5 && password.length < 15) {
-    //   document.getElementById('week')!.style.flexGrow = 'none';
-    //   document.getElementById('medium')!.style.flexGrow = '1';
-    //   document.getElementById('strong')!.style.flexGrow = 'none';
-    // } else if (password.length > 15) {
-    //   document.getElementById('week')!.style.flexGrow = 'none';
-    //   document.getElementById('medium')!.style.flexGrow = 'none';
-    //   document.getElementById('strong')!.style.flexGrow = '1';
-    // }
   }
 
   slidIndex: number = 0;
@@ -200,55 +173,21 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
   showPassword(){
     this.showPass = !this.showPass;
   }
+  
   unshowPassAfter2S(){
+    const ele = this.element.nativeElement as HTMLInputElement;
     setTimeout(()=>{
-      
-    })
+      ele.type = 'text'
+    },2000)
+    console.log('aaaaaaa');
   }
 
   showSlides(i = this.slidIndex) {
-    //   let i = 0;
-    //   const slideId = document.getElementById('mySlide');
-    //   const slides =document.getElementsByClassName('mySlides');
-    //   const dots = document.getElementsByClassName('dot');
-    //   if(n > slides.length){
-    //     this.slidIndex = 1
-    //   }
-    //   if(n < slides.length){
-    //     this.slidIndex = slides.length;
-    //   }
-    //   for(i=0;i < slides.length ; i++){
-    //     slides[i].classList.toggle('active');
-    //   }
-    // }
-    // if (this.slidIndex == 1) {
-    // document.getElementById('inside')!.style.display = 'none';
-    // document.getElementById('dot2')!.className = 'active-dot';
-    // document.getElementById('dot1')!.className = 'dot';
-    // } else {
-    // document.getElementById('inside')!.style.display = 'flex';
-    // document.getElementById('dot2')!.className = 'dot';
-    // document.getElementById('dot1')!.className = 'active-dot';
-    // }
 
     let silde = this.slides[i];
     return silde;
   }
-  // nextSlides() {
-  //   this.slidIndex += 1;
-  //   if (this.slidIndex == 2) {
-  //     this.slidIndex = 0;
-  //   }
-
-  //   return this.showSlides();
-  // }
-  // prevSlides() {
-  //   this.slidIndex -= 1;
-  //   if (this.slidIndex == -1) {
-  //     this.slidIndex = 1;
-  //   }
-  //   return this.showSlides();
-  // }
+  
   currentSlide(i: number) {
     console.log(i);
     this.slidIndex = i;
@@ -262,5 +201,19 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
 
   eyeShow() {
     this.eyeshow = !this.eyeshow;
+  }
+
+  testStr:string='';
+  pwd!:string;
+  signUpTest(str:any){
+    console.log(str);
+    const input = this.element.nativeElement as HTMLInputElement;
+    input.type = 'text';
+    setTimeout(()=>{
+        this.testStr+=`-`
+        input.type = 'password'
+        this.pwd+=str.key;
+        console.log(this.pwd);
+    },2000);
   }
 }
