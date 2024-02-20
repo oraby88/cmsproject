@@ -145,6 +145,24 @@ option {
   margin-bottom: 10px;
   transition: ease all 1.5s;
 }
+
+.EyeIcon{
+  margin-left: -30px;
+  margin-top: -25px;
+  position: relative;
+  z-index: 2;
+  width: 25px !important;
+  display: inline-block;
+  transition: ease all 1s;
+  color: rgb(201, 198, 198);
+}
+
+input[type=password]::-ms-reveal,
+input[type=password]::-ms-clear
+{
+    display: none;
+}
+
 button {
   height: 40px;
   width: 100%;

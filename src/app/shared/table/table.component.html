@@ -1,8 +1,10 @@
 <div class="container">
   <table>
     <thead>
-      <tr >
-        <th>#</th>
+      @for (data of headData; track data) {
+
+      <tr>
+        <th>{{ data }}</th>
         <th>1</th>
         <th>2</th>
         <th>3</th>
@@ -10,10 +12,13 @@
         <th>3</th>
         <th>3</th>
       </tr>
+
+      }
     </thead>
     <tbody>
+      @for (data of bodyData; track data) {
       <tr>
-        <td>aa</td>
+        <td>{{ data }}</td>
         <td>aa</td>
         <td>aa</td>
         <td>aa</td>
@@ -21,24 +26,7 @@
         <td>aa</td>
         <td>aa</td>
       </tr>
-      <tr>
-        <td>bb</td>
-        <td>bb</td>
-        <td>bb</td>
-        <td>bb</td>
-        <td>bb</td>
-        <td>bb</td>
-        <td>bb</td>
-      </tr>
-      <tr>
-        <td>cc</td>
-        <td>cc</td>
-        <td>cc</td>
-        <td>bb</td>
-        <td>bb</td>
-        <td>bb</td>
-        <td>cc</td>
-      </tr>
+      }
     </tbody>
     <tfoot></tfoot>
   </table>

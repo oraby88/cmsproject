@@ -108,8 +108,10 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
           '',
           [
             Validators.required,
-            Validators.minLength(4),
+            Validators.minLength(2),
             Validators.maxLength(60),
+            Validators.pattern('^[a-zA-Z]{2,}(?: [a-zA-Z]+){0,2}$')
+            
           ],
         ],
         email: ['', [Validators.required, Validators.email]],

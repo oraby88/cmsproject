@@ -140,7 +140,7 @@ body {
   /* padding: 5px; */
   /* padding: 0px 5px; */
   width: 198px;
-  border-radius: 8px;
+  border-radius: 10px;
   /* height: 42px; */
   text-align: center;
   transition: ease all 1s;
@@ -182,8 +182,8 @@ body {
 
 .FLinksContainer {
   display: flex;
-  column-gap: 16px;
-  width: 409;
+  gap: 16px;
+  /* width: 409; */
   /* margin-bottom: 10px; */
 }
 .FLinksContainer p {
@@ -420,7 +420,7 @@ input[type=password]::-ms-clear
   display: inline-block;
   font-size: 12px;
   text-align: right;
-  padding-left: 10px;
+  /* padding-left: 10px; */
   color: #7E8299;
 }
 
@@ -574,8 +574,8 @@ input[type=password]::-ms-clear
   background-color: #0660fc;
 }
 .required{
-  padding: 5px 0 0 0;
-  margin: 0;
+  padding: 5px 0 0 0 !important;
+  margin: 0 !important;
   font-size: 14px;
 }
 /* .tooltip::before {
@@ -654,7 +654,7 @@ input[type=password]::-ms-clear
 	color: #000;
 } */
 
-.is-invalid:focus {
+.is-invalid {
   outline: 1px solid red;
 }
 .invalid-feedback {
@@ -679,7 +679,7 @@ input[type=password]::-ms-clear
     border: 1px solid red;
   }
   .container {
-    height: 100%;
+    
     transition: all 1s;
     overflow: visible;
   }
@@ -1226,5 +1226,11 @@ input[type=password]::-ms-clear
     border-style: solid;
     border-color: transparent transparent transparent black;
     border-radius: 30%;
+  }
+  .passwordCheckContainer{
+    
+  }
+  .passContainerSmallSize{
+    display: inline-block;
   }
 }
