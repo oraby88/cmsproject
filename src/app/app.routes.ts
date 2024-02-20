@@ -23,6 +23,7 @@ export const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'sendmail', component: SendmailComponent },
   { path: 'emailverification', component: EmailVerificationComponent },
+  { path: 'signupverification', component: SignupverificationComponent },
   { path: 'setnewpassword', component: SetnewpasswordComponent },
   { path: 'correctchange', component: CorrectchagesComponent },
   {
@@ -53,7 +54,8 @@ export const routes: Routes = [
     component: UserProfileComponent,
   },
   {
-    path: 'add-user', component: AddUserComponent
+    path: 'add-user',
+    component: AddUserComponent,
   },
   { path: '', redirectTo: '/signup', pathMatch: 'full' },
   { path: 'table', component: TableComponent },

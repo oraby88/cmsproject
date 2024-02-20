@@ -59,7 +59,22 @@
               </div>
               <div class="label-div">
                 <label class="form-label" for="fromInput3">Password</label>
-                <input
+                @if (showPass) {
+                  <input
+                  type="text"
+                  class="form-input"
+                  id="fromInput3"
+                  placeholder="********************"
+                  formControlName="password"
+                  [ngClass]="{
+                    'is-invalid':
+                      formInfo.controls.password.touched &&
+                      formInfo.controls.password.errors
+                  }"
+                />
+                }
+                @else {
+                  <input
                   type="password"
                   class="form-input"
                   id="fromInput3"
@@ -71,6 +86,21 @@
                       formInfo.controls.password.errors
                   }"
                 />
+                }
+                
+                @if(showPass){
+                  <fa-icon
+                    [icon]="faEye"
+                    class="EyeIcon"
+                    (click)="showPassword()"
+                  ></fa-icon>
+                  }@else {
+                  <fa-icon
+                    [icon]="faEyaSlash"
+                    class="EyeIcon"
+                    (click)="showPassword()"
+                  ></fa-icon>
+                  }
                 @if (formInfo.controls.password.touched &&
                 formInfo.controls.password.errors) {
                 <div class="invalid-feedback">

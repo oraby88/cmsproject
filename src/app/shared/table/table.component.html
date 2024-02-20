@@ -1,32 +1,32 @@
 <div class="container">
   <table>
-    <thead style="border: 1px solid black;">
-      <tr style="border: 1px solid #BFD4E466;">
-        <th>#</th>
+    <thead>
+      @for (data of headData; track data) {
+
+      <tr>
+        <th>{{ data }}</th>
         <th>1</th>
         <th>2</th>
         <th>3</th>
+        <th>3</th>
+        <th>3</th>
+        <th>3</th>
       </tr>
+
+      }
     </thead>
     <tbody>
+      @for (data of bodyData; track data) {
       <tr>
+        <td>{{ data }}</td>
+        <td>aa</td>
+        <td>aa</td>
         <td>aa</td>
         <td>aa</td>
         <td>aa</td>
         <td>aa</td>
       </tr>
-      <tr>
-        <td>bb</td>
-        <td>bb</td>
-        <td>bb</td>
-        <td>bb</td>
-      </tr>
-      <tr>
-        <td>cc</td>
-        <td>cc</td>
-        <td>cc</td>
-        <td>cc</td>
-      </tr>
+      }
     </tbody>
     <tfoot></tfoot>
   </table>

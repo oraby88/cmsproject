@@ -12,11 +12,13 @@ import { Router, RouterModule } from '@angular/router';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { AuthService } from '../../../services/auth.service';
 import { ILogin } from '../../../interfaces/logininterface';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
   selector: 'app-signin',
   standalone: true,
-  imports: [RouterModule, FormsModule, ReactiveFormsModule, CommonModule],
+  imports: [RouterModule, FormsModule, ReactiveFormsModule, CommonModule, FontAwesomeModule],
   templateUrl: './signin.component.html',
   styleUrl: './signin.component.css',
   animations: [
@@ -41,6 +43,8 @@ export class SigninComponent implements OnInit, DoCheck {
   Number: boolean = false;
   numberLength: boolean = false;
   signInRequest : ILogin = {} as ILogin;
+  faEye = faEye;
+  faEyaSlash = faEyeSlash;
 
 
   constructor(private formBuilder: FormBuilder, private _authService: AuthService, private _Router: Router) { }
@@ -109,6 +113,14 @@ export class SigninComponent implements OnInit, DoCheck {
   checkbox(){
     localStorage.setItem('email',this.formInfo.controls.email?.toString()??'');
     localStorage.setItem('password',this.formInfo.controls.password?.toString()??'');
+  }
+  showConfirmPass:boolean = false
+  showConfirmPassword(){
+    this.showConfirmPass = !this.showConfirmPass
+  }
+  showPass:boolean =false;
+  showPassword(){
+    this.showPass = !this.showPass;
   }
 
   // resetSubmit() { // send mail
