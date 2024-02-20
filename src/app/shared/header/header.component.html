@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-5">
+    <div class="col-4">
       <div class="breadcrumb">
         <div class="stage">
           <img src="assets/images/dashboard.svg" alt="dashboard" />
@@ -22,6 +22,47 @@
       </div>
     </div>
 
-    <div class="col-7"></div>
+    <div class="col-8">
+      <div class="search-notify-message">
+        <div class="seacrhInput">
+          <input
+            type="search"
+            name="search"
+            id="search"
+            (input)="search($event)"
+            placeholder="Search for anything here"
+          />
+          <img
+            class="magnifier"
+            src="assets/images/magnifier.svg"
+            alt="magnifier"
+          />
+        </div>
+
+        <div class="notification">
+          <div class="notify">
+            <img
+              src="assets/images/notification-bing.svg"
+              alt="bing"
+              class="notification-img"
+            />
+            <span class="number-of-notification">5</span>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="message-content">
+            <img
+              src="assets/images/notification-statu.svg"
+              alt="bing"
+              class="notification-img"
+            />
+            @if (notification_status) {
+            <span class="number-of-notification"></span>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

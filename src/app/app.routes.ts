@@ -17,6 +17,7 @@ import { AddUserComponent } from './components/core/add-user/add-user.component'
 import { TableComponent } from './shared/table/table.component';
 import { CardModalComponent } from './shared/pop-up-card/card-modal/card-modal.component';
 
+
 export const routes: Routes = [
   { path: 'signin', component: SigninComponent },
   { path: 'signup', component: SignupComponent },
@@ -54,8 +55,6 @@ export const routes: Routes = [
   {
     path: 'add-user', component: AddUserComponent
   },
-
-
   { path: '', redirectTo: '/signup', pathMatch: 'full' },
   { path: 'table', component: TableComponent },
   { path: 'cardmodal', component: CardModalComponent },
