@@ -9,9 +9,11 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   notification_status!: Boolean
+  toggleUserMenu!: Boolean
 
   constructor() {
     this.notification_status = false;
+    this.toggleUserMenu = false;
   }
 
   ngOnInit(): void { }
@@ -19,6 +21,10 @@ export class HeaderComponent {
   search(event: any) {
     if (event.target.value > 3)
       console.log(event.target.value);
+  }
+
+  userMenuToggled() {
+    this.toggleUserMenu = !this.toggleUserMenu;
   }
 
 }

@@ -688,7 +688,7 @@ input:checked + .slider:before {
     justify-content: space-between;
     flex-direction: column;
     font-size: x-small;
-    height: 1366px;
+    /* height: 1366px; */
   }
 
   .row {
