@@ -1030,6 +1030,11 @@ button {
   .is-invalid {
     border: 1px solid red;
   }
+  .inputVerificationStyle{
+    height: 40px;
+    font-size: 12px !important;
+    padding: 0;
+  }
 }
 @media screen and (max-width: 300px) {
   .SlidesContainer {
@@ -1074,11 +1079,17 @@ button {
   .form-group {
     gap: 5px;
   }
+  .inputVerificationStyle{
+    height: 40px;
+    font-size: 12px !important;
+    padding: 0;
+  }
 }
 @media screen and (max-width: 345px) {
   .inputVerificationStyle{
     height: 40px;
     font-size: 12px !important;
+    padding: 0;
   }
   
 }

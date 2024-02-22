@@ -8,8 +8,8 @@ import { Component, Input } from '@angular/core';
   styleUrl: './table.component.css'
 })
 export class TableComponent {
-  @Input() headData = [];
-  @Input() bodyData = [];
+  @Input() headdata:any = [];
+  @Input() bodydata:any = [];
   constructor(){}
 
 
