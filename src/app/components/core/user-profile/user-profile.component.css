@@ -156,6 +156,7 @@
 .show {
   display: block;
 }
+
 /* End Card Modal */
 
 /*edit formmmmmmmmmmmmmmmmm*/
@@ -393,6 +394,11 @@ li {
 .txt-left {
   display: flex;
   align-items: center;
+
+}
+
+.txt-left {
+  margin-left: -20px;
 }
 
 .time img {
@@ -432,21 +438,28 @@ li:hover .img-container {
 }
 
 li:hover {
-  background: linear-gradient(
-    270deg,
-    rgba(6, 96, 252, 0) 0%,
-    rgba(6, 96, 252, 0.03) 100%
-  );
+  background: linear-gradient(270deg,
+      rgba(6, 96, 252, 0) 0%,
+      rgba(6, 96, 252, 0.03) 100%);
 }
 
-@media screen and (max-width: 1200px) and (min-width: 992px) {
+.txt-left::before {
+  content: ' ';
+  height: 16px;
+
+  position: relative;
+  left: 22px;
+  top: 20px;
+  border: 0.15px dashed #dfe0e6;
+
 }
 
-@media screen and (max-width: 992px) and (min-width: 786px) {
-}
 
-@media screen and (max-width: 786px) and (min-width: 600px) {
-}
+@media screen and (max-width: 1200px) and (min-width: 992px) {}
+
+@media screen and (max-width: 992px) and (min-width: 786px) {}
+
+@media screen and (max-width: 786px) and (min-width: 600px) {}
 
 @media screen and (max-width: 650px) {
   .user-profile-container {

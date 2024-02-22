@@ -27,8 +27,8 @@
       </div>
 
       <div class="user-actions">
-        <div class="a-box">
-          <a (click)="display('edit')" [class.active]="activeTab == 'edit'">
+        <div class="a-box" (click)="display('edit')" [class.active]="activeTab == 'edit'">
+          <a >
             Information</a
           >
         </div>
@@ -43,10 +43,10 @@
         </div>
 
         <div class="hr"></div>
-        <div class="a-box">
+        <div class="a-box"  (click)="display('activity')"
+        [class.active]="activeTab == 'activity'">
           <a
-            (click)="display('activity')"
-            [class.active]="activeTab == 'activity'"
+           
             >Activity log</a
           >
         </div>
@@ -159,7 +159,7 @@
           <input type="text" placeholder="search..." />
         </div>
       </div>
-
+<div class="hr2"></div>
       <div class="activity">
         <ul>
           <li>

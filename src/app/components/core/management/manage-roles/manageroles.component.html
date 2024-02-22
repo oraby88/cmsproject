@@ -11,6 +11,7 @@
 
 
             </div>
+           <div class="right-header">
             <div class="status">
                 <div class="dot">
                   
@@ -18,18 +19,38 @@
                 <p>Activate</p>
             </div>
 
-      
+          <div class="dots" (click)="show()">
+         <div class="dot"></div>
+         <div class="dot"></div>
+         <div class="dot"></div>
+
+        </div>
+           </div>
         </div>
         <div class="hr"></div>
 
         <div class="members">
-            <div class="text"><p>Members</p>
+            <div class="members-numbers"><p>Members</p>
             <div class="number">3</div></div>
-<div class="imgs-container">            <img src="assets/images/Image-40.svg" alt="">
-    <img src="assets/images/Image-40.svg" alt="">
-</div>
+            <div class="imgs-container">            <img src="assets/images/Image-40.svg" alt="">
+                <img src="assets/images/Image-40.svg" alt="">
+            </div>
         </div>
+
+
+  @if (isShown) {
+    <div class="roles-status" >
+        <ul>
+            <li><img src="assets/images/message-edit.svg" alt="">   Update Role</li>
+            <li> <img src="assets/images/profile-delete.svg" alt="">  Deactivate</li>
+            <li> <img src="assets/images/trash.svg" alt="">  Delete Role</li>
+        </ul>
+
     </div>
+  }
+    </div>
+
+ 
 
 
 </div>

@@ -4,6 +4,9 @@
     box-sizing: border-box;
     font-family: "DM Sans";
 }
+.roles-container{
+   
+}
 
 .role-card {
 
@@ -16,6 +19,7 @@
     row-gap: 16px;
 
     box-shadow: 0px 4px 8px 0px rgba(146, 146, 146, 0.2);
+  position: relative;
 }
 
 .left {
@@ -57,7 +61,8 @@
 
 
 }
-.status p{
+
+.status p {
     font-size: 12px;
 }
 
@@ -111,7 +116,92 @@
 
 }
 
+.members-numbers {
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+}
+
 .imgs-container {
     display: flex;
     column-gap: 10px;
+}
+
+.dots {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2px;
+    justify-content: center;
+}
+
+.dots .dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #A1A5B7;
+    border: none;
+}
+.right-header{
+    display: flex;
+    align-items: center;
+    column-gap: 14px;
+}
+
+/*rolessssssssssssssssssssssss status*/
+.roles-status {
+    width: 150px;
+    /* height: 124px; */
+    border: 1px solid #E7E7E9;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    padding: 10px;
+    box-shadow: 0px 4px 10px 1px rgba(146, 146, 146, 0.2);
+    position: absolute;
+    top: 50px;
+    right: 20px;
+
+
+}
+
+.roles-status ul {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    align-items: center;
+    justify-content: center;
+    row-gap: 10px;
+    margin-top: 10px;
+
+}
+
+.roles-status ul li {
+    display: flex;
+    padding: 5px;
+    column-gap: 10px;
+}
+.roles-status ul li:hover{
+    background: linear-gradient(270deg, rgba(6, 96, 252, 0) 0%, rgba(6, 96, 252, 0.08) 100%);
+
+}
+
+
+
+@media screen and (max-width: 1200px) and (min-width:992px) {}
+
+@media screen and (max-width: 992px) and (min-width:786px) {}
+
+@media screen and (max-width: 786px) and (min-width:600px) {}
+
+
+@media screen and (max-width: 650px) {
+
+   .role-card{
+    width: 90%;
+    margin: auto;
+   }
+
+
+
+
+
 }

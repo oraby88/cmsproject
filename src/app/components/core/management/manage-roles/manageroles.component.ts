@@ -8,5 +8,16 @@ import { Component } from '@angular/core';
   styleUrl: './manageroles.component.css'
 })
 export class ManageRolesComponent {
+ isShown:boolean=false;
 
+ show(){
+  if(this.isShown==true)
+{
+  this.isShown=false;
+
+}
+else{
+  this.isShown=true;
+}
+ }
 }
