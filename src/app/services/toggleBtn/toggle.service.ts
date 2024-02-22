@@ -10,7 +10,6 @@ export class ToggleService {
   private toggler: BehaviorSubject<Boolean> = new BehaviorSubject<Boolean>(false);
 
   toggle() {
-
     this.toggler.next(!this.toggler.value);
     console.log(this.toggler.value);
   }

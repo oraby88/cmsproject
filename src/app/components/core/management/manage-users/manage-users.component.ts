@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CardComponent } from '../../../../shared/card/card.component';
 import { userManagementCard } from '../../../../../stories/card.stories';
 import { TableComponent } from '../../../../shared/table/table.component';
+import { BreadcrumbService } from '../../../../services/breadcrumb/breadcrumb.service';
 
 @Component({
   selector: 'app-manage-users',
@@ -16,5 +17,10 @@ export class ManageUsersComponent {
   headdata = [this.row1,this.row2];
   bodydata = [1,2,3,4,5];
   
+  constructor(private _BreadCurmb: BreadcrumbService) { }
+
+  ngOnInit() {
+    this._BreadCurmb.changeCurrentPath();
+  }
 
 }
