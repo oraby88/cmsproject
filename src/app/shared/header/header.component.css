@@ -178,6 +178,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .user-dropdown {
+  display: none;
   position: absolute;
   background-color: #fff;
   border-radius: 10px;
@@ -312,6 +313,59 @@ input[type="search"]::-webkit-search-results-decoration {
     height: 59.09rem;
     /* height: 821px; */
   }
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    color: rgba(102, 112, 133, 1);
+    font-size: 11px;
+    /* padding: 15px; */
+  }
+
+  .col-4 {
+    width: 75%;
+  }
+
+  #search {
+    padding: 10px 25px;
+    border-radius: 33px;
+    color: rgb(0, 0, 0);
+    border: 0.75px solid rgba(216, 216, 229, 0.4);
+    outline: none;
+    font-family: DM Sans;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 9px;
+    letter-spacing: 0.02em;
+    width: 100px;
+    text-align: left;
+  }
+
+  .header-right-side {
+    width: 100%;
+  }
+
+  .header-right-side .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .search-notify-message {
+    justify-content: center;
+  }
+
+  .user-profile::before {
+    position: absolute;
+    left: -4px;
+  }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 1045px) {
+  /* for the pipeline between messages and user control in the header */
+  .user-profile::before {
+    position: absolute;
+    left: -1px;
+  }
 }
 @media screen and (max-width: 992px) and (min-width: 786px) {
   .breadcrumb-col {
@@ -326,6 +380,12 @@ input[type="search"]::-webkit-search-results-decoration {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .user-profile::before {
+    display: none;
+    position: absolute;
+    left: -4px;
   }
 }
 @media screen and (max-width: 786px) and (min-width: 600px) {

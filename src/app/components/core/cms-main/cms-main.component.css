@@ -95,10 +95,14 @@
 
 @media screen and (max-width: 1200px) and (min-width: 992px) {
   .sidebar {
-    background-color: antiquewhite;
     display: block;
     height: 59.09rem;
     /* height: 821px; */
+  }
+
+  .toggle {
+    width: 5.5%;
+    transition: width 1s;
   }
 }
 @media screen and (max-width: 992px) and (min-width: 786px) {
