@@ -28,20 +28,21 @@ table {
   /* border-spacing: collapse; */
   /* border: none; */
   padding: 20px;
+   
 }
+
 
 /* tr:nth-child(1){
     margin-bottom: 20px;
 } */
-td,
-tr {
-  border: solid 2px #bfd4e466;
-  border-style: solid solid;
-  padding: 10px;
-  outline: 1px solid gray;
-  margin: 5px;
-  margin: 10px;
-  background-color: rgba(255, 228, 196, 0.753);
+td,tr {
+    border: solid 2px #BFD4E466; 
+    border-style: solid solid; 
+    padding: 10px;
+    outline: 1px solid gray;
+    margin: 5px;
+    margin: 10px;
+    background-color: rgba(255, 228, 196, 0.753);/
 }
 td:first-child {
   border-left-style: solid;
