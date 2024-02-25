@@ -74,8 +74,8 @@
         <div class="invalid-feedback">
           @if (formInfo.controls.fullName.errors['required']) {
           <p class="required">Fullname is required</p>
-          } @if (formInfo.controls.fullName.errors) {
-          <p class="required">Minimum Length is 2 and Maximum Length is 60</p>
+          } @if (formInfo.controls.fullName.errors['minLength']) {
+          <p class="required">Invalid Name</p>
           } @if (formInfo.controls.fullName.errors['pattern']) {
           <p class="required">Full Name Must be Only characters</p>
           }
@@ -110,7 +110,7 @@
           } @if (formInfo.controls.email.errors['email']) {
           <p>Email is invalid</p>
           }
-        </div>
+        </div> 
         }
       </div>
       <div class="label-div">

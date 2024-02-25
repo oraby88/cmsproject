@@ -40,11 +40,12 @@ small {
   border-radius: 12px;
   justify-content: center;
   align-items: center;
-  padding: 25px;
-  width: 270px;
-  display: flex;
+  /* padding: 15px; */
+  /* display: flex; */
   justify-content: space-between;
   align-items: center;
+  margin: 5px;
+  width: 100%;
 }
 
 .info {
@@ -126,7 +127,6 @@ small {
 
 @media screen and (max-width: 1600px) and (min-width: 1400px) {
   .sidebar {
-    background-color: rgb(185, 111, 13);
     height: 59.09rem;
     /* height: 821px; */
   }
@@ -134,7 +134,6 @@ small {
 
 @media screen and (max-width: 1400px) and (min-width: 1200px) {
   .sidebar {
-    background-color: rgb(185, 111, 13);
     height: 59.09rem;
     /* height: 821px; */
   }
@@ -142,14 +141,34 @@ small {
 
 @media screen and (max-width: 1200px) and (min-width: 992px) {
   .sidebar {
-    background-color: antiquewhite;
     height: 59.09rem;
     /* height: 821px; */
   }
 }
 @media screen and (max-width: 992px) and (min-width: 786px) {
+  .card {
+    width: 24%;
+    margin: 3px;
+  }
 }
-@media screen and (max-width: 786px) and (min-width: 600px) {
+@media screen and (max-width: 786px) and (min-width: 601px) {
+  .row {
+    flex-wrap: wrap;
+  }
+  .card {
+    width: 49%;
+    margin: 2px;
+  }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 601px) {
+  .row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .col-3 {
+    justify-content: center !important;
+    margin: 5px;
+    width: 100%;
+  }
 }
