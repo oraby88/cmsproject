@@ -2,28 +2,30 @@
   <div class="row">
     <div class="col-4 breadcrumb-col">
       <div class="breadcrumb">
-        <div class="stage">
+        <!-- <div class="stage">
           <img src="assets/images/dashboard.svg" alt="dashboard" />
-          Dashboard
-        </div>
-
-        <span>></span>
-
-        <div class="stage">
           <img
             src="assets/images/profile-circle-dark.svg"
             alt="profile-circle-dark"
           />
-          User Management
-        </div>
-        <span>></span>
+          {{ fullPath[1] | uppercase }}
+        </div> -->
 
-        <div class="stage">Manage Users</div>
+        @for (path of fullPath; track i; let i = $index) {
+        <div class="stage">
+          {{ path | titlecase }}
+
+          @if (fullPath[i] !== fullPath[fullPath.length - 1]) {
+          <span>></span>
+          }
+        </div>
+
+        }
       </div>
     </div>
     <div class="col-8 header-right-side">
       <div class="row">
-        <div class="col-4">
+        <div class="col-4 middle-section">
           <div class="search-notify-message">
             <div class="seacrhInput">
               <input

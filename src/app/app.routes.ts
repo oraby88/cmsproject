@@ -19,6 +19,7 @@ import { CardModalComponent } from './shared/pop-up-card/card-modal/card-modal.c
 
 
 export const routes: Routes = [
+  { path: '', redirectTo: '/signup', pathMatch: 'full' },
   { path: 'signin', component: SigninComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'sendmail', component: SendmailComponent },
@@ -57,7 +58,6 @@ export const routes: Routes = [
     path: 'add-user',
     component: AddUserComponent,
   },
-  { path: '', redirectTo: '/signup', pathMatch: 'full' },
   { path: 'table', component: TableComponent },
   { path: 'cardmodal', component: CardModalComponent },
   { path: '**', component: NotfoundComponent },

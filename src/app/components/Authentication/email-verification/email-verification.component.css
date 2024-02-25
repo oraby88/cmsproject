@@ -718,8 +718,9 @@ p {
 }
 @media screen and (max-width: 400px) {
   .inputVerificationStyle{
-    height: 40px;
+    height: 30px;
     font-size: 12px !important;
+    padding: 0;
   }
   .projName{
     padding-left: 10%;

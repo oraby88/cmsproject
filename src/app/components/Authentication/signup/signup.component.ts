@@ -104,7 +104,7 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
   ngOnInit(): void {
     this.formInfo = this.formBuilder.group(
       {
-        fullName: [
+        fullName: [ 
           '',
           [
             Validators.required,

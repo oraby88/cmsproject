@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { BreadcrumbService } from '../../../../services/breadcrumb/breadcrumb.service';
 
 @Component({
   selector: 'app-manageroles',
@@ -7,17 +8,23 @@ import { Component } from '@angular/core';
   templateUrl: './manageroles.component.html',
   styleUrl: './manageroles.component.css'
 })
-export class ManageRolesComponent {
- isShown:boolean=false;
+export class ManageRolesComponent implements OnInit {
 
- show(){
-  if(this.isShown==true)
-{
-  this.isShown=false;
+  constructor(private _BreadCurmb: BreadcrumbService) { }
 
-}
-else{
-  this.isShown=true;
-}
- }
+  ngOnInit() {
+    this._BreadCurmb.changeCurrentPath();
+
+  }
+  isShown: boolean = false;
+
+  show() {
+    if (this.isShown == true) {
+      this.isShown = false;
+
+    }
+    else {
+      this.isShown = true;
+    }
+  }
 }

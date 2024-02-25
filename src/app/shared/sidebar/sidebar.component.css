@@ -772,7 +772,7 @@ input:checked + .slider:before {
     left: 25px;
     width: 95%;
     transition: position 2s;
-    border-left: 3px solid #000;
+    /* border-left: 3px solid #000; */
   }
 
   /* Rounded sliders */
