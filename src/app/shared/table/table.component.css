@@ -14,7 +14,7 @@ body {
 }
 .container {
   width: 80%;
-  margin:  20px auto;
+  margin: 20px auto;
   text-align: left;
   align-items: center;
   padding: 1%;
@@ -68,21 +68,18 @@ tr {
     /* outline: 1px solid gray; */
     margin: 5px;
     margin: 10px;
-    /* background-color: rgba(255, 228, 196, 0.753); */
-}
-td{
-  padding: 10px;
+    background-color: rgba(255, 228, 196, 0.753);
 }
 /* td:first-child {
-    border-left-style: solid;
-    border-top-left-radius: 10px; 
-    border-bottom-left-radius: 10px;
-    margin-bottom:20px;
+  border-left-style: solid;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  margin-bottom: 20px;
 } */
 /* td:last-child {
-    border-right-style: solid;
-    border-bottom-right-radius: 10px; 
-    border-top-right-radius: 10px; 
+  border-right-style: solid;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
 } */
 
 /* tr th,
