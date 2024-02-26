@@ -1,11 +1,15 @@
-import { LocationStrategy, TitleCasePipe, UpperCasePipe } from '@angular/common';
+import { CommonModule, LocationStrategy, TitleCasePipe, UpperCasePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { BreadcrumbService } from '../../services/breadcrumb/breadcrumb.service';
+import { UserProfileComponent } from '../../components/core/user-profile/user-profile.component';
+import { RouterLink, RouterModule, RouterOutlet } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { CardModalComponent } from '../pop-up-card/card-modal/card-modal.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [TitleCasePipe, UpperCasePipe],
+  imports: [TitleCasePipe, UpperCasePipe, UserProfileComponent, RouterOutlet, RouterModule, RouterLink, FormsModule, CardModalComponent, CommonModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })

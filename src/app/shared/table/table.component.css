@@ -42,7 +42,7 @@ td,tr {
     outline: 1px solid gray;
     margin: 5px;
     margin: 10px;
-    background-color: rgba(255, 228, 196, 0.753);/
+    background-color: rgba(255, 228, 196, 0.753);
 }
 td:first-child {
   border-left-style: solid;
