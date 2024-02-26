@@ -12,10 +12,10 @@ import { BreadcrumbService } from '../../../../services/breadcrumb/breadcrumb.se
   styleUrl: './manage-users.component.css'
 })
 export class ManageUsersComponent {
-  row1=1;
+  row1=[12345];
   row2 = 2;
-  headdata = [this.row1,this.row2];
-  bodydata = [1,2,3,4,5];
+  headdata = this.row1;
+  bodydata = [12345];
   
   constructor(private _BreadCurmb: BreadcrumbService) { }
 
