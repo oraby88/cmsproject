@@ -8,14 +8,13 @@ import { SetnewpasswordComponent } from './components/Authentication/setnewpassw
 import { CorrectchagesComponent } from './components/Authentication/correctchages/correctchages.component';
 import { SignupverificationComponent } from './components/Authentication/signupverification/signupverification.component';
 import { UserManagementComponent } from './components/core/management/user-role-combine/user-management.component';
-import { ManageUsersComponent } from './components/core/management/manage-users/manage-users.component';
-import { ManageRolesComponent } from './components/core/management/manage-roles/manageroles.component';
 import { BlogComponent } from './components/core/blog/blog.component';
 import { CmsMainComponent } from './components/core/cms-main/cms-main.component';
 import { UserProfileComponent } from './components/core/user-profile/user-profile.component';
 import { AddUserComponent } from './components/core/add-user/add-user.component';
 import { TableComponent } from './shared/table/table.component';
 import { CardModalComponent } from './shared/pop-up-card/card-modal/card-modal.component';
+import { FilterComponent } from './shared/filter/filter/filter.component';
 
 
 export const routes: Routes = [
@@ -33,20 +32,9 @@ export const routes: Routes = [
       {
         path: 'management',
         canActivate: [],
-        children: [
-          { path: '', redirectTo: 'users', pathMatch: 'full' },
-          {
-            path: 'users',
-            component: ManageUsersComponent,
-          },
-          {
-            path: 'roles',
-            component: ManageRolesComponent,
-          },
-        ],
-        component: UserManagementComponent,
+        loadChildren: () => import('./components/core/management/management.routes').then(routes => routes.MANAGEMENT_ROUTES),
       },
-      { path: 'blogs', canActivate: [], component: BlogComponent },
+      { path: 'blogs', canActivate: [], loadComponent: () => import('./components/core/blog/blog.component').then(c => c.BlogComponent) },
     ],
     component: CmsMainComponent,
   },
@@ -57,6 +45,10 @@ export const routes: Routes = [
   {
     path: 'add-user',
     component: AddUserComponent,
+  },
+  {
+    path: 'filter',
+    component: FilterComponent,
   },
   { path: 'table', component: TableComponent },
   { path: 'cardmodal', component: CardModalComponent },

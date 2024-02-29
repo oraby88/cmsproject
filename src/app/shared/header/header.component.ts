@@ -30,7 +30,6 @@ export class HeaderComponent implements OnInit {
     this._BreadCurmb.getCurrentPath().subscribe({
       next: (res: string[]) => {
         this.fullPath = res.splice(1);
-        console.log(this.fullPath);
       }
     })
   }
