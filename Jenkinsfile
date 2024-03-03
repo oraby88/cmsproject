@@ -11,13 +11,11 @@ pipeline {
          sh 'npm install' 
          }
     }
-    stage('Test') {
-        stage('Static code analysis') {
+    stage('Static code analysis') {
             steps { 
                 sh 'npm run-script lint'
             }
         }
-    }
     stage('Build') {
       steps { 
         sh 'npm run-script build' 
