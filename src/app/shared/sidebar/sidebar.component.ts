@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
+
 import { ToggleService } from '../../services/toggleBtn/toggle.service';
 
 @Component({
@@ -13,11 +14,11 @@ import { ToggleService } from '../../services/toggleBtn/toggle.service';
 export class SidebarComponent {
 
   openDropdown!: Boolean;
-  active!: Boolean;
+  dropDownToggler!: Boolean;
   darkMode!: Boolean;
   sidebarToggler!: Boolean;
 
-  constructor(private route: ActivatedRoute, private _Toggle: ToggleService) {
+  constructor(private _Toggle: ToggleService) {
     this.openDropdown = true;
     this.darkMode = false;
     this.sidebarToggler = false;
@@ -32,8 +33,7 @@ export class SidebarComponent {
 
 
   Dropdowntoggle() {
-    this.active = !this.active;
-
+    this.dropDownToggler = !this.dropDownToggler;
   }
 
   toggleAppearance() {

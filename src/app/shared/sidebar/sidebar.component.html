@@ -21,14 +21,18 @@
           !sidebarToggler ? 'sidebar-header' : 'sidebar-header-show-logo-only'
         "
       >
-        <div class="col-5">
+        <div [ngClass]="!sidebarToggler ? '' : ''">
           <div class="image">
             <img src="assets/images/Icon.png" alt="Logo" />
           </div>
         </div>
         <div
-          class="col-7 sidebar-header-content"
-          [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
+          class="sidebar-header-content"
+          [ngClass]="{
+            hide: sidebarToggler,
+            show: !sidebarToggler,
+            '': !sidebarToggler
+          }"
         >
           <div class="title">
             <h4>CMS Software</h4>
@@ -62,7 +66,8 @@
           </li>
           <li
             [routerLink]="['/cms/blogs']"
-            [routerLinkActive]="sidebarToggler ? 'active' : 'darkTheme_active'"
+            [routerLinkActive]="darkMode ? 'darkTheme_active' : 'active'"
+            [routerLinkActiveOptions]="{ exact: true }"
           >
             <a>
               <div class="icon">
@@ -133,9 +138,8 @@
           </li>
           <li
             (click)="Dropdowntoggle()"
-            [ngClass]="{ darkTheme_active: darkMode, active: !darkMode }"
             [routerLinkActive]="darkMode ? 'darkTheme_active' : 'active'"
-            [routerLinkActiveOptions]="{ exact: false }"
+            [routerLinkActiveOptions]="{ exact: true }"
           >
             <div class="drop-down">
               <div class="icon">
@@ -161,20 +165,26 @@
                   User Management
                 </div>
 
-                @if(darkMode && sidebarToggler ){
+                @if(darkMode || sidebarToggler ){
                 <img
                   [hidden]="sidebarToggler"
-                  [ngClass]="{ rotate: active, 'reverse-rotate': !active }"
+                  [ngClass]="{
+                    rotate: dropDownToggler,
+                    'reverse-rotate': !dropDownToggler
+                  }"
                   src="assets/images/angle-up-solid-dark.svg"
                   alt="up-arrow"
                 />} @else{
                 <img
                   [hidden]="sidebarToggler"
-                  [ngClass]="{ rotate: active, 'reverse-rotate': !active }"
+                  [ngClass]="{
+                    rotate: dropDownToggler,
+                    'reverse-rotate': !dropDownToggler
+                  }"
                   src="assets/images/up-arrow.svg"
                   alt="up-arrow"
                 />
-                } @if(active && !sidebarToggler){
+                } @if(dropDownToggler && !sidebarToggler){
                 <div class="sub-links">
                   <ul>
                     <li

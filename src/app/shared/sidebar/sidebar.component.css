@@ -41,7 +41,7 @@ h5 {
 .sidebar-header {
   border: 1px solid #e7e7e9;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   background-color: #fcfcfc;
   border-radius: 10px;
@@ -133,6 +133,7 @@ ul li {
   line-height: 20px;
   padding: 15px 0px;
   cursor: pointer;
+  position: relative;
 }
 
 ul li a {
@@ -161,9 +162,6 @@ ul li div {
   justify-content: space-between;
 }
 
-.drop-down .icon img {
-  margin-left: 5px;
-}
 .drop-down .link-title .sub-links ul {
   -webkit-transition: max-height 0.2s ease-in;
   transition: max-height 0.2s ease-in;
@@ -240,7 +238,8 @@ ul li div div {
   border-radius: 12px;
   height: 30px;
   background-color: rgba(6, 96, 252, 1);
-  left: -20px;
+  left: -10px;
+  top: 10px;
 }
 
 .active-sublink {
