@@ -80,6 +80,33 @@ small {
   background-color: #f9fafc;
 }
 
+.features {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+dialog {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.lowOpacity {
+  align-items: center;
+  opacity: 0.7;
+  transition: all 1s;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
 .col-1 {
   width: 8.33%;
 }

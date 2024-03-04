@@ -27,10 +27,12 @@
       </div>
 
       <div class="user-actions">
-        <div class="a-box" (click)="display('edit')" [class.active]="activeTab == 'edit'">
-          <a >
-            Information</a
-          >
+        <div
+          class="a-box"
+          (click)="display('edit')"
+          [class.active]="activeTab == 'edit'"
+        >
+          <a> Information</a>
         </div>
 
         <div class="hr"></div>
@@ -43,12 +45,12 @@
         </div>
 
         <div class="hr"></div>
-        <div class="a-box"  (click)="display('activity')"
-        [class.active]="activeTab == 'activity'">
-          <a
-           
-            >Activity log</a
-          >
+        <div
+          class="a-box"
+          (click)="display('activity')"
+          [class.active]="activeTab == 'activity'"
+        >
+          <a>Activity log</a>
         </div>
       </div>
     </div>
@@ -159,7 +161,7 @@
           <input type="text" placeholder="search..." />
         </div>
       </div>
-<div class="hr2"></div>
+      <div class="hr2"></div>
       <div class="activity">
         <ul>
           <li>
@@ -253,6 +255,5 @@
     [actionBackground]="'rgba(241, 65, 108, 1);'"
     (actionBtn)="deleteAccount()"
     (cancelBtn)="closeModal()"
-
   ></app-card-modal>
 </div>

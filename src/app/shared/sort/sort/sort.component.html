@@ -1,0 +1,27 @@
+<div class="container" (click)="toggleSortMenu()">
+  <div class="row">
+    <div class="col-12">
+      <div class="sort-container">
+        <div>
+          <div class="sort-btn">
+            <img src="assets/images/arrow-swap-inactive.svg" alt="sort" />
+          </div>
+        </div>
+      </div>
+      @if(openSort){
+      <div class="sortMenu">
+        <div class="sortSearch">
+          <input
+            class="form-control"
+            type="text"
+            name="search"
+            id="search"
+            placeholder="Search columns"
+          />
+          <img src="assets/images/search-normal.svg" alt="Search" />
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</div>
