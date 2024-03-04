@@ -52,4 +52,6 @@ export class ManageUsersComponent implements OnInit {
     this._ToggleModal.toggleFilter();
   }
 
+  
+
 }
