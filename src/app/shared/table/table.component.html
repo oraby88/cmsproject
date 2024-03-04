@@ -2,7 +2,7 @@
   <table>
     <thead>
       <tr>
-        <th style="width: 30px;"><input type="checkbox" /></th>
+        <th style="width: 30px"><input type="checkbox" /></th>
         @for (data of headdata; track $index) {
         <th>{{ data }}</th>
         }
@@ -11,11 +11,19 @@
     <tbody>
       @for (item of bodydata; track $index) {
       <tr>
-        <td style="width: 30px;"><input type="checkbox" /></td>
+        <td style="width: 30px"><input type="checkbox" /></td>
         @for (data of bodydata; track data) {
         <td>{{ data }}</td>
         }
-      </tr>}
+        <td style="width: 30px;">
+          <div class="dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+          </div>
+        </td>
+      </tr>
+      }
     </tbody>
     <tfoot></tfoot>
   </table>
