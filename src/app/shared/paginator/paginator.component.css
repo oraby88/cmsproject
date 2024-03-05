@@ -29,7 +29,7 @@ select + span{
 .pages span {
   cursor: default !important;
 }
-.controls span{
+.controls span,.rows-count>span{
   background-color: #fff;
   border: 1px solid #F1F1F2;
   border-radius: 8px;
@@ -39,6 +39,9 @@ select + span{
   justify-content: center;
   align-items: center;
   cursor:pointer;
+}
+.rows-count>span{
+  display: none;
 }
 
 /* active and semi-active spans  */
@@ -54,4 +57,21 @@ select + span{
 /* not allowed pointer */
 .notAllowed{
   cursor: not-allowed !important;
+}
+
+
+/* Responsive */
+@media (max-width:767px) {
+  .controls{
+    display: none;
+  }
+  .rows-count{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .rows-count>span{
+    display: flex;
+  }
 }

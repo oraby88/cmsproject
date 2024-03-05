@@ -1,6 +1,8 @@
 <div class="container">
   <div class="rows-count">
-    <span>Rows </span>
+    <span><img src="../../../assets/images/paginator-prev.png" alt=""></span>
+    <div class="rows">
+      <span>Rows </span>
     <select name="count" id="count" (change)="onCahnge($event)">
       <option value="5">5</option>
       <option value="10">10</option>
@@ -8,7 +10,9 @@
       <option value="20">20</option>
       <option value="25">25</option>
     </select>
-    <span>of {{all}}</span>
+     <span>of {{all}}</span>
+    </div>
+    <span><img src="../../../assets/images/paginator-next.png" alt=""></span>
   </div>
   <div class="controls" >
     <span [ngClass]="{'notAllowed':active === 0}" (click)="firstSlide()">
