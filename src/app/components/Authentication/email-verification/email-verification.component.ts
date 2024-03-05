@@ -39,6 +39,7 @@ export class EmailVerificationComponent implements OnInit, DoCheck {
   str6!: string;
 
   otp: string = '';
+  errorExit:boolean =false;
 
   formVerification = new FormGroup({
     verificationCode1: new FormControl(''),
@@ -84,7 +85,8 @@ export class EmailVerificationComponent implements OnInit, DoCheck {
       },
       error: (err) => {
         console.log(err.message)
-        alert("Incorrect Code");
+        // alert("Incorrect Code");
+        this.errorExit = true;
       },
     });
     

@@ -123,6 +123,14 @@ option {
   border: 1px solid #bfd4e466;
   padding: 10px;
 }
+
+.required1{
+  padding: 5px 0 !important;
+  margin: 0 !important;
+  font-size: 18px;
+  color: red;
+}
+
 button {
   height: 40px;
   

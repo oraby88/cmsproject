@@ -45,6 +45,7 @@ export class SigninComponent implements OnInit, DoCheck {
   signInRequest: ILogin = {} as ILogin;
   faEye = faEye;
   faEyaSlash = faEyeSlash;
+  errorExit:boolean = false;
 
 
   constructor(private formBuilder: FormBuilder, private _authService: AuthService, private _Router: Router) { }
@@ -106,7 +107,8 @@ export class SigninComponent implements OnInit, DoCheck {
       },
       error: (err) => {
         console.log(err);
-        alert("Email or Password is invalid");
+        // alert("Email or Password is invalid");
+        this.errorExit = true;
       }
 
     });

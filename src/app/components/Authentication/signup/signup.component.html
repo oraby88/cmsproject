@@ -112,6 +112,9 @@
           }
         </div>
         }
+        @if(errorExit){
+          <p class="required1">Email Already Exit</p>
+        }
       </div>
       <div class="label-div">
         <label class="form-label" for="fromInput3">Password</label>
@@ -375,6 +378,24 @@
         Sign Up
       </button>
     </form>
+    <!-- <div class="popup" [hidden]="errorExit==false">
+      <div class="popup-header">
+        <span>Unsaved Changes</span>
+        <button class="close-button">×</button>
+      </div>
+      <hr />
+      <div class="popup-content">
+        <p>
+          You have unsaved changes. If you leave without saving, your changes
+          will be lost.
+        </p>
+      </div>
+      <div class="popup-buttons">
+        <button class="cancel-button" (click)="errorExit=false">Cancel</button>
+        <button class="ok-button" (click)="errorExit=false">Ok</button>
+      </div>
+    </div> -->
+    <!-- <app-popup message="ُEmail already Exit" [errorExit]="errorExit" (onConfirm)="errorExit = false"></app-popup> -->
     <div class="paragraphs">
       <p class="info">Have an Account? <a routerLink="/signin">Login</a></p>
       <p class="para">

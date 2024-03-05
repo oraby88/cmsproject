@@ -24,6 +24,7 @@ import { AuthService } from '../../../services/auth.service';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { ISignupRequest } from '../../../interfaces/signupinterface';
 import { PasswordDirective } from '../password.directive';
+import { PopupComponent } from '../../../shared/popup/popup.component';
 
 @Component({
   selector: 'app-signup',
@@ -35,7 +36,8 @@ import { PasswordDirective } from '../password.directive';
     FontAwesomeModule,
     RouterModule,
     MatProgressBar,
-    PasswordDirective
+    PasswordDirective,
+    PopupComponent
   ],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css',
@@ -139,6 +141,8 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
     '../../../assets/images/Frame 1000016152.svg',
   ];
 
+  errorExit:boolean = false;
+
   Submit() {
     //this.submitted = true;
     if (this.formInfo.invalid) {
@@ -151,7 +155,7 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
       password: fv.password?.toString() ?? '',
       confirmPassword: fv.confirmPassword?.toString() ?? ''
     }
-    console.log(fv);
+    console.log(this.signUpRequest);
     this._authService.signUp(this.signUpRequest).subscribe({
       next: (res) => {
         console.log(res);
@@ -161,8 +165,11 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
         // this._authService.setTokenInSessionStorage(res['token']);
       },
       error: (err) => {
+        this.errorExit = true;
+        console.log(this.errorExit);
+
         console.log(err);
-        alert("Email already exit");
+        // alert("Email already exit");
       }
     });
 
@@ -221,5 +228,9 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
         this.formInfo.get(controlName)?.patchValue(this.formInfo.get(controlName)?.value.slice(0, 40));
     }
   }
+
+  // changeErrorExit(){
+  //   this.errorExit = false;
+  // }
 }
 

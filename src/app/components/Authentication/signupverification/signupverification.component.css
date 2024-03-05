@@ -77,7 +77,12 @@ body {
   height: 42px;
   /* box-shadow: 1px 1px 1px white; */
 }
-
+.required1{
+  padding: 5px 0 !important;
+  margin: 0 !important;
+  font-size: 18px;
+  color: red;
+}
 
 .info {
   color: #7e8299;
@@ -637,7 +642,7 @@ button {
   margin: auto;
   padding: 30px 40px 0px 40px;
   margin-top: 10%;
-  margin-bottom: 80px;
+  margin-bottom: 60px;
   /* transform: translate(-50%, -60%); */
   width: 55%;
 
@@ -653,6 +658,7 @@ button {
 @media screen and (max-width:1400px) {
   .loginDiv{
     width: 65%;
+    margin-bottom: 30px;
   }
 }
 
@@ -823,9 +829,13 @@ button {
   .loginDiv h1 {
     font-size: 20px;
   }
+  .info{
+    margin-top: 20px;
+  }
   .info1 {
     font-size: 14px;
     color: #a1a5b7;
+    
   }
   .info2 {
     font-size: 14px;

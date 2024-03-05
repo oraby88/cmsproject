@@ -31,7 +31,7 @@ export class SignupverificationComponent implements OnInit {
   str4!: string;
   str5!: string;
   str6!: string;
-
+  errorExist:boolean =false;
   str: string = '';
   formVerification = new FormGroup({
     verificationCode1: new FormControl(''),
@@ -82,8 +82,9 @@ export class SignupverificationComponent implements OnInit {
       },
       error: (err) => {
         console.log(err);
-        alert('Incorrect Code');
+        // alert('Incorrect Code');
         // console.log(this.signupEmail);
+        this.errorExist = true;
       },
     });
   }

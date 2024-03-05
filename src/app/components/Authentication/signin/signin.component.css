@@ -173,6 +173,14 @@ button {
   width: 98%;
   transition: ease all 1.5s;
 }
+
+.required1{
+  padding: 5px 0 !important;
+  margin: 0 !important;
+  font-size: 14px;
+  color: red;
+}
+
 label {
   display: inline-block;
   /* text-align: left; */
