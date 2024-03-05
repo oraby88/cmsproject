@@ -143,6 +143,7 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
     //this.submitted = true;
     if (this.formInfo.invalid) {
       console.log(this.formInfo);
+      // alert("Invalid Data");
       return;
     }
     const fv = this.formInfo.value!;
@@ -163,6 +164,7 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
       },
       error: (err) => {
         console.log(err);
+        alert("Email already exit");
       }
     });
 

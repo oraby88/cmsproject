@@ -24,9 +24,9 @@ html, body {
 }
 .projName img {
   max-width: 100%;
-  width: 40px;
+  width: 43px;
   height: 43px;
-  padding-top: 3px;
+  /* padding-top: 3px; */
 }
 .projName p {
   font-size: 15px;
@@ -575,7 +575,7 @@ p {
     color: #a1a5b7;
   }
   .projName {
-    padding: 50px 10px 10px 10px;
+    padding: 20px 10px 10px 10px;
   }
   .label-div p {
     display: none;
@@ -695,7 +695,11 @@ p {
     color: #a1a5b7;
   }
   .projName {
-    padding: 50px 10px 10px 0px;
+    padding: 20px 10px 10px 20px;
+  }
+  .projName img{
+    width: 35px;
+    height: 35px;
   }
   .label-div p {
     display: none;
@@ -732,7 +736,7 @@ p {
 }
 @media screen and (max-width: 345px) {
   .inputVerificationStyle{
-    height: 40px;
+    /* height: 40px; */
     font-size: 12px !important;
   }
   .projName{
@@ -741,5 +745,8 @@ p {
   }
   .nameContainer{
     padding-left: 0;
+  }
+  .labelInput{
+    font-size: 14px;
   }
 }

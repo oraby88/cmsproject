@@ -106,6 +106,7 @@ export class SigninComponent implements OnInit, DoCheck {
       },
       error: (err) => {
         console.log(err);
+        alert("Email or Password is invalid");
       }
 
     });

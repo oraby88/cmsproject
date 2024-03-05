@@ -83,7 +83,8 @@ export class EmailVerificationComponent implements OnInit, DoCheck {
         this._Router.navigateByUrl('setnewpassword');
       },
       error: (err) => {
-        alert(err.message);
+        console.log(err.message)
+        alert("Incorrect Code");
       },
     });
     

@@ -10,11 +10,17 @@ import {
 import { AuthService } from '../../../services/auth.service';
 import { Route, Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+// import { SignupComponent } from '../signup/signup.component'; 
 
 @Component({
   selector: 'app-signupverification',
   standalone: true,
-  imports: [RouterModule, FormsModule, ReactiveFormsModule, CommonModule],
+  imports: [
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule,
+  ],
   templateUrl: './signupverification.component.html',
   styleUrl: './signupverification.component.css',
 })
@@ -39,7 +45,8 @@ export class SignupverificationComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private _authService: AuthService,
-    private _Router: Router
+    private _Router: Router,
+    
   ) {}
   ngOnInit(): void {
     this.formVerification = this.formBuilder.group({
@@ -52,6 +59,9 @@ export class SignupverificationComponent implements OnInit {
     });
   }
 
+  // signupEmail: string =
+  //   this._signupComponent.formInfo.controls.email.value ?? '';
+
   verificationSubmit() {
     // send mail
     if (this.formVerification.invalid) {
@@ -59,7 +69,7 @@ export class SignupverificationComponent implements OnInit {
       return;
     }
     // this.showSetNewPass();
-    this.str = `${this.str1}${this.str2}${this.str3}${this.str4}${this.str5}${this.str6}`
+    this.str = `${this.str1}${this.str2}${this.str3}${this.str4}${this.str5}${this.str6}`;
     console.log(this.str);
     this._authService.verificationCode(this.str).subscribe({
       next: (res) => {
@@ -72,12 +82,13 @@ export class SignupverificationComponent implements OnInit {
       },
       error: (err) => {
         console.log(err);
+        alert('Incorrect Code');
+        // console.log(this.signupEmail);
       },
     });
   }
 
-
-  resendOTP(){
+  resendOTP() {
     this._authService.resendOTP().subscribe({
       next: (res) => {
         console.log(res);
@@ -87,8 +98,6 @@ export class SignupverificationComponent implements OnInit {
       error: (err) => {
         console.log(err);
       },
-    })
-
+    });
   }
-  
 }
