@@ -31,27 +31,26 @@ export class ManageUsersComponent implements OnInit {
   ngOnInit() {
     this._BreadCurmb.changeCurrentPath();
     this._ToggleModal.getToggleValue().subscribe({
-      next: (toggleValue) => { this.addUserToggler = toggleValue; }
+      next: (toggleValue) => {
+        this.addUserToggler = toggleValue;
+      }
     })
 
     this._ToggleModal.getFilterValue().subscribe({
-      next: (toggleValue) => { this.filterValue = toggleValue; }
+      next: (toggleValue) => {
+        this.filterValue = toggleValue;
+      }
     })
   }
 
-  openUserModal(dialog: HTMLDialogElement) {
+  toggleUserModal() {
     this._ToggleModal.toggle();
-    this.addUserToggler = !this.addUserToggler;
-    if (this.addUserToggler) {
-      dialog.showModal();
-    }
-
   }
 
   openFilterModal() {
     this._ToggleModal.toggleFilter();
   }
 
-  
+
 
 }

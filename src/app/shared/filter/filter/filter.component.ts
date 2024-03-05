@@ -13,6 +13,7 @@ export class FilterComponent {
 
   toggleAddFilterBtn!: Boolean;
   filterForm!: FormGroup;
+  filteredArray!: FormGroup;
   cols: string[] = ["Blog Title", "Status", "SEO", "Created At", "Created By", "Author"]
   tempCols!: string[];
   filterSearch: string = ""
@@ -21,13 +22,11 @@ export class FilterComponent {
     this.tempCols = this.cols;
   }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void { }
 
   fb() {
     this.filterForm = this._FormBuilder.group({
-      filteredArray: new FormArray([])
+      filteredArray: this.filteredArray,
     })
   }
 
@@ -50,9 +49,12 @@ export class FilterComponent {
     }
   }
 
-  addFilter() {
-    const formControl = new FormControl(null, [Validators.required]);
-    (<FormArray>this.filterForm.get('filteredArray')).push(formControl);
+  addFilter(columnIndex: number): void {
+    const columnName = new FormControl(this.cols[columnIndex], [Validators.required]);
+    const condition = new FormControl(null, [Validators.required]);
+    const columnValue = new FormControl(null, [Validators.required]);
+
+    (<FormArray>this.filterForm.get('filteredArray')).push([columnName, condition, columnValue]);
   }
 
   get controls() {

@@ -58,7 +58,7 @@
         <app-new-user
           [btnIcon]="'assets/images/add-circle.svg'"
           [btnName]="'Add User'"
-          (onAddUser)="openUserModal(d)"
+          (onAddUser)="toggleUserModal()"
         ></app-new-user>
       </div>
     </div>
@@ -66,6 +66,6 @@
   <app-table headdata="{{ headdata }}" bodydata="{{ bodydata }}"></app-table>
 </div>
 
-<dialog #d [ngClass]="addUserToggler ? 'show' : 'hide'">
+<div class="user-profile-modal">
   <app-add-user></app-add-user>
-</dialog>
+</div>

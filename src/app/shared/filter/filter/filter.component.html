@@ -32,8 +32,8 @@
             </div>
             <div class="filteredList">
               <ul>
-                @for (col of tempCols; track $index) {
-                <li>{{ col }}</li>
+                @for (col of tempCols; track col; let i = $index) {
+                <li (click)="addFilter(i)">{{ col }}</li>
                 }
               </ul>
             </div>

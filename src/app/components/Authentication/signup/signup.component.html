@@ -110,7 +110,7 @@
           } @if (formInfo.controls.email.errors['email']) {
           <p>Email is invalid</p>
           }
-        </div> 
+        </div>
         }
       </div>
       <div class="label-div">
@@ -122,6 +122,7 @@
           id="fromInput3"
           placeholder="********************"
           formControlName="password"
+          (input)="checkPasswordLength('password')"
           [ngClass]="{
               'is-invalid':
               formInfo.controls.password.touched &&
@@ -145,6 +146,7 @@
           placeholder="********************"
           formControlName="password"
           (change)="unshowPassAfter2S()"
+          (input)="checkPasswordLength('password')"
           [ngClass]="{
               'is-invalid':
               formInfo.controls.password.touched &&
@@ -305,6 +307,7 @@
           id="fromInput4"
           formControlName="confirmPassword"
           placeholder="********************"
+          (input)="checkPasswordLength('confirmPassword')"
           [ngClass]="{
             'is-invalid':
             formInfo.controls.confirmPassword.touched &&
@@ -325,6 +328,7 @@
           id="fromInput4"
           formControlName="confirmPassword"
           placeholder="********************"
+          (input)="checkPasswordLength('confirmPassword')"
           [ngClass]="{
             'is-invalid':
             formInfo.controls.confirmPassword.touched &&

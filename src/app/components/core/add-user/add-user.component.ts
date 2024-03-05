@@ -30,11 +30,11 @@ export class AddUserComponent implements OnInit {
 
 
   ngOnInit(): void {
-    // this._ToggleAddModalService.getToggleValue().subscribe({
-    //   next: (toggler) => {
-    //     this.isavailable = toggler;
-    //   }
-    // })
+    this._ToggleAddModalService.getToggleValue().subscribe({
+      next: (toggler) => {
+        this.isavailable = toggler;
+      }
+    })
   }
 
 

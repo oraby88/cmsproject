@@ -42,7 +42,7 @@ export class SigninComponent implements OnInit, DoCheck {
   specialChar: boolean = false;
   Number: boolean = false;
   numberLength: boolean = false;
-  signInRequest : ILogin = {} as ILogin;
+  signInRequest: ILogin = {} as ILogin;
   faEye = faEye;
   faEyaSlash = faEyeSlash;
 
@@ -96,8 +96,8 @@ export class SigninComponent implements OnInit, DoCheck {
     }
     const fv = this.formInfo.value!;
     this.signInRequest = {
-      email :fv.email?.toString()??'',
-      password :fv.password?.toString()??'',
+      email: fv.email?.toString() ?? '',
+      password: fv.password?.toString() ?? '',
     }
 
     this._authService.Login(this.signInRequest).subscribe({
@@ -110,17 +110,24 @@ export class SigninComponent implements OnInit, DoCheck {
 
     });
   }
-  checkbox(){
-    localStorage.setItem('email',this.formInfo.controls.email?.toString()??'');
-    localStorage.setItem('password',this.formInfo.controls.password?.toString()??'');
+  checkbox() {
+    localStorage.setItem('email', this.formInfo.controls.email?.toString() ?? '');
+    localStorage.setItem('password', this.formInfo.controls.password?.toString() ?? '');
   }
-  showConfirmPass:boolean = false
-  showConfirmPassword(){
+  showConfirmPass: boolean = false
+  showConfirmPassword() {
     this.showConfirmPass = !this.showConfirmPass
   }
-  showPass:boolean =false;
-  showPassword(){
+  showPass: boolean = false;
+  showPassword() {
     this.showPass = !this.showPass;
+  }
+
+  checkPasswordLength(controlName: string) {
+    if (this.formInfo.get(controlName)?.value) {
+      if (+this.formInfo.get(controlName)?.value.length > 40)
+        this.formInfo.get(controlName)?.patchValue(this.formInfo.get(controlName)?.value.slice(0, 40));
+    }
   }
 
   // resetSubmit() { // send mail
