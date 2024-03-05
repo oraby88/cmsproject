@@ -806,7 +806,7 @@ input[type=password]::-ms-clear
   .para{
     text-align: center;
     padding-top: 10%;
-    margin: 1%;
+    margin: 1% 1% 50px;
   }
   .formDiv p {
     font-size: 14px;
