@@ -1,6 +1,6 @@
-<div class="container">
-  @if( isavailable){
+@if( isavailable){
 
+<div class="container">
   <div class="add-user-container">
     <div class="user-header">
       <div class="header-icons">
@@ -50,9 +50,9 @@
             </div>
           </div>
           <div class="input">
-            <label>Role & Permissions</label>
+            <label for="selectRole">Role & Permissions</label>
 
-            <select name="" id="">
+            <select name="" id="selectRole">
               <option value="">Super Admin</option>
             </select>
           </div>
@@ -81,14 +81,14 @@
 
         <div class="hr"></div>
         <div class="user-form-footer">
-          <button (click)="close()">Cancel</button>
+          <button type="button" (click)="close()">Cancel</button>
           <button [disabled]="addUser.invalid" type="submit">Add User</button>
         </div>
       </form>
     </div>
   </div>
-  }
 </div>
+}
 
 <!-- <div
   class="card-modal"

@@ -19,11 +19,10 @@ h6 {
   align-items: center;
 }
 
-.filter-container {
+.sort-container {
   position: relative;
 }
-
-.addFilter {
+.addsort {
   background-color: #fff;
   padding: 10px 20px;
   border-radius: 10px;
@@ -37,33 +36,33 @@ button {
   cursor: pointer;
 }
 
-.filter-btn {
+.sort-btn {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 6px 10px 6px 10px;
-  background-color: rgba(250, 252, 255, 1);
-  border: 0.75px solid rgba(6, 96, 252, 1);
+  background-color: #fff;
+  border: 0.75px solid rgba(191, 212, 228, 0.4);
   border-radius: 7px;
   cursor: pointer;
   margin: 5px;
 }
 
-.showFilter + .addFilter {
+.showsort + .addsort {
   /* position: relative; */
   display: block;
 }
 
-.showFilter {
+.showsort {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.addFilter {
+.addsort {
   display: none;
 }
-.addFilter button {
+.addsort button {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -109,67 +108,17 @@ strong {
   display: inline;
 }
 
-.filterSearch {
+.sortSearch {
   position: relative;
 }
 
-.filterSearch::before {
+.sortSearch::before {
   content: "";
   position: absolute;
   width: 87.9%;
   height: 1px;
   background-color: rgba(191, 212, 228, 0.4);
   bottom: 0px;
-}
-
-#search {
-  padding-left: 29px;
-}
-
-.filterSearch img {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-}
-
-.filter {
-  width: 100%;
-}
-
-.filteredList {
-  width: 87.9%;
-  box-sizing: border-box;
-
-  background-color: rgba(255, 255, 255, 1);
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
-  box-shadow: 0px 40px 50px -10px rgba(0, 0, 0, 0.1);
-
-  box-shadow: 0px 20px 20px 0px rgba(0, 0, 0, 0.04);
-}
-
-.filteredList ul {
-  width: 80%;
-  margin: 0px;
-  padding: 10px;
-}
-
-.filteredList ul li:hover {
-  background-color: rgba(6, 96, 252, 0.12);
-  background: linear-gradient(
-    to right,
-    rgba(6, 96, 252, 0.12),
-    rgba(6, 96, 252, 0)
-  );
-  border-radius: 12px;
-  cursor: pointer;
-}
-
-.filteredList ul li {
-  width: 100%;
-  list-style-type: none;
-  padding: 10px;
-  color: rgba(126, 130, 153, 1);
 }
 
 .col-1 {

@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './add-user.component.css'
 })
 export class AddUserComponent implements OnInit {
-  isavailable: boolean = true;
+  isavailable!: Boolean;
   addAccountModal!: Boolean;
 
 
@@ -32,24 +32,21 @@ export class AddUserComponent implements OnInit {
   ngOnInit(): void {
     this._ToggleAddModalService.getToggleValue().subscribe({
       next: (toggler) => {
-        this.addAccountModal = toggler;
+        this.isavailable = toggler;
       }
     })
   }
 
-  AddUser() {
-    console.log(this.addUser)
-
-  }
-
-
-
 
   close() {
     this.isavailable = false;
+    this._ToggleAddModalService.toggle();
   }
 
 
+  AddUser() {
+    console.log(this.addUser)
+  }
 
 
 }

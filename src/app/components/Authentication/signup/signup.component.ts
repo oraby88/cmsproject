@@ -64,14 +64,14 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
   specialChar: boolean = false;
   Number: boolean = false;
   numberLength: boolean = false;
-  signUpRequest:ISignupRequest= {} as ISignupRequest;
+  signUpRequest: ISignupRequest = {} as ISignupRequest;
 
 
   constructor(
     private formBuilder: FormBuilder,
     private _authService: AuthService,
     private _Router: Router,
-    private element:ElementRef
+    private element: ElementRef
   ) { }
 
   ngAfterViewInit(): void { }
@@ -104,14 +104,14 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
   ngOnInit(): void {
     this.formInfo = this.formBuilder.group(
       {
-        fullName: [ 
+        fullName: [
           '',
           [
             Validators.required,
             Validators.minLength(2),
             Validators.maxLength(60),
             Validators.pattern('^[a-zA-Z]{2,}(?: [a-zA-Z]+){0,2}$')
-            
+
           ],
         ],
         email: ['', [Validators.required, Validators.email]],
@@ -138,27 +138,25 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
     '../../../assets/images/illustration.png',
     '../../../assets/images/Frame 1000016152.svg',
   ];
-  
+
   Submit() {
     //this.submitted = true;
     if (this.formInfo.invalid) {
-      console.log(this.formInfo);
-      // alert("Invalid Data");
       return;
     }
     const fv = this.formInfo.value!;
     this.signUpRequest = {
-      fullName :fv.fullName?.toString()??'',
-      email :fv.email?.toString()??'',
-      password :fv.password?.toString()??'',
-      confirmPassword :fv.confirmPassword?.toString()??''
+      fullName: fv.fullName?.toString() ?? '',
+      email: fv.email?.toString() ?? '',
+      password: fv.password?.toString() ?? '',
+      confirmPassword: fv.confirmPassword?.toString() ?? ''
     }
     console.log(fv);
     this._authService.signUp(this.signUpRequest).subscribe({
-      next:(res)=>{
+      next: (res) => {
         console.log(res);
-        sessionStorage.setItem('token' , res.token);
-        sessionStorage.setItem('email' , res.email);
+        sessionStorage.setItem('token', res.token);
+        sessionStorage.setItem('email', res.email);
         this._Router.navigateByUrl('/signupverification');
         // this._authService.setTokenInSessionStorage(res['token']);
       },
@@ -169,55 +167,59 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
     });
 
   }
-  showConfirmPass:boolean = false
-  showConfirmPassword(){
+  showConfirmPass: boolean = false
+  showConfirmPassword() {
     this.showConfirmPass = !this.showConfirmPass
   }
-  showPass:boolean =false;
-  showPassword(){
+  showPass: boolean = false;
+  showPassword() {
     this.showPass = !this.showPass;
   }
-  
-  unshowPassAfter2S(){
+
+  unshowPassAfter2S() {
     const ele = this.element.nativeElement as HTMLInputElement;
-    setTimeout(()=>{
+    setTimeout(() => {
       ele.type = 'text'
-    },2000)
-    console.log('aaaaaaa');
+    }, 2000)
   }
 
   showSlides(i = this.slidIndex) {
-
     let silde = this.slides[i];
     return silde;
   }
-  
+
   currentSlide(i: number) {
-    console.log(i);
     this.slidIndex = i;
     return this.showSlides();
   }
 
   test() {
     this.passwordHint = !this.passwordHint;
-    console.log(this.passwordHint);
   }
 
   eyeShow() {
     this.eyeshow = !this.eyeshow;
   }
 
-  testStr:string='';
-  pwd!:string;
-  signUpTest(str:any){
+  testStr: string = '';
+  pwd!: string;
+  signUpTest(str: any) {
     console.log(str);
     const input = this.element.nativeElement as HTMLInputElement;
     input.type = 'text';
-    setTimeout(()=>{
-        this.testStr+=`-`
-        input.type = 'password'
-        this.pwd+=str.key;
-        console.log(this.pwd);
-    },2000);
+    setTimeout(() => {
+      this.testStr += `-`
+      input.type = 'password'
+      this.pwd += str.key;
+      console.log(this.pwd);
+    }, 2000);
+  }
+
+  checkPasswordLength(controlName: string) {
+    if (this.formInfo.get(controlName)?.value) {
+      if (+this.formInfo.get(controlName)?.value.length > 40)
+        this.formInfo.get(controlName)?.patchValue(this.formInfo.get(controlName)?.value.slice(0, 40));
+    }
   }
 }
+
