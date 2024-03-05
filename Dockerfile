@@ -5,7 +5,7 @@ FROM node:20 AS builder
 WORKDIR /app
 
 # Copy package.json and package-lock.json to the working directory
-COPY package*.json package-lock.json ./
+COPY package*.json ./
 
 # Install dependencies
 RUN npm install
@@ -25,7 +25,8 @@ WORKDIR /app
 # Copy the built Angular app from the previous stage
 COPY --from=builder /app/dist ./dist
 
+# Expose port 4200 to the outside world
 EXPOSE 4200
 
-# start the Angular app
+# Command to start the Angular app
 CMD ["npm", "start"]
