@@ -43,7 +43,6 @@
     .sidebar{
         background-color: antiquewhite;
         height: 59.09rem;
-        /* height: 821px; */
     }
 }
 @media  screen and (max-width: 992px) and (min-width:786px) {}

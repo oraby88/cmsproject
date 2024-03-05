@@ -1,9 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
+import { PaginatorComponent } from '../paginator/paginator.component';
 
 @Component({
   selector: 'app-table',
   standalone: true,
-  imports: [],
+  imports: [PaginatorComponent],
   templateUrl: './table.component.html',
   styleUrl: './table.component.css'
 })
@@ -17,8 +18,11 @@ export class TableComponent {
   {id:'#U-101',info:{path:'../../../assets/images/table-demo-image.jpg',name:'Will Smith'},status:'Pending',role:'Super admin',email:'mahmoudsmohammed24@gmail.com',date:'11:43 am-18jun,2024'}];
   
   constructor(){
-    console.log(this.bodydata[0].id)
+    
   }
 
+  getCount(e:number){
+    console.log(e);
+  }
 
 }

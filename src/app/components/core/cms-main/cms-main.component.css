@@ -22,15 +22,19 @@
 
 .content {
   padding: 10px;
+  height: 100vh !important;
   background-color: #f9fafc;
+  padding-bottom: 30px;
 }
 
 .toggle {
+  height: 100vh !important;
   width: 3.2%;
   transition: width 1s;
 }
 
 .beforeToggle {
+  height: 100vh !important;
   width: 20%;
   transition: width 1s;
 }
@@ -75,21 +79,18 @@
 @media screen and (min-width: 1600px) {
   .sidebar {
     height: 59.09rem;
-    /* height: 821px; */
   }
 }
 
 @media screen and (max-width: 1600px) and (min-width: 1400px) {
   .sidebar {
     height: 59.09rem;
-    /* height: 821px; */
   }
 }
 
 @media screen and (max-width: 1400px) and (min-width: 1200px) {
   .sidebar {
     height: 59.09rem;
-    /* height: 821px; */
   }
 }
 
@@ -97,7 +98,6 @@
   .sidebar {
     display: block;
     height: 59.09rem;
-    /* height: 821px; */
   }
 
   .toggle {
@@ -143,10 +143,6 @@
   }
   .col-3 {
     width: 0%;
-  }
-
-  .col-12 {
-    width: auto !important;
   }
   .head-side {
     width: auto !important;
