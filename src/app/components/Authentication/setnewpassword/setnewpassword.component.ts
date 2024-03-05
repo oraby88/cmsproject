@@ -43,7 +43,7 @@ export class SetnewpasswordComponent implements OnInit, DoCheck {
   specialChar: boolean = false;
   Number: boolean = false;
   numberLength: boolean = false;
-  forgetPassRequest : IForgetPassRequest ={} as IForgetPassRequest; 
+  forgetPassRequest: IForgetPassRequest = {} as IForgetPassRequest;
   formSetNewPassword = new FormGroup({
     password: new FormControl(''),
     confirmPassword: new FormControl(''),
@@ -99,12 +99,12 @@ export class SetnewpasswordComponent implements OnInit, DoCheck {
 
     const fv = this.formSetNewPassword.value!;
     this.forgetPassRequest = {
-      password :fv.password?.toString()??'',
-      confirmNewPassword :fv.confirmPassword?.toString()??''
+      password: fv.password?.toString() ?? '',
+      confirmNewPassword: fv.confirmPassword?.toString() ?? ''
     }
     console.log(fv);
     this._authService.resetPassword(this.forgetPassRequest).subscribe({
-      next: (res:any) => {
+      next: (res: any) => {
         sessionStorage.getItem('token');
         console.log(res);
         this._Router.navigateByUrl('/correctchange');
@@ -135,12 +135,19 @@ export class SetnewpasswordComponent implements OnInit, DoCheck {
     this.eyeshow = !this.eyeshow;
   }
 
-  showConfirmPass:boolean = false
-  showConfirmPassword(){
+  showConfirmPass: boolean = false
+  showConfirmPassword() {
     this.showConfirmPass = !this.showConfirmPass
   }
-  showPass:boolean =false;
-  showPassword(){
+  showPass: boolean = false;
+  showPassword() {
     this.showPass = !this.showPass;
+  }
+
+  checkPasswordLength(controlName: string) {
+    if (this.formSetNewPassword.get(controlName)?.value) {
+      if (+this.formSetNewPassword.get(controlName)?.value.length > 40)
+        this.formSetNewPassword.get(controlName)?.patchValue(this.formSetNewPassword.get(controlName)?.value.slice(0, 40));
+    }
   }
 }

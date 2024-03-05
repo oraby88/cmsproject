@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { ToggleFilterDirective } from '../../directives/toggle-filter.directive';
 import { FormArray, FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-filter',
   standalone: true,
-  imports: [ToggleFilterDirective, ReactiveFormsModule, FormsModule],
+  imports: [ToggleFilterDirective, ReactiveFormsModule, FormsModule, CommonModule],
   templateUrl: './filter.component.html',
   styleUrl: './filter.component.css'
 })
@@ -13,20 +14,22 @@ export class FilterComponent {
 
   toggleAddFilterBtn!: Boolean;
   filterForm!: FormGroup;
-  filteredArray!: FormGroup;
+  filteredArray!: FormArray;
   cols: string[] = ["Blog Title", "Status", "SEO", "Created At", "Created By", "Author"]
   tempCols!: string[];
-  filterSearch: string = ""
+  filterSearch: string = "";
   constructor(private _FormBuilder: FormBuilder) {
     this.toggleAddFilterBtn = false;
     this.tempCols = this.cols;
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.fb();
+  }
 
   fb() {
     this.filterForm = this._FormBuilder.group({
-      filteredArray: this.filteredArray,
+      'filteredArray': this.filteredArray,
     })
   }
 
@@ -54,7 +57,9 @@ export class FilterComponent {
     const condition = new FormControl(null, [Validators.required]);
     const columnValue = new FormControl(null, [Validators.required]);
 
-    (<FormArray>this.filterForm.get('filteredArray')).push([columnName, condition, columnValue]);
+    (<FormArray>this.filterForm.get('filteredArray')).push(
+      new FormGroup({ columnName: columnName, condition: condition, columnValue: columnValue }
+      ));
   }
 
   get controls() {
