@@ -8,13 +8,6 @@ pipeline {
 
     stages {
         
-        stage('checkout') {
-            steps {
-                echo "Checkouting...."
-                git 'https://github.com/spatiumsoftware/HR_Frontend-.git'      
-                echo "End Checkouting"
-                }
-        }
         
         stage('Install Dependencies') {
             steps {
