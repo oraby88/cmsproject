@@ -11,18 +11,37 @@
           <div class="header">
             <p>No filter conditions are applied to this table</p>
           </div>
-          <div class="dynamicFilters" [formGroup]="filterForm">
-            <div class="form-group" [formArrayName]="filteredArray">
-              <input
-                type="text"
-                name="columnName"
-                formControlName="columnName"
-                id="columnName"
-              />
-              <input type="text" name="" id="" />
-              <input type="text" name="" id="" />
+          <form [formGroup]="filterForm">
+            <div class="dynamicFilters">
+              <div class="form-group">
+                <input
+                  type="text"
+                  name="columnId"
+                  formControlName="columnId"
+                  id="columnId"
+                />
+                <input
+                  type="text"
+                  name="columnName"
+                  formControlName="columnName"
+                  id="columnName"
+                />
+                <input
+                  type="text"
+                  formControlName="condition"
+                  name="condition"
+                  id="condition"
+                />
+                <input
+                  type="text"
+                  formControlName="columnValue"
+                  name="columnValue"
+                  id="columnValue"
+                />
+              </div>
             </div>
-          </div>
+          </form>
+
           <button (click)="toggleAddBtn()">
             <img src="assets/images/addfilter.svg" alt="addfilter" />
             Add Filter

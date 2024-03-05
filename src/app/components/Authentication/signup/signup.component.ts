@@ -4,7 +4,6 @@ import {
   Component,
   DoCheck,
   ElementRef,
-  HostListener,
   OnInit,
 } from '@angular/core';
 import {

@@ -29,7 +29,10 @@ export class FilterComponent {
 
   fb() {
     this.filterForm = this._FormBuilder.group({
-      'filteredArray': this.filteredArray,
+      columnId: [null, Validators.required],
+      columnName: [null, Validators.required],
+      columnValue: [null, Validators.required],
+      condition: [null, Validators.required]
     })
   }
 
@@ -48,22 +51,25 @@ export class FilterComponent {
     }
     else {
       this.tempCols = this.cols
-
     }
   }
 
   addFilter(columnIndex: number): void {
-    const columnName = new FormControl(this.cols[columnIndex], [Validators.required]);
-    const condition = new FormControl(null, [Validators.required]);
-    const columnValue = new FormControl(null, [Validators.required]);
-
-    (<FormArray>this.filterForm.get('filteredArray')).push(
-      new FormGroup({ columnName: columnName, condition: condition, columnValue: columnValue }
-      ));
+    // (<FormArray>this.filteredArray).push(
+    //   new FormGroup(
+    //     {
+    //       columnid: new FormControl(null, [Validators.required]),
+    //       columnName: new FormControl([this.cols[columnIndex], [Validators.required]]),
+    //       condition: new FormControl(null, [Validators.required]),
+    //       columnValue: new FormControl(null, [Validators.required]),
+    //     }
+    //   )
+    // )
   }
 
+
   get controls() {
-    return (this.filterForm.get('filteredArray') as FormArray).controls;
+    return (<FormArray>this.filterForm.get('filteredArray')).controls;
   }
 
 }
