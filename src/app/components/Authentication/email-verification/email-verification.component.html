@@ -63,6 +63,7 @@
                       formVerification.controls.verificationCode1.errors &&
                       formVerification.controls.verificationCode1.dirty, 
                   }"
+                  [ngClass]="{'is-invalid1':errorExit == true}"
                 />&#32;
                 <input
                   type="text"
@@ -89,6 +90,7 @@
                       formVerification.controls.verificationCode2.errors &&
                       formVerification.controls.verificationCode2.dirty, 
                   }"
+                  [ngClass]="{'is-invalid1':errorExit == true}"
                 />
                 <input
                   type="text"
@@ -118,6 +120,7 @@
                       formVerification.controls.verificationCode3.errors &&
                       formVerification.controls.verificationCode3.dirty, 
                   }"
+                  [ngClass]="{'is-invalid1':errorExit == true}"
                 />
                 <input
                   type="text"
@@ -147,6 +150,7 @@
                       formVerification.controls.verificationCode4.errors &&
                       formVerification.controls.verificationCode4.dirty, 
                   }"
+                  [ngClass]="{'is-invalid1':errorExit == true}"
                 />
                 <input
                   type="text"
@@ -176,6 +180,7 @@
                       formVerification.controls.verificationCode5.errors &&
                       formVerification.controls.verificationCode5.dirty, 
                   }"
+                  [ngClass]="{'is-invalid1':errorExit == true}"
                 />
                 <input
                   type="text"
@@ -205,8 +210,12 @@
                       formVerification.controls.verificationCode6.errors &&
                       formVerification.controls.verificationCode6.dirty, 
                   }"
+                  [ngClass]="{'is-invalid1':errorExit == true}"
                 />
               </div>
+              @if (errorExit) {
+                <p class="required1">Invalid Code</p>
+              }
             </div>
             <button type="submit" [disabled]="formVerification.invalid">
               Reset password

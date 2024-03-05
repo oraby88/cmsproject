@@ -39,6 +39,7 @@ export class EmailVerificationComponent implements OnInit, DoCheck {
   str6!: string;
 
   otp: string = '';
+  errorExit:boolean =false;
 
   formVerification = new FormGroup({
     verificationCode1: new FormControl(''),
@@ -83,7 +84,9 @@ export class EmailVerificationComponent implements OnInit, DoCheck {
         this._Router.navigateByUrl('setnewpassword');
       },
       error: (err) => {
-        alert(err.message);
+        console.log(err.message)
+        // alert("Incorrect Code");
+        this.errorExit = true;
       },
     });
     
@@ -92,6 +95,13 @@ export class EmailVerificationComponent implements OnInit, DoCheck {
 
 
   resendOTP(){
-    this._authService.resendOTP()
+    this._authService.resendOTP().subscribe({
+      next: (res)=>{
+        console.log(res);
+      },
+      error: (err)=>{
+        console.log(err);
+      }
+    })
   }
 }

@@ -109,8 +109,9 @@ export class SetnewpasswordComponent implements OnInit, DoCheck {
         console.log(res);
         this._Router.navigateByUrl('/correctchange');
       },
-      error: (err: any) => {
-        alert(err.message);
+      error: (err:any) => {
+        console.log(err.message);
+        alert("");
       },
     });
   }

@@ -2,20 +2,27 @@
   <table>
     <thead>
       <tr>
-        <th style="width: 30px"><input type="checkbox" /></th>
+        <th><input type="checkbox" /></th>
         @for (data of headdata; track $index) {
         <th>{{ data }}</th>
         }
+        <th>
+          <span><img src="../../../assets/images/table-setting.png" alt=""></span>
+        </th>
       </tr>
     </thead>
     <tbody>
-      @for (item of bodydata; track $index) {
+      @for (data of bodydata; track data) {
       <tr>
         <td style="width: 30px"><input type="checkbox" /></td>
-        @for (data of bodydata; track data) {
-        <td>{{ data }}</td>
-        }
-        <td style="width: 30px;">
+        <td>{{ data.id }}</td>
+        <td><img [src]="data.info.path" alt="">{{ data.info.name }}</td>
+        <td ><span class="status"><span class="{{data.status.toLowerCase()}}"></span>{{ data.status }}</span></td>
+        <td>{{ data.role }}</td>
+        <td>{{ data.email }}</td>
+        <td>{{ data.date }}</td>
+        <td>
+          <span><img src="../../../assets/images/table-communication.png" alt=""></span>
           <div class="dots">
             <div class="dot"></div>
             <div class="dot"></div>

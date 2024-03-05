@@ -26,20 +26,22 @@ body {
 .projName {
   padding: 3%;
   display: flex;
-  width: 200px;
-  align-items: start;
+  width: 200;
+  align-items: center;
+  /* justify-content: space-between; */
+  transition: all 0.5s ease;
 }
 .projName img {
-  max-width: 100%;
-  width: 40px;
-  height: 40px;
-  padding-top: 1.5%;
+  /* max-width: 100%; */
+  width: 43px;
+  height: 43px;
+  /* padding-top: 1.5%; */
 }
 .projName p {
   font-size: 15px;
   font-weight: 700;
   /* padding-left: 10px; */
-  padding-left: 1%;
+  padding-left: 4px;
 }
 /* .projName h2{
       display: inline;
@@ -47,7 +49,6 @@ body {
 .formDiv {
   display: flex;
   flex-direction: column;
-  
   width: 50%;
   height: 100vh;
   background-color: #ffffff;
@@ -76,7 +77,12 @@ body {
   height: 42px;
   /* box-shadow: 1px 1px 1px white; */
 }
-
+.required1{
+  padding: 5px 0 !important;
+  margin: 0 !important;
+  font-size: 18px;
+  color: red;
+}
 
 .info {
   color: #7e8299;
@@ -575,7 +581,7 @@ body {
   display: flex;
   justify-content: space-around;
   margin-top: 20px;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 .labelInput {
   margin-bottom: 10px;
@@ -636,7 +642,7 @@ button {
   margin: auto;
   padding: 30px 40px 0px 40px;
   margin-top: 10%;
-  margin-bottom: 80px;
+  margin-bottom: 60px;
   /* transform: translate(-50%, -60%); */
   width: 55%;
 
@@ -649,12 +655,18 @@ button {
 .invalid-feedback {
   color: red;
 }
+@media screen and (max-width:1400px) {
+  .loginDiv{
+    width: 65%;
+    margin-bottom: 30px;
+  }
+}
 
 
 @media screen and (max-width: 1200px) and (min-width: 992px) {
-  /* .projName{
-      /* padding-left: 18%; 
-    }*/
+  .loginDiv{
+    width: 70%;
+  }
   .is-invalid {
     border: 1px solid red;
   }
@@ -716,11 +728,8 @@ button {
   .loginDiv {
     padding: 0;
   }
-  .formDiv p {
-    font-size: 14px;
-  }
   .projName {
-    margin-left: 20%;
+    margin-left: 10%;
   }
   .formLinks {
     width: 195px;
@@ -728,23 +737,21 @@ button {
     padding-right: 0;
     /* height: auto; */
   }
-
-  .formLinks p {
-    font-size: 14px;
-  }
-
-  h1 {
-    font-size: 14px;
-  }
   .is-invalid {
     border: 1px solid red;
   }
 }
 @media screen and (max-width: 600px) {
+  .container{
+    padding: 0 25px;
+  }
   .SlidesContainer {
     /* max-width: 100%; */
     width: 100%;
     display: none;
+  }
+  .projName{
+    padding: 35px 0;
   }
   .formDiv {
     box-sizing: border-box;
@@ -809,7 +816,7 @@ button {
     width: 100%;
     margin: 0;
     position: static;
-    padding: 20px;
+    padding: 0;
     background: #ffffff;
   }
   .labelInput {
@@ -817,14 +824,18 @@ button {
   }
   .verificationInpts {
     margin-top: 20px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
   .loginDiv h1 {
     font-size: 20px;
   }
+  .info{
+    margin-top: 20px;
+  }
   .info1 {
     font-size: 14px;
     color: #a1a5b7;
+    
   }
   .info2 {
     font-size: 14px;
@@ -900,7 +911,7 @@ button {
     width: 100%;
     margin: 0;
     position: static;
-    padding: 20px;
+    /* padding: 20px; */
     background: #ffffff;
   }
   .submitButton {
@@ -914,12 +925,7 @@ button {
   h1 {
     font-size: 18px;
   }
-  .projName {
-    
-    margin-right: 270px;
-    padding-bottom: 0px;
-    display: flex;
-  }
+  
   .info {
     margin: 10px;
   }
@@ -1004,12 +1010,7 @@ button {
     margin: 0;
   }
   .projName {
-    /* margin: 0px 0px 0px 300px; */
-
-    margin-top: 5px;
-    margin-right: 220px;
-    padding-bottom: 0px;
-    display: flex;
+    margin-top: 20px;
   }
   .info {
     /* padding-left: 20px; */
@@ -1036,6 +1037,16 @@ button {
     padding: 0;
   }
 }
+
+@media screen and (max-width: 345px) {
+  .inputVerificationStyle{
+    height: 40px;
+    font-size: 12px !important;
+    padding: 0;
+  }
+  
+}
+
 @media screen and (max-width: 300px) {
   .SlidesContainer {
     display: none;
@@ -1046,7 +1057,13 @@ button {
     padding: 0px;
     width: 100%;
   }
-  
+  .projName img{
+    width: 35px;
+    height: 35px;
+  }
+  .labelInput{
+    font-size: 14px;
+  }
   .form-input {
     max-width: 100%;
     width: 250px;
@@ -1084,12 +1101,4 @@ button {
     font-size: 12px !important;
     padding: 0;
   }
-}
-@media screen and (max-width: 345px) {
-  .inputVerificationStyle{
-    height: 40px;
-    font-size: 12px !important;
-    padding: 0;
-  }
-  
 }

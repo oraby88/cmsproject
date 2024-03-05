@@ -53,7 +53,7 @@
                       formVerification.controls.verificationCode1.errors &&
                       formVerification.controls.verificationCode1.dirty, 
                   }"
-
+                  [ngClass]="{'is-invalid1': errorExist}"
                 />
                 <input
                   type="text"
@@ -82,6 +82,7 @@
                       formVerification.controls.verificationCode2.errors &&
                       formVerification.controls.verificationCode2.dirty, 
                   }"
+                  [ngClass]="{'is-invalid1': errorExist}"
                 />
                 <input
                   type="text"
@@ -111,6 +112,7 @@
                       formVerification.controls.verificationCode3.errors &&
                       formVerification.controls.verificationCode3.dirty, 
                   }"
+                  [ngClass]="{'is-invalid1': errorExist}"
                 />
                 <input
                   type="text"
@@ -139,6 +141,7 @@
                       formVerification.controls.verificationCode4.errors &&
                       formVerification.controls.verificationCode4.dirty, 
                   }"
+                  [ngClass]="{'is-invalid1': errorExist}"
                 />
                 <input
                   type="text"
@@ -167,6 +170,7 @@
                       formVerification.controls.verificationCode5.errors &&
                       formVerification.controls.verificationCode5.dirty, 
                   }"
+                  [ngClass]="{'is-invalid1': errorExist}"
                 />
                 <input
                   type="text"
@@ -193,8 +197,12 @@
                       formVerification.controls.verificationCode6.errors &&
                       formVerification.controls.verificationCode6.dirty, 
                   }"
+                  [ngClass]="{'is-invalid1': errorExist}"
                 />
               </div>
+              @if (errorExist) {
+                <p class="required1">Invalid Code</p>
+              }
             </div>
             <button
               type="submit"
