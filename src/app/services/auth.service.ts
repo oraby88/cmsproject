@@ -13,7 +13,6 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   signUp(registerData: ISignupRequest): Observable<ISignUpResponse> {
-    debugger;
     console.log(registerData);
     return this.http.post<ISignUpResponse>(
       environment.BASEURL + 'api/Authentication/Register',

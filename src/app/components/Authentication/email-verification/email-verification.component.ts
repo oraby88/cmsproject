@@ -95,6 +95,13 @@ export class EmailVerificationComponent implements OnInit, DoCheck {
 
 
   resendOTP(){
-    this._authService.resendOTP()
+    this._authService.resendOTP().subscribe({
+      next: (res)=>{
+        console.log(res);
+      },
+      error: (err)=>{
+        console.log(err);
+      }
+    })
   }
 }
