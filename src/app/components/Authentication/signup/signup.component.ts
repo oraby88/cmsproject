@@ -15,10 +15,10 @@ import {
   Validators,
 } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faFilm, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { Router, RouterModule } from '@angular/router';
 import { MatProgressBar } from '@angular/material/progress-bar';
+import { faFilm, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from '../../../services/auth.service';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { ISignupRequest } from '../../../interfaces/signupinterface';
@@ -98,6 +98,8 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
       const confimPassword = group.controls[confimPass];
       if (password.value !== confimPassword.value) {
         confimPassword.setErrors({ passwordMismatch: true });
+      } else {
+        confimPassword.setErrors(null);
       }
     };
   }
@@ -140,7 +142,7 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
     '../../../assets/images/Frame 1000016152.svg',
   ];
 
-  errorExit:boolean = false;
+  errorExit: boolean = false;
 
   Submit() {
     //this.submitted = true;
@@ -182,7 +184,9 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
     this.showPass = !this.showPass;
   }
 
-  unshowPassAfter2S() {
+  unshowPassAfter2S(event: any) {
+    console.log(event);
+
     const ele = this.element.nativeElement as HTMLInputElement;
     setTimeout(() => {
       ele.type = 'text'
@@ -226,6 +230,10 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
       if (+this.formInfo.get(controlName)?.value.length > 40)
         this.formInfo.get(controlName)?.patchValue(this.formInfo.get(controlName)?.value.slice(0, 40));
     }
+  }
+
+  removeAlreadyExistError() {
+    this.errorExit = false;
   }
 
   // changeErrorExit(){

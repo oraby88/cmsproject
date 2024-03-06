@@ -73,11 +73,11 @@
         formInfo.controls.fullName.touched) {
         <div class="invalid-feedback">
           @if (formInfo.controls.fullName.errors['required']) {
-          <p class="required">Fullname is required</p>
+          <p class="required">Full Name is required</p>
           } @if (formInfo.controls.fullName.errors['minLength']) {
           <p class="required">Invalid Name</p>
           } @if (formInfo.controls.fullName.errors['pattern']) {
-          <p class="required">Full Name Must be Only characters</p>
+          <p class="required">Full Name must be more than one character</p>
           }
         </div>
         }
@@ -90,6 +90,7 @@
           id="fromInput2"
           placeholder="i.e. Haitham.mo@company.com"
           formControlName="email"
+          (input)="removeAlreadyExistError()"
           [ngClass]="{
             'is-invalid':
             formInfo.controls.email.touched &&
@@ -111,9 +112,8 @@
           <p>Email is invalid</p>
           }
         </div>
-        }
-        @if(errorExit){
-          <p class="required1">Email Already Exit</p>
+        } @if(errorExit){
+        <p class="required1">Email Already Exit</p>
         }
       </div>
       <div class="label-div">
@@ -139,7 +139,7 @@
           }"
           (focusin)="test()"
           (focusout)="test()"
-          appPassword
+          [appPassword]="showPass"
         />
         }@else {
         <input
@@ -148,7 +148,7 @@
           id="fromInput3"
           placeholder="********************"
           formControlName="password"
-          (change)="unshowPassAfter2S()"
+          (change)="unshowPassAfter2S($event)"
           (input)="checkPasswordLength('password')"
           [ngClass]="{
               'is-invalid':
@@ -163,7 +163,7 @@
           }"
           (focusin)="test()"
           (focusout)="test()"
-          appPassword
+          [appPassword]="showPass"
         />
         } @if(showPass){
         <fa-icon
@@ -229,13 +229,14 @@
             Password hint : 8 characters minimum
           </p>
           <div
+            class="passwordValidation"
             style="
               display: flex;
               align-items: center;
               justify-content: space-between;
             "
           >
-            <div [hidden]="!passwordHint">
+            <div [hidden]="!passwordHint" class="passwordHint">
               @if(formInfo.controls.password.value!.length < 6 ||
               formInfo.controls.password.value!.length >= 6 &&
               formInfo.controls.password.errors){
@@ -322,7 +323,7 @@
             formInfo.controls.confirmPassword.untouched && 
             formInfo.controls.confirmPassword.errors == null,
         }"
-          appPassword
+          [appPassword]="showConfirmPass"
         />
         }@else {
         <input
@@ -343,7 +344,7 @@
             formInfo.controls.confirmPassword.untouched && 
             formInfo.controls.confirmPassword.errors == null,
         }"
-          appPassword
+          [appPassword]="showConfirmPass"
         />
         } @if(showConfirmPass){
         <fa-icon
@@ -399,7 +400,7 @@
     <div class="paragraphs">
       <p class="info">Have an Account? <a routerLink="/signin">Login</a></p>
       <p class="para">
-        By signing up you agree to out
+        By signing up you agree to our
         <a style="font-weight: 400" href="">Terms</a> and
         <a href="" style="font-weight: 400">privacy policy</a>
       </p>

@@ -15,6 +15,7 @@ import { AddUserComponent } from './components/core/add-user/add-user.component'
 import { TableComponent } from './shared/table/table.component';
 import { CardModalComponent } from './shared/pop-up-card/card-modal/card-modal.component';
 import { FilterComponent } from './shared/filter/filter/filter.component';
+import { authGuard } from './guards/auth.guard';
 
 
 export const routes: Routes = [
@@ -31,7 +32,7 @@ export const routes: Routes = [
     children: [
       {
         path: 'management',
-        canActivate: [],
+        canActivate: [authGuard],
         loadChildren: () => import('./components/core/management/management.routes').then(routes => routes.MANAGEMENT_ROUTES),
       },
       { path: 'blogs', canActivate: [], loadComponent: () => import('./components/core/blog/blog.component').then(c => c.BlogComponent) },

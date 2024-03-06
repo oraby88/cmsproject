@@ -10,7 +10,7 @@ import { ISignUpResponse } from '../interfaces/isign-up-response';
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   signUp(registerData: ISignupRequest): Observable<ISignUpResponse> {
     console.log(registerData);
@@ -20,13 +20,13 @@ export class AuthService {
     );
   }
 
-  verificationCode(otp: string):Observable<any> {
+  verificationCode(otp: string): Observable<any> {
     var obj = {
       email: sessionStorage.getItem('email')?.toString(),
       otp: otp.toString(),
       token: sessionStorage.getItem('token')?.toString(),
     };
-     console.log(obj);
+    console.log(obj);
     return this.http.post(
       `${environment.BASEURL}api/Authentication/ConfirmEmail`,
       obj
@@ -55,9 +55,11 @@ export class AuthService {
   get isLoggedIn(): boolean {
     // return true;
     const userData = localStorage.getItem(localStorage['token'].userSession);
+    console.log(userData);
     if (userData) {
       const jsonUserData = JSON.parse(userData);
       const token = jsonUserData[localStorage['token']];
+
       const tokenExpireDate =
         jsonUserData[localStorage['token'].tokenExpireDate];
       return token && new Date(tokenExpireDate) >= new Date();
@@ -91,8 +93,8 @@ export class AuthService {
       return null;
     }
   }
-  
-  
+
+
   sendMail(email: string): Observable<any> {
     console.log(email);
     return this.http.post(
@@ -102,13 +104,13 @@ export class AuthService {
   }
 
 
-  resetVerificationCode(res: string):Observable<any> {
+  resetVerificationCode(res: string): Observable<any> {
     var obj = {
       email: sessionStorage.getItem('email')?.toString(),
       otp: res.toString(),
       //token: sessionStorage.getItem('token')?.toString(),
     };
-     console.log(obj);
+    console.log(obj);
     return this.http.post(
       `${environment.BASEURL}api/Authentication/ConfirmForgetPasswordOTP`,
       obj
@@ -125,7 +127,7 @@ export class AuthService {
   }
 
 
-  
+
 
   // setNewPass(res:IForgetPassRequest){
   //   var obj={

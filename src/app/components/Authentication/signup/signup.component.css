@@ -20,14 +20,14 @@ body {
   /* height: 100%; */
   /* margin-top: 50px; */
   /* padding: 50px; */
-  
+
   justify-content: space-between;
   transition: all 1s;
 }
 
 .projName {
   /* margin: 0px 0px 0px 300px; */
-  
+
   display: flex;
   align-items: center;
   padding: 3%;
@@ -131,7 +131,6 @@ body {
   font-size: 20px;
 }
 
-
 .formLinks {
   border: 1px solid #bfd4e466;
   /* padding: 5px; */
@@ -226,7 +225,7 @@ hr {
 .paragraphs p {
   transition: ease all 1s;
 }
-.EyeIcon{
+.EyeIcon {
   margin-left: -30px;
   margin-top: -25px;
   position: relative;
@@ -237,12 +236,10 @@ hr {
   color: rgb(201, 198, 198);
 }
 
-input[type=password]::-ms-reveal,
-input[type=password]::-ms-clear
-{
-    display: none;
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
 }
-
 
 .SlidesContainer {
   display: flex;
@@ -316,7 +313,7 @@ input[type=password]::-ms-clear
   text-align: center;
   padding: 0px 50px 0px 50px;
 }
-.disabled{
+.disabled {
   background-color: #adc4ec;
 }
 
@@ -413,6 +410,7 @@ input[type=password]::-ms-clear
 .passwordCheckContainer {
   /* width: 409px; */
   display: flex;
+
   justify-content: space-between;
 }
 .passCheckWord {
@@ -420,7 +418,7 @@ input[type=password]::-ms-clear
   font-size: 12px;
   text-align: right;
   /* padding-left: 10px; */
-  color: #7E8299;
+  color: #7e8299;
 }
 
 .label-div {
@@ -572,12 +570,12 @@ input[type=password]::-ms-clear
 .changeBG {
   background-color: #0660fc;
 }
-.required{
+.required {
   padding: 5px 0 0 0 !important;
   margin: 0 !important;
   font-size: 14px;
 }
-.required1{
+.required1 {
   padding: 5px 0 0 0 !important;
   margin: 0 !important;
   font-size: 14px;
@@ -684,7 +682,7 @@ input[type=password]::-ms-clear
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #2D2D2D;
+  background-color: #2d2d2d;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   width: 350px;
@@ -711,9 +709,11 @@ input[type=password]::-ms-clear
   cursor: pointer;
 }
 
-.popup-content, .popup-header, .close-button {
+.popup-content,
+.popup-header,
+.close-button {
   margin: 0;
-  color: #FFF;
+  color: #fff;
 }
 
 .popup-buttons {
@@ -722,7 +722,8 @@ input[type=password]::-ms-clear
   margin-top: 20px;
 }
 
-.cancel-button, .ok-button {
+.cancel-button,
+.ok-button {
   padding: 8px 16px;
   border: none;
   border-radius: 4px;
@@ -744,16 +745,16 @@ hr {
   border-top: 1px solid #ddd;
   margin: 15px 0;
   margin-top: 16px;
-
 }
-
+.passwordHint {
+  margin-top: 5px;
+}
 
 @media screen and (max-width: 1200px) and (min-width: 992px) {
   .is-invalid {
     border: 1px solid red;
   }
   .container {
-    
     transition: all 1s;
     overflow: visible;
   }
@@ -762,6 +763,9 @@ hr {
   }
   .SlidesContainer {
     transition: ease all 1s;
+  }
+  .passwordHint {
+    margin-top: 5px;
   }
 }
 @media screen and (max-width: 992px) and (min-width: 786px) {
@@ -798,6 +802,9 @@ hr {
   }
   .is-invalid {
     border: 1px solid red;
+  }
+  .passwordHint {
+    margin-top: 5px;
   }
 }
 @media screen and (max-width: 786px) and (min-width: 600px) {
@@ -855,6 +862,9 @@ hr {
   .is-invalid {
     border: 1px solid red;
   }
+  .passwordHint {
+    margin-top: 5px;
+  }
 }
 @media screen and (max-width: 600px) {
   .container {
@@ -878,7 +888,7 @@ hr {
     padding-top: 2%;
     margin: 1%;
   }
-  .para{
+  .para {
     text-align: center;
     padding-top: 10%;
     margin: 1% 1% 50px;
@@ -923,6 +933,9 @@ hr {
     right: 40%;
     top: 10%;
   }
+  .passwordHint {
+    margin-top: 5px;
+  }
 }
 @media screen and (max-width: 480px) {
   .SlidesContainer {
@@ -965,7 +978,7 @@ hr {
     border-radius: 5px;
     border: 1px solid #e3eef5;
   }
-  .formLinks a p{
+  .formLinks a p {
     font-size: 12px;
   }
   .tooltip .tooltiptext {
@@ -994,10 +1007,10 @@ hr {
   h1 {
     font-size: 18px;
   }
-  .text p{
+  .text p {
     margin-bottom: 3%;
   }
-  #info3{
+  #info3 {
     font-size: 22px;
     font-weight: 500;
     margin-bottom: 25px;
@@ -1010,6 +1023,9 @@ hr {
   }
   .required {
     display: none;
+  }
+  .passwordHint {
+    margin-top: 5px;
   }
 }
 @media screen and (max-width: 380px) {
@@ -1135,6 +1151,19 @@ hr {
   .formLinks {
     width: 161px;
   }
+  .passContainerSmallSize {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .passContainerSmallSize > .passwordValidation {
+    width: 100%;
+  }
+
+  .passwordHint {
+    margin-top: 5px;
+  }
 }
 @media screen and (max-width: 360px) {
   .container {
@@ -1232,6 +1261,15 @@ hr {
   .is-invalid {
     border: 1px solid red;
   }
+  .passContainerSmallSize {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .passContainerSmallSize > .passwordValidation {
+    width: 100%;
+  }
 }
 @media screen and (max-width: 300px) {
   .SlidesContainer {
@@ -1301,10 +1339,9 @@ hr {
     border-color: transparent transparent transparent black;
     border-radius: 30%;
   }
-  .passwordCheckContainer{
-    
+  .passwordCheckContainer {
   }
-  .passContainerSmallSize{
+  .passContainerSmallSize {
     display: inline-block;
   }
 }
