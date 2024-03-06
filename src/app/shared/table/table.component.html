@@ -16,11 +16,11 @@
       <tr>
         <td style="width: 30px"><input type="checkbox" /></td>
         <td>{{ data.id }}</td>
-        <td><img [src]="data.info.path" alt="">{{ data.info.name }}</td>
-        <td ><span class="status"><span class="{{data.status.toLowerCase()}}"></span>{{ data.status }}</span></td>
-        <td>{{ data.role }}</td>
+        <td><img [src]="data.profileImagePath" alt="">{{ data.fullName }}</td>
+        <td ><span class="status"><span class='{{ data.isAccountActive ? "active" : "deactive" }}'></span>{{ data.isAccountActive ? "Active" : "Deactive" }}</span></td>
+        <td>{{ data.roleName }}</td>
         <td>{{ data.email }}</td>
-        <td>{{ data.date }}</td>
+        <td>{{ data.createdAt }}</td>
         <td>
           <span><img src="../../../assets/images/table-communication.png" alt=""></span>
           <div class="dots">

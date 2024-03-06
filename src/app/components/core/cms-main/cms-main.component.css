@@ -22,9 +22,7 @@
 
 .content {
   padding: 10px;
-  height: 100vh !important;
   background-color: #f9fafc;
-  padding-bottom: 30px;
 }
 
 .toggle {
