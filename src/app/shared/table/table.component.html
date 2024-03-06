@@ -1,5 +1,5 @@
 <div class="container">
-  <table>
+  <table CELLSPACING=0>
     <thead>
       <tr>
         <th><input type="checkbox" /></th>
@@ -13,11 +13,11 @@
     </thead>
     <tbody>
       @for (data of bodydata; track data) {
-      <tr>
-        <td style="width: 30px"><input type="checkbox" /></td>
+      <tr class="row">
+        <td><input type="checkbox" (click)="onChecked($event)"/></td>
         <td>{{ data.id }}</td>
         <td><img [src]="data.profileImagePath" alt="">{{ data.fullName }}</td>
-        <td ><span class="status"><span class='{{ data.isAccountActive ? "active" : "deactive" }}'></span>{{ data.isAccountActive ? "Active" : "Deactive" }}</span></td>
+        <td><span class="status"><span class='{{ data.isAccountActive ? "active" : "deactive" }}'></span>{{ data.isAccountActive ? "Active" : "Deactive" }}</span></td>
         <td>{{ data.roleName }}</td>
         <td>{{ data.email }}</td>
         <td>{{ data.createdAt }}</td>
@@ -35,4 +35,4 @@
     <tfoot></tfoot>
   </table>
 </div>
-<app-paginator (rowsCount)="getCount($event)"/>
+<app-paginator (rowsCount)="getCount($event)" [all]="bodydata.length"/>

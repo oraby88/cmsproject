@@ -22,17 +22,21 @@
 
 .content {
   padding: 10px;
+  margin: 0;
   background-color: #f9fafc;
+  height: 100vh;
 }
 
 .toggle {
-  height: 100vh !important;
+  min-height: 100vh !important;
+  max-height: fit-content !important;
   width: 3.2%;
   transition: width 1s;
 }
 
 .beforeToggle {
-  height: 100vh !important;
+  max-height: fit-content !important;
+  min-height: 100vh !important;
   width: 20%;
   transition: width 1s;
 }
