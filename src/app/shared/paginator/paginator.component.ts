@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewChecked, Component, ElementRef, EventEmitter, Output, Renderer2, ViewChild } from '@angular/core';
+import { AfterViewChecked, Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-paginator',
@@ -8,14 +8,18 @@ import { AfterViewChecked, Component, ElementRef, EventEmitter, Output, Renderer
   standalone:true,
   imports:[CommonModule],
 })
-export class PaginatorComponent implements AfterViewChecked{
+export class PaginatorComponent implements AfterViewChecked,OnInit{
   // component properties 
   @ViewChild('container') container!:ElementRef;
-  all:number = 20;
-  pages:number = 8 ;
+  @Output() rowsCount = new EventEmitter<number>();
+  @Input() all!:number ;
+  pages!:number;
   active = 0;
   holder!:ElementRef;
-  @Output() rowsCount = new EventEmitter<number>();
+
+  ngOnInit(): void {
+    this.pages = Math.ceil(this.all / 2);
+  }
 
   ngAfterViewChecked(): void {
     let holder = this.container.
@@ -50,8 +54,8 @@ export class PaginatorComponent implements AfterViewChecked{
       // less than 5 pages
       case  this.pages <= 4: 
       Array.from(holder).forEach((e,i)=>{
-        i === this.active ? (e as HTMLElement).className = "active" : i === this.active + 1 && this.active < this.pages - 1 ? (e as HTMLElement).className = "semi" : this.active === this.pages - 1 ? holder[holder.length - 2 ].className = "semi": (e as HTMLElement).className = "";
-      })
+        i === this.active ? (e as HTMLElement).className = "active" : i === this.active + 1 && this.active < this.pages - 1 ? (e as HTMLElement).className = "semi" : (e as HTMLElement).className = ""  ;
+      });
       break;
     }
   }
@@ -60,7 +64,7 @@ export class PaginatorComponent implements AfterViewChecked{
   onCahnge(e:Event){
     this.active = 0;
     this.pages = Math.ceil(this.all / +((e.target as HTMLInputElement).value));
-    this.rowsCount.emit(+((e.target as HTMLInputElement).value));
+    this.rowsCount.emit(+(e.target as HTMLInputElement).value);
   }
 
   // next page 

@@ -30,7 +30,7 @@ h5 {
 }
 
 .sidebar {
-  height: 100vh !important;
+  height: 100% !important;
   border-right: 1px solid #e7e7e9;
   position: sticky;
   transition: 1s;
