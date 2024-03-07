@@ -125,6 +125,7 @@
           id="fromInput3"
           placeholder="********************"
           formControlName="password"
+          (input)="shooww()"
           (input)="checkPasswordLength('password')"
           [ngClass]="{
               'is-invalid':
@@ -150,6 +151,7 @@
           formControlName="password"
           (change)="unshowPassAfter2S($event)"
           (input)="checkPasswordLength('password')"
+          (input)="shooww()"
           [ngClass]="{
               'is-invalid':
               formInfo.controls.password.touched &&
@@ -307,7 +309,7 @@
         @if (showConfirmPass) {
         <input
           type="text"
-          class="form-input"
+          class="form-input passwordCheck"
           id="fromInput4"
           formControlName="confirmPassword"
           placeholder="********************"

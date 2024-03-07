@@ -2,34 +2,48 @@ import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 
 @Directive({
   selector: '[appPassword]',
-  standalone: true,
+  standalone: true
 })
 export class PasswordDirective {
-  lastInputTime: number = 2000;
-  @Input('appPassword') currentPasswordType!: Boolean;
+  private lastInputTime: number = 1000;
+  private timeoutTemp: any = undefined;
+  private tempInput: string = '';
+  private currentInput: string = '';
+  private timeoutFlag: boolean = false;
+
+  @Input('appPassword') currentPasswordType!: boolean;
+
   constructor(private ele: ElementRef) { }
 
   @HostListener('input') onInput() {
+    const input = this.ele.nativeElement as HTMLInputElement;
+
+    if (this.timeoutTemp) {
+      clearTimeout(this.timeoutTemp);
+      // this.timeoutFlag = true;
+      // input.value = this.currentInput;
+      input.type = 'password';
+    }
+
+    // if (!this.timeoutFlag) {
+    //   this.currentInput = input.value;
+    // }
+
+    // if (this.timeoutFlag) {
+    //   this.currentInput = this.currentInput.concat(input.value.slice(-1));
+    // }
+
     if (!this.currentPasswordType) {
-      const input = this.ele.nativeElement as HTMLInputElement;
+      // input.value = this.tempInput
+      //   .concat('*')
+      //   .repeat(input.value.length - 1)
+      //   .concat(input.value.slice(-1));
       input.type = 'text';
-      setTimeout(() => {
+
+      this.timeoutTemp = setTimeout(() => {
+        // input.value = this.currentInput;
         input.type = 'password';
-      }, 1000);
+      }, this.lastInputTime);
     }
   }
-  // private showLastCharachter(input = this.ele.nativeElement as HTMLInputElement, value:string){
-  //   const lastChar = value.charAt(value.length - 1);
-  //   input.type = 'text';
-  //   input.value = lastChar;
-  //   setTimeout(() => {
-  //     input.type = 'password';
-  //     input.value = value;
-  //   }, 1000);
-  // }
-
-  // private hideCharachters(input = this.ele.nativeElement as HTMLInputElement, value:string){
-  //   input.type = 'password'
-  //   input.value = value;
-  // }
 }

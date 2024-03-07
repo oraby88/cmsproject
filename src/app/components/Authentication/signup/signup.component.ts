@@ -22,8 +22,8 @@ import { faFilm, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from '../../../services/auth.service';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { ISignupRequest } from '../../../interfaces/signupinterface';
-import { PasswordDirective } from '../password.directive';
 import { PopupComponent } from '../../../shared/popup/popup.component';
+import { PasswordDirective } from '../password.directive';
 
 @Component({
   selector: 'app-signup',
@@ -236,8 +236,8 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
     this.errorExit = false;
   }
 
-  // changeErrorExit(){
-  //   this.errorExit = false;
-  // }
+  shooww() {
+    console.log(this.formInfo.controls.password.value);
+  }
 }
 

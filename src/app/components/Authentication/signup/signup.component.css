@@ -229,7 +229,6 @@ hr {
   margin-left: -30px;
   margin-top: -25px;
   position: relative;
-  z-index: 2;
   width: 25px !important;
   display: inline-block;
   transition: ease all 1s;
@@ -750,6 +749,10 @@ hr {
   margin-top: 5px;
 }
 
+.passwordCheck {
+  padding-right: 35px;
+}
+
 @media screen and (max-width: 1200px) and (min-width: 992px) {
   .is-invalid {
     border: 1px solid red;
@@ -806,6 +809,22 @@ hr {
   .passwordHint {
     margin-top: 5px;
   }
+
+  .tooltip .tooltiptext {
+    position: absolute;
+    left: -265px;
+    top: -30px;
+    right: 100px;
+  }
+  .tooltip .tooltiptext::after {
+    top: 10%;
+    left: 250px;
+    margin-left: -5px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent transparent black;
+    border-radius: 30%;
+  }
 }
 @media screen and (max-width: 786px) and (min-width: 600px) {
   .container {
@@ -845,7 +864,7 @@ hr {
   }
   .tooltip .tooltiptext::after {
     top: 10%;
-    left: 255px;
+    left: 250px;
     margin-left: -5px;
     border-width: 10px;
     border-style: solid;
@@ -914,7 +933,7 @@ hr {
   }
   .tooltip .tooltiptext::after {
     top: 10%;
-    left: 255px;
+    left: 250px;
     margin-left: -5px;
     border-width: 10px;
     border-style: solid;
@@ -928,11 +947,7 @@ hr {
   .is-invalid {
     border: 1px solid red;
   }
-  .tooltip .tooltiptext {
-    left: 0;
-    right: 40%;
-    top: 10%;
-  }
+
   .passwordHint {
     margin-top: 5px;
   }
@@ -979,7 +994,17 @@ hr {
     border: 1px solid #e3eef5;
   }
   .formLinks a p {
-    font-size: 12px;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .whenComputer {
+    display: none;
+  }
+  .whenPhone {
+    display: inline;
   }
   .tooltip .tooltiptext {
     position: absolute;
@@ -989,7 +1014,7 @@ hr {
   }
   .tooltip .tooltiptext::after {
     top: 10%;
-    left: 255px;
+    left: 250px;
     margin-left: -5px;
     border-width: 10px;
     border-style: solid;
@@ -1021,9 +1046,33 @@ hr {
   .form-input.is-invalid {
     border: 1px solid red;
   }
-  .required {
+  /* .required {
     display: none;
+  } */
+  .passwordHint {
+    margin-top: 5px;
   }
+}
+@media screen and (max-width: 420px) {
+  .form-input {
+    width: 340px;
+  }
+  .submitButton {
+    width: 340px;
+  }
+  .formLinks {
+    width: 161px;
+  }
+  .passContainerSmallSize {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .passContainerSmallSize > .passwordValidation {
+    width: 100%;
+  }
+
   .passwordHint {
     margin-top: 5px;
   }
@@ -1064,7 +1113,7 @@ hr {
   }
   .tooltip .tooltiptext::after {
     top: 10%;
-    left: 255px;
+    left: 250px;
     margin-left: -5px;
     border-width: 10px;
     border-style: solid;
@@ -1082,7 +1131,7 @@ hr {
   .label-div p {
     padding: 5px 0 0px 0;
     font-size: 12px;
-    color: #a1a5b7;
+    /* color: #a1a5b7; */
   }
   .formLinks {
     width: 157px;
@@ -1134,35 +1183,11 @@ hr {
     margin: 0;
     padding: 0;
   }
-  .required {
+  /* .required {
     display: none;
-  }
+  } */
   .is-invalid {
     border: 1px solid red;
-  }
-}
-@media screen and (max-width: 420px) {
-  .form-input {
-    width: 340px;
-  }
-  .submitButton {
-    width: 340px;
-  }
-  .formLinks {
-    width: 161px;
-  }
-  .passContainerSmallSize {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .passContainerSmallSize > .passwordValidation {
-    width: 100%;
-  }
-
-  .passwordHint {
-    margin-top: 5px;
   }
 }
 @media screen and (max-width: 360px) {
@@ -1196,7 +1221,7 @@ hr {
   }
   .tooltip .tooltiptext::after {
     top: 10%;
-    left: 255px;
+    left: 250px;
     margin-left: -5px;
     border-width: 10px;
     border-style: solid;
@@ -1255,9 +1280,9 @@ hr {
   .FLinksContainer {
     margin: 0;
   }
-  .required {
+  /* .required {
     display: none;
-  }
+  } */
   .is-invalid {
     border: 1px solid red;
   }
@@ -1332,14 +1357,15 @@ hr {
   }
   .tooltip .tooltiptext::after {
     top: 10%;
-    left: 225px;
+    left: 220px;
     margin-left: -5px;
     border-width: 10px;
     border-style: solid;
     border-color: transparent transparent transparent black;
     border-radius: 30%;
   }
-  .passwordCheckContainer {
+  .passwordCheck {
+    padding-right: 35px;
   }
   .passContainerSmallSize {
     display: inline-block;
