@@ -236,8 +236,8 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
     this.errorExit = false;
   }
 
-  shooww() {
-    console.log(this.formInfo.controls.password.value);
+  shooww(event: any, controlName: string) {
+    this.formInfo.get(controlName)?.patchValue(event)
   }
 }
 

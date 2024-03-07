@@ -57,11 +57,13 @@
                 <label class="form-label" for="fromInput3">Password</label>
                 @if (showPass) {
                 <input
+                  [appPassword]="showPass"
                   type="text"
                   class="form-input"
                   id="fromInput3"
                   placeholder="********************"
                   formControlName="password"
+                  (onChangeInputValue)="shooww($event, 'password')"
                   (input)="checkPasswordLength('password')"
                   [ngClass]="{
                     'is-invalid':
@@ -71,12 +73,14 @@
                 />
                 } @else {
                 <input
+                  [appPassword]="showPass"
                   type="password"
                   class="form-input"
                   id="fromInput3"
                   placeholder="********************"
                   formControlName="password"
                   (input)="checkPasswordLength('password')"
+                  (onChangeInputValue)="shooww($event, 'password')"
                   [ngClass]="{
                     'is-invalid':
                       formInfo.controls.password.touched &&
@@ -105,7 +109,7 @@
                 }
               </div>
               @if(errorExit){
-                <p class="required1">Email or Pasword is invalid</p>
+              <p class="required1">Email or Pasword is invalid</p>
               }
               <div class="checkbox">
                 <div class="checkDiv">

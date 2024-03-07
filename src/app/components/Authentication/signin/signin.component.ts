@@ -14,11 +14,12 @@ import { AuthService } from '../../../services/auth.service';
 import { ILogin } from '../../../interfaces/logininterface';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { PasswordDirective } from '../password.directive';
 
 @Component({
   selector: 'app-signin',
   standalone: true,
-  imports: [RouterModule, FormsModule, ReactiveFormsModule, CommonModule, FontAwesomeModule],
+  imports: [RouterModule, FormsModule, ReactiveFormsModule, CommonModule, FontAwesomeModule, PasswordDirective],
   templateUrl: './signin.component.html',
   styleUrl: './signin.component.css',
   animations: [
@@ -45,7 +46,7 @@ export class SigninComponent implements OnInit, DoCheck {
   signInRequest: ILogin = {} as ILogin;
   faEye = faEye;
   faEyaSlash = faEyeSlash;
-  errorExit:boolean = false;
+  errorExit: boolean = false;
 
 
   constructor(private formBuilder: FormBuilder, private _authService: AuthService, private _Router: Router) { }
@@ -131,6 +132,11 @@ export class SigninComponent implements OnInit, DoCheck {
       if (+this.formInfo.get(controlName)?.value.length > 40)
         this.formInfo.get(controlName)?.patchValue(this.formInfo.get(controlName)?.value.slice(0, 40));
     }
+  }
+
+
+  shooww(event: any, controlName: string) {
+    this.formInfo.get(controlName)?.patchValue(event)
   }
 
   // resetSubmit() { // send mail

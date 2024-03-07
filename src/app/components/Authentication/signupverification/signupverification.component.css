@@ -652,6 +652,13 @@ button {
 .invalid-feedback {
   color: red;
 }
+.info2 a {
+  cursor: pointer;
+}
+
+.disabled {
+  opacity: 0.5;
+}
 @media screen and (max-width: 1400px) {
   .loginDiv {
     width: 65%;
@@ -673,7 +680,6 @@ button {
 @media screen and (max-width: 992px) and (min-width: 786px) {
   .container {
     display: flex;
-    flex-direction: column-reverse;
   }
   .SlidesContainer {
     /* max-width: 100%; */
@@ -706,7 +712,6 @@ button {
 @media screen and (max-width: 786px) and (min-width: 600px) {
   .container {
     display: flex;
-    flex-direction: column-reverse;
   }
   .SlidesContainer {
     /* max-width: 100%; */
@@ -722,9 +727,7 @@ button {
   .loginDiv {
     padding: 0;
   }
-  .projName {
-    margin-left: 10%;
-  }
+
   .formLinks {
     width: 195px;
     padding-left: 0;
@@ -737,7 +740,7 @@ button {
 }
 @media screen and (max-width: 600px) {
   .container {
-    padding: 0 25px;
+    padding: 10px 25px;
   }
   .SlidesContainer {
     /* max-width: 100%; */

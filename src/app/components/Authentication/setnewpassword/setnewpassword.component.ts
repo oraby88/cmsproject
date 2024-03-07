@@ -14,12 +14,13 @@ import { animate, style, transition, trigger } from '@angular/animations';
 import { ResetPasswordService } from '../../../services/reset-password.service';
 import { IForgetPassRequest } from '../../../interfaces/iforget-pass-request';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { PasswordDirective } from '../password.directive';
 
 
 @Component({
   selector: 'app-setnewpassword',
   standalone: true,
-  imports: [RouterModule, FormsModule, ReactiveFormsModule, CommonModule, FontAwesomeModule],
+  imports: [RouterModule, FormsModule, ReactiveFormsModule, CommonModule, FontAwesomeModule, PasswordDirective],
   templateUrl: './setnewpassword.component.html',
   styleUrl: './setnewpassword.component.css',
   animations: [
@@ -109,7 +110,7 @@ export class SetnewpasswordComponent implements OnInit, DoCheck {
         console.log(res);
         this._Router.navigateByUrl('/correctchange');
       },
-      error: (err:any) => {
+      error: (err: any) => {
         console.log(err.message);
         alert("");
       },
@@ -149,5 +150,9 @@ export class SetnewpasswordComponent implements OnInit, DoCheck {
       if (+this.formSetNewPassword.get(controlName)?.value.length > 40)
         this.formSetNewPassword.get(controlName)?.patchValue(this.formSetNewPassword.get(controlName)?.value.slice(0, 40));
     }
+  }
+
+  shooww(event: any, controlName: string) {
+    this.formSetNewPassword.get(controlName)?.patchValue(event)
   }
 }

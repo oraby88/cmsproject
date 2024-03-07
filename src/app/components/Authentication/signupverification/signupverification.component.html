@@ -26,7 +26,7 @@
       >
         <div>
           <label for="verificationCode" class="labelInput"
-            >Type your 6 digit security code </label
+            >Type your 6 digits security code </label
           ><br />
           <div class="verificationInpts">
             <input
@@ -180,7 +180,11 @@
           <p class="required1">Invalid Code</p>
           }
         </div>
-        <button type="submit" [disabled]="formVerification.invalid">
+        <button
+          type="submit"
+          [ngClass]="{ disabled: formVerification.invalid }"
+          [disabled]="formVerification.invalid"
+        >
           Submit Code
         </button>
         <p class="info2">

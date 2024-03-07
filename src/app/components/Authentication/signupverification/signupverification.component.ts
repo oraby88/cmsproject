@@ -50,7 +50,7 @@ export class SignupverificationComponent implements OnInit {
     private _Router: Router,
   ) { }
   ngOnInit(): void {
-    // this.email = sessionStorage.getItem('email')?.slice(0, 4).concat("************");
+    this.email = sessionStorage.getItem('email')?.slice(0, 4).concat("************");
     this.formVerification = this.formBuilder.group({
       verificationCode1: ['', [Validators.required, Validators.maxLength(1)]],
       verificationCode2: ['', [Validators.required, Validators.maxLength(1)]],

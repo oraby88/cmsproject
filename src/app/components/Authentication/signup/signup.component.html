@@ -77,7 +77,7 @@
           } @if (formInfo.controls.fullName.errors['minLength']) {
           <p class="required">Invalid Name</p>
           } @if (formInfo.controls.fullName.errors['pattern']) {
-          <p class="required">Full Name must be more than one character</p>
+          <p class="required">Full Name is invalid</p>
           }
         </div>
         }
@@ -125,7 +125,7 @@
           id="fromInput3"
           placeholder="********************"
           formControlName="password"
-          (input)="shooww()"
+          (onChangeInputValue)="shooww($event, 'password')"
           (input)="checkPasswordLength('password')"
           [ngClass]="{
               'is-invalid':
@@ -151,7 +151,7 @@
           formControlName="password"
           (change)="unshowPassAfter2S($event)"
           (input)="checkPasswordLength('password')"
-          (input)="shooww()"
+          (onChangeInputValue)="shooww($event, 'password')"
           [ngClass]="{
               'is-invalid':
               formInfo.controls.password.touched &&
@@ -314,6 +314,7 @@
           formControlName="confirmPassword"
           placeholder="********************"
           (input)="checkPasswordLength('confirmPassword')"
+          (onChangeInputValue)="shooww($event, 'confirmPassword')"
           [ngClass]="{
             'is-invalid':
             formInfo.controls.confirmPassword.touched &&
@@ -335,6 +336,7 @@
           formControlName="confirmPassword"
           placeholder="********************"
           (input)="checkPasswordLength('confirmPassword')"
+          (onChangeInputValue)="shooww($event, 'confirmPassword')"
           [ngClass]="{
             'is-invalid':
             formInfo.controls.confirmPassword.touched &&
