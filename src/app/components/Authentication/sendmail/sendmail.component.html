@@ -1,15 +1,10 @@
-
 <div class="container">
-
   <div class="projName">
     <div class="nameContainer">
       <div><img src="../../../assets/images/Icon.png" alt="Logo" /></div>
       <div class="projNDiv"><p>CMS Software</p></div>
     </div>
-
-    
   </div>
-
 
   <div class="resetContainer" id="resetContainerId" [@flipInOut]>
     <div class="bg2">
@@ -22,7 +17,9 @@
         >
           <div>
             <h1>Forget Password</h1>
-            <p class="info1">Enter your email, We will send you code to reset password</p>
+            <p class="info1">
+              Enter your email, We will send you code to reset password
+            </p>
           </div>
           <div>
             <label class="form-label" for="fromInput2">Email:</label>
@@ -49,7 +46,11 @@
             </div>
             }
           </div>
-          <button type="submit" [disabled]="formSendMail.invalid">
+          <button
+            type="submit"
+            [ngClass]="{ disabled: formSendMail.invalid }"
+            [disabled]="formSendMail.invalid"
+          >
             Reset password
           </button>
           <p class="info2">

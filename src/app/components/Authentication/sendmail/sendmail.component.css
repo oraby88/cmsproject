@@ -1,9 +1,9 @@
-
 * {
   box-sizing: border-box;
   font-family: "DM Sans";
 }
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -16,11 +16,12 @@ html, body {
   /*transition-duration: 0.5s;*/
 }
 
-
 .projName {
+  padding-top: 15px;
+  padding-left: 15px;
   display: flex;
-  padding: 3%;
   justify-content: space-between;
+  transition: ease all 1.5s;
 }
 .projName img {
   max-width: 100%;
@@ -31,12 +32,13 @@ html, body {
 .projName p {
   font-size: 15px;
   font-weight: 700;
+  padding-left: 10px;
   color: black;
-  padding-left: 3%;
 }
 .nameContainer {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
 }
 .Name {
   padding: 0;
@@ -55,49 +57,38 @@ option {
   padding: 10px;
 }
 
-
 .resetContainer {
   margin: auto;
   width: 50%;
-  /* display: none; */
-  /* backface-visibility: hidden; */
-  /* transform: rotateY(180deg); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transition: ease all 1.5s;
 }
 
 .bg2 {
   background-image: url("../../../../assets/images/_Path_\ \(1\).svg");
-  /* background-size: cover; */
   background-repeat: no-repeat;
-  /* height: 100vh; */
-
-  margin: auto;
+  background-position: center;
+  /* margin: auto; */
   width: 100%;
   height: 600px;
-  position: relative;
-  margin-left: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .resetDiv {
   margin: auto;
-  /* text-align: center; */
-  position: absolute;
   top: -8%;
   left: 5%;
-  /* width: 50%; */
-  /* height: 100vh; */
   padding: 30px 40px;
   margin-top: 10%;
-  /* transform: translate(-50%, -60%); */
-  width: 65%;
+  width: 60%;
   background-color: white;
   border-radius: 10px;
-  /* position: relative; */
+  transition: ease all 1.5s;
 }
-
-/* .container.filp {
-    transform: rotateY('180deg');
-} */
 
 .loginDiv img {
   text-align: center;
@@ -115,7 +106,6 @@ h1 {
   padding-bottom: 10px;
 }
 
-
 .form-input {
   height: 40px;
   width: 98%;
@@ -131,7 +121,6 @@ h1 {
 }
 .invalid-feedback {
   color: red;
-
 }
 .info2 {
   text-align: center;
@@ -161,16 +150,17 @@ button {
   color: white;
   border: 0px;
   width: 98%;
-  /* margin-left: 12px; */
-  /* margin-right: 12px; */
   margin-top: 15px;
 }
-  .bg,
-  .bg2,
-  .bg3 {
-    /* margin: 0; */
-    padding: 30px;
-  }
+
+.disabled {
+  opacity: 0.5;
+}
+
+.invalid-feedback p {
+  margin: 0px;
+  font-size: 13px;
+}
 
 @keyframes flipIn {
   from {
@@ -184,13 +174,13 @@ button {
   0% {
     transform: rotateY(0deg);
   }
-  25%{
+  25% {
     transform: rotateY(45deg);
   }
   50% {
     transform: rotateY(90deg);
   }
-  75%{
+  75% {
     transform: rotateY(135deg);
   }
   100% {
@@ -198,18 +188,19 @@ button {
   }
 }
 
-
-
-
 @media screen and (max-width: 1600px) {
   .loginDiv {
     width: 70%;
   }
   .resetDiv {
-    /* width: 70%; */
+    width: 73%;
   }
-  .checkbox a p{
+  .checkbox a p {
     padding-left: 22%;
+  }
+  .invalid-feedback p {
+    margin: 0px;
+    font-size: 13px;
   }
 }
 @media screen and (max-width: 1200px) and (min-width: 992px) {
@@ -228,24 +219,25 @@ button {
   .resetContainer {
     width: 70%;
   }
-  .resetDiv {
+  /* .resetDiv {
     width: 100%;
-    margin: 0;
-    position: static;
-    padding: 10%;
     background: #ffffff;
-  }
+  } */
   h1 {
     font-size: 18px;
   }
   .is-invalid {
     border: 1px solid red;
   }
-  
+
+  .invalid-feedback p {
+    margin: 0px;
+    font-size: 13px;
+  }
 }
 @media screen and (max-width: 992px) and (min-width: 786px) {
   .container {
-    background-color: #ffffff;
+    background-color: #f9fafc;
   }
   .bg,
   .bg2,
@@ -260,13 +252,10 @@ button {
   }
   .loginDiv {
     width: 100%;
-    margin: 0;
-    position: static;
-    padding: 0;
     background: #ffffff;
   }
   .loginDiv h1 {
-    font-size: 20px;
+    font-size: 19px;
   }
   .info1 {
     font-size: 14px;
@@ -276,32 +265,35 @@ button {
     font-size: 14px;
     color: #a1a5b7;
   }
-  
+
   .label-div p {
     display: none;
   }
   .selDiv {
     display: none;
   }
-  
+
   .resetContainer {
     width: 100%;
     padding: 100px;
   }
   .resetDiv {
-    width: 100%;
-    margin: 0;
-    position: static;
-    padding: 0;
+    width: 73%;
+    margin-top: 0%;
     background: #ffffff;
   }
   .is-invalid {
     border: 1px solid red;
   }
+
+  .invalid-feedback p {
+    margin: 0px;
+    font-size: 13px;
+  }
 }
 @media screen and (max-width: 786px) and (min-width: 600px) {
   .container {
-    background-color: #ffffff;
+    background-color: #f9fafc;
   }
   .bg,
   .bg2,
@@ -315,9 +307,6 @@ button {
   }
   .loginDiv {
     width: 100%;
-    margin: 0;
-    position: static;
-    padding: 0;
     background: #ffffff;
   }
   .loginDiv h1 {
@@ -331,7 +320,7 @@ button {
     font-size: 14px;
     color: #a1a5b7;
   }
-  
+
   .label-div p {
     display: none;
   }
@@ -339,23 +328,25 @@ button {
     display: none;
   }
   .resetContainer {
+    margin: auto;
     width: 100%;
-    padding: 70px;
+    padding: 50px;
   }
   .resetDiv {
     width: 100%;
-    margin: 0;
-    position: static;
-    padding: 0;
     background: #ffffff;
   }
   .is-invalid {
     border: 1px solid red;
   }
+  .invalid-feedback p {
+    margin: 0px;
+    font-size: 13px;
+  }
 }
 @media screen and (max-width: 600px) {
   .container {
-    background-color: #ffffff;
+    background-color: #f9fafc;
   }
   .bg,
   .bg2,
@@ -371,10 +362,7 @@ button {
     width: 100%;
   }
   .resetDiv {
-    width: 100%;
-    margin: 0;
-    position: static;
-    padding: 0;
+    width: 90%;
     background: #ffffff;
   }
   .loginDiv {
@@ -395,7 +383,7 @@ button {
     font-size: 12px;
     color: #a1a5b7;
   }
-  .nameContainer{
+  .nameContainer {
     padding: 0;
   }
   .label-div p {
@@ -413,7 +401,22 @@ button {
   .is-invalid {
     border: 1px solid red;
   }
-  a p{
-    padding-left:135px ;
+  a p {
+    padding-left: 135px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .resetDiv {
+    padding: 15px;
+  }
+
+  .info2 {
+    font-size: 11px;
+  }
+
+  .invalid-feedback p {
+    margin: 0px;
+    font-size: 13px;
   }
 }

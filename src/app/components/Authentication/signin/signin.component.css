@@ -15,10 +15,8 @@ body {
   transition: ease all 1.5s;
 }
 .projName {
-  display: flex;
   padding-top: 15px;
   padding-left: 15px;
-  /* padding-right: 90px; */
   display: flex;
   justify-content: space-between;
   transition: ease all 1.5s;
@@ -39,6 +37,8 @@ body {
 }
 .nameContainer {
   display: flex;
+  justify-content: center;
+  align-items: center;
   transition: ease all 1.5s;
 }
 .Name {
@@ -47,7 +47,6 @@ body {
   transition: ease all 1.5s;
 }
 .projNDiv {
-  padding-top: 13px;
   transition: ease all 1.5s;
 }
 
@@ -223,9 +222,6 @@ a {
   backface-visibility: hidden;
   transition: ease all 1.5s;
 }
-.loginContainer:hover {
-  /* transform: rotate(180deg); */
-}
 .resetContainer {
   margin: auto;
   width: 50%;
@@ -253,10 +249,6 @@ a {
   border-radius: 10px;
   transition: ease all 1.5s;
 }
-
-/* .container.filp {
-    transform: rotateY('180deg');
-} */
 
 .loginDiv img {
   text-align: center;
@@ -289,11 +281,8 @@ input[type="number"] {
 }
 .bg3 {
   background-image: url("../../../../assets/images/_Path_\ \(2\).svg");
-  /* background-size: cover; */
   background-repeat: no-repeat;
-  /* height: 100vh; */
   margin: auto;
-
   width: 100%;
   height: 600px;
   position: relative;
@@ -301,19 +290,11 @@ input[type="number"] {
 }
 .loginDiv1 {
   margin: auto;
-  /* text-align: center; */
-
-  /* top: 10%; */
-
-  /* width: 50%; */
   padding: 30px 30px;
   margin-top: 10%;
-  /* transform: translate(-50%, -60%); */
   width: 45%;
   background-color: white;
   border-radius: 10px;
-
-  /* text-align: center; */
 }
 p {
   padding: 0;
@@ -333,24 +314,10 @@ p {
 }
 
 .flip-out {
-  /* transition: all 2s; */
-  /* transform: rotateY(180deg); */
-  /* transform: rotateY(360deg); */
   animation: fadeInAnimation 1s;
-  /* transform: matrix(0, 1, 1, 0, 0, 0) rotateY(360deg);
-   */
-  /* transform: scale(2 , 3); */
-  /* transform: rotateX(360deg); */
-  /* -webkit-transform: rotateY( 180deg );
-    -moz-transform: rotateY( 180deg );
-    -o-transform: rotateY( 180deg );
-    transform: rotateY( 180deg ); */
 }
 .flip-in {
-  /* transition: all 2s; */
-  /* transform: rotateY(0deg); */
   animation: fadeInAnim 1s;
-  /* animation: fadeInAnimation 5s; */
 }
 .progressPass {
   width: 200px;
@@ -466,11 +433,8 @@ p {
   position: relative;
   display: inline-block;
   border: 1px solid #f1f1f1;
-  /* padding: 8px 16px; */
-  /* margin-left: 60px; */
   background-color: #b4cbf3;
   color: #0660fc;
-  /* padding-bottom: 3px; */
   border-radius: 50%;
   width: 17px;
   height: 17px;
@@ -500,7 +464,6 @@ p {
   visibility: visible;
 }
 .tooltip .tooltiptext li {
-  /* text-decoration: none; */
   list-style-type: none;
 }
 .tooltip .tooltiptext::after {
@@ -541,13 +504,9 @@ p {
   .loginDiv {
     width: 70%;
   }
-  .resetDiv {
-    /* width: 70%; */
-  }
   .bg,
   .bg2,
   .bg3 {
-    /* background-size: 700px 550px; */
     margin: 0;
     padding: 10px;
     position: relative;
@@ -559,14 +518,8 @@ p {
     background-color: #f9fafc;
   }
   .loginDiv {
-    /* position: static; */
     width: 85%;
     left: 25px;
-  }
-  .bg,
-  .bg2,
-  .bg3 {
-    /* background-size: 550px 500px; */
   }
   .resetContainer {
     width: 70%;
@@ -615,10 +568,6 @@ p {
     font-size: 14px;
     color: #a1a5b7;
   }
-
-  /* .label-div p {
-    display: none;
-  } */
   .selDiv {
     display: none;
   }
@@ -663,10 +612,6 @@ p {
     font-size: 14px;
     color: #a1a5b7;
   }
-
-  /* .label-div p {
-    display: none;
-  } */
   .selDiv {
     display: none;
   }
@@ -699,8 +644,6 @@ p {
   .resetContainer {
     width: 100%;
   }
-  .form-input {
-  }
   .resetDiv {
     width: 100%;
     background: #ffffff;
@@ -720,9 +663,6 @@ p {
     font-size: 14px;
     color: #a1a5b7;
   }
-  /* .label-div p {
-    display: none;
-  } */
   .selDiv {
     display: none;
   }

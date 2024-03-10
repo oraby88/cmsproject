@@ -24,33 +24,33 @@ body {
 }
 
 .projName {
-  padding: 3%;
+  padding-top: 15px;
+  padding-left: 15px;
   display: flex;
-  width: 200;
-  align-items: center;
-  /* justify-content: space-between; */
-  transition: all 0.5s ease;
+  justify-content: space-between;
+  transition: ease all 1.5s;
 }
 .projName img {
-  /* max-width: 100%; */
-  width: 43px;
+  max-width: 100%;
+  width: 40px;
   height: 43px;
-  /* padding-top: 1.5%; */
+  padding-top: 3px;
 }
 .projName p {
   font-size: 15px;
   font-weight: 700;
-  /* padding-left: 10px; */
-  padding-left: 12px;
+  padding-left: 10px;
+  color: black;
 }
-/* .projName h2{
-      display: inline;
-  } */
+.nameContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .formDiv {
   display: flex;
   flex-direction: column;
   width: 50%;
-  /* height: 100vh; */
   background-color: #ffffff;
   transition: ease all 1.5s;
 }
@@ -740,15 +740,12 @@ button {
 }
 @media screen and (max-width: 600px) {
   .container {
-    padding: 10px 25px;
+    /* padding: 10px 25px; */
   }
   .SlidesContainer {
     /* max-width: 100%; */
     width: 100%;
     display: none;
-  }
-  .projName {
-    padding: 35px 0;
   }
   .formDiv {
     box-sizing: border-box;
@@ -811,9 +808,6 @@ button {
   }
   .loginDiv {
     width: 100%;
-    margin: 0;
-    position: static;
-    padding: 0;
     background: #ffffff;
   }
   .labelInput {
@@ -905,9 +899,6 @@ button {
   }
   .loginDiv {
     width: 100%;
-    margin: 0;
-    position: static;
-    /* padding: 20px; */
     background: #ffffff;
   }
   .submitButton {
@@ -1004,9 +995,6 @@ button {
     font-size: 12px;
     padding: 0;
     margin: 0;
-  }
-  .projName {
-    margin-top: 20px;
   }
   .info {
     /* padding-left: 20px; */

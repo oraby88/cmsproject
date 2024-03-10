@@ -26,23 +26,28 @@ body {
 }
 
 .projName {
-  /* margin: 0px 0px 0px 300px; */
-
+  padding-top: 15px;
+  padding-left: 15px;
   display: flex;
-  align-items: center;
-  padding: 3%;
-  transition: ease all 1s;
+  justify-content: space-between;
+  transition: ease all 1.5s;
 }
 .projName img {
   max-width: 100%;
   width: 40px;
-  height: 40px;
+  height: 43px;
   padding-top: 3px;
 }
 .projName p {
   font-size: 15px;
   font-weight: 700;
   padding-left: 10px;
+  color: black;
+}
+.nameContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .formDiv {
