@@ -750,7 +750,7 @@ p {
 }
 @media screen and (max-width: 350px) {
   .checkbox {
-    font-size: 12px;
+    font-size: 11px;
     align-items: center;
   }
 

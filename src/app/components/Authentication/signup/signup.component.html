@@ -72,11 +72,15 @@
         @if (formInfo.controls.fullName.errors &&
         formInfo.controls.fullName.touched) {
         <div class="invalid-feedback">
-          @if (formInfo.controls.fullName.errors['required']) {
+          @if (formInfo.controls.fullName.errors['required'] ) {
           <p class="required">Full Name is required</p>
-          } @if (formInfo.controls.fullName.errors['minlength']) {
+          }
+          <!-- @if (formInfo.controls.fullName.errors['minlength']) {
           <p class="required">Minimum characters are 3</p>
-          } @if (formInfo.controls.fullName.errors['pattern']) {
+          } -->
+
+          @if (formInfo.controls.fullName.errors['pattern'] ||
+          formInfo.controls.fullName.errors['minlength']) {
           <p class="required">Full Name is invalid</p>
           }
         </div>

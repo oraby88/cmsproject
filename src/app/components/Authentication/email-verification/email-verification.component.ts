@@ -37,9 +37,9 @@ export class EmailVerificationComponent implements OnInit, DoCheck {
   str4!: string;
   str5!: string;
   str6!: string;
-
+  email!: string | undefined;
   otp: string = '';
-  errorExit: boolean = false;
+  errorExist: boolean = false;
 
   formVerification = new FormGroup({
     verificationCode1: new FormControl(''),
@@ -56,6 +56,8 @@ export class EmailVerificationComponent implements OnInit, DoCheck {
   ) { }
   ngDoCheck(): void { }
   ngOnInit(): void {
+    this.email = sessionStorage?.getItem('email')?.slice(0, 4).concat("************");
+
     this.formVerification = this.formBuilder.group({
       verificationCode1: ['', [Validators.required, Validators.maxLength(1)]],
       verificationCode2: ['', [Validators.required, Validators.maxLength(1)]],
@@ -86,7 +88,7 @@ export class EmailVerificationComponent implements OnInit, DoCheck {
       error: (err) => {
         console.log(err.message)
         // alert("Incorrect Code");
-        this.errorExit = true;
+        this.errorExist = true;
       },
     });
 
