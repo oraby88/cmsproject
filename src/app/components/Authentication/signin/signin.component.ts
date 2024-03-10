@@ -108,10 +108,8 @@ export class SigninComponent implements OnInit, DoCheck {
       },
       error: (err) => {
         console.log(err);
-        // alert("Email or Password is invalid");
         this.errorExit = true;
       }
-
     });
   }
   checkbox() {
@@ -134,6 +132,9 @@ export class SigninComponent implements OnInit, DoCheck {
     }
   }
 
+  clearErrorExit() {
+    this.errorExit = false;
+  }
 
   shooww(event: any, controlName: string) {
     this.formInfo.get(controlName)?.patchValue(event)

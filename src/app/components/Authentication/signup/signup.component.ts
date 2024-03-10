@@ -113,7 +113,7 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
             Validators.required,
             Validators.minLength(3),
             Validators.maxLength(60),
-            Validators.pattern('^[a-zA-Z]{2,}(?: [a-zA-Z]+){0,2}$')
+            Validators.pattern(`^[A-Za-z\\s]*$`)
 
           ],
         ],
@@ -147,6 +147,8 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
   Submit() {
     //this.submitted = true;
     if (this.formInfo.invalid) {
+      console.log(this.formInfo);
+
       return;
     }
     const fv = this.formInfo.value!;

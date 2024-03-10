@@ -36,6 +36,7 @@
                   id="fromInput2"
                   placeholder="i.e. Haitham.mo@company.com"
                   formControlName="email"
+                  (input)="clearErrorExit()"
                   [ngClass]="{
                     'is-invalid':
                       formInfo.controls.email.touched &&
@@ -64,7 +65,7 @@
                   placeholder="********************"
                   formControlName="password"
                   (onChangeInputValue)="shooww($event, 'password')"
-                  (input)="checkPasswordLength('password')"
+                  (input)="[checkPasswordLength('password'), clearErrorExit()]"
                   [ngClass]="{
                     'is-invalid':
                       formInfo.controls.password.touched &&
@@ -79,7 +80,7 @@
                   id="fromInput3"
                   placeholder="********************"
                   formControlName="password"
-                  (input)="checkPasswordLength('password')"
+                  (input)="[checkPasswordLength('password'), clearErrorExit()]"
                   (onChangeInputValue)="shooww($event, 'password')"
                   [ngClass]="{
                     'is-invalid':
@@ -108,7 +109,7 @@
                 </div>
                 }
               </div>
-              @if(errorExit){
+              @if(errorExit && formInfo.valid){
               <p class="required1">Email or Pasword is invalid</p>
               }
               <div class="checkbox">
@@ -135,7 +136,7 @@
                 LOG IN
               </button>
               <p class="info22">
-                Didn't have an Account? <a routerLink="/signup">Register</a>
+                Don't have an Account? <a routerLink="/signup">Register</a>
               </p>
               <!-- <input type="submit"> -->
             </form>
