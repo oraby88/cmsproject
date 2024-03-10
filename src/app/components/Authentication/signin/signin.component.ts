@@ -14,7 +14,7 @@ import { AuthService } from '../../../services/auth.service';
 import { ILogin } from '../../../interfaces/logininterface';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { PasswordDirective } from '../password.directive';
+import { PasswordDirective } from '../directives/password.directive';
 
 @Component({
   selector: 'app-signin',

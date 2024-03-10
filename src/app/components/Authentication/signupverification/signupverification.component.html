@@ -30,6 +30,7 @@
           ><br />
           <div class="verificationInpts">
             <input
+              appAutoFocus
               type="text"
               maxlength="1"
               min="0"
@@ -53,9 +54,9 @@
                   formVerification.controls.verificationCode1.dirty
               }"
               #inp
-              (keydown)="changeErrorBoolean($event, inp)"
             />
             <input
+              appAutoFocus
               type="text"
               maxlength="1"
               min="0"
@@ -80,6 +81,7 @@
               [ngClass]="{ 'is-invalid1': errorExist }"
             />
             <input
+              appAutoFocus
               type="text"
               maxlength="1"
               min="0"
@@ -104,6 +106,7 @@
               [ngClass]="{ 'is-invalid1': errorExist }"
             />
             <input
+              appAutoFocus
               type="text"
               maxlength="1"
               min="0"
@@ -128,6 +131,7 @@
               [ngClass]="{ 'is-invalid1': errorExist }"
             />
             <input
+              appAutoFocus
               type="text"
               maxlength="1"
               min="0"
@@ -152,6 +156,7 @@
               [ngClass]="{ 'is-invalid1': errorExist }"
             />
             <input
+              appAutoFocus
               type="text"
               maxlength="1"
               class="inputVerificationStyle"

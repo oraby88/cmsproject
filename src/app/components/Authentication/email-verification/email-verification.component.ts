@@ -11,12 +11,12 @@ import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { AuthService } from '../../../services/auth.service';
-import { ILogin } from '../../../interfaces/logininterface';
+import { AutoFocusDirective } from '../directives/auto-focus.directive';
 
 @Component({
   selector: 'app-email-verification',
   standalone: true,
-  imports: [RouterModule, FormsModule, ReactiveFormsModule, CommonModule],
+  imports: [RouterModule, FormsModule, ReactiveFormsModule, CommonModule, AutoFocusDirective],
   templateUrl: './email-verification.component.html',
   styleUrl: './email-verification.component.css',
   animations: [
@@ -39,7 +39,7 @@ export class EmailVerificationComponent implements OnInit, DoCheck {
   str6!: string;
 
   otp: string = '';
-  errorExit:boolean =false;
+  errorExit: boolean = false;
 
   formVerification = new FormGroup({
     verificationCode1: new FormControl(''),
@@ -53,8 +53,8 @@ export class EmailVerificationComponent implements OnInit, DoCheck {
     private formBuilder: FormBuilder,
     private _authService: AuthService,
     private _Router: Router
-  ) {}
-  ngDoCheck(): void {}
+  ) { }
+  ngDoCheck(): void { }
   ngOnInit(): void {
     this.formVerification = this.formBuilder.group({
       verificationCode1: ['', [Validators.required, Validators.maxLength(1)]],
@@ -75,12 +75,12 @@ export class EmailVerificationComponent implements OnInit, DoCheck {
 
     this.otp = `${this.str1}${this.str2}${this.str3}${this.str4}${this.str5}${this.str6}`;
     console.log(this.otp);
-    
+
 
     this._authService.resetVerificationCode(this.otp).subscribe({
       next: (res) => {
         console.log(res);
-        sessionStorage.setItem('token',res.token);
+        sessionStorage.setItem('token', res.token);
         this._Router.navigateByUrl('setnewpassword');
       },
       error: (err) => {
@@ -89,17 +89,17 @@ export class EmailVerificationComponent implements OnInit, DoCheck {
         this.errorExit = true;
       },
     });
-    
+
   }
 
 
 
-  resendOTP(){
+  resendOTP() {
     this._authService.resendOTP().subscribe({
-      next: (res)=>{
+      next: (res) => {
         console.log(res);
       },
-      error: (err)=>{
+      error: (err) => {
         console.log(err);
       }
     })

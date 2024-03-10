@@ -14,7 +14,7 @@ import { animate, style, transition, trigger } from '@angular/animations';
 import { ResetPasswordService } from '../../../services/reset-password.service';
 import { IForgetPassRequest } from '../../../interfaces/iforget-pass-request';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { PasswordDirective } from '../password.directive';
+import { PasswordDirective } from '../directives/password.directive';
 
 
 @Component({
@@ -52,7 +52,6 @@ export class SetnewpasswordComponent implements OnInit, DoCheck {
 
   constructor(
     private _authService: ResetPasswordService,
-
     private _Router: Router,
     private formBuilder: FormBuilder
   ) { }
@@ -152,7 +151,7 @@ export class SetnewpasswordComponent implements OnInit, DoCheck {
     }
   }
 
-  shooww(event: any, controlName: string) {
+  showLastCharacter(event: any, controlName: string) {
     this.formSetNewPassword.get(controlName)?.patchValue(event)
   }
 }

@@ -10,6 +10,7 @@ import {
 import { AuthService } from '../../../services/auth.service';
 import { Router, RouterModule } from '@angular/router';
 import { AsyncPipe, CommonModule, TitleCasePipe } from '@angular/common';
+import { AutoFocusDirective } from '../directives/auto-focus.directive';
 // import { SignupComponent } from '../signup/signup.component'; 
 
 @Component({
@@ -20,7 +21,8 @@ import { AsyncPipe, CommonModule, TitleCasePipe } from '@angular/common';
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    TitleCasePipe
+    TitleCasePipe,
+    AutoFocusDirective
   ],
   templateUrl: './signupverification.component.html',
   styleUrl: './signupverification.component.css',
@@ -35,6 +37,7 @@ export class SignupverificationComponent implements OnInit {
   errorExist: boolean = false;
   str: string = '';
   email!: string | undefined;
+  sessionStorage!: string | undefined;
   formVerification = new FormGroup({
     verificationCode1: new FormControl(''),
     verificationCode2: new FormControl(''),
@@ -50,7 +53,7 @@ export class SignupverificationComponent implements OnInit {
     private _Router: Router,
   ) { }
   ngOnInit(): void {
-    this.email = sessionStorage.getItem('email')?.slice(0, 4).concat("************");
+    // this.email = sessionStorage.getItem('email')?.slice(0, 4).concat("************");
     this.formVerification = this.formBuilder.group({
       verificationCode1: ['', [Validators.required, Validators.maxLength(1)]],
       verificationCode2: ['', [Validators.required, Validators.maxLength(1)]],
@@ -102,28 +105,5 @@ export class SignupverificationComponent implements OnInit {
         console.log(err);
       },
     });
-  }
-
-  changeErrorBoolean(eventt: any, input: HTMLInputElement) {
-    const event = new KeyboardEvent(eventt, {
-      key: "Tab",
-      code: "Tab",
-      shiftKey: true,
-      bubbles: true,
-      repeat: true,
-      keyCode: 9
-    });
-
-
-
-    // const event = new KeyboardEvent("Tab");
-
-    document.addEventListener(eventt, (e) => {
-      console.log(e);
-    });
-
-    document.dispatchEvent(event);
-    if (this.errorExist)
-      this.errorExist = false;
   }
 }

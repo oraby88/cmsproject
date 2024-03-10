@@ -23,7 +23,7 @@ import { AuthService } from '../../../services/auth.service';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { ISignupRequest } from '../../../interfaces/signupinterface';
 import { PopupComponent } from '../../../shared/popup/popup.component';
-import { PasswordDirective } from '../password.directive';
+import { PasswordDirective } from '../directives/password.directive';
 
 @Component({
   selector: 'app-signup',
@@ -111,7 +111,7 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
           '',
           [
             Validators.required,
-            Validators.minLength(2),
+            Validators.minLength(3),
             Validators.maxLength(60),
             Validators.pattern('^[a-zA-Z]{2,}(?: [a-zA-Z]+){0,2}$')
 
