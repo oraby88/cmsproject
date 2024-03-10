@@ -43,7 +43,7 @@ export class PasswordDirective {
 
       // Will go in if the show password is not visiable (passwor is bullets)
       if (!this.currentPasswordType) {
-        this.tempInput = '*'.repeat(input.value.length - 1);
+        this.tempInput = '•'.repeat(input.value.length - 1);
         input.value = this.tempInput.concat(input.value.slice(-1)); // getting the last character in the input value and add it to the end of the text to be shown
         input.type = 'text';
 
