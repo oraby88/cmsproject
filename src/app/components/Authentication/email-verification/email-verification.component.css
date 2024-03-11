@@ -197,7 +197,7 @@ a {
   /* transform: rotateY(180deg); */
 }
 .bg2 {
-  background-image: url("../../../../assets/images/_Path_\ \(1\).svg");
+  background-image: url("../../../../assets/images/_Path_.svg");
   background-repeat: no-repeat;
   background-position: center;
   margin: auto;
@@ -268,7 +268,7 @@ input[type="number"] {
   justify-content: space-around;
 }
 .bg3 {
-  background-image: url("../../../../assets/images/_Path_\ \(2\).svg");
+  background-image: url("../../../../assets/images/_Path_.svg");
   /* background-size: cover; */
   background-repeat: no-repeat;
   /* height: 100vh; */

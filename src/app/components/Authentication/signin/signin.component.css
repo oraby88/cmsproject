@@ -228,7 +228,7 @@ a {
   transition: ease all 1.5s;
 }
 .bg2 {
-  background-image: url("../../../../assets/images/_Path_\ \(1\).svg");
+  background-image: url("../../../../assets/images/background.svg");
   background-repeat: no-repeat;
   margin: auto;
   width: 100%;
@@ -551,7 +551,6 @@ p {
   }
   .loginContainer {
     width: 100%;
-    padding: 50px;
   }
   .loginDiv {
     width: 100%;
@@ -682,7 +681,6 @@ p {
   }
   .loginContainer {
     width: 100%;
-    padding: 8px;
   }
   .info22 {
     font-size: 12px;

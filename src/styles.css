@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700");
-*{
+* {
   box-sizing: border-box;
 }
 body {
@@ -20,3 +20,31 @@ body {
   --white: #ffffff;
   --green: green;
 }
+/* 
+@keyframes enter {
+  0% {
+    transform: rotateY(270deg);
+  }
+
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes exit {
+  0% {
+    transform: rotateY(0deg);
+  }
+
+  100% {
+    transform: rotateY(90deg);
+  }
+}
+
+::view-transition-old(root) {
+  animation: exit 1s linear 0s alternate;
+}
+
+::view-transition-new(root) {
+  animation: enter 1s linear 0s alternate;
+} */

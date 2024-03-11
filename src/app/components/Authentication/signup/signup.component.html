@@ -129,7 +129,7 @@
           type="text"
           class="form-input passwordCheck"
           id="fromInput3"
-          placeholder="•••••••••••••••••••••"
+          placeholder="******************"
           formControlName="password"
           (onChangeInputValue)="shooww($event, 'password')"
           (input)="checkPasswordLength('password')"
@@ -153,7 +153,7 @@
           type="password"
           class="form-input passwordCheck"
           id="fromInput3"
-          placeholder="•••••••••••••••••••••"
+          placeholder="******************"
           formControlName="password"
           (change)="unshowPassAfter2S($event)"
           (input)="checkPasswordLength('password')"
@@ -318,7 +318,7 @@
           class="form-input passwordCheck"
           id="fromInput4"
           formControlName="confirmPassword"
-          placeholder="•••••••••••••••••••••"
+          placeholder="******************"
           (input)="checkPasswordLength('confirmPassword')"
           (onChangeInputValue)="shooww($event, 'confirmPassword')"
           [ngClass]="{
@@ -340,7 +340,7 @@
           class="form-input"
           id="fromInput4"
           formControlName="confirmPassword"
-          placeholder="•••••••••••••••••••••"
+          placeholder="******************"
           (input)="checkPasswordLength('confirmPassword')"
           (onChangeInputValue)="shooww($event, 'confirmPassword')"
           [ngClass]="{
@@ -380,7 +380,14 @@
         }
       </div>
 
-      <button type="submit" class="submitButton">Sign Up</button>
+      <button
+        type="submit"
+        class="submitButton"
+        [disabled]="formInfo.invalid"
+        [ngClass]="{ disabled: formInfo.invalid }"
+      >
+        Sign Up
+      </button>
     </form>
     <!-- <div class="popup" [hidden]="errorExit==false">
       <div class="popup-header">

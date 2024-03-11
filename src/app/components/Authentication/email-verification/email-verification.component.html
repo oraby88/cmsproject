@@ -42,17 +42,18 @@
                   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
                   [ngClass]="{
                     'is-invalid1':
-                      ((formVerification.controls.verificationCode1.touched ||
-                        formVerification.controls.verificationCode1.dirty) &&
+                      (formVerification.controls.verificationCode1.invalid &&
+                        (formVerification.controls.verificationCode1.touched ||
+                          formVerification.controls.verificationCode1.dirty ||
+                          formVerification.controls.verificationCode1.value
+                            ?.length == 0) &&
                         formVerification.controls.verificationCode1.errors) ||
                       errorExist
                   }"
                   [ngClass]="{
                     'is-valid':
                       formVerification.controls.verificationCode1.touched &&
-                      formVerification.controls.verificationCode1.errors ==
-                        null &&
-                      formVerification.controls.verificationCode1.dirty
+                      formVerification.controls.verificationCode1.errors == null
                   }"
                 />&#32;
                 <input
@@ -176,9 +177,10 @@
                   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
                   [ngClass]="{
                     'is-invalid1':
-                      (formVerification.controls.verificationCode6.touched ||
-                        formVerification.controls.verificationCode6.dirty) &&
-                      formVerification.controls.verificationCode6.errors
+                      formVerification.controls.verificationCode6.touched &&
+                      formVerification.controls.verificationCode6.errors !==
+                        null &&
+                      !formVerification.controls.verificationCode6.dirty
                   }"
                   [ngClass]="{
                     'is-valid':
