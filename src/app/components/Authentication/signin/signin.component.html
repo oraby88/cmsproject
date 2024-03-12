@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<div class="container">
+<div class="container" [ngClass]="{ lowOpacity: spinner }">
   <div class="formDiv">
     <div class="projName">
       <div class="nameContainer">
@@ -153,10 +153,8 @@
   </div>
 </div>
 
-
 @if(spinner){
-  <div class="spinner">
-    <app-spinner></app-spinner>
-  </div>
-  }
-  
+<div class="spinner">
+  <app-spinner></app-spinner>
+</div>
+}

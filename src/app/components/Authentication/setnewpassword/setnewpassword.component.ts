@@ -15,12 +15,13 @@ import { ResetPasswordService } from '../../../services/reset-password.service';
 import { IForgetPassRequest } from '../../../interfaces/iforget-pass-request';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PasswordDirective } from '../directives/password.directive';
+import { SpinnerComponent } from '../../../shared/spinner/spinner/spinner.component';
 
 
 @Component({
   selector: 'app-setnewpassword',
   standalone: true,
-  imports: [RouterModule, FormsModule, ReactiveFormsModule, CommonModule, FontAwesomeModule, PasswordDirective],
+  imports: [RouterModule, FormsModule, ReactiveFormsModule, CommonModule, FontAwesomeModule, PasswordDirective, SpinnerComponent],
   templateUrl: './setnewpassword.component.html',
   styleUrl: './setnewpassword.component.css',
   animations: [
@@ -45,6 +46,11 @@ export class SetnewpasswordComponent implements OnInit, DoCheck {
   Number: boolean = false;
   numberLength: boolean = false;
   forgetPassRequest: IForgetPassRequest = {} as IForgetPassRequest;
+
+  resetBool!: Boolean;
+  resetMsg!: string;
+  spinner!: Boolean
+
   formSetNewPassword = new FormGroup({
     password: new FormControl(''),
     confirmPassword: new FormControl(''),
@@ -54,7 +60,10 @@ export class SetnewpasswordComponent implements OnInit, DoCheck {
     private _authService: ResetPasswordService,
     private _Router: Router,
     private formBuilder: FormBuilder
-  ) { }
+  ) {
+    this.resetBool = false;
+    this.spinner = false;
+  }
 
   ngDoCheck(): void {
     this.numberLength = /.{8,}/.test(
@@ -92,7 +101,9 @@ export class SetnewpasswordComponent implements OnInit, DoCheck {
   }
 
   setNewPassword() {
+    this.spinner = true;
     if (this.formSetNewPassword.invalid) {
+      this.spinner = false;
       console.log(this.formSetNewPassword);
       return;
     }
@@ -105,13 +116,14 @@ export class SetnewpasswordComponent implements OnInit, DoCheck {
     console.log(fv);
     this._authService.resetPassword(this.forgetPassRequest).subscribe({
       next: (res: any) => {
+        this.spinner = false;
         sessionStorage.getItem('token');
         console.log(res);
         this._Router.navigateByUrl('/correctchange');
       },
       error: (err: any) => {
-        console.log(err.message);
-        alert("");
+        this.spinner = false;
+        console.log(err.error.message);
       },
     });
   }
