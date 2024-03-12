@@ -15,6 +15,7 @@ import { ILogin } from '../../../interfaces/logininterface';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PasswordDirective } from '../directives/password.directive';
+import { SpinnerComponent } from '../../../shared/spinner/spinner/spinner.component';
 
 
 export interface CardData {
@@ -25,7 +26,7 @@ export interface CardData {
 @Component({
   selector: 'app-signin',
   standalone: true,
-  imports: [RouterModule, FormsModule, ReactiveFormsModule, CommonModule, FontAwesomeModule, PasswordDirective],
+  imports: [RouterModule, FormsModule, ReactiveFormsModule, CommonModule, FontAwesomeModule, PasswordDirective, SpinnerComponent],
   templateUrl: './signin.component.html',
   styleUrl: './signin.component.css',
   animations: [
@@ -67,7 +68,9 @@ export class SigninComponent implements OnInit, DoCheck, OnDestroy {
   faEye = faEye;
   faEyaSlash = faEyeSlash;
   errorExit: boolean = false;
-
+  resendOTPBool!: Boolean;
+  resendOtpMsg!: string;
+  spinner!: Boolean
 
   data: CardData = {
     state: "flipped"
@@ -76,7 +79,10 @@ export class SigninComponent implements OnInit, DoCheck, OnDestroy {
 
   constructor(private formBuilder: FormBuilder,
     private _authService: AuthService,
-    private _Router: Router) { }
+    private _Router: Router) {
+    this.spinner = false;
+    this.resendOTPBool = false;
+  }
 
   formInfo = new FormGroup({
     email: new FormControl(''),

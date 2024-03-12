@@ -4,6 +4,7 @@ import { AuthService } from '../../../services/auth.service';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { SpinnerComponent } from '../../../shared/spinner/spinner/spinner.component';
 
 
 export interface CardData {
@@ -14,7 +15,7 @@ export interface CardData {
 @Component({
   selector: 'app-sendmail',
   standalone: true,
-  imports: [RouterModule, FormsModule, ReactiveFormsModule, CommonModule],
+  imports: [RouterModule, FormsModule, ReactiveFormsModule, CommonModule, SpinnerComponent],
   templateUrl: './sendmail.component.html',
   styleUrl: './sendmail.component.css',
   // animations: [
@@ -47,14 +48,13 @@ export interface CardData {
 })
 export class SendmailComponent implements OnInit {
 
-  data: CardData = {
-    state: "flipped"
-  };
+  spinner!: Boolean;
 
   constructor(private formBuilder: FormBuilder, private _authService: AuthService, private _Router: Router) { }
 
 
   ngOnInit(): void {
+    this.spinner = false;
     this.formSendMail = this.formBuilder.group({
       forgetEmail: ['', [Validators.required, Validators.email]],
     });
@@ -67,7 +67,10 @@ export class SendmailComponent implements OnInit {
 
 
   resetSubmit() { // send mail
+    this.spinner = true;
+
     if (this.formSendMail.invalid) {
+      this.spinner = false;
       console.log(this.formSendMail);
       return;
     }
@@ -75,11 +78,15 @@ export class SendmailComponent implements OnInit {
     this._authService.sendMail(email).subscribe({
       next: (res) => {
         // sessionStorage.setItem('token' , res.token);
+        this.spinner = false;
+
         sessionStorage.setItem('email', email);
         sessionStorage.setItem('message', res.message);
         console.log(res);
         this._Router.navigateByUrl('/emailverification');
       }, error: (err) => {
+        this.spinner = false;
+
         console.log(err);
       }
     })
@@ -98,10 +105,6 @@ export class SendmailComponent implements OnInit {
     // },
     //   error:(err)=>{alert(err.message)}
     // });
-  }
-
-  ngOnDestroy(): void {
-    this.data.state = "default";
   }
 
 }

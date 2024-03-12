@@ -12,11 +12,12 @@ import { CommonModule } from '@angular/common';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { AuthService } from '../../../services/auth.service';
 import { AutoFocusDirective } from '../directives/auto-focus.directive';
+import { SpinnerComponent } from '../../../shared/spinner/spinner/spinner.component';
 
 @Component({
   selector: 'app-email-verification',
   standalone: true,
-  imports: [RouterModule, FormsModule, ReactiveFormsModule, CommonModule, AutoFocusDirective],
+  imports: [RouterModule, FormsModule, ReactiveFormsModule, CommonModule, AutoFocusDirective, SpinnerComponent],
   templateUrl: './email-verification.component.html',
   styleUrl: './email-verification.component.css',
   animations: [
@@ -40,6 +41,9 @@ export class EmailVerificationComponent implements OnInit, DoCheck {
   email!: string | undefined;
   otp: string = '';
   errorExist: boolean = false;
+  resendOTPBool!: Boolean;
+  resendOtpMsg!: string;
+  spinner!: Boolean
 
   formVerification = new FormGroup({
     verificationCode1: new FormControl(''),
@@ -53,7 +57,10 @@ export class EmailVerificationComponent implements OnInit, DoCheck {
     private formBuilder: FormBuilder,
     private _authService: AuthService,
     private _Router: Router
-  ) { }
+  ) {
+    this.resendOTPBool = false;
+    this.spinner = false;
+  }
   ngDoCheck(): void { }
   ngOnInit(): void {
     this.email = sessionStorage?.getItem('email')?.slice(0, 4).concat("************");
@@ -86,24 +93,32 @@ export class EmailVerificationComponent implements OnInit, DoCheck {
         this._Router.navigateByUrl('setnewpassword');
       },
       error: (err) => {
-        console.log(err.message)
+        console.log(err)
         // alert("Incorrect Code");
         this.errorExist = true;
+        this.resendOTPBool = false;
+
       },
     });
 
   }
 
-
-
   resendOTP() {
+    this.errorExist = false;
+    this.resendOTPBool = true;
     this._authService.resendOTP().subscribe({
-      next: (res) => {
+      next: (res: any) => {
+        this.resendOtpMsg = res.message;
         console.log(res);
       },
       error: (err) => {
+        this.resendOtpMsg = err.error.message;
         console.log(err);
       }
     })
+  }
+
+  removeErrorExit() {
+    this.errorExist = false;
   }
 }

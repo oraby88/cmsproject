@@ -16,6 +16,7 @@ import { TableComponent } from './shared/table/table.component';
 import { CardModalComponent } from './shared/pop-up-card/card-modal/card-modal.component';
 import { FilterComponent } from './shared/filter/filter/filter.component';
 import { authGuard } from './guards/auth.guard';
+import { SpinnerComponent } from './shared/spinner/spinner/spinner.component';
 
 
 export const routes: Routes = [
@@ -53,5 +54,7 @@ export const routes: Routes = [
   },
   { path: 'table', component: TableComponent },
   { path: 'cardmodal', component: CardModalComponent },
+  { path: 'spinner', component: SpinnerComponent },
+
   { path: '**', component: NotfoundComponent },
 ];

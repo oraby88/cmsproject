@@ -126,7 +126,7 @@ option {
 
 button {
   height: 40px;
-
+  cursor: pointer;
   background-color: #0660fc;
   border-radius: 5px;
   color: white;
@@ -494,6 +494,20 @@ p {
 
 .disabled {
   opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.lowOpacity {
+  align-items: center;
+  opacity: 0.7;
+  transition: all 1s;
 }
 
 @media screen and (max-width: 1800px) {

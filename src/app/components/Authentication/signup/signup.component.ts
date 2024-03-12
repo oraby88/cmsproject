@@ -24,6 +24,7 @@ import { animate, style, transition, trigger } from '@angular/animations';
 import { ISignupRequest } from '../../../interfaces/signupinterface';
 import { PopupComponent } from '../../../shared/popup/popup.component';
 import { PasswordDirective } from '../directives/password.directive';
+import { SpinnerComponent } from '../../../shared/spinner/spinner/spinner.component';
 
 @Component({
   selector: 'app-signup',
@@ -36,7 +37,8 @@ import { PasswordDirective } from '../directives/password.directive';
     RouterModule,
     MatProgressBar,
     PasswordDirective,
-    PopupComponent
+    PopupComponent,
+    SpinnerComponent
   ],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css',
@@ -66,14 +68,16 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
   Number: boolean = false;
   numberLength: boolean = false;
   signUpRequest: ISignupRequest = {} as ISignupRequest;
-
+  spinner!: Boolean
 
   constructor(
     private formBuilder: FormBuilder,
     private _authService: AuthService,
     private _Router: Router,
     private element: ElementRef
-  ) { }
+  ) {
+    this.spinner = false;
+  }
 
   ngAfterViewInit(): void { }
 
@@ -145,9 +149,10 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
   errorExit: boolean = false;
 
   Submit() {
+    this.spinner = true;
     //this.submitted = true;
     if (this.formInfo.invalid) {
-      console.log(this.formInfo);
+      this.spinner = false;
 
       return;
     }
@@ -161,13 +166,18 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
     console.log(this.signUpRequest);
     this._authService.signUp(this.signUpRequest).subscribe({
       next: (res) => {
+        this.spinner = false;
+
         console.log(res);
         sessionStorage.setItem('token', res.token);
         sessionStorage.setItem('email', res.email);
         this._Router.navigateByUrl('/signupverification');
         // this._authService.setTokenInSessionStorage(res['token']);
+
       },
       error: (err) => {
+        this.spinner = false;
+
         this.errorExit = true;
         console.log(this.errorExit);
 
@@ -231,6 +241,13 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
     if (this.formInfo.get(controlName)?.value) {
       if (+this.formInfo.get(controlName)?.value.length > 40)
         this.formInfo.get(controlName)?.patchValue(this.formInfo.get(controlName)?.value.slice(0, 40));
+    }
+  }
+
+  checkFullnameLength(controlName: string) {
+    if (this.formInfo.get(controlName)?.value) {
+      if (+this.formInfo.get(controlName)?.value.length > 60)
+        this.formInfo.get(controlName)?.patchValue(this.formInfo.get(controlName)?.value.slice(0, 60));
     }
   }
 

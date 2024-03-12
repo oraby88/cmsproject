@@ -764,6 +764,19 @@ hr {
   font-size: 14px;
 }
 
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.lowOpacity {
+  align-items: center;
+  opacity: 0.7;
+  transition: all 1s;
+}
+
 @media screen and (max-width: 1200px) and (min-width: 992px) {
   .is-invalid {
     border: 1px solid red;

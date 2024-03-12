@@ -24,7 +24,7 @@ import { style, transition, trigger, group, query, animate } from '@angular/anim
             style({ transform: 'translateX(0%)' }),
             animate('0.7s ease-in-out', style({ transform: 'translateX(-100%)' }))], { optional: true }),
         ])
-      ])
+      ]),
     ])
   ],
 })

@@ -98,7 +98,7 @@ export class AuthService {
   sendMail(email: string): Observable<any> {
     console.log(email);
     return this.http.post(
-      environment.BASEURL + `api/Authentication/ForgetPassword?email=${email}`,
+      `${environment.BASEURL}api/Authentication/ForgetPassword?email=${email}`,
       {}
     );
   }

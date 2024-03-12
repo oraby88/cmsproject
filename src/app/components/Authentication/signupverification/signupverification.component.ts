@@ -11,6 +11,7 @@ import { AuthService } from '../../../services/auth.service';
 import { Router, RouterModule } from '@angular/router';
 import { AsyncPipe, CommonModule, TitleCasePipe } from '@angular/common';
 import { AutoFocusDirective } from '../directives/auto-focus.directive';
+import { SpinnerComponent } from '../../../shared/spinner/spinner/spinner.component';
 // import { SignupComponent } from '../signup/signup.component'; 
 
 @Component({
@@ -22,7 +23,8 @@ import { AutoFocusDirective } from '../directives/auto-focus.directive';
     ReactiveFormsModule,
     CommonModule,
     TitleCasePipe,
-    AutoFocusDirective
+    AutoFocusDirective,
+    SpinnerComponent
   ],
   templateUrl: './signupverification.component.html',
   styleUrl: './signupverification.component.css',
@@ -38,6 +40,11 @@ export class SignupverificationComponent implements OnInit {
   str: string = '';
   email!: string | undefined;
   sessionStorage!: string | undefined;
+  resendOTPBool!: Boolean;
+  resendOtpMsg!: string;
+  spinner!: Boolean
+
+
   formVerification = new FormGroup({
     verificationCode1: new FormControl(''),
     verificationCode2: new FormControl(''),
@@ -90,11 +97,15 @@ export class SignupverificationComponent implements OnInit {
         // alert('Incorrect Code');
         // console.log(this.signupEmail);
         this.errorExist = true;
+        this.resendOTPBool = false;
       },
     });
   }
 
   resendOTP() {
+    this.errorExist = false;
+    this.resendOTPBool = true;
+
     this._authService.resendOTP().subscribe({
       next: (res) => {
         console.log(res);
@@ -102,8 +113,14 @@ export class SignupverificationComponent implements OnInit {
         // this.showSetNewPass();
       },
       error: (err) => {
+        this.errorExist = false;
+        this.resendOtpMsg = err.error.message;
         console.log(err);
       },
     });
+  }
+
+  removeErrorExit() {
+    this.errorExist = false;
   }
 }

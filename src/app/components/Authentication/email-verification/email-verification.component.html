@@ -42,19 +42,16 @@
                   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
                   [ngClass]="{
                     'is-invalid1':
-                      (formVerification.controls.verificationCode1.invalid &&
-                        (formVerification.controls.verificationCode1.touched ||
-                          formVerification.controls.verificationCode1.dirty ||
-                          formVerification.controls.verificationCode1.value
-                            ?.length == 0) &&
-                        formVerification.controls.verificationCode1.errors) ||
-                      errorExist
-                  }"
-                  [ngClass]="{
+                    (formVerification.controls.verificationCode1.touched &&
+                    formVerification.controls.verificationCode1.errors) || errorExist ,
                     'is-valid':
-                      formVerification.controls.verificationCode1.touched &&
-                      formVerification.controls.verificationCode1.errors == null
-                  }"
+                    formVerification.controls.verificationCode1.touched && 
+                    formVerification.controls.verificationCode1.errors == null && !errorExist,
+                    'is-touched':
+                    formVerification.controls.verificationCode1.untouched && 
+                    formVerification.controls.verificationCode1.errors == null,
+                }"
+                  (change)="removeErrorExit()"
                 />&#32;
                 <input
                   appAutoFocus
@@ -69,18 +66,16 @@
                   formControlName="verificationCode2"
                   [ngClass]="{
                     'is-invalid1':
-                      (formVerification.controls.verificationCode2.touched ||
-                        formVerification.controls.verificationCode2.dirty) &&
-                      formVerification.controls.verificationCode2.errors
-                  }"
-                  [ngClass]="{
+                    (formVerification.controls.verificationCode2.touched &&
+                    formVerification.controls.verificationCode2.errors) || errorExist ,
                     'is-valid':
-                      formVerification.controls.verificationCode2.touched &&
-                      formVerification.controls.verificationCode2.errors ==
-                        null &&
-                      formVerification.controls.verificationCode2.dirty
-                  }"
-                  [ngClass]="{ 'is-invalid1': errorExist }"
+                    formVerification.controls.verificationCode2.touched && 
+                    formVerification.controls.verificationCode2.errors == null && !errorExist,
+                    'is-touched':
+                    formVerification.controls.verificationCode2.untouched && 
+                    formVerification.controls.verificationCode2.errors == null,
+                }"
+                  (change)="removeErrorExit()"
                 />
                 <input
                   appAutoFocus
@@ -96,18 +91,16 @@
                   formControlName="verificationCode3"
                   [ngClass]="{
                     'is-invalid1':
-                      (formVerification.controls.verificationCode3.touched ||
-                        formVerification.controls.verificationCode3.dirty) &&
-                      formVerification.controls.verificationCode3.errors
-                  }"
-                  [ngClass]="{
+                    (formVerification.controls.verificationCode3.touched &&
+                    formVerification.controls.verificationCode3.errors) || errorExist ,
                     'is-valid':
-                      formVerification.controls.verificationCode3.touched &&
-                      formVerification.controls.verificationCode3.errors ==
-                        null &&
-                      formVerification.controls.verificationCode3.dirty
-                  }"
-                  [ngClass]="{ 'is-invalid1': errorExist }"
+                    formVerification.controls.verificationCode3.touched && 
+                    formVerification.controls.verificationCode3.errors == null && !errorExist,
+                    'is-touched':
+                    formVerification.controls.verificationCode3.untouched && 
+                    formVerification.controls.verificationCode3.errors == null,
+                }"
+                  (change)="removeErrorExit()"
                 />
                 <input
                   appAutoFocus
@@ -123,18 +116,16 @@
                   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
                   [ngClass]="{
                     'is-invalid1':
-                      (formVerification.controls.verificationCode4.touched ||
-                        formVerification.controls.verificationCode4.dirty) &&
-                      formVerification.controls.verificationCode4.errors
-                  }"
-                  [ngClass]="{
+                    (formVerification.controls.verificationCode4.touched &&
+                    formVerification.controls.verificationCode4.errors) || errorExist ,
                     'is-valid':
-                      formVerification.controls.verificationCode4.touched &&
-                      formVerification.controls.verificationCode4.errors ==
-                        null &&
-                      formVerification.controls.verificationCode4.dirty
-                  }"
-                  [ngClass]="{ 'is-invalid1': errorExist }"
+                    formVerification.controls.verificationCode4.touched && 
+                    formVerification.controls.verificationCode4.errors == null && !errorExist,
+                    'is-touched':
+                    formVerification.controls.verificationCode4.untouched && 
+                    formVerification.controls.verificationCode4.errors == null,
+                }"
+                  (change)="removeErrorExit()"
                 />
                 <input
                   appAutoFocus
@@ -150,18 +141,16 @@
                   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
                   [ngClass]="{
                     'is-invalid1':
-                      (formVerification.controls.verificationCode5.touched ||
-                        formVerification.controls.verificationCode5.dirty) &&
-                      formVerification.controls.verificationCode5.errors
-                  }"
-                  [ngClass]="{
+                    (formVerification.controls.verificationCode5.touched &&
+                    formVerification.controls.verificationCode5.errors) || errorExist ,
                     'is-valid':
-                      formVerification.controls.verificationCode5.touched &&
-                      formVerification.controls.verificationCode5.errors ==
-                        null &&
-                      formVerification.controls.verificationCode5.dirty
-                  }"
-                  [ngClass]="{ 'is-invalid1': errorExist }"
+                    formVerification.controls.verificationCode5.touched && 
+                    formVerification.controls.verificationCode5.errors == null && !errorExist,
+                    'is-touched':
+                    formVerification.controls.verificationCode5.untouched && 
+                    formVerification.controls.verificationCode5.errors == null,
+                }"
+                  (change)="removeErrorExit()"
                 />
                 <input
                   appAutoFocus
@@ -177,26 +166,22 @@
                   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
                   [ngClass]="{
                     'is-invalid1':
-                      formVerification.controls.verificationCode6.touched &&
-                      formVerification.controls.verificationCode6.errors !==
-                        null &&
-                      !formVerification.controls.verificationCode6.dirty
-                  }"
-                  [ngClass]="{
+                    (formVerification.controls.verificationCode6.touched &&
+                    formVerification.controls.verificationCode6.errors) || errorExist ,
                     'is-valid':
-                      formVerification.controls.verificationCode6.touched &&
-                      formVerification.controls.verificationCode6.errors ==
-                        null &&
-                      formVerification.controls.verificationCode6.dirty
-                  }"
-                  [ngClass]="{
-                    'is-invalid1': errorExist,
-                    '': !errorExist
-                  }"
+                    formVerification.controls.verificationCode6.touched && 
+                    formVerification.controls.verificationCode6.errors == null && !errorExist,
+                    'is-touched':
+                    formVerification.controls.verificationCode6.untouched && 
+                    formVerification.controls.verificationCode6.errors == null,
+                }"
+                  (change)="removeErrorExit()"
                 />
               </div>
               @if (errorExist) {
               <p class="required1">Invalid Code</p>
+              } @if (resendOTPBool) {
+              <p class="required1">{{ resendOtpMsg }}</p>
               }
             </div>
             <button
@@ -217,3 +202,9 @@
     </div>
   </div>
 </div>
+
+@if(spinner){
+<div class="spinner">
+  <app-spinner></app-spinner>
+</div>
+}
