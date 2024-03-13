@@ -5,6 +5,7 @@ import { UserProfileComponent } from '../../components/core/user-profile/user-pr
 import { RouterLink, RouterModule, RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CardModalComponent } from '../pop-up-card/card-modal/card-modal.component';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -19,7 +20,7 @@ export class HeaderComponent implements OnInit {
 
   fullPath!: string[];
 
-  constructor(private _BreadCurmb: BreadcrumbService) {
+  constructor(private _BreadCurmb: BreadcrumbService, private _AuthService: AuthService) {
     this.notification_status = false;
     this.toggleUserMenu = false;
 
@@ -41,6 +42,10 @@ export class HeaderComponent implements OnInit {
 
   userMenuToggled() {
     this.toggleUserMenu = !this.toggleUserMenu;
+  }
+
+  logout() {
+    this._AuthService.logout();
   }
 
 }

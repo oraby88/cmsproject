@@ -5,12 +5,15 @@ import { environment } from '../../environments/environment';
 import { ISignupRequest } from '../interfaces/signupinterface';
 import { ILogin } from '../interfaces/logininterface';
 import { ISignUpResponse } from '../interfaces/isign-up-response';
+import { AppUser } from '../interfaces/app-user';
+import { LocalStorageKeys } from '../keys/local-storage-keys';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private _Route: Router) { }
 
   signUp(registerData: ISignupRequest): Observable<ISignUpResponse> {
     return this.http.post<ISignUpResponse>(
@@ -50,27 +53,27 @@ export class AuthService {
   }
 
   get isLoggedIn(): boolean {
-    const userData = localStorage.getItem(localStorage['token'].userSession);
+    const userData = localStorage.getItem(LocalStorageKeys.USER_SESSION);
     if (userData) {
-      const jsonUserData = JSON.parse(userData);
-      const token = jsonUserData[localStorage['token']];
-
+      const jsonUserData: AppUser = JSON.parse(userData);
+      const token = jsonUserData.token;
       const tokenExpireDate =
-        jsonUserData[localStorage['token'].tokenExpireDate];
-      return token && new Date(tokenExpireDate) >= new Date();
+        jsonUserData.expireDate;
+      return !!token && new Date(tokenExpireDate) >= new Date();
     }
     return false;
   }
 
-  saveUserSession(applicationUser: any) {
+  saveUserSession(applicationUser: AppUser) {
     localStorage.setItem(
-      localStorage['userSession'],
+      'userSession',
       JSON.stringify(applicationUser)
     );
   }
 
   logout() {
-    localStorage.removeItem(localStorage['userSession']);
+    localStorage.removeItem(LocalStorageKeys.USER_SESSION);
+    this._Route.navigate(['signin']);
   }
 
   get Name() {
@@ -111,8 +114,8 @@ export class AuthService {
   }
 
 
-  Login(request: ILogin): Observable<any> {
-    return this.http.post<any>(
+  Login(request: ILogin): Observable<AppUser> {
+    return this.http.post<AppUser>(
       environment.BASEURL + 'api/Authentication/Login',
       request
     );

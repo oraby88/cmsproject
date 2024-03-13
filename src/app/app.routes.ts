@@ -27,12 +27,13 @@ export const routes: Routes = [
   { path: 'signupverification', component: SignupverificationComponent },
   { path: 'setnewpassword', component: SetnewpasswordComponent },
   { path: 'correctchange', component: CorrectchagesComponent },
+  { path: 'cms', redirectTo: '/cms/management', pathMatch: 'full' },
   {
     path: 'cms',
+    canActivate: [authGuard],
     children: [
       {
         path: 'management',
-        canActivate: [authGuard],
         loadChildren: () => import('./components/core/management/management.routes').then(routes => routes.MANAGEMENT_ROUTES),
       },
       { path: 'blogs', canActivate: [], loadComponent: () => import('./components/core/blog/blog.component').then(c => c.BlogComponent) },

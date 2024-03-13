@@ -10,6 +10,7 @@ import { NewUserComponent } from '../../../../shared/add-new-user/button.compone
 import { AddUserComponent } from '../../add-user/add-user.component';
 import { ToggleDeleteModalService } from '../../../../services/toggleModal/toggle-delete-modal.service';
 import { SortComponent } from '../../../../shared/sort/sort/sort.component';
+import { UserManagementsService } from '../../../../services/user-managements/user-managements.service';
 
 @Component({
   selector: 'app-manage-users',
@@ -23,12 +24,19 @@ export class ManageUsersComponent implements OnInit {
   row2 = 2;
   headdata = this.row1;
   bodydata = [12345];
-
+  users!: any;
   addUserToggler!: Boolean;
   filterValue!: Boolean;
-  constructor(private _BreadCurmb: BreadcrumbService, private _ToggleModal: ToggleDeleteModalService) { }
+  constructor(private _BreadCurmb: BreadcrumbService, private _ToggleModal: ToggleDeleteModalService, private _UserManagement: UserManagementsService) { }
 
   ngOnInit() {
+    this._UserManagement.getAllUsers().subscribe({
+      next: (data) => {
+        console.log(data);
+      },
+      error: () => { }
+    })
+
     this._BreadCurmb.changeCurrentPath();
     this._ToggleModal.getToggleValue().subscribe({
       next: (toggleValue) => {
