@@ -33,7 +33,7 @@ export class AuthService {
 
   resendOTP() {
     var obj = {
-      email: sessionStorage.getItem('email')?.toString(),
+      email: '17f68cb1f9@emailabox.pro',
     };
     return this.http.post(
       environment.BASEURL + `api/Authentication/ResendOTP?email=${obj.email}`,
