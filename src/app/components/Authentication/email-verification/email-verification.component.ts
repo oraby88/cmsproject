@@ -88,18 +88,12 @@ export class EmailVerificationComponent implements OnInit, DoCheck {
     }
 
     this.otp = `${this.str1}${this.str2}${this.str3}${this.str4}${this.str5}${this.str6}`;
-    console.log(this.otp);
-
-
     this._authService.resetVerificationCode(this.otp).subscribe({
       next: (res) => {
-        console.log(res);
         sessionStorage.setItem('token', res.token);
         this._Router.navigateByUrl('setnewpassword');
       },
       error: (err) => {
-        console.log(err)
-        // alert("Incorrect Code");
         this.errorExist = true;
         this.resendOTPBool = false;
 
@@ -114,11 +108,9 @@ export class EmailVerificationComponent implements OnInit, DoCheck {
     this._authService.resendOTP().subscribe({
       next: (res: any) => {
         this.resendOtpMsg = res.message;
-        console.log(res);
       },
       error: (err) => {
         this.resendOtpMsg = err.error.message;
-        console.log(err);
       }
     })
   }

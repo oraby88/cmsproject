@@ -13,7 +13,6 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   signUp(registerData: ISignupRequest): Observable<ISignUpResponse> {
-    console.log(registerData);
     return this.http.post<ISignUpResponse>(
       environment.BASEURL + 'api/Authentication/Register',
       registerData
@@ -26,7 +25,6 @@ export class AuthService {
       otp: otp.toString(),
       token: sessionStorage.getItem('token')?.toString(),
     };
-    console.log(obj);
     return this.http.post(
       `${environment.BASEURL}api/Authentication/ConfirmEmail`,
       obj
@@ -37,7 +35,6 @@ export class AuthService {
     var obj = {
       email: sessionStorage.getItem('email')?.toString(),
     };
-    console.log(obj);
     return this.http.post(
       environment.BASEURL + `api/Authentication/ResendOTP?email=${obj.email}`,
       {}
@@ -53,9 +50,7 @@ export class AuthService {
   }
 
   get isLoggedIn(): boolean {
-    // return true;
     const userData = localStorage.getItem(localStorage['token'].userSession);
-    console.log(userData);
     if (userData) {
       const jsonUserData = JSON.parse(userData);
       const token = jsonUserData[localStorage['token']];
@@ -96,7 +91,6 @@ export class AuthService {
 
 
   sendMail(email: string): Observable<any> {
-    console.log(email);
     return this.http.post(
       `${environment.BASEURL}api/Authentication/ForgetPassword?email=${email}`,
       {}
@@ -110,7 +104,6 @@ export class AuthService {
       otp: res.toString(),
       //token: sessionStorage.getItem('token')?.toString(),
     };
-    console.log(obj);
     return this.http.post(
       `${environment.BASEURL}api/Authentication/ConfirmForgetPasswordOTP`,
       obj
@@ -119,31 +112,13 @@ export class AuthService {
 
 
   Login(request: ILogin): Observable<any> {
-    console.log(request);
     return this.http.post<any>(
       environment.BASEURL + 'api/Authentication/Login',
       request
     );
   }
 
-
-
-
-  // setNewPass(res:IForgetPassRequest){
-  //   var obj={
-  //     email: sessionStorage.getItem('email')?.toString(),
-  //     token: sessionStorage.getItem('token')?.toString(),
-  //     message: sessionStorage.getItem('message')?.toString(),
-  //     password: res.password.toString(),
-  //     confirmNewPassword: res.confirmNewPassword.toString()
-  //   }
-  //   console.log(obj);
-  //   return this.http.post(
-  //     environment.BASEURL + `api/Authentication/ConfirmForgetPassword`, obj);
-  // }
-
   forgetPassword(email: string) {
-    console.log(email);
     return this.http.post<any>(
       `${environment.BASEURL}api/Authentication/ForgetPassword?email=${email}`,
       {}

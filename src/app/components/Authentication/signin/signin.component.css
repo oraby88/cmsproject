@@ -140,6 +140,7 @@ button {
   border: 0px;
   width: 98%;
   transition: ease all 1.5s;
+  cursor: pointer;
 }
 
 .required1 {
@@ -186,6 +187,7 @@ input[id="checkbox"] {
 }
 .disabled {
   background-color: #adc4ec;
+  cursor: default;
 }
 h1 {
   text-align: center;

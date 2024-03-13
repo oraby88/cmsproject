@@ -112,8 +112,9 @@ export class SignupverificationComponent implements OnInit {
     this.resendOTPBool = true;
 
     this._authService.resendOTP().subscribe({
-      next: (res) => {
+      next: (res: any) => {
         console.log(res);
+        this.resendOtpMsg = res.message
         // this._authService.setToken(res.token);
         // this.showSetNewPass();
       },
