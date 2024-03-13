@@ -4,6 +4,7 @@ import { SignupComponent } from './components/Authentication/signup/signup.compo
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { style, transition, trigger, group, query, animate } from '@angular/animations';
+import { NavigationService } from './globalAnimation/navigation.service';
 
 @Component({
   selector: 'app-root',
@@ -30,8 +31,10 @@ import { style, transition, trigger, group, query, animate } from '@angular/anim
 })
 export class AppComponent {
 
+  constructor(private navigationService: NavigationService) { }
+
   getState(outlet: any) {
-    return outlet.activatedRouteData.state;
+  return this.navigationService.animationValue;
   }
 
   title = 'crmproject';

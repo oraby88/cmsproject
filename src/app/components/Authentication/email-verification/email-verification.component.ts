@@ -45,6 +45,11 @@ export class EmailVerificationComponent implements OnInit, DoCheck {
   resendOtpMsg!: string;
   spinner!: Boolean
 
+  public slides: string[] = [
+    'assets/images/illustration-signup.svg',
+    'assets/images/Frame 1000016152.svg',
+  ];
+
   formVerification = new FormGroup({
     verificationCode1: new FormControl(''),
     verificationCode2: new FormControl(''),

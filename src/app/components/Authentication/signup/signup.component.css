@@ -84,7 +84,6 @@ body {
   padding: 3%;
   /* box-shadow: 1px 1px 1px white; */
   transition: ease all 1s;
-  cursor: pointer;
 }
 
 .submitButton {
@@ -236,7 +235,7 @@ hr {
   position: relative;
   width: 25px !important;
   display: inline-block;
-  transition: ease all 1s;
+  transition: ease all 0.5s;
   color: rgb(201, 198, 198);
 }
 

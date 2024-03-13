@@ -20,9 +20,9 @@ import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/signup', pathMatch: 'full' },
-  { path: 'signin', component: SigninComponent, data: { state: 'signin' } },
-  { path: 'signup', component: SignupComponent },
-  { path: 'sendmail', component: SendmailComponent, data: { state: 'sendmail' } },
+  { path: 'signin', component: SigninComponent, data: { num: 1 } },
+  { path: 'signup', component: SignupComponent, data: { num: 2 } },
+  { path: 'sendmail', component: SendmailComponent, data: { num: 3 } },
   { path: 'emailverification', component: EmailVerificationComponent },
   { path: 'signupverification', component: SignupverificationComponent },
   { path: 'setnewpassword', component: SetnewpasswordComponent },

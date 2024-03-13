@@ -44,6 +44,10 @@ export class SignupverificationComponent implements OnInit {
   resendOtpMsg!: string;
   spinner!: Boolean
 
+  public slides: string[] = [
+    'assets/images/verification-rightside.svg',
+  ];
+
 
   formVerification = new FormGroup({
     verificationCode1: new FormControl(''),
@@ -53,6 +57,7 @@ export class SignupverificationComponent implements OnInit {
     verificationCode5: new FormControl(''),
     verificationCode6: new FormControl(''),
   });
+  slidIndex: any = 0;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -122,5 +127,10 @@ export class SignupverificationComponent implements OnInit {
 
   removeErrorExit() {
     this.errorExist = false;
+  }
+
+  showSlides(i = this.slidIndex) {
+    let silde = this.slides[i];
+    return silde;
   }
 }
