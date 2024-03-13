@@ -165,9 +165,12 @@ body {
   display: flex;
   flex-direction: column;
   width: 50%;
-  /* background-image: url("../../../../assets/images/verification-rightside.svg"); */
+  /* height: 100; */
+  background-image: url("../../../../assets/images/Variant5.svg");
   background-size: cover;
-  background-position: center;
+  min-height: 100vh;
+  /* max-width: 100%;  */
+  transition: ease all 1s;
 }
 
 /* Slideshow container */

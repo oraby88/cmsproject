@@ -85,22 +85,14 @@ export class SignupverificationComponent implements OnInit {
       console.log(this.formVerification);
       return;
     }
-    // this.showSetNewPass();
     this.str = `${this.str1}${this.str2}${this.str3}${this.str4}${this.str5}${this.str6}`;
     console.log(this.str);
     this._authService.verificationCode(this.str).subscribe({
       next: (res) => {
-        //Clear the session
         sessionStorage.clear();
         this._Router.navigateByUrl('/signin');
-        // this._authService.setToken(res.token);
-        // this.showSetNewPass();
-        console.log(res);
       },
       error: (err) => {
-        console.log(err);
-        // alert('Incorrect Code');
-        // console.log(this.signupEmail);
         this.errorExist = true;
         this.resendOTPBool = false;
       },
@@ -113,15 +105,11 @@ export class SignupverificationComponent implements OnInit {
 
     this._authService.resendOTP().subscribe({
       next: (res: any) => {
-        console.log(res);
         this.resendOtpMsg = res.message
-        // this._authService.setToken(res.token);
-        // this.showSetNewPass();
       },
       error: (err) => {
         this.errorExist = false;
         this.resendOtpMsg = err.error.message;
-        console.log(err);
       },
     });
   }
