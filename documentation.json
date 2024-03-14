@@ -2704,7 +2704,7 @@
         },
         {
             "name": "CardModalComponent",
-            "id": "component-CardModalComponent-4700dfea9d9ad7cc13b8da89878c8c820596faf88dec5c6ad933f77b711c20971311c42420e35645cd10f9fda7fdd4323112e67e19fe55ee06fc973d7ff48176",
+            "id": "component-CardModalComponent-1de0b647262c78ff126cede88baaf48d5e561ff5be3436b3f9d368ee0db102f7249414c246c6dfc14412c0792fcc9b29ff2a8f015539a48c256f25950d373da4",
             "file": "src/stories/pop-up-card/card-modal/card-modal.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2724,7 +2724,7 @@
                     "name": "action",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 21,
+                    "line": 22,
                     "type": "string",
                     "decorators": []
                 },
@@ -2732,7 +2732,7 @@
                     "name": "actionBackground",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 22,
+                    "line": 23,
                     "type": "string",
                     "decorators": []
                 },
@@ -2740,7 +2740,7 @@
                     "name": "backgroundImg",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 24,
+                    "line": 25,
                     "type": "string",
                     "decorators": []
                 },
@@ -2748,7 +2748,7 @@
                     "name": "cancel",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 20,
+                    "line": 21,
                     "type": "string",
                     "decorators": []
                 },
@@ -2756,7 +2756,7 @@
                     "name": "description",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 19,
+                    "line": 20,
                     "type": "string",
                     "decorators": []
                 },
@@ -2764,7 +2764,7 @@
                     "name": "icon_path",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 23,
+                    "line": 24,
                     "type": "string",
                     "decorators": []
                 },
@@ -2772,7 +2772,7 @@
                     "name": "title",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 18,
+                    "line": 19,
                     "type": "string",
                     "decorators": []
                 }
@@ -2783,7 +2783,7 @@
                     "defaultValue": "new EventEmitter<Event>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 26,
+                    "line": 27,
                     "type": "EventEmitter"
                 },
                 {
@@ -2791,7 +2791,7 @@
                     "defaultValue": "new EventEmitter<Event>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 27,
+                    "line": 28,
                     "type": "EventEmitter"
                 }
             ],
@@ -2803,7 +2803,7 @@
                     "type": "Boolean",
                     "optional": false,
                     "description": "",
-                    "line": 16
+                    "line": 17
                 },
                 {
                     "name": "icon",
@@ -2812,7 +2812,7 @@
                     "type": "ElementRef",
                     "optional": false,
                     "description": "",
-                    "line": 28,
+                    "line": 29,
                     "decorators": [
                         {
                             "name": "ViewChild",
@@ -2831,7 +2831,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 50,
+                    "line": 55,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -2841,7 +2841,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 46,
+                    "line": 49,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -2851,7 +2851,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 42,
+                    "line": 43,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -2861,7 +2861,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 33,
+                    "line": 34,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -2880,7 +2880,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\n\r\nimport { ToggleDeleteModalService } from '../../../app/services/toggleModal/toggle-delete-modal.service';\r\n\r\n\r\n@Component({\r\n  selector: 'app-card-modal',\r\n  standalone: true,\r\n  imports: [CommonModule],\r\n  templateUrl: './card-modal.component.html',\r\n  styleUrl: './card-modal.component.css'\r\n})\r\nexport class CardModalComponent {\r\n\r\n  deleteAccountModal!: Boolean;\r\n\r\n  @Input('title') title!: string;\r\n  @Input('description') description!: string;\r\n  @Input('cancel') cancel!: string;\r\n  @Input('action') action!: string;\r\n  @Input('actionBackground') actionBackground!: string;\r\n  @Input('icon_path') icon_path!: string;\r\n  @Input('backgroundImg') backgroundImg!: string;\r\n\r\n  @Output() actionBtn = new EventEmitter<Event>();\r\n  @Output() cancelBtn = new EventEmitter<Event>();\r\n  @ViewChild('icon') icon!: ElementRef;\r\n  constructor(private _ToggleDeleteModalService: ToggleDeleteModalService) {\r\n    this.deleteAccountModal = false\r\n  }\r\n\r\n  ngOnInit(): void {\r\n    this._ToggleDeleteModalService.getToggleValue().subscribe({\r\n      next: (toggler) => {\r\n        this.deleteAccountModal = toggler;\r\n      }\r\n    })\r\n  }\r\n\r\n\r\n  ngOnChange() {\r\n    this.icon.nativeElement.style.backgroundImage = `${this.backgroundImg}`;\r\n  }\r\n\r\n  ngAfterViewInit(): void {\r\n    this.icon.nativeElement.style.border = `${this.backgroundImg}`;\r\n  }\r\n\r\n  closeModal() {\r\n    this._ToggleDeleteModalService.toggle();\r\n  }\r\n\r\n\r\n\r\n}\r\n",
+            "sourceCode": "import { Component, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\n\r\nimport { ToggleDeleteModalService } from '../../../app/services/toggleModal/toggle-delete-modal.service';\r\nimport { environment } from '../../../environments/environment';\r\n\r\n\r\n@Component({\r\n  selector: 'app-card-modal',\r\n  standalone: true,\r\n  imports: [CommonModule],\r\n  templateUrl: './card-modal.component.html',\r\n  styleUrl: './card-modal.component.css'\r\n})\r\nexport class CardModalComponent {\r\n\r\n  deleteAccountModal!: Boolean;\r\n\r\n  @Input('title') title!: string;\r\n  @Input('description') description!: string;\r\n  @Input('cancel') cancel!: string;\r\n  @Input('action') action!: string;\r\n  @Input('actionBackground') actionBackground!: string;\r\n  @Input('icon_path') icon_path!: string;\r\n  @Input('backgroundImg') backgroundImg!: string;\r\n\r\n  @Output() actionBtn = new EventEmitter<Event>();\r\n  @Output() cancelBtn = new EventEmitter<Event>();\r\n  @ViewChild('icon') icon!: ElementRef;\r\n  constructor(private _ToggleDeleteModalService: ToggleDeleteModalService) {\r\n    this.deleteAccountModal = false\r\n  }\r\n\r\n  ngOnInit(): void {\r\n    this._ToggleDeleteModalService.getToggleValue().subscribe({\r\n      next: (toggler) => {\r\n        this.deleteAccountModal = toggler;\r\n      }\r\n    })\r\n  }\r\n\r\n\r\n  ngOnChange() {\r\n    this.icon.nativeElement.style.backgroundImage = `${environment.BASEURL}assets/images/${this.backgroundImg}`;\r\n    console.log(`${environment.BASEURL}assets/images/${this.backgroundImg}`\r\n    );\r\n  }\r\n\r\n  ngAfterViewInit(): void {\r\n    this.icon.nativeElement.style.backgroundImage = `${environment.BASEURL}assets/images/${this.backgroundImg}`;\r\n    console.log(`${environment.BASEURL}assets/images/${this.backgroundImg}`);\r\n\r\n  }\r\n\r\n  closeModal() {\r\n    this._ToggleDeleteModalService.toggle();\r\n  }\r\n\r\n\r\n\r\n}\r\n",
             "styleUrl": "./card-modal.component.css",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -2898,7 +2898,7 @@
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 28,
+                "line": 29,
                 "jsdoctags": [
                     {
                         "name": "_ToggleDeleteModalService",
@@ -8696,6 +8696,16 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/add-new-user/add-new-user-btn.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<NewUserComponent>",
+                "defaultValue": "{\r\n    title: 'Components/NewUserButton',\r\n    component: NewUserComponent,\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/card/card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -8806,6 +8816,16 @@
                 "name": "userManagementCard",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/add-new-user/add-new-user-btn.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n    args: {\r\n        btnIcon: 'add-circle.svg',\r\n        btnName: 'Add User'\r\n    },\r\n}"
+            },
+            {
+                "name": "userManagementCard",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/card/card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -8853,6 +8873,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<PageComponent>",
                 "file": "src/stories/page.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<NewUserComponent>",
+                "file": "src/stories/add-new-user/add-new-user-btn.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -9117,6 +9148,28 @@
                     "defaultValue": "[\r\n\r\n    { path: '', redirectTo: 'users', pathMatch: 'full' },\r\n    {\r\n        path: 'users',\r\n        loadComponent: () => import('./manage-users/manage-users.component').then(c => c.ManageUsersComponent)\r\n    },\r\n    {\r\n        path: 'roles',\r\n        loadComponent: () => import('./manage-roles/manageroles.component').then(c => c.ManageRolesComponent)\r\n\r\n    },\r\n]"
                 }
             ],
+            "src/stories/add-new-user/add-new-user-btn.stories.ts": [
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/add-new-user/add-new-user-btn.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<NewUserComponent>",
+                    "defaultValue": "{\r\n    title: 'Components/NewUserButton',\r\n    component: NewUserComponent,\r\n}"
+                },
+                {
+                    "name": "userManagementCard",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/add-new-user/add-new-user-btn.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n    args: {\r\n        btnIcon: 'add-circle.svg',\r\n        btnName: 'Add User'\r\n    },\r\n}"
+                }
+            ],
             "src/stories/card/card.stories.ts": [
                 {
                     "name": "meta",
@@ -9276,6 +9329,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<PageComponent>",
                     "file": "src/stories/page.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "src/stories/add-new-user/add-new-user-btn.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<NewUserComponent>",
+                    "file": "src/stories/add-new-user/add-new-user-btn.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -9913,6 +9979,26 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "bootstrap",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/add-new-user/add-new-user-btn.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/add-new-user/add-new-user-btn.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "userManagementCard",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
