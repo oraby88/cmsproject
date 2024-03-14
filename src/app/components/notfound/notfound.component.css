@@ -6,7 +6,7 @@
   display: flex;
 }
 
-button {
+a {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -15,6 +15,8 @@ button {
   border-radius: 6px;
   outline: none;
   border: none;
+  color: #fff;
+  text-decoration: none;
 }
 
 .left-side {
