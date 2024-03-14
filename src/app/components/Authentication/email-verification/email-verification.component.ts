@@ -82,7 +82,9 @@ export class EmailVerificationComponent implements OnInit, DoCheck {
 
   // send otp
   verificationSubmit() {
+    this.spinner = true;
     if (this.formVerification.invalid) {
+      this.spinner = false;
       console.log(this.formVerification);
       return;
     }
@@ -90,10 +92,12 @@ export class EmailVerificationComponent implements OnInit, DoCheck {
     this.otp = `${this.str1}${this.str2}${this.str3}${this.str4}${this.str5}${this.str6}`;
     this._authService.resetVerificationCode(this.otp).subscribe({
       next: (res) => {
+        this.spinner = false;
         sessionStorage.setItem('token', res.token);
         this._Router.navigateByUrl('setnewpassword');
       },
       error: (err) => {
+        this.spinner = false;
         this.errorExist = true;
         this.resendOTPBool = false;
 
@@ -105,11 +109,15 @@ export class EmailVerificationComponent implements OnInit, DoCheck {
   resendOTP() {
     this.errorExist = false;
     this.resendOTPBool = true;
+    this.spinner = true;
     this._authService.resendOTP().subscribe({
       next: (res: any) => {
         this.resendOtpMsg = res.message;
+        this.spinner = false;
       },
       error: (err) => {
+        this.spinner = false;
+
         this.resendOtpMsg = err.error.message;
       }
     })

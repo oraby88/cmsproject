@@ -1,5 +1,5 @@
 import { ApplicationConfig } from '@angular/core';
-import { PreloadAllModules, provideRouter, withViewTransitions, withPreloading, PreloadingStrategy, } from '@angular/router';
+import { PreloadAllModules, provideRouter, withViewTransitions, withPreloading, } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';

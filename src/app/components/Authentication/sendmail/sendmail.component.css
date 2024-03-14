@@ -163,7 +163,14 @@ button {
   margin: 0px;
   font-size: 13px;
 }
+
 .spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  z-index: 999;
   position: absolute;
   top: 50%;
   left: 50%;

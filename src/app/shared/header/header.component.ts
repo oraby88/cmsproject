@@ -1,9 +1,11 @@
 import { CommonModule, LocationStrategy, TitleCasePipe, UpperCasePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { RouterLink, RouterModule, RouterOutlet } from '@angular/router';
+
+
 import { BreadcrumbService } from '../../services/breadcrumb/breadcrumb.service';
 import { UserProfileComponent } from '../../components/core/user-profile/user-profile.component';
-import { RouterLink, RouterModule, RouterOutlet } from '@angular/router';
-import { FormsModule } from '@angular/forms';
 import { CardModalComponent } from '../pop-up-card/card-modal/card-modal.component';
 import { AuthService } from '../../services/auth.service';
 

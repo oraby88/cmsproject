@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/angular';
 
-import { CardComponent } from '../app/shared/card/card.component';
+import { CardComponent } from './card.component';
 
 
 //👇 This default export determines where your story goes in the story list
@@ -14,10 +14,10 @@ type Story = StoryObj<CardComponent>;
 
 export const userManagementCard: Story = {
     args: {
-        title: 'Card',
-        description: 'Card desc',
-        description_continue: 'Card desc',
-        icon_path: 'http://localhost:6006/assets/user-management-count.svg',
-        total_number: '2500'
+        title: 'Active Users',
+        description: 'Total user number',
+        description_continue: 'in this system',
+        icon_path: 'user-management-count.svg',
+        total_number: '3500'
     },
 };

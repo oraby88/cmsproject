@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/angular';
-
 import { HeaderComponent } from './header.component';
 
 const meta: Meta<HeaderComponent> = {
@@ -18,9 +17,7 @@ type Story = StoryObj<HeaderComponent>;
 
 export const LoggedIn: Story = {
   args: {
-    user: {
-      name: 'Jane Doe',
-    },
+
   },
 };
 

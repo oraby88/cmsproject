@@ -78,18 +78,20 @@ export class AuthService {
 
   get Name() {
     if (this.isLoggedIn) {
-      let userData = localStorage.getItem(localStorage['userSession']);
-      if (userData) return JSON.parse(userData)[localStorage['fullName']];
+      let userData = localStorage.getItem(LocalStorageKeys.USER_SESSION);
+      if (userData) return (JSON.parse(userData) as AppUser).fullName;
       return null;
     }
+    return null;
   }
 
   get Token() {
     if (this.isLoggedIn) {
-      let userData = localStorage.getItem(localStorage['userSession']);
-      if (userData) return JSON.parse(userData)[localStorage['token']];
+      let userData = localStorage.getItem(LocalStorageKeys.USER_SESSION);
+      if (userData) return (JSON.parse(userData) as AppUser).token;
       return null;
     }
+    return null;
   }
 
 

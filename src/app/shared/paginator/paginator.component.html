@@ -1,6 +1,6 @@
 <div class="container">
   <div class="rows-count">
-    <span><img src="../../../assets/images/paginator-prev.png" alt=""></span>
+    <span><img src="assets/images/paginator-prev.png" alt=""></span>
     <div class="rows">
       <span>Rows </span>
     <select name="count" id="count" (change)="onCahnge($event)">
@@ -11,14 +11,14 @@
     </select>
      <span>of {{all}}</span>
     </div>
-    <span><img src="../../../assets/images/paginator-next.png" alt=""></span>
+    <span><img src="assets/images/paginator-next.png" alt=""></span>
   </div>
   <div class="controls" >
     <span [ngClass]="{'notAllowed':active === 0}" (click)="firstSlide()">
-      <img src="../../../assets/images/paginator-left.png" alt="">
+      <img src="assets/images/paginator-left.png" alt="">
     </span>
     <span [ngClass]="{'notAllowed':active === 0}" (click)="prevPage()">
-      <img src="../../../assets/images/paginator-prev.png" alt="">
+      <img src="assets/images/paginator-prev.png" alt="">
     </span>
       <div class="pages" #container>
         @if(pages !== 0 && pages > 4){
@@ -53,9 +53,9 @@
          }
       </div>
     <span [ngClass]="{'notAllowed':active >= pages - 1}" (click)="nextPage()">
-      <img src="../../../assets/images/paginator-next.png" alt="">
+      <img src="assets/images/paginator-next.png" alt="">
     </span>
     <span [ngClass]="{'notAllowed':active >= pages - 1}" (click)="lastSlide()">
-      <img src="../../../assets/images/paginatro-right.png" alt=""></span>
+      <img src="assets/images/paginator-right.png" alt=""></span>
   </div>
 </div>

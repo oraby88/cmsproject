@@ -63,7 +63,10 @@ export class SignupverificationComponent implements OnInit {
     private formBuilder: FormBuilder,
     private _authService: AuthService,
     private _Router: Router,
-  ) { }
+  ) {
+    this.resendOTPBool = false;
+    this.spinner = false;
+  }
   ngOnInit(): void {
     this.email = sessionStorage?.getItem('email')?.slice(0, 4).concat("************");
     this.formVerification = this.formBuilder.group({
@@ -81,18 +84,21 @@ export class SignupverificationComponent implements OnInit {
 
   verificationSubmit() {
     // send mail
+    this.spinner = true;
     if (this.formVerification.invalid) {
+      this.spinner = false;
       console.log(this.formVerification);
       return;
     }
     this.str = `${this.str1}${this.str2}${this.str3}${this.str4}${this.str5}${this.str6}`;
-    console.log(this.str);
     this._authService.verificationCode(this.str).subscribe({
       next: (res) => {
+        this.spinner = false;
         sessionStorage.clear();
         this._Router.navigateByUrl('/signin');
       },
       error: (err) => {
+        this.spinner = false;
         this.errorExist = true;
         this.resendOTPBool = false;
       },
@@ -102,13 +108,15 @@ export class SignupverificationComponent implements OnInit {
   resendOTP() {
     this.errorExist = false;
     this.resendOTPBool = true;
-
+    this.spinner = true;
     this._authService.resendOTP().subscribe({
       next: (res: any) => {
-        this.resendOtpMsg = res.message
+        this.resendOtpMsg = res.message;
+        this.spinner = false;
       },
       error: (err) => {
         this.errorExist = false;
+        this.spinner = false;
         this.resendOtpMsg = err.error.message;
       },
     });

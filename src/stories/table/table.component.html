@@ -1,0 +1,47 @@
+<div class="container">
+  <table CELLSPACING="0">
+    <thead>
+      <tr>
+        <th><input type="checkbox" /></th>
+        @for (data of headRow; track $index) {
+        <th>{{ data }}</th>
+        }
+        <th>
+          <span><img src="assets/images/table-setting.png" alt="" /></span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (data of bodyRow; track data) {
+      <tr class="row">
+        <td><input type="checkbox" (click)="onChecked($event)" /></td>
+        <td>{{ data.id }}</td>
+        <td><img [src]="data.profileImagePath" alt="" />{{ data.fullName }}</td>
+        <td>
+          <span class="status"
+            ><span
+              class="{{ data.isAccountActive ? 'active' : 'deactive' }}"
+            ></span
+            >{{ data.isAccountActive ? "Active" : "Deactive" }}</span
+          >
+        </td>
+        <td>{{ data.roleName }}</td>
+        <td>{{ data.email }}</td>
+        <td>{{ data.createdAt }}</td>
+        <td>
+          <span
+            ><img src="assets/images/table-communication.png" alt=""
+          /></span>
+          <div class="dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+          </div>
+        </td>
+      </tr>
+      }
+    </tbody>
+    <tfoot></tfoot>
+  </table>
+</div>
+<app-paginator (rowsCount)="getCount($event)" [all]="bodyRow.length" />
