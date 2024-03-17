@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 
@@ -19,7 +19,7 @@ import { UserManagementsService } from '../../../../services/user-managements/us
   templateUrl: './manage-users.component.html',
   styleUrl: './manage-users.component.css'
 })
-export class ManageUsersComponent implements OnInit {
+export class ManageUsersComponent implements OnInit, OnDestroy {
   row1 = [12345];
   row2 = 2;
   headdata = this.row1;
@@ -34,7 +34,9 @@ export class ManageUsersComponent implements OnInit {
       next: (data) => {
         console.log(data);
       },
-      error: () => { }
+      error: (err) => {
+        console.log(err);
+      }
     })
 
     this._BreadCurmb.changeCurrentPath();
@@ -57,5 +59,9 @@ export class ManageUsersComponent implements OnInit {
 
   openFilterModal() {
     this._ToggleModal.toggleFilter();
+  }
+
+  ngOnDestroy(): void {
+
   }
 }

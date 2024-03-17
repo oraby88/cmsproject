@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+
+
 import { environment } from '../../environments/environment';
 import { ISignupRequest } from '../interfaces/signupinterface';
 import { ILogin } from '../interfaces/logininterface';
@@ -13,7 +15,26 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private http: HttpClient, private _Route: Router) { }
+
+  private user$: BehaviorSubject<AppUser> = new BehaviorSubject<AppUser>({
+    fullName: "",
+    email: "",
+    token: "",
+    emailConfirmed: "",
+    expireDate: "",
+    // roleName: string;});
+  });
+
+  constructor(private http: HttpClient, private _Route: Router) {
+    this.user$.next({
+      fullName: "",
+      email: "",
+      token: "",
+      emailConfirmed: "",
+      expireDate: "",
+      // roleName: string;});
+    })
+  }
 
   signUp(registerData: ISignupRequest): Observable<ISignUpResponse> {
     return this.http.post<ISignUpResponse>(
@@ -36,7 +57,7 @@ export class AuthService {
 
   resendOTP() {
     var obj = {
-      email: '17f68cb1f9@emailabox.pro',
+      email: sessionStorage.getItem("email"),
     };
     return this.http.post(
       environment.BASEURL + `api/Authentication/ResendOTP?email=${obj.email}`,
@@ -50,6 +71,14 @@ export class AuthService {
 
   setTokenInSessionStorage(token: string) {
     sessionStorage.setItem('token', token);
+  }
+
+  setUser(user: AppUser) {
+    this.user$.next(user);
+  }
+
+  getUser(): Observable<AppUser> {
+    return this.user$;
   }
 
   get isLoggedIn(): boolean {
@@ -71,10 +100,7 @@ export class AuthService {
     );
   }
 
-  logout() {
-    localStorage.removeItem(LocalStorageKeys.USER_SESSION);
-    this._Route.navigate(['signin']);
-  }
+
 
   get Name() {
     if (this.isLoggedIn) {
@@ -94,14 +120,12 @@ export class AuthService {
     return null;
   }
 
-
   sendMail(email: string): Observable<any> {
     return this.http.post(
       `${environment.BASEURL}api/Authentication/ForgetPassword?email=${email}`,
       {}
     );
   }
-
 
   resetVerificationCode(res: string): Observable<any> {
     var obj = {
@@ -114,7 +138,6 @@ export class AuthService {
       obj
     );
   }
-
 
   Login(request: ILogin): Observable<AppUser> {
     return this.http.post<AppUser>(
@@ -129,4 +152,18 @@ export class AuthService {
       {}
     );
   }
+
+  logout() {
+    localStorage.removeItem(LocalStorageKeys.USER_SESSION);
+    this._Route.navigate(['signin']);
+    this.user$.next({
+      fullName: "",
+      email: "",
+      token: "",
+      emailConfirmed: "",
+      expireDate: "",
+      // roleName: string;});
+    })
+  }
+
 }

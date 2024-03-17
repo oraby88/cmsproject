@@ -23,7 +23,7 @@ export const routes: Routes = [
   { path: 'cms', redirectTo: '/cms/management', pathMatch: 'full' },
   {
     path: 'cms',
-    // canActivate: [authGuard],
+    canActivate: [authGuard],
     children: [
       {
         path: 'management',

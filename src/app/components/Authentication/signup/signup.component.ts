@@ -167,22 +167,14 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
     this._authService.signUp(this.signUpRequest).subscribe({
       next: (res) => {
         this.spinner = false;
-
         console.log(res);
         sessionStorage.setItem('token', res.token);
         sessionStorage.setItem('email', res.email);
         this._Router.navigateByUrl('/signupverification');
-        // this._authService.setTokenInSessionStorage(res['token']);
-
       },
       error: (err) => {
         this.spinner = false;
-
         this.errorExit = true;
-        console.log(this.errorExit);
-
-        console.log(err);
-        // alert("Email already exit");
       }
     });
 
@@ -197,8 +189,6 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
   }
 
   unshowPassAfter2S(event: any) {
-    console.log(event);
-
     const ele = this.element.nativeElement as HTMLInputElement;
     setTimeout(() => {
       ele.type = 'text'
@@ -226,7 +216,6 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
   testStr: string = '';
   pwd!: string;
   signUpTest(str: any) {
-    console.log(str);
     const input = this.element.nativeElement as HTMLInputElement;
     input.type = 'text';
     setTimeout(() => {

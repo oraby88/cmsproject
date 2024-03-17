@@ -4,4 +4,6 @@ export class AppUser {
     token!: string;
     emailConfirmed!: string;
     expireDate!: string;
+    image?: string
+    roleName?: string;
 }

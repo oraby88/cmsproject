@@ -1,10 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SignupComponent } from './components/Authentication/signup/signup.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { style, transition, trigger, group, query, animate } from '@angular/animations';
 import { NavigationService } from './globalAnimation/navigation.service';
+import { AuthService } from './services/auth.service';
+import { LocalStorageKeys } from './keys/local-storage-keys';
+import { AppUser } from './interfaces/app-user';
 
 @Component({
   selector: 'app-root',
@@ -29,12 +32,18 @@ import { NavigationService } from './globalAnimation/navigation.service';
     ])
   ],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
-  constructor(private navigationService: NavigationService) { }
+  user!: AppUser;
+  constructor(private navigationService: NavigationService, private _AuthService: AuthService) { }
+
+  ngOnInit(): void {
+    this._AuthService.saveUserSession(JSON.parse(localStorage.getItem(LocalStorageKeys.USER_SESSION) || ""));
+    this._AuthService.setUser(JSON.parse(localStorage.getItem(LocalStorageKeys.USER_SESSION) || ""));
+  }
 
   getState(outlet: any) {
-  return this.navigationService.animationValue;
+    return this.navigationService.animationValue;
   }
 
   title = 'crmproject';

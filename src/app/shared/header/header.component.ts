@@ -8,6 +8,7 @@ import { BreadcrumbService } from '../../services/breadcrumb/breadcrumb.service'
 import { UserProfileComponent } from '../../components/core/user-profile/user-profile.component';
 import { CardModalComponent } from '../pop-up-card/card-modal/card-modal.component';
 import { AuthService } from '../../services/auth.service';
+import { AppUser } from '../../interfaces/app-user';
 
 @Component({
   selector: 'app-header',
@@ -19,7 +20,7 @@ import { AuthService } from '../../services/auth.service';
 export class HeaderComponent implements OnInit {
   notification_status!: Boolean
   toggleUserMenu!: Boolean
-
+  user!: AppUser;
   fullPath!: string[];
 
   constructor(private _BreadCurmb: BreadcrumbService, private _AuthService: AuthService) {
@@ -29,6 +30,14 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this._AuthService.getUser().subscribe({
+      next: (usr) => {
+        this.user = usr
+      },
+      error: (usrError) => {
+        console.log(usrError);
+      }
+    })
     this._BreadCurmb.changeCurrentPath();
     this._BreadCurmb.getCurrentPath().subscribe({
       next: (res: string[]) => {

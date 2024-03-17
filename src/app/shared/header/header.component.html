@@ -73,13 +73,15 @@
             <div>
               <div class="user-content-img">
                 <img
-                  src="https://s3-alpha-sig.figma.com/img/c9c6/4f89/610532d55faa08c0e9757f8eaf082064?Expires=1709510400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=PQsvfrHW1Edq0R8ut~kBdxS-aLM~dKN45rQ4Q4VcAwCJMRV90BD9QKXQvuyHmSHu9N0SM1o0EPfZQC7xS4QT~UJmfO~TDioNd0jPYhOGZXNQOi~mRen0ZLUKWLR6t5Qp6ySJL-gZph-zLT1tpIZ8-RVgCVlXoqn7zU5wV6wko68SKLPi15NdWTYH8O9woI~M0EjIWpnmcEhujAosZi67GIHEy9OyL87jhs0cgz3oitZ0YUiCrARD9vaEk65yLCwjctOWov-2E33XD9c5X62D7vhQR-1A8ptZrVNfeEVUNXRPd9BYTrn7e7VOCtXtmjj3dT7lQanqw35o5Q9zmWA79w__"
-                  alt=""
+                  [src]="
+                    user.image ? user.image : 'assets/images/default-user.png'
+                  "
+                  [alt]="user.fullName"
                 />
               </div>
               <div class="user-content-info">
-                <h4>Haitham Mohamed</h4>
-                <small>Super admin</small>
+                <h4>{{ user.fullName }}</h4>
+                <small>{{ user.roleName }}</small>
               </div>
             </div>
 
