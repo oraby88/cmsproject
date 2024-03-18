@@ -74,7 +74,9 @@
               <div class="user-content-img">
                 <img
                   [src]="
-                    user.image ? user.image : 'assets/images/default-user.png'
+                    user.imageProfilePath
+                      ? user.imageProfilePath
+                      : 'assets/images/default-user.png'
                   "
                   [alt]="user.fullName"
                 />

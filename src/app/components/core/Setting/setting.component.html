@@ -1,0 +1,22 @@
+<div class="container">
+  <div>
+    <div class="col-12">
+      <div class="section-title">
+        <h3>Settings</h3>
+        <small>Mange your users and roles</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="navigation">
+    <ul>
+      <li [routerLink]="['notification']" routerLinkActive="active-navigation">
+        <p>Notification</p>
+      </li>
+      <li [routerLink]="['subscription']" routerLinkActive="active-navigation">
+        <p>My subscription</p>
+      </li>
+    </ul>
+  </div>
+  <router-outlet></router-outlet>
+</div>

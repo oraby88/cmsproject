@@ -120,9 +120,11 @@ export class SigninComponent implements OnInit, DoCheck, OnDestroy {
 
     this._authService.Login(this.signInRequest).subscribe({
       next: (res) => {
+
+        
+        console.log(res);
         this._authService.saveUserSession(res);
         this._authService.setUser(res);
-        console.log(res);
 
         this._Router.navigateByUrl('/cms');
       },

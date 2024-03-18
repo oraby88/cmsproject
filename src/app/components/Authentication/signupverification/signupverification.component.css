@@ -618,7 +618,9 @@ button {
   color: white;
   border: 0px;
   width: 98%;
+  cursor: pointer;
 }
+
 .loginContainer {
   /* display: none; */
   margin: auto;
@@ -656,6 +658,7 @@ button {
 
 .disabled {
   opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .spinner {

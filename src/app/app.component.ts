@@ -39,7 +39,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     //this._AuthService.saveUserSession(JSON.parse(localStorage.getItem(LocalStorageKeys.USER_SESSION) || ""));
-    this._AuthService.setUser(JSON.parse(localStorage.getItem(LocalStorageKeys.USER_SESSION) || ""));
+    this._AuthService.setUserOnBootstrap(JSON.parse(localStorage.getItem(LocalStorageKeys.USER_SESSION) || ""));
   }
 
   getState(outlet: any) {

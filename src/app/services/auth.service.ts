@@ -22,7 +22,8 @@ export class AuthService {
     token: "",
     emailConfirmed: "",
     expireDate: "",
-    // roleName: string;});
+    imageProfilePath: '',
+    roleName: ''
   });
 
   constructor(private http: HttpClient, private _Route: Router) {
@@ -32,7 +33,8 @@ export class AuthService {
       token: "",
       emailConfirmed: "",
       expireDate: "",
-      // roleName: string;});
+      imageProfilePath: '',
+      roleName: ''
     })
   }
 
@@ -84,8 +86,30 @@ export class AuthService {
     sessionStorage.setItem('token', token);
   }
 
-  setUser(user: AppUser) {
-    this.user$.next(user);
+  setUser(user: any) {
+    const data = {
+      email: user.data.email,
+      fullName: user.data.fullName,
+      expireDate: user.data.expireDate,
+      emailConfirmed: user.data.emailConfirmed,
+      token: user.data.token,
+      imageProfilePath: user.imageProfilePath,
+      roleName: user.roleName
+    }
+    this.user$.next(data);
+  }
+
+  setUserOnBootstrap(user: any) {
+    const data = {
+      email: user.email,
+      fullName: user.fullName,
+      expireDate: user.expireDate,
+      emailConfirmed: user.emailConfirmed,
+      token: user.token,
+      imageProfilePath: user.imageProfilePath,
+      roleName: user.roleName
+    }
+    this.user$.next(data);
   }
 
   getUser(): Observable<AppUser> {
@@ -104,10 +128,19 @@ export class AuthService {
     return false;
   }
 
-  saveUserSession(applicationUser: AppUser) {
+  saveUserSession(applicationUser: any) {
+    const data = {
+      email: applicationUser.data.email,
+      fullName: applicationUser.data.fullName,
+      expireDate: applicationUser.data.expireDate,
+      emailConfirmed: applicationUser.data.emailConfirmed,
+      token: applicationUser.data.token,
+      imageProfilePath: applicationUser.imageProfilePath,
+      roleName: applicationUser.roleName
+    }
     localStorage.setItem(
       'userSession',
-      JSON.stringify(applicationUser)
+      JSON.stringify(data)
     );
   }
 
@@ -171,7 +204,8 @@ export class AuthService {
       token: "",
       emailConfirmed: "",
       expireDate: "",
-      // roleName: string;});
+      imageProfilePath: '',
+      roleName: ''
     })
   }
 

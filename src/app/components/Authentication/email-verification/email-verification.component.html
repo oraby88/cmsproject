@@ -11,7 +11,12 @@
     <div class="bg3">
       <div style="text-align: center" class="loginDiv">
         <h1>Email Verification</h1>
-        <p class="info1">We sent OTP code to {{ email | titlecase }}</p>
+        <p class="info1">
+          We sent OTP code to
+          <span style="color: #0660fc">
+            {{ email | titlecase }}
+          </span>
+        </p>
         <img
           style="margin-left: auto; margin-right: auto"
           src="../../../assets/images/smartphone.svg"

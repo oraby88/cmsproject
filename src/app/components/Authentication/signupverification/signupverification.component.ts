@@ -8,7 +8,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { AuthService } from '../../../services/auth.service';
-import { Router, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { AsyncPipe, CommonModule, TitleCasePipe } from '@angular/common';
 import { AutoFocusDirective } from '../directives/auto-focus.directive';
 import { SpinnerComponent } from '../../../shared/spinner/spinner/spinner.component';
@@ -36,7 +36,7 @@ export class SignupverificationComponent implements OnInit {
   str4!: string;
   str5!: string;
   str6!: string;
-  errorExist: boolean = false;
+  errorExist!: boolean;
   str: string = '';
   email!: string | undefined;
   sessionStorage!: string | undefined;
@@ -63,12 +63,17 @@ export class SignupverificationComponent implements OnInit {
     private formBuilder: FormBuilder,
     private _authService: AuthService,
     private _Router: Router,
+    private _activatedRoute: ActivatedRoute
   ) {
     this.resendOTPBool = false;
     this.spinner = false;
+    this.errorExist = false;
   }
   ngOnInit(): void {
     this.email = sessionStorage?.getItem('email')?.slice(0, 4).concat("************");
+    if (!this.email) {
+      this._Router.navigate(['signup']);
+    }
     this.formVerification = this.formBuilder.group({
       verificationCode1: ['', [Validators.required, Validators.maxLength(1)]],
       verificationCode2: ['', [Validators.required, Validators.maxLength(1)]],
@@ -79,11 +84,7 @@ export class SignupverificationComponent implements OnInit {
     });
   }
 
-  // signupEmail: string =
-  //   this._signupComponent.formInfo.controls.email.value ?? '';
-
   verificationSubmit() {
-    // send mail
     this.spinner = true;
     if (this.formVerification.invalid) {
       this.spinner = false;
@@ -107,16 +108,18 @@ export class SignupverificationComponent implements OnInit {
 
   resendOTP() {
     this.errorExist = false;
-    this.resendOTPBool = true;
+    this.resendOTPBool = false;
     this.spinner = true;
     this._authService.resendOTP().subscribe({
       next: (res: any) => {
-        this.resendOtpMsg = res.message;
         this.spinner = false;
+        this.resendOTPBool = true;
+        this.resendOtpMsg = res.message;
       },
       error: (err) => {
         this.errorExist = false;
         this.spinner = false;
+        this.resendOTPBool = true;
         this.resendOtpMsg = err.error.message;
       },
     });

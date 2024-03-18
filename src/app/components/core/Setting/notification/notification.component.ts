@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { BreadcrumbService } from '../../../../services/breadcrumb/breadcrumb.service';
 
 @Component({
   selector: 'app-notification',
@@ -7,6 +8,12 @@ import { Component } from '@angular/core';
   templateUrl: './notification.component.html',
   styleUrl: './notification.component.css'
 })
-export class NotificationComponent {
+export class NotificationComponent implements OnInit{
+
+  constructor(private _BreadCurmb: BreadcrumbService) { }
+
+  ngOnInit() {
+    this._BreadCurmb.changeCurrentPath();
+  }
 
 }
