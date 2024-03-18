@@ -65,6 +65,17 @@ export class AuthService {
     );
   }
 
+
+  ResendOTPForgetPassword() {
+    var obj = {
+      email: sessionStorage.getItem("email"),
+    };
+    return this.http.post(
+      environment.BASEURL + `api/Authentication/ResendOTPForgetPassword?email=${obj.email}`,
+      {}
+    );
+  }
+
   setToken(token: string) {
     localStorage.setItem('token', token);
   }
@@ -99,8 +110,6 @@ export class AuthService {
       JSON.stringify(applicationUser)
     );
   }
-
-
 
   get Name() {
     if (this.isLoggedIn) {

@@ -21,18 +21,21 @@ import { UserManagementsService } from '../../../../services/user-managements/us
 })
 export class ManageUsersComponent implements OnInit, OnDestroy {
   row1 = [12345];
-  row2 = 2;
   headdata = this.row1;
   bodydata = [12345];
+  heads!: string[];
   users!: any;
   addUserToggler!: Boolean;
   filterValue!: Boolean;
-  constructor(private _BreadCurmb: BreadcrumbService, private _ToggleModal: ToggleDeleteModalService, private _UserManagement: UserManagementsService) { }
+  constructor(private _BreadCurmb: BreadcrumbService, private _ToggleModal: ToggleDeleteModalService, private _UserManagement: UserManagementsService) {
+    this.heads = ['ID', 'Username', 'Status', 'Role name', 'E-mail', 'Created At'];
+    this.users = [];
+  }
 
   ngOnInit() {
     this._UserManagement.getAllUsers().subscribe({
       next: (data) => {
-        console.log(data);
+        this.users = data;
       },
       error: (err) => {
         console.log(err);

@@ -110,14 +110,13 @@ export class EmailVerificationComponent implements OnInit, DoCheck {
     this.errorExist = false;
     this.resendOTPBool = true;
     this.spinner = true;
-    this._authService.resendOTP().subscribe({
+    this._authService.ResendOTPForgetPassword().subscribe({
       next: (res: any) => {
         this.resendOtpMsg = res.message;
         this.spinner = false;
       },
       error: (err) => {
         this.spinner = false;
-
         this.resendOtpMsg = err.error.message;
       }
     })

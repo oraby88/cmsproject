@@ -2,7 +2,7 @@ export interface ManageUser {
     id: string;
     fullName: string;
     profileImagePath: string;
-    isAccountActive: Boolean;
+    userStatus: Boolean;
     email: string;
     createdAt: string;
     roleName: string;

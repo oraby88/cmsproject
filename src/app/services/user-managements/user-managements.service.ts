@@ -21,6 +21,6 @@ export class UserManagementsService {
   }
 
   getAllUsers(): Observable<ManageUser[]> {
-    return this._HttpClient.get<ManageUser[]>(`${environment.BASEURL}api/UserManagment/GetUserAllUsers?IsDescending=${this.IsDescending}`);
+    return this._HttpClient.get<ManageUser[]>(`${environment.BASEURL}api/UserManagment/GetUserAllUsers`);
   }
 }

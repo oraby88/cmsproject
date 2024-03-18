@@ -8,18 +8,19 @@ import { CorrectchagesComponent } from './components/Authentication/correctchage
 import { SignupverificationComponent } from './components/Authentication/signupverification/signupverification.component';
 import { CmsMainComponent } from './components/core/cms-main/cms-main.component';
 import { authGuard } from './guards/auth.guard';
+import { isLoggedInGuard } from './guards/is-logged-in.guard';
 
 
 
 export const routes: Routes = [
   { path: '', redirectTo: '/signup', pathMatch: 'full' },
-  { path: 'signin', component: SigninComponent, data: { num: 1 } },
-  { path: 'signup', component: SignupComponent, data: { num: 2 } },
-  { path: 'sendmail', component: SendmailComponent, data: { num: 3 } },
-  { path: 'emailverification', component: EmailVerificationComponent },
-  { path: 'signupverification', component: SignupverificationComponent },
-  { path: 'setnewpassword', component: SetnewpasswordComponent },
-  { path: 'correctchange', component: CorrectchagesComponent },
+  { path: 'signin', canActivate: [isLoggedInGuard], component: SigninComponent, data: { num: 1 } },
+  { path: 'signup', canActivate: [isLoggedInGuard], component: SignupComponent, data: { num: 2 } },
+  { path: 'sendmail', canActivate: [isLoggedInGuard], component: SendmailComponent, data: { num: 3 } },
+  { path: 'emailverification', canActivate: [isLoggedInGuard], component: EmailVerificationComponent },
+  { path: 'signupverification', canActivate: [isLoggedInGuard], component: SignupverificationComponent },
+  { path: 'setnewpassword', canActivate: [isLoggedInGuard], component: SetnewpasswordComponent },
+  { path: 'correctchange', canActivate: [isLoggedInGuard], component: CorrectchagesComponent },
   { path: 'cms', redirectTo: '/cms/management', pathMatch: 'full' },
   {
     path: 'cms',

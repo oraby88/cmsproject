@@ -1,37 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { PaginatorComponent } from '../paginator/paginator.component';
 import { ManageUser } from '../../interfaces/manage-user';
-import { UserManagementsService } from '../../services/user-managements/user-managements.service';
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-table',
   standalone: true,
-  imports: [PaginatorComponent, AsyncPipe],
+  imports: [PaginatorComponent, AsyncPipe, DatePipe],
   templateUrl: './table.component.html',
   styleUrl: './table.component.css'
 })
-export class TableComponent implements OnInit {
-  headdata: string[] = ['User ID', "USer info", "Status", "Role name", "Email", "Joind at"];
-  bodydata: ManageUser[] = [
-    { id: '#U-101', fullName: 'mahmoud', profileImagePath: '../../../assets/images/table-demo-image.jpg', isAccountActive: true, email: 'mahmoudsmohammed24@gmail.com', createdAt: '11:43 am - 18 jun,2024', roleName: 'super' },
-    { id: '#U-101', fullName: 'mahmoud', profileImagePath: '../../../assets/images/table-demo-image.jpg', isAccountActive: true, email: 'mahmoudsmohammed24@gmail.com', createdAt: '11:43 am - 18 jun,2024', roleName: 'super' },
-    { id: '#U-101', fullName: 'mahmoud', profileImagePath: '../../../assets/images/table-demo-image.jpg', isAccountActive: true, email: 'mahmoudsmohammed24@gmail.com', createdAt: '11:43 am - 18 jun,2024', roleName: 'super' },
-    { id: '#U-101', fullName: 'mahmoud', profileImagePath: '../../../assets/images/table-demo-image.jpg', isAccountActive: true, email: 'mahmoudsmohammed24@gmail.com', createdAt: '11:43 am - 18 jun,2024', roleName: 'super' }, { id: '#U-101', fullName: 'mahmoud', profileImagePath: '../../../assets/images/table-demo-image.jpg', isAccountActive: true, email: 'mahmoudsmohammed24@gmail.com', createdAt: '11:43 am - 18 jun,2024', roleName: 'super' },
-    { id: '#U-101', fullName: 'mahmoud', profileImagePath: '../../../assets/images/table-demo-image.jpg', isAccountActive: true, email: 'mahmoudsmohammed24@gmail.com', createdAt: '11:43 am - 18 jun,2024', roleName: 'super' }, { id: '#U-101', fullName: 'mahmoud', profileImagePath: '../../../assets/images/table-demo-image.jpg', isAccountActive: true, email: 'mahmoudsmohammed24@gmail.com', createdAt: '11:43 am - 18 jun,2024', roleName: 'super' },
-    { id: '#U-101', fullName: 'mahmoud', profileImagePath: '../../../assets/images/table-demo-image.jpg', isAccountActive: true, email: 'mahmoudsmohammed24@gmail.com', createdAt: '11:43 am - 18 jun,2024', roleName: 'super' }
-  ];
-  rows: number = 2
-    ;
+export class TableComponent {
+  @Input('headRow') headRow!: string[];
+  @Input('bodyRow') bodyRow!: ManageUser[];
 
-  constructor(private userManageServ: UserManagementsService) { }
-
-  ngOnInit(): void {
-    // this.userManageServ.getAllUsers().subscribe(res=>{
-    //   this.bodydata = res;
-    // },err=>{
-    //   console.log(err,"from table");
-    // })
+  rows: number = 2;
+  constructor() {
+    this.bodyRow = [];
+    this.headRow = [];
   }
 
   getCount(e: number) {

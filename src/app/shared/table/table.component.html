@@ -1,28 +1,44 @@
 <div class="container">
-  <table CELLSPACING=0>
+  <table CELLSPACING="0">
     <thead>
       <tr>
         <th><input type="checkbox" /></th>
-        @for (data of headdata; track $index) {
+        @for (data of headRow; track $index) {
         <th>{{ data }}</th>
         }
         <th>
-          <span><img src="../../../assets/images/table-setting.png" alt=""></span>
+          <span><img src="assets/images/table-setting.png" alt="" /></span>
         </th>
       </tr>
     </thead>
     <tbody>
-      @for (data of bodydata; track data) {
+      @for (data of bodyRow; track data; let i=$index) {
       <tr class="row">
-        <td><input type="checkbox" (click)="onChecked($event)"/></td>
-        <td>{{ data.id }}</td>
-        <td><img [src]="data.profileImagePath" alt="">{{ data.fullName }}</td>
-        <td><span class="status"><span class='{{ data.isAccountActive ? "active" : "deactive" }}'></span>{{ data.isAccountActive ? "Active" : "Deactive" }}</span></td>
+        <td><input type="checkbox" (click)="onChecked($event)" /></td>
+        <td>{{ i + 1 }}</td>
+        <td>
+          <img
+            [src]="
+              data.profileImagePath
+                ? data.profileImagePath
+                : 'assets/images/table-communication.png'
+            "
+            alt=""
+          />{{ data.fullName }}
+        </td>
+        <td>
+          <span class="status"
+            ><span class="{{ data.userStatus ? 'active' : 'deactive' }}"></span
+            >{{ data.userStatus ? "Active" : "Deactive" }}</span
+          >
+        </td>
         <td>{{ data.roleName }}</td>
         <td>{{ data.email }}</td>
-        <td>{{ data.createdAt }}</td>
+        <td>{{ data.createdAt | date }}</td>
         <td>
-          <span><img src="../../../assets/images/table-communication.png" alt=""></span>
+          <span
+            ><img src="assets/images/edit-user-management.svg" alt="edit"
+          /></span>
           <div class="dots">
             <div class="dot"></div>
             <div class="dot"></div>
@@ -35,4 +51,7 @@
     <tfoot></tfoot>
   </table>
 </div>
-<app-paginator (rowsCount)="getCount($event)" [all]="bodydata.length"/>
+<app-paginator
+  (rowsCount)="getCount($event)"
+  [all]="bodyRow.length ? bodyRow.length : 0"
+/>
