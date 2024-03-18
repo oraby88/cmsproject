@@ -9,6 +9,7 @@ import { SignupverificationComponent } from './components/Authentication/signupv
 import { CmsMainComponent } from './components/core/cms-main/cms-main.component';
 import { authGuard } from './guards/auth.guard';
 import { isLoggedInGuard } from './guards/is-logged-in.guard';
+import { SettingComponent } from './components/core/Setting/setting.component';
 
 
 
@@ -31,7 +32,11 @@ export const routes: Routes = [
         loadChildren: () => import('./components/core/management/management.routes').then(routes => routes.MANAGEMENT_ROUTES),
       },
       { path: 'blogs', loadComponent: () => import('./components/core/blog/blog.component').then(c => c.BlogComponent) },
-      { path: 'setting', loadChildren: () => import('./components/core/Setting/setting.routes').then(routes => routes.SETTING_ROUTES) },
+      {
+        path: 'setting',
+        component: SettingComponent,
+        loadChildren: () => import('./components/core/Setting/setting.routes').then(routes => routes.SETTING_ROUTES)
+      },
     ],
     component: CmsMainComponent,
   },
