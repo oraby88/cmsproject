@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 
@@ -9,7 +10,6 @@ import { ILogin } from '../interfaces/logininterface';
 import { ISignUpResponse } from '../interfaces/isign-up-response';
 import { AppUser } from '../interfaces/app-user';
 import { LocalStorageKeys } from '../keys/local-storage-keys';
-import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -99,17 +99,8 @@ export class AuthService {
     this.user$.next(data);
   }
 
-  setUserOnBootstrap(user: any) {
-    const data = {
-      email: user.email,
-      fullName: user.fullName,
-      expireDate: user.expireDate,
-      emailConfirmed: user.emailConfirmed,
-      token: user.token,
-      imageProfilePath: user.imageProfilePath,
-      roleName: user.roleName
-    }
-    this.user$.next(data);
+  setUserOnBootstrap(user: AppUser) {
+    this.user$.next(user);
   }
 
   getUser(): Observable<AppUser> {

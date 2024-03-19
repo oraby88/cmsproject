@@ -33,13 +33,12 @@ import { AppUser } from './interfaces/app-user';
   ],
 })
 export class AppComponent implements OnInit {
-
-  user!: AppUser;
   constructor(private navigationService: NavigationService, private _AuthService: AuthService) { }
 
   ngOnInit(): void {
-    //this._AuthService.saveUserSession(JSON.parse(localStorage.getItem(LocalStorageKeys.USER_SESSION) || ""));
-    this._AuthService.setUserOnBootstrap(JSON.parse(localStorage.getItem(LocalStorageKeys.USER_SESSION) || ""));
+    if (localStorage.getItem(LocalStorageKeys.USER_SESSION)) {
+      this._AuthService.setUserOnBootstrap(JSON.parse(localStorage.getItem(LocalStorageKeys.USER_SESSION) || ""));
+    }
   }
 
   getState(outlet: any) {
