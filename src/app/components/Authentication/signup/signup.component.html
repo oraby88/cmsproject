@@ -188,20 +188,6 @@
         ></fa-icon>
         }
 
-        <!-- <span
-          class="p-viewer"
-          [ngClass]="{ show: !passwordHint }"
-          [ngClass]="{ hide: !passwordHint }"
-        >
-          <fa-icon [icon]="faEye" class="faEye" (click)="eyeShow()"></fa-icon>
-          <hr
-            [ngClass]="{ show: eyeshow }"
-            [ngClass]="{ hide: eyeshow }"
-            class="eyeHr"
-          />
-        </span> -->
-
-        <br />
         <div
           [ngClass]="{ passContainerSmallSize: passwordHint == true }"
           class="passwordCheckContainer"
@@ -301,18 +287,12 @@
                   <span style="margin-left: 12%">Character:!#$%^&*()_+.</span>
                 </li>
               </ul>
-              <!-- <span id="length"></span> -->
-              <!-- <span id="upercase">At least contain 1 upercase</span>
-            <span id="number">At least contain 3 numbers</span> -->
             </button>
           </div>
         </div>
       </div>
       <div class="label-div">
         <label class="form-label" for="fromInput4">Confirm Password</label>
-        <!-- <span class="p-viewer1">
-					<fa-icon [icon]="faEye"></fa-icon>
-				</span> -->
         @if (showConfirmPass) {
         <input
           type="text"

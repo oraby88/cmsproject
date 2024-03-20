@@ -7,9 +7,10 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { CommonModule, TitleCasePipe } from '@angular/common';
+import { Router, RouterModule } from '@angular/router';
+
 import { AuthService } from '../../../services/auth.service';
-import { ActivatedRoute, Router, RouterModule } from '@angular/router';
-import { AsyncPipe, CommonModule, TitleCasePipe } from '@angular/common';
 import { AutoFocusDirective } from '../directives/auto-focus.directive';
 import { SpinnerComponent } from '../../../shared/spinner/spinner/spinner.component';
 // import { SignupComponent } from '../signup/signup.component'; 
@@ -63,7 +64,6 @@ export class SignupverificationComponent implements OnInit {
     private formBuilder: FormBuilder,
     private _authService: AuthService,
     private _Router: Router,
-    private _activatedRoute: ActivatedRoute
   ) {
     this.resendOTPBool = false;
     this.spinner = false;
