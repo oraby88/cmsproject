@@ -13,7 +13,7 @@ h6 {
 .container {
   width: 100%;
   box-sizing: border-box;
-  height: 100vh !important;
+  /* height: 100vh !important; */
 }
 
 .subscription-content {
@@ -56,11 +56,381 @@ small {
   letter-spacing: 0.16px;
 }
 
-.year-month {
-  display: inline-flex;
-  padding: 4px;
-  align-items: flex-start;
-  border-radius: 100px;
-  border: 1px solid var(--sementics-color-border-muted, #e4e4e7);
-  background: var(--sementics-color-primary-on-default, #fff);
+.year-month-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row-reverse;
 }
+
+.year-month {
+  display: flex;
+  padding: 4px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 100px;
+  border: 1px solid #e4e4e7;
+  background: #fff;
+}
+
+.subscription-duration-month {
+  color: #7e8299;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 115%; /* 13.8px */
+  padding: 6px 16px;
+}
+.subscription-duration-year {
+  color: #7e8299;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 115%; /* 13.8px */
+  padding: 6px 16px;
+  cursor: pointer;
+}
+
+.subscription-duration-active {
+  display: flex;
+  padding: 6px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 100px;
+  background: #0660fc;
+  color: #fff;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 115%; /* 13.8px */
+  transition: all 0.5s;
+}
+
+.hint-subscription {
+  margin-right: 20px;
+  color: #0660fc;
+  font-family: "DM Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 125%; /* 15px */
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  display: flex;
+  padding: 22.443px 14.962px 14.962px 14.962px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 37.405px;
+  background-color: #ffffff;
+  width: 269.313px;
+  height: 522px;
+  border-radius: 7.481px;
+  border: 0.935px solid #e4e4e7;
+  margin-top: 30px;
+}
+.card-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3.74px;
+}
+.card-title h4 {
+  color: #3f4254;
+  font-family: "DM Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 115%; /* 20.7px */
+}
+
+.card-title p {
+  color: #3f4254;
+  font-family: "DM Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%; /* 17.5px */
+  margin: 0;
+}
+
+.card-plan {
+  display: flex;
+  flex-direction: column;
+  gap: 37.405px;
+}
+
+.card-plan-cost {
+  display: flex;
+  align-items: baseline;
+}
+.card-plan .card-plan-cost h2 {
+  color: #3f4254;
+  font-family: "DM Sans";
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 115%; /* 34.5px */
+}
+.card-plan-cost-per-month {
+  color: #3f4254;
+  font-family: "DM Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 115%; /* 13.8px */
+}
+
+.card-get-started {
+  display: flex;
+  /* padding: 11.221px 18.702px; */
+  justify-content: center;
+  align-items: center;
+  gap: 9.351px;
+  align-self: stretch;
+  border-radius: 7px;
+  border: 0.935px solid #0660fc;
+  cursor: pointer;
+  width: 239.38934px;
+  height: auto;
+}
+
+.card-get-started p {
+  color: #0660fc;
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 115%; /* 18.4px */
+  margin: 0px;
+  padding: 10px;
+}
+
+.card-get-started:hover {
+  display: flex;
+  /* padding: 11.221px 18.702px; */
+  justify-content: center;
+  align-items: center;
+  gap: 9.351px;
+  align-self: stretch;
+  border-radius: 7px;
+  background: #0660fc;
+}
+
+.card-get-started:hover p {
+  color: #ffffff;
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 115%; /* 18.4px */
+}
+
+.card-plan-feature {
+  display: flex;
+  padding: 0px 14.962px 14.962px 7.481px;
+  flex-direction: column;
+  align-items: flex-start;
+  /* gap: 14.962px; */
+  align-self: stretch;
+}
+
+.card-plan-feature-title h5 {
+  color: #3f4254;
+  font-family: "DM Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 115%; /* 16.1px */
+}
+
+.card-plan-feature-description ul {
+  display: flex;
+  flex-direction: column;
+  gap: 14.962px;
+  padding: 0px;
+}
+
+.card-plan-feature-description ul li {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  list-style-type: none;
+  color: #3f4254;
+}
+
+.card-plan-feature-description ul li svg {
+  margin-right: 10px;
+}
+
+/* MOST POPULAR */
+
+.top-section-most-popular {
+  display: flex;
+  padding: 5.611px 7.481px;
+  justify-content: center;
+  align-items: center;
+  gap: 3.74px;
+  align-self: stretch;
+  background: #0660fc;
+  border-top-left-radius: 7.481px;
+  border-top-right-radius: 7.481px;
+}
+
+.top-section-most-popular p {
+  margin: 0px;
+  margin-right: 10px;
+  color: #fff;
+  font-family: "DM Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 115%; /* 16.1px */
+}
+
+.card-most-popular-body {
+  padding: 22.443px 14.962px 14.962px 14.962px;
+  gap: 37.405px;
+  height: 522px;
+  display: flex;
+  width: 269.313px;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1.87px solid #0660fc;
+  background: #181c32;
+  border-bottom-left-radius: 7.481px;
+  border-bottom-right-radius: 7.481px;
+}
+
+.card-most-popular-body .card-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3.74px;
+}
+.card-most-popular-body .card-title h4 {
+  color: #fff;
+  font-family: "DM Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 115%; /* 20.7px */
+}
+
+.card-most-popular-body .card-title p {
+  color: #f9f9f9;
+  font-family: "DM Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%; /* 17.5px */
+}
+
+.card-most-popular-body .card-plan {
+  display: flex;
+  flex-direction: column;
+  gap: 37.405px;
+}
+
+.card-most-popular-body .card-plan-cost {
+  display: flex;
+  align-items: baseline;
+}
+.card-most-popular-body .card-plan .card-plan-cost h2 {
+  color: #f9f9f9;
+  font-family: "DM Sans";
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 115%; /* 34.5px */
+}
+.card-most-popular-body .card-plan-cost-per-month {
+  color: #f9f9f9;
+  font-family: "DM Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 115%; /* 13.8px */
+}
+
+.card-most-popular-body .card-get-started {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9.351px;
+  align-self: stretch;
+  border-radius: 7px;
+  border: 0.935px solid #0660fc;
+  background-color: #0660fc;
+  color: #f9f9f9;
+  cursor: pointer;
+  width: 239.38934px;
+  height: auto;
+}
+
+.card-most-popular-body .card-get-started p {
+  color: #0660fc;
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 115%; /* 18.4px */
+  margin: 0px;
+  padding: 10px;
+}
+
+.card-most-popular-body .card-get-started p {
+  color: #ffffff;
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 115%; /* 18.4px */
+}
+
+.card-most-popular-body .card-plan-feature {
+  display: flex;
+  padding: 0px 14.962px 14.962px 7.481px;
+  flex-direction: column;
+  align-items: flex-start;
+  /* gap: 14.962px; */
+  align-self: stretch;
+}
+
+.card-most-popular-body .card-plan-feature-title h5 {
+  color: #f9f9f9;
+  font-family: "DM Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 115%; /* 16.1px */
+}
+
+.card-most-popular-body .card-plan-feature-description ul {
+  display: flex;
+  flex-direction: column;
+  gap: 14.962px;
+  padding: 0px;
+}
+
+.card-most-popular-body .card-plan-feature-description ul li {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  list-style-type: none;
+  color: #f9f9f9;
+}
+
+.card-most-popular-body .card-plan-feature-description ul li svg {
+  margin-right: 10px;
+}
+
+/* MOST POPULAR */

@@ -1,9 +1,10 @@
-import { Component, Input } from '@angular/core';
-import { ActivatedRoute, RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
+
 import { SidebarComponent } from '../../../shared/sidebar/sidebar.component';
 import { HeaderComponent } from '../../../shared/header/header.component';
 import { ToggleService } from '../../../services/toggleBtn/toggle.service';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-cms-main',

@@ -1,9 +1,11 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
-  max-width: 100%;
+  /* max-width: 100%; */
 }
 
 .row {
@@ -24,7 +26,7 @@
   padding: 10px;
   margin: 0;
   background-color: #f9fafc;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 .toggle {
@@ -39,6 +41,18 @@
   min-height: 100vh !important;
   width: 20%;
   transition: width 1s;
+}
+.sidebar {
+  position: fixed;
+}
+
+.beside-sidebar-with-margin {
+  margin-left: 380px;
+  transition: all 1s;
+}
+.beside-sidebar-with-no-margin {
+  margin-left: 60px;
+  transition: all 1s;
 }
 
 .col-1 {
