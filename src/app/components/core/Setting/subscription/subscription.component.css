@@ -130,6 +130,7 @@ small {
   flex-direction: column;
   align-items: flex-start;
   gap: 37.405px;
+  gap: 15px;
   background-color: #ffffff;
   width: 269.313px;
   height: 522px;
@@ -166,6 +167,7 @@ small {
   display: flex;
   flex-direction: column;
   gap: 37.405px;
+  width: 100%;
 }
 
 .card-plan-cost {
@@ -267,6 +269,11 @@ small {
   color: #3f4254;
 }
 
+.card-plan-feature-description ul li p {
+  margin: 0px 5px;
+  font-weight: bold;
+}
+
 .card-plan-feature-description ul li svg {
   margin-right: 10px;
 }
@@ -294,6 +301,14 @@ small {
   font-style: normal;
   font-weight: 700;
   line-height: 115%; /* 16.1px */
+}
+
+.card-most-popular {
+  transition: all 0.4s ease-in-out;
+}
+
+.card-most-popular:hover {
+  transform: translateY(-20px);
 }
 
 .card-most-popular-body {
@@ -432,5 +447,141 @@ small {
 .card-most-popular-body .card-plan-feature-description ul li svg {
   margin-right: 10px;
 }
+.card-most-popular-body .card-plan-feature-description ul li p {
+  margin: 0px 5px;
+  font-weight: bold;
+}
 
 /* MOST POPULAR */
+
+@media screen and (min-width: 1800px) {
+}
+
+@media screen and (max-width: 1500px) and (min-width: 1300px) {
+  .card {
+    width: 239.313px;
+  }
+
+  .card-get-started {
+    width: 100%;
+  }
+
+  .card-most-popular-body {
+    width: 239.313px;
+  }
+  .card-most-popular-body .card-get-started {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1300px) and (min-width: 1130px) {
+  .card {
+    width: 279.313px;
+  }
+  .card-most-popular-body {
+    width: 279.313px;
+  }
+}
+
+@media screen and (max-width: 1085px) and (min-width: 993px) {
+  .card-most-popular {
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 1130px) and (min-width: 992.5px) {
+  .cards {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .card {
+    width: 269.313px;
+  }
+
+  .card-most-popular-body {
+    width: 269.313px;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .card-most-popular {
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .subscription-content {
+    flex-direction: column;
+  }
+  .year-month-toggle {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 850px) and (min-width: 600px) {
+  .cards {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .card {
+    width: 279.313px;
+  }
+
+  .card-most-popular-body {
+    width: 279.313px;
+  }
+}
+
+@media screen and (max-width: 600px) and (min-width: 425px) {
+  .cards {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .card {
+    width: 249.313px;
+  }
+
+  .card-get-started {
+    width: 100%;
+  }
+
+  .card-most-popular-body {
+    width: 249.313px;
+  }
+  .card-most-popular-body .card-get-started {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    width: 249.313px;
+  }
+
+  .card-get-started {
+    width: 100%;
+  }
+  .section-title h3 {
+    font-size: 15px;
+  }
+  .card-most-popular-body {
+    width: 249.313px;
+  }
+
+  .card-most-popular-body .card-get-started {
+    width: 100%;
+  }
+}

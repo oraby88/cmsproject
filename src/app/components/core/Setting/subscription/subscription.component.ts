@@ -2,11 +2,13 @@ import { Component, OnDestroy, OnInit, ViewChild, ElementRef } from '@angular/co
 import { BreadcrumbService } from '../../../../services/breadcrumb/breadcrumb.service';
 import { SettingsService } from '../services/settings.service';
 import { SubscriptionPlan } from '../interfaces/subscriptionPlan';
+import { SpinnerComponent } from '../../../../shared/spinner/spinner/spinner.component';
+import { CommonModule, DecimalPipe } from '@angular/common';
 
 @Component({
   selector: 'app-subscription',
   standalone: true,
-  imports: [],
+  imports: [SpinnerComponent, CommonModule, DecimalPipe],
   templateUrl: './subscription.component.html',
   styleUrl: './subscription.component.css'
 })
@@ -24,7 +26,8 @@ export class SubscriptionComponent implements OnInit, OnDestroy {
         console.log(plans);
         this.subscriptionPlans = plans;
       },
-      error: () => { }
+      error: () => {
+      }
     })
   }
 

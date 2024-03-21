@@ -1,6 +1,10 @@
 <div class="container">
   <div class="row">
-    <div class="sidebar" [ngClass]="toggler_val ? 'toggle' : 'beforeToggle'">
+    <div
+      class="sidebar"
+      #header
+      [ngClass]="toggler_val ? 'toggle' : 'beforeToggle'"
+    >
       <app-sidebar></app-sidebar>
     </div>
     <div
@@ -16,7 +20,11 @@
           <app-header></app-header>
         </div>
         <div class="content">
+          @if(request){
+          <app-spinner></app-spinner>
+          }@else {
           <router-outlet></router-outlet>
+          }
         </div>
       </div>
     </div>

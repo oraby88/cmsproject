@@ -11,6 +11,7 @@ import { AddUserComponent } from '../../add-user/add-user.component';
 import { ToggleDeleteModalService } from '../../../../services/toggleModal/toggle-delete-modal.service';
 import { SortComponent } from '../../../../shared/sort/sort/sort.component';
 import { UserManagementsService } from '../../../../services/user-managements/user-managements.service';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-manage-users',
@@ -33,14 +34,14 @@ export class ManageUsersComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this._UserManagement.getAllUsers().subscribe({
-      next: (data) => {
-        this.users = data;
-      },
-      error: (err) => {
-        console.log(err);
+    forkJoin({
+      users: this._UserManagement.getAllUsers(),
+
+    }).subscribe({
+      next: (res) => {
+        this.users = res.users;
       }
-    })
+    });
 
     this._BreadCurmb.changeCurrentPath();
     this._ToggleModal.getToggleValue().subscribe({

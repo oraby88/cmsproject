@@ -552,4 +552,8 @@ input[type="search"]::-webkit-search-results-decoration {
     justify-content: center;
     align-items: center;
   }
+
+  .profile {
+    width: 0px;
+  }
 }

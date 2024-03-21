@@ -23,27 +23,32 @@
 }
 
 .content {
-  padding: 10px;
+  padding: 10px 20px;
   margin: 0;
   background-color: #f9fafc;
+  transition: all 1s;
   /* height: 100vh; */
 }
 
 .toggle {
   min-height: 100vh !important;
   max-height: fit-content !important;
-  width: 3.2%;
-  transition: width 1s;
+  width: 70px;
+  /* transition: width 1s; */
+  transition: all 1s;
 }
 
 .beforeToggle {
   max-height: fit-content !important;
   min-height: 100vh !important;
-  width: 20%;
-  transition: width 1s;
+  width: 379px;
+  transition: all 1s;
+
+  /* transition: width 1s; */
 }
 .sidebar {
   position: fixed;
+  transition: all 1s;
 }
 
 .beside-sidebar-with-margin {
@@ -51,7 +56,7 @@
   transition: all 1s;
 }
 .beside-sidebar-with-no-margin {
-  margin-left: 60px;
+  margin-left: 70px;
   transition: all 1s;
 }
 
@@ -94,36 +99,96 @@
 
 @media screen and (min-width: 1600px) {
   .sidebar {
-    height: 59.09rem;
+    height: 100%;
   }
 }
 
 @media screen and (max-width: 1600px) and (min-width: 1400px) {
   .sidebar {
-    height: 59.09rem;
+    height: 100%;
   }
 }
 
 @media screen and (max-width: 1400px) and (min-width: 1200px) {
   .sidebar {
-    height: 59.09rem;
+    height: 100%;
+  }
+
+  .toggle {
+    width: 70px;
+    transition: all 1s;
+  }
+
+  .toggle {
+    min-height: 100vh !important;
+    max-height: fit-content !important;
+    width: 70px;
+    transition: all 1s;
+  }
+
+  .beforeToggle {
+    max-height: fit-content !important;
+    min-height: 100vh !important;
+    width: 259px;
+    transition: all 1s;
+  }
+  .sidebar {
+    position: fixed;
+  }
+
+  .beside-sidebar-with-margin {
+    margin-left: 258px;
+    transition: all 1s;
+  }
+  .beside-sidebar-with-no-margin {
+    margin-left: 70px;
+    transition: all 1s;
   }
 }
 
 @media screen and (max-width: 1200px) and (min-width: 992px) {
   .sidebar {
-    display: block;
-    height: 59.09rem;
+    /* display: block; */
+    left: 0px;
+    height: 100%;
   }
 
   .toggle {
-    width: 5.5%;
-    transition: width 1s;
+    width: 70px;
+    transition: all 1s;
+  }
+
+  .toggle {
+    min-height: 100vh !important;
+    max-height: fit-content !important;
+    width: 70px;
+    transition: all 1s;
+  }
+
+  .beforeToggle {
+    max-height: fit-content !important;
+    min-height: 100vh !important;
+    width: 259px;
+    transition: all 1s;
+  }
+  .sidebar {
+    position: fixed;
+    transition: all 1s;
+  }
+
+  .beside-sidebar-with-margin {
+    margin-left: 258px;
+    transition: all 1s;
+  }
+  .beside-sidebar-with-no-margin {
+    margin-left: 70px;
+    transition: all 1s;
   }
 }
 @media screen and (max-width: 992px) and (min-width: 786px) {
   .sidebar {
-    display: none;
+    left: -390px;
+    transition: all 1s;
   }
 
   .col-3 {
@@ -134,12 +199,15 @@
     width: 100%;
   }
 
-  .header {
+  .beside-sidebar-with-margin,
+  .beside-sidebar-with-no-margin {
+    margin-left: 0px;
+    transition: all 1s;
   }
 }
 @media screen and (max-width: 786px) and (min-width: 600px) {
   .sidebar {
-    display: none;
+    left: -390px;
   }
 
   .col-9 {
@@ -148,10 +216,16 @@
   .col-3 {
     width: 0%;
   }
+  .beside-sidebar-with-margin,
+  .beside-sidebar-with-no-margin {
+    margin-left: 0px;
+    transition: all 1s;
+  }
+
 }
 @media screen and (max-width: 600px) {
   .sidebar {
-    display: none;
+    left: -450px;
   }
 
   .col-9 {
@@ -163,5 +237,10 @@
   .head-side {
     width: auto !important;
     padding: 0px !important;
+  }
+  .beside-sidebar-with-margin,
+  .beside-sidebar-with-no-margin {
+    margin-left: 0px;
+    transition: all 1s;
   }
 }

@@ -29,7 +29,7 @@
     </div>
     <div class="col-12">
       <div class="cards">
-        @for (plan of subscriptionPlans; track plan; let i = $index) {
+        @for (plan of subscriptionPlans; track plan.id; let i = $index) {
         @if(plan.id != 3){
         <div class="card">
           <div class="card-title">
@@ -38,10 +38,15 @@
           </div>
           <div class="card-plan">
             <div class="card-plan-cost">
-              <h2>$0</h2>
-              <div class="card-plan-cost-per-month">/month</div>
+              <h2>${{ plan.price }}</h2>
+              <div class="card-plan-cost-per-month">
+                @if(plan.duration){/month}@else {/year}
+              </div>
             </div>
-            <div class="card-get-started">
+            <div
+              class="card-get-started"
+              [ngClass]="{ disable: plan.isCurrentPlan }"
+            >
               <p>Get Started</p>
             </div>
             <div class="card-plan-feature">
@@ -73,7 +78,8 @@
                         fill="white"
                       />
                     </svg>
-                    Feature number #1
+                    <p>{{ plan.numberOfUsers }}</p>
+                    Users
                   </li>
                   <li>
                     <svg
@@ -98,7 +104,88 @@
                         fill="white"
                       />
                     </svg>
-                    Feature number #2
+                    <p>{{ plan.numberOfPosts }}</p>
+                    Posts
+                  </li>
+                  <li>
+                    <svg
+                      width="21"
+                      height="21"
+                      viewBox="0 0 21 21"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <rect
+                        x="0.442749"
+                        y="0.541992"
+                        width="20"
+                        height="20"
+                        rx="10"
+                        fill="#0660FC"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M15.8705 6.84657L8.65539 15.0924L5.01379 11.4508L5.89768 10.5669L8.59451 13.2638L14.9298 6.02344L15.8705 6.84657Z"
+                        fill="white"
+                      />
+                    </svg>
+                    @if(plan.storageCapacity >= 1024){
+                    <p>{{ plan.storageCapacity / 1024 }}</p>
+                    Gigabyte }@else {
+                    <p>
+                      {{ plan.storageCapacity | number }}
+                    </p>
+                    Megabyte }
+                  </li>
+                  <li>
+                    @if(plan.seoUsage){
+                    <svg
+                      width="21"
+                      height="21"
+                      viewBox="0 0 21 21"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <rect
+                        x="0.442749"
+                        y="0.541992"
+                        width="20"
+                        height="20"
+                        rx="10"
+                        fill="#0660FC"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M15.8705 6.84657L8.65539 15.0924L5.01379 11.4508L5.89768 10.5669L8.59451 13.2638L14.9298 6.02344L15.8705 6.84657Z"
+                        fill="white"
+                      />
+                    </svg>
+                    }@else{
+                    <svg
+                      width="21"
+                      height="21"
+                      viewBox="0 0 21 21"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <rect
+                        x="0.442749"
+                        y="0.46582"
+                        width="20"
+                        height="20"
+                        rx="10"
+                        fill="#D8D8E5"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M15.8705 6.7704L8.65539 15.0162L5.01379 11.3746L5.89768 10.4908L8.59451 13.1876L14.9298 5.94727L15.8705 6.7704Z"
+                        fill="white"
+                      />
+                    </svg>
+                    } SEO Usage
                   </li>
                 </ul>
               </div>
@@ -149,10 +236,15 @@
             </div>
             <div class="card-plan">
               <div class="card-plan-cost">
-                <h2>$0</h2>
-                <div class="card-plan-cost-per-month">/month</div>
+                <h2>${{ plan.price }}</h2>
+                <div class="card-plan-cost-per-month">
+                  @if(plan.duration){/month}@else {/year}
+                </div>
               </div>
-              <div class="card-get-started">
+              <div
+                class="card-get-started"
+                [ngClass]="{ disable: plan.isCurrentPlan }"
+              >
                 <p>Get Started</p>
               </div>
               <div class="card-plan-feature">
@@ -184,7 +276,8 @@
                           fill="white"
                         />
                       </svg>
-                      Feature number #1
+                      <p>{{ plan.numberOfUsers }}</p>
+                      Users
                     </li>
                     <li>
                       <svg
@@ -209,7 +302,90 @@
                           fill="white"
                         />
                       </svg>
-                      Feature number #2
+                      <p>{{ plan.numberOfPosts }}</p>
+                      Posts
+                    </li>
+
+                    <li>
+                      <svg
+                        width="21"
+                        height="21"
+                        viewBox="0 0 21 21"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect
+                          x="0.442749"
+                          y="0.541992"
+                          width="20"
+                          height="20"
+                          rx="10"
+                          fill="#0660FC"
+                        />
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M15.8705 6.84657L8.65539 15.0924L5.01379 11.4508L5.89768 10.5669L8.59451 13.2638L14.9298 6.02344L15.8705 6.84657Z"
+                          fill="white"
+                        />
+                      </svg>
+                      @if(plan.storageCapacity / 1024 >=1){
+                      <p>{{ plan.storageCapacity / 1024 }}</p>
+                      Gigabyte }@else {
+                      <p>{{ plan.storageCapacity / 1024 }}</p>
+                      Megabyte }
+                    </li>
+
+                    <li>
+                      @if(plan.seoUsage){
+
+                      <svg
+                        width="21"
+                        height="21"
+                        viewBox="0 0 21 21"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect
+                          x="0.442749"
+                          y="0.541992"
+                          width="20"
+                          height="20"
+                          rx="10"
+                          fill="#0660FC"
+                        />
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M15.8705 6.84657L8.65539 15.0924L5.01379 11.4508L5.89768 10.5669L8.59451 13.2638L14.9298 6.02344L15.8705 6.84657Z"
+                          fill="white"
+                        />
+                      </svg>
+                      }@else {<svg
+                        width="21"
+                        height="21"
+                        viewBox="0 0 21 21"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g opacity="0.2">
+                          <rect
+                            x="0.0687256"
+                            y="0.350586"
+                            width="20"
+                            height="20"
+                            rx="10"
+                            fill="#0660FC"
+                          />
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M15.4964 6.65516L8.28131 14.901L4.63971 11.2594L5.52359 10.3755L8.22042 13.0724L14.5557 5.83203L15.4964 6.65516Z"
+                            fill="white"
+                          />
+                        </g>
+                      </svg>
+                      } SEO Usage
                     </li>
                   </ul>
                 </div>
