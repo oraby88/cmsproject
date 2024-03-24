@@ -1,10 +1,6 @@
 <div class="container">
   <div class="row">
-    <div
-      class="sidebar"
-      #header
-      [ngClass]="toggler_val ? 'toggle' : 'beforeToggle'"
-    >
+    <div class="sidebar" [ngClass]="toggler_val ? 'toggle' : 'beforeToggle'">
       <app-sidebar></app-sidebar>
     </div>
     <div

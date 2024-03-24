@@ -13,6 +13,7 @@ h6 {
 .container {
   width: 100%;
   box-sizing: border-box;
+  height: 100%;
   /* height: 100vh !important; */
 }
 
@@ -313,7 +314,7 @@ small {
 
 .card-most-popular-body {
   padding: 22.443px 14.962px 14.962px 14.962px;
-  gap: 37.405px;
+  gap: 15px;
   height: 522px;
   display: flex;
   width: 269.313px;
@@ -454,7 +455,590 @@ small {
 
 /* MOST POPULAR */
 
-@media screen and (min-width: 1800px) {
+@media screen and (min-width: 2400px) {
+  .card {
+    width: 490px;
+    height: 822px;
+  }
+
+  .card-get-started {
+    width: 100%;
+  }
+
+  .card-most-popular-body {
+    width: 490px;
+    height: 822px;
+  }
+
+  .card-most-popular-body .card-get-started {
+    width: 100%;
+  }
+
+  .subscription-duration-year,
+  .subscription-duration-month {
+    font-size: 20px;
+    line-height: 115%; /* 13.8px */
+    padding: 10px 20px;
+  }
+
+  .hint-subscription {
+    font-size: 20px;
+  }
+
+  .section-title {
+    margin: 12px;
+    padding: 10px;
+  }
+
+  .section-title h3 {
+    font-size: 23px;
+    line-height: 37px; /* 194.444% */
+  }
+
+  .section-title p {
+    font-size: 23px;
+  }
+
+  .card-title h4 {
+    font-size: 26px;
+  }
+
+  .card-title p {
+    font-size: 22px;
+  }
+
+  .card-plan .card-plan-cost h2 {
+    font-size: 38px;
+  }
+  .card-plan-cost-per-month {
+    font-size: 20px;
+  }
+
+  .card-get-started p {
+    font-size: 24px;
+  }
+
+  .card-get-started:hover p {
+    font-size: 21px;
+  }
+  .card-plan-feature-title h5 {
+    font-size: 22px;
+  }
+
+  .card-plan-feature-description ul {
+    gap: 19.962px;
+  }
+
+  .card-plan-feature-description ul li {
+    font-size: 26px;
+  }
+
+  .card-plan-feature-description ul li svg {
+    margin-right: 15px;
+  }
+
+  /* MOST POPULAR */
+
+  .top-section-most-popular {
+    display: flex;
+    padding: 13.611px 13.481px;
+    justify-content: center;
+    align-items: center;
+    gap: 3.74px;
+    align-self: stretch;
+    background: #0660fc;
+    border-top-left-radius: 7.481px;
+    border-top-right-radius: 7.481px;
+  }
+
+  .top-section-most-popular p {
+    margin: 0px;
+    margin-right: 10px;
+    color: #fff;
+    font-family: "DM Sans";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 115%; /* 16.1px */
+  }
+
+  .card-most-popular .card-title h4 {
+    font-size: 26px;
+  }
+
+  .card-most-popular .card-title p {
+    font-size: 22px;
+  }
+
+  .card-most-popular .card-plan .card-plan-cost h2 {
+    font-size: 38px;
+  }
+  .card-most-popular .card-plan-cost-per-month {
+    font-size: 20px;
+  }
+
+  .card-most-popular .card-get-started p {
+    font-size: 24px;
+  }
+
+  .card-most-popular .card-get-started:hover p {
+    font-size: 24px;
+  }
+  .card-most-popular .card-plan-feature-title h5 {
+    font-size: 22px;
+  }
+
+  .card-most-popular .card-plan-feature-description ul {
+    gap: 21.962px;
+  }
+
+  .card-most-popular .card-plan-feature-description ul li {
+    font-size: 26px;
+  }
+
+  .card-most-popular .card-plan-feature-description ul li svg {
+    margin-right: 18px;
+  }
+  /* MOST POPULAR */
+}
+
+@media screen and (min-width: 2200px) and (max-width: 2400px) {
+  .card {
+    width: 439px;
+    height: 722px;
+  }
+
+  .card-get-started {
+    width: 100%;
+  }
+
+  .card-most-popular-body {
+    width: 439px;
+    height: 722px;
+  }
+
+  .card-most-popular-body .card-get-started {
+    width: 100%;
+  }
+
+  .subscription-duration-year,
+  .subscription-duration-month {
+    font-size: 20px;
+    line-height: 115%; /* 13.8px */
+    padding: 10px 20px;
+  }
+
+  .hint-subscription {
+    font-size: 20px;
+  }
+
+  .section-title {
+    margin: 9px;
+    padding: 7px;
+  }
+
+  .section-title h3 {
+    font-size: 23px;
+    line-height: 37px; /* 194.444% */
+  }
+
+  .section-title p {
+    font-size: 22px;
+  }
+
+  .card-title h4 {
+    font-size: 26px;
+  }
+
+  .card-title p {
+    font-size: 22px;
+  }
+
+  .card-plan .card-plan-cost h2 {
+    font-size: 38px;
+  }
+  .card-plan-cost-per-month {
+    font-size: 20px;
+  }
+
+  .card-get-started p {
+    font-size: 24px;
+  }
+
+  .card-get-started:hover p {
+    font-size: 21px;
+  }
+  .card-plan-feature-title h5 {
+    font-size: 22px;
+  }
+
+  .card-plan-feature-description ul {
+    gap: 18.962px;
+  }
+
+  .card-plan-feature-description ul li {
+    font-size: 26px;
+  }
+
+  .card-plan-feature-description ul li svg {
+    margin-right: 15px;
+  }
+
+  /* MOST POPULAR */
+
+  .top-section-most-popular {
+    display: flex;
+    padding: 13.611px 15.481px;
+    justify-content: center;
+    align-items: center;
+    gap: 3.74px;
+    align-self: stretch;
+    background: #0660fc;
+    border-top-left-radius: 7.481px;
+    border-top-right-radius: 7.481px;
+  }
+
+  .top-section-most-popular p {
+    margin: 0px;
+    margin-right: 10px;
+    color: #fff;
+    font-family: "DM Sans";
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 115%; /* 16.1px */
+  }
+
+  .card-most-popular .card-title h4 {
+    font-size: 26px;
+  }
+
+  .card-most-popular .card-title p {
+    font-size: 22px;
+  }
+
+  .card-most-popular .card-plan .card-plan-cost h2 {
+    font-size: 38px;
+  }
+  .card-most-popular .card-plan-cost-per-month {
+    font-size: 20px;
+  }
+
+  .card-most-popular .card-get-started p {
+    font-size: 24px;
+  }
+
+  .card-most-popular .card-get-started:hover p {
+    font-size: 24px;
+  }
+  .card-most-popular .card-plan-feature-title h5 {
+    font-size: 22px;
+  }
+
+  .card-most-popular .card-plan-feature-description ul {
+    gap: 20.962px;
+  }
+
+  .card-most-popular .card-plan-feature-description ul li {
+    font-size: 26px;
+  }
+
+  .card-most-popular .card-plan-feature-description ul li svg {
+    margin-right: 18px;
+  }
+  /* MOST POPULAR */
+}
+
+@media screen and (min-width: 2000px) and (max-width: 2200px) {
+  .card {
+    width: 390px;
+    height: 722px;
+  }
+
+  .card-get-started {
+    width: 100%;
+  }
+
+  .card-most-popular-body {
+    width: 390px;
+    height: 722px;
+  }
+
+  .card-most-popular-body .card-get-started {
+    width: 100%;
+  }
+
+  .subscription-duration-year,
+  .subscription-duration-month {
+    font-size: 17px;
+    line-height: 115%; /* 13.8px */
+    padding: 10px 20px;
+  }
+
+  .hint-subscription {
+    font-size: 17px;
+  }
+
+  .section-title {
+    margin: 9px;
+    padding: 7px;
+  }
+
+  .section-title h3 {
+    font-size: 20px;
+    line-height: 37px; /* 194.444% */
+  }
+
+  .section-title p {
+    font-size: 19px;
+  }
+
+  .card-title h4 {
+    font-size: 23px;
+  }
+
+  .card-title p {
+    font-size: 19px;
+  }
+
+  .card-plan .card-plan-cost h2 {
+    font-size: 35px;
+  }
+  .card-plan-cost-per-month {
+    font-size: 17px;
+  }
+
+  .card-get-started p {
+    font-size: 21px;
+  }
+
+  .card-get-started:hover p {
+    font-size: 21px;
+  }
+  .card-plan-feature-title h5 {
+    font-size: 19px;
+  }
+
+  .card-plan-feature-description ul {
+    gap: 18.962px;
+  }
+
+  .card-plan-feature-description ul li {
+    font-size: 23px;
+  }
+
+  .card-plan-feature-description ul li svg {
+    margin-right: 15px;
+  }
+
+  /* MOST POPULAR */
+
+  .top-section-most-popular {
+    display: flex;
+    padding: 11.611px 13.481px;
+    justify-content: center;
+    align-items: center;
+    gap: 3.74px;
+    align-self: stretch;
+    background: #0660fc;
+    border-top-left-radius: 7.481px;
+    border-top-right-radius: 7.481px;
+  }
+
+  .top-section-most-popular p {
+    margin: 0px;
+    margin-right: 10px;
+    color: #fff;
+    font-family: "DM Sans";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 115%; /* 16.1px */
+  }
+
+  .card-most-popular .card-title h4 {
+    font-size: 23px;
+  }
+
+  .card-most-popular .card-title p {
+    font-size: 19px;
+  }
+
+  .card-most-popular .card-plan .card-plan-cost h2 {
+    font-size: 35px;
+  }
+  .card-most-popular .card-plan-cost-per-month {
+    font-size: 17px;
+  }
+
+  .card-most-popular .card-get-started p {
+    font-size: 21px;
+  }
+
+  .card-most-popular .card-get-started:hover p {
+    font-size: 21px;
+  }
+  .card-most-popular .card-plan-feature-title h5 {
+    font-size: 19px;
+  }
+
+  .card-most-popular .card-plan-feature-description ul {
+    gap: 18.962px;
+  }
+
+  .card-most-popular .card-plan-feature-description ul li {
+    font-size: 23px;
+  }
+
+  .card-most-popular .card-plan-feature-description ul li svg {
+    margin-right: 15px;
+  }
+  /* MOST POPULAR */
+}
+
+@media screen and (max-width: 2000px) and (min-width: 1800px) {
+  .card {
+    width: 339.313px;
+    height: 622px;
+  }
+
+  .card-get-started {
+    width: 100%;
+  }
+
+  .card-most-popular-body {
+    width: 339.313px;
+    height: 622px;
+  }
+
+  .card-most-popular-body .card-get-started {
+    width: 100%;
+  }
+
+  .subscription-duration-year,
+  .subscription-duration-month {
+    font-size: 14px;
+    line-height: 115%; /* 13.8px */
+    padding: 8px 18px;
+  }
+
+  .hint-subscription {
+    font-size: 14px;
+  }
+
+  .section-title {
+    margin: 9px;
+    padding: 7px;
+  }
+
+  .section-title h3 {
+    font-size: 20px;
+    line-height: 37px; /* 194.444% */
+  }
+
+  .section-title p {
+    font-size: 16px;
+  }
+
+  .card-title h4 {
+    font-size: 20px;
+  }
+
+  .card-title p {
+    font-size: 16px;
+  }
+
+  .card-plan .card-plan-cost h2 {
+    font-size: 32px;
+  }
+  .card-plan-cost-per-month {
+    font-size: 14px;
+  }
+
+  .card-get-started p {
+    font-size: 18px;
+  }
+
+  .card-get-started:hover p {
+    font-size: 18px;
+  }
+  .card-plan-feature-title h5 {
+    font-size: 16px;
+  }
+
+  .card-plan-feature-description ul {
+    gap: 16.962px;
+  }
+
+  .card-plan-feature-description ul li {
+    font-size: 20px;
+  }
+
+  .card-plan-feature-description ul li svg {
+    margin-right: 12px;
+  }
+
+  /* MOST POPULAR */
+  .top-section-most-popular {
+    display: flex;
+    padding: 9.611px 11.481px;
+    justify-content: center;
+    align-items: center;
+    gap: 3.74px;
+    align-self: stretch;
+    background: #0660fc;
+    border-top-left-radius: 7.481px;
+    border-top-right-radius: 7.481px;
+  }
+
+  .top-section-most-popular p {
+    margin: 0px;
+    margin-right: 10px;
+    color: #fff;
+    font-family: "DM Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 115%; /* 16.1px */
+  }
+  .card-most-popular .card-title h4 {
+    font-size: 20px;
+  }
+
+  .card-most-popular .card-title p {
+    font-size: 16px;
+  }
+
+  .card-most-popular .card-plan .card-plan-cost h2 {
+    font-size: 32px;
+  }
+  .card-most-popular .card-plan-cost-per-month {
+    font-size: 14px;
+  }
+
+  .card-most-popular .card-get-started p {
+    font-size: 18px;
+  }
+
+  .card-most-popular .card-get-started:hover p {
+    font-size: 18px;
+  }
+  .card-most-popular .card-plan-feature-title h5 {
+    font-size: 16px;
+  }
+
+  .card-most-popular .card-plan-feature-description ul {
+    gap: 16.962px;
+  }
+
+  .card-most-popular .card-plan-feature-description ul li {
+    font-size: 20px;
+  }
+
+  .card-most-popular .card-plan-feature-description ul li svg {
+    margin-right: 12px;
+  }
+  /* MOST POPULAR */
 }
 
 @media screen and (max-width: 1500px) and (min-width: 1300px) {

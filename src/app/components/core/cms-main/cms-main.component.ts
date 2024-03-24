@@ -18,7 +18,6 @@ import { InterceptorLoaderRequestService } from '../../../services/request/inter
 export class CmsMainComponent {
   request!: Boolean;
   toggler_val!: Boolean;
-  @ViewChild('header') header!: ElementRef
 
   constructor(private _Toggle: ToggleService, private _InterceptorLoaderRequestService: InterceptorLoaderRequestService) { }
 
@@ -36,8 +35,4 @@ export class CmsMainComponent {
     })
   }
 
-  ngAfterViewInit(): void {
-    if (window.innerWidth < 992)
-      this.header.nativeElement.classList.remove(['toggle', 'beforeToggle']);
-  }
 }

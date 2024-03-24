@@ -2,15 +2,6 @@
   <div class="row">
     <div class="col-4 breadcrumb-col">
       <div class="breadcrumb">
-        <!-- <div class="stage">
-          <img src="assets/images/dashboard.svg" alt="dashboard" />
-          <img
-            src="assets/images/profile-circle-dark.svg"
-            alt="profile-circle-dark"
-          />
-          {{ fullPath[1] | uppercase }}
-        </div> -->
-
         @for (path of fullPath; track i; let i = $index) {
         <div class="stage">
           {{ path | titlecase }}
@@ -54,16 +45,36 @@
             </div>
 
             <div class="message">
-              <div class="message-content">
-                <img
-                  src="assets/images/notification-statu.svg"
-                  alt="bing"
-                  class="notification-img"
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15.5247 6.84207C16.8327 6.84207 17.8931 5.78169 17.8931 4.47365C17.8931 3.1656 16.8327 2.10522 15.5247 2.10522C14.2166 2.10522 13.1562 3.1656 13.1562 4.47365C13.1562 5.78169 14.2166 6.84207 15.5247 6.84207Z"
+                  fill="#A1A5B7"
                 />
-                @if (notification_status) {
-                <span class="number-of-notification"></span>
-                }
-              </div>
+                <g opacity="0.3">
+                  <path
+                    d="M15.5265 8.02635C14.5849 8.02427 13.6825 7.64931 13.0167 6.98351C12.3509 6.31771 11.976 5.4153 11.9739 4.47372C11.9818 3.92399 12.1169 3.38356 12.3686 2.89478H6.05284C5.00593 2.89478 4.0019 3.31066 3.26163 4.05093C2.52135 4.79121 2.10547 5.79524 2.10547 6.84214V13.9474C2.10547 14.9943 2.52135 15.9983 3.26163 16.7386C4.0019 17.4789 5.00593 17.8948 6.05284 17.8948H13.1581C14.205 17.8948 15.209 17.4789 15.9493 16.7386C16.6896 15.9983 17.1055 14.9943 17.1055 13.9474V7.63162C16.6167 7.88334 16.0763 8.01844 15.5265 8.02635V8.02635Z"
+                    fill="#A1A5B7"
+                  />
+                </g>
+                <path
+                  d="M9.60724 11.579H5.90461C5.74757 11.579 5.59696 11.5166 5.48592 11.4056C5.37488 11.2945 5.3125 11.1439 5.3125 10.9869C5.3125 10.8298 5.37488 10.6792 5.48592 10.5682C5.59696 10.4572 5.74757 10.3948 5.90461 10.3948H9.60724C9.76427 10.3948 9.91488 10.4572 10.0259 10.5682C10.137 10.6792 10.1993 10.8298 10.1993 10.9869C10.1993 11.1439 10.137 11.2945 10.0259 11.4056C9.91488 11.5166 9.76427 11.579 9.60724 11.579V11.579Z"
+                  fill="#A1A5B7"
+                />
+                <path
+                  d="M12.7651 14.7369H5.90461C5.74757 14.7369 5.59696 14.6746 5.48592 14.5635C5.37488 14.4525 5.3125 14.3019 5.3125 14.1448C5.3125 13.9878 5.37488 13.8372 5.48592 13.7262C5.59696 13.6151 5.74757 13.5527 5.90461 13.5527H12.7651C12.9222 13.5527 13.0728 13.6151 13.1838 13.7262C13.2949 13.8372 13.3572 13.9878 13.3572 14.1448C13.3572 14.3019 13.2949 14.4525 13.1838 14.5635C13.0728 14.6746 12.9222 14.7369 12.7651 14.7369V14.7369Z"
+                  fill="#A1A5B7"
+                />
+              </svg>
+
+              @if (notification_status) {
+              <span class="number-of-notification"></span>
+              }
             </div>
           </div>
         </div>
@@ -115,6 +126,126 @@
             </div>
             }
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="small-screen-container">
+  <div class="row">
+    <div class="toggle-menu">
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 2.33325C0 1.77992 0.446667 1.33325 1 1.33325H11.6667C12.22 1.33325 12.6667 1.77992 12.6667 2.33325C12.6667 2.88659 12.22 3.33325 11.6667 3.33325H1C0.446667 3.33325 0 2.88659 0 2.33325ZM11.6667 11.9999H1C0.446667 11.9999 0 12.4466 0 12.9999C0 13.5533 0.446667 13.9999 1 13.9999H11.6667C12.22 13.9999 12.6667 13.5533 12.6667 12.9999C12.6667 12.4466 12.22 11.9999 11.6667 11.9999ZM15 6.66659H4.33333C3.78 6.66659 3.33333 7.11325 3.33333 7.66659C3.33333 8.21992 3.78 8.66659 4.33333 8.66659H15C15.5533 8.66659 16 8.21992 16 7.66659C16 7.11325 15.5533 6.66659 15 6.66659Z"
+          fill="#3F4254"
+        />
+      </svg>
+    </div>
+    <div class="seacrhInput-small-screen">
+      <input
+        type="search"
+        name="search"
+        id="search"
+        (input)="search($event)"
+        placeholder="Search for anything here"
+      />
+      <img
+        class="magnifier"
+        src="assets/images/magnifier.svg"
+        alt="magnifier"
+      />
+    </div>
+    <div class="right-side">
+      <div class="notification">
+        <img
+          src="assets/images/notification-bing.svg"
+          alt="bing"
+          class="notification-img"
+        />
+        <span class="number-of-notification">5</span>
+      </div>
+      <div class="message">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M15.5247 6.84207C16.8327 6.84207 17.8931 5.78169 17.8931 4.47365C17.8931 3.1656 16.8327 2.10522 15.5247 2.10522C14.2166 2.10522 13.1562 3.1656 13.1562 4.47365C13.1562 5.78169 14.2166 6.84207 15.5247 6.84207Z"
+            fill="#A1A5B7"
+          />
+          <g opacity="0.3">
+            <path
+              d="M15.5265 8.02635C14.5849 8.02427 13.6825 7.64931 13.0167 6.98351C12.3509 6.31771 11.976 5.4153 11.9739 4.47372C11.9818 3.92399 12.1169 3.38356 12.3686 2.89478H6.05284C5.00593 2.89478 4.0019 3.31066 3.26163 4.05093C2.52135 4.79121 2.10547 5.79524 2.10547 6.84214V13.9474C2.10547 14.9943 2.52135 15.9983 3.26163 16.7386C4.0019 17.4789 5.00593 17.8948 6.05284 17.8948H13.1581C14.205 17.8948 15.209 17.4789 15.9493 16.7386C16.6896 15.9983 17.1055 14.9943 17.1055 13.9474V7.63162C16.6167 7.88334 16.0763 8.01844 15.5265 8.02635V8.02635Z"
+              fill="#A1A5B7"
+            />
+          </g>
+          <path
+            d="M9.60724 11.579H5.90461C5.74757 11.579 5.59696 11.5166 5.48592 11.4056C5.37488 11.2945 5.3125 11.1439 5.3125 10.9869C5.3125 10.8298 5.37488 10.6792 5.48592 10.5682C5.59696 10.4572 5.74757 10.3948 5.90461 10.3948H9.60724C9.76427 10.3948 9.91488 10.4572 10.0259 10.5682C10.137 10.6792 10.1993 10.8298 10.1993 10.9869C10.1993 11.1439 10.137 11.2945 10.0259 11.4056C9.91488 11.5166 9.76427 11.579 9.60724 11.579V11.579Z"
+            fill="#A1A5B7"
+          />
+          <path
+            d="M12.7651 14.7369H5.90461C5.74757 14.7369 5.59696 14.6746 5.48592 14.5635C5.37488 14.4525 5.3125 14.3019 5.3125 14.1448C5.3125 13.9878 5.37488 13.8372 5.48592 13.7262C5.59696 13.6151 5.74757 13.5527 5.90461 13.5527H12.7651C12.9222 13.5527 13.0728 13.6151 13.1838 13.7262C13.2949 13.8372 13.3572 13.9878 13.3572 14.1448C13.3572 14.3019 13.2949 14.4525 13.1838 14.5635C13.0728 14.6746 12.9222 14.7369 12.7651 14.7369V14.7369Z"
+            fill="#A1A5B7"
+          />
+        </svg>
+
+        @if (notification_status) {
+        <span class="number-of-notification"></span>
+        }
+      </div>
+      <div class="profile">
+        <div class="user-profile" (click)="userMenuToggled()">
+          <div>
+            <div class="user-content-img">
+              <img
+                [src]="
+                  user.imageProfilePath
+                    ? user.imageProfilePath
+                    : 'assets/images/default-user.png'
+                "
+                [alt]="user.fullName"
+              />
+            </div>
+            <div class="user-content-info">
+              <h4>{{ user.fullName }}</h4>
+              <small>{{ user.roleName }}</small>
+            </div>
+          </div>
+
+          <div class="user-arrow">
+            <img src="assets/images/userprofile-arrow.svg" alt="downarrow" />
+          </div>
+          @if (toggleUserMenu) {
+          <div class="user-dropdown">
+            <ul>
+              <li>
+                <img src="assets/images/profile-circle-blue.svg" alt="logout" />
+                Account Information
+              </li>
+              <li>
+                <img src="assets/images/cheque.svg" alt="logout" />
+
+                My Subscription
+              </li>
+
+              <li (click)="logout()">
+                <img src="assets/images/exit-right.svg" alt="logout" />
+
+                Log out
+              </li>
+            </ul>
+          </div>
+          }
         </div>
       </div>
     </div>

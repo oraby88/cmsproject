@@ -143,28 +143,24 @@
           >
             <div class="drop-down">
               <div class="icon">
-                @if (darkMode) {
-                <img src="assets/images/profile-circle.svg" alt="profile" />
+                <div class="usericon">
+                  @if (darkMode) {
+                  <img src="assets/images/profile-circle.svg" alt="profile" />
 
-                } @else{
-                <img
-                  src="assets/images/profile-circle-dark.svg"
-                  alt="profile"
-                />
-                }
-              </div>
-              <div
-                class="link-title"
-                [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
-              >
-                <div
-                  [ngClass]="{
-                    hide: sidebarToggler,
-                  }"
-                >
-                  User Management
+                  } @else{
+                  <img
+                    src="assets/images/profile-circle-dark.svg"
+                    alt="profile"
+                  />
+                  }
+                  <div
+                    [ngClass]="{
+                      hide: sidebarToggler,
+                    }"
+                  >
+                    User Management
+                  </div>
                 </div>
-
                 @if(darkMode || sidebarToggler ){
                 <img
                   [hidden]="sidebarToggler"
@@ -184,29 +180,33 @@
                   src="assets/images/up-arrow.svg"
                   alt="up-arrow"
                 />
-                } @if(dropDownToggler && !sidebarToggler){
-                <div class="sub-links">
-                  <ul>
-                    <li
-                      [routerLink]="['management', 'users']"
-                      routerLinkActive="active-sublink"
-                      (click)="Dropdowntoggle()"
-                    >
-                      <a> Manage Users </a>
-                    </li>
-                    <li
-                      [routerLink]="['management', 'roles']"
-                      routerLinkActive="active-sublink"
-                      (click)="[Dropdowntoggle()]"
-                    >
-                      <a>Manage Roles</a>
-                    </li>
-                  </ul>
-                </div>
                 }
               </div>
             </div>
           </li>
+          <div
+            class="link-title"
+            [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
+          >
+            @if(dropDownToggler && !sidebarToggler){
+            <div class="sub-links">
+              <ul>
+                <li
+                  [routerLink]="['management', 'users']"
+                  routerLinkActive="active-sublink"
+                >
+                  <a> Manage Users </a>
+                </li>
+                <li
+                  [routerLink]="['management', 'roles']"
+                  routerLinkActive="active-sublink"
+                >
+                  <a>Manage Roles</a>
+                </li>
+              </ul>
+            </div>
+            }
+          </div>
         </ul>
       </div>
     </div>

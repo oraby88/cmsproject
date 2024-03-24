@@ -8,6 +8,8 @@
   justify-content: space-between;
   flex-direction: column;
   position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 h5 {
@@ -151,8 +153,7 @@ ul li div {
   text-decoration: none;
   color: #3f4254;
   display: flex;
-  justify-content: start;
-  align-items: center;
+  /* justify-content: start; */
 }
 
 .drop-down {
@@ -160,6 +161,7 @@ ul li div {
   transition: transform 1s;
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
 }
 
 .drop-down .link-title .sub-links ul {
@@ -172,22 +174,31 @@ ul li div {
   color: #fff;
 }
 
-.drop-down .link-title img {
+.icon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* width: 100%; */
+}
+
+.drop-down .icon img:nth-child(2) {
   width: 15px;
-  position: absolute;
+  /* position: absolute; */
   right: 15px;
 }
 
 .sub-links {
-  position: absolute;
+  /* position: absolute; */
   top: 35px;
-  width: 95%;
+  width: 100%;
   transition: transform 1s;
   z-index: 2;
+  margin-left: 33px !important;
+  margin-top: 10px !important;
 }
 
 .sub-links ul {
-  width: 80%;
+  width: 100%;
 }
 
 .sub-links ul li {
@@ -201,6 +212,15 @@ ul li div {
 
 ul li div div {
   margin: 0px 5px;
+}
+
+.hover-active {
+  background: linear-gradient(
+    to right,
+    rgba(6, 96, 252, 0.12),
+    rgba(6, 96, 252, 0)
+  );
+  border-radius: 12px;
 }
 
 .main ul li:hover,
@@ -341,6 +361,7 @@ ul li div div {
 }
 .link-title .sub-links ul li {
   position: relative;
+  width: 60%;
 }
 
 .link-title .sub-links ul li::before {
