@@ -2,17 +2,6 @@
   class="container sidebar"
   [ngClass]="{ darkTheme: darkMode, 'sidebar-toggle': sidebarToggler }"
 >
-  <div
-    [ngClass]="
-      sidebarToggler ? 'toggle-sidebar-btn-rotated' : 'toggle-sidebar-btn'
-    "
-    (click)="togglesidebar()"
-  >
-    <div class="arrow">
-      <img src="assets/images/toggle-sidebar.svg" alt="toggle-sidebar" />
-    </div>
-  </div>
-
   <div class="sidebar-top-section">
     <div class="row">
       <div
@@ -154,9 +143,7 @@
                   />
                   }
                   <div
-                    [ngClass]="{
-                      hide: sidebarToggler,
-                    }"
+                    [ngClass]="{ hide: sidebarToggler, show: !sidebarToggler }"
                   >
                     User Management
                   </div>

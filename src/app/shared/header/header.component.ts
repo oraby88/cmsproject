@@ -9,6 +9,7 @@ import { UserProfileComponent } from '../../components/core/user-profile/user-pr
 import { CardModalComponent } from '../pop-up-card/card-modal/card-modal.component';
 import { AuthService } from '../../services/auth.service';
 import { AppUser } from '../../interfaces/app-user';
+import { ToggleService } from '../../services/toggleBtn/toggle.service';
 
 @Component({
   selector: 'app-header',
@@ -22,11 +23,12 @@ export class HeaderComponent implements OnInit {
   toggleUserMenu!: Boolean
   user!: AppUser;
   fullPath!: string[];
+  sidebarToggler!: Boolean;
 
-  constructor(private _BreadCurmb: BreadcrumbService, private _AuthService: AuthService) {
+  constructor(private _BreadCurmb: BreadcrumbService, private _AuthService: AuthService, private _Toggle: ToggleService) {
     this.notification_status = false;
     this.toggleUserMenu = false;
-
+    this.sidebarToggler = false;
   }
 
   ngOnInit(): void {
@@ -44,6 +46,11 @@ export class HeaderComponent implements OnInit {
         this.fullPath = res.splice(1);
       }
     })
+  }
+
+  togglesidebar() {
+    this._Toggle.toggle();
+    this.sidebarToggler = !this.sidebarToggler;
   }
 
   search(event: any) {

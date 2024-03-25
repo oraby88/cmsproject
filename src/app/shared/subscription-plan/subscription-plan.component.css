@@ -1,0 +1,239 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.subscription-plan-container {
+  /* width: 601px; */
+  height: 634px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.subscription-plan-header {
+  display: flex;
+  align-items: center;
+  gap: 248px;
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.subscription-plan-header::after {
+  content: "";
+  width: 568px;
+  bottom: -20px;
+  height: 0.75px;
+  background: rgba(191, 212, 228, 0.4);
+  position: absolute;
+}
+
+.subscription-plan-header-content h2 {
+  color: #3f4254;
+  font-family: "DM Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%; /* 27px */
+  margin: 0px;
+}
+
+.subscription-plan-header-content p {
+  color: #3f4254;
+  font-family: "DM Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 18px */
+  margin: 0px;
+}
+
+.plan-type {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.plan-type::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  bottom: -20px;
+  height: 0.75px;
+  background: rgba(191, 212, 228, 0.4);
+}
+
+.plan-type-content {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 29.924px;
+  padding: 10px;
+  width: 276px;
+  height: 130px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  border: 1px solid rgba(191, 212, 228, 0.4);
+  background: #0660fc;
+  background: url("/assets/images/subscription-plan-card.svg");
+}
+
+.plan-type-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3.74px;
+}
+
+.plan-type-title h4 {
+  color: #fff;
+  font-family: "DM Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 115%; /* 20.7px */
+}
+
+.plan-type-title p {
+  color: #f9f9f9;
+  font-family: "DM Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%; /* 17.5px */
+}
+
+.plan-type-price {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.plan-type-price h2 {
+  color: #fff;
+  font-family: "DM Sans";
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 115%; /* 34.5px */
+  margin: 0px;
+}
+.plan-type-price span {
+  color: #f9f9f9;
+  font-family: "DM Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 115%; /* 13.8px */
+}
+
+.plan-type-summary {
+  display: flex;
+  flex-direction: column;
+  width: 276px;
+  height: 130px;
+  flex-shrink: 0;
+  padding: 10px;
+  gap: 22px;
+  border-radius: 12px;
+  border: 1px solid rgba(191, 212, 228, 0.4);
+  background: rgba(227, 238, 245, 0.3);
+}
+
+.plan-type-summary > h2 {
+  color: #3f4254;
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 115%; /* 18.4px */
+}
+
+.plan-summary-details {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.plan-summary-details::after {
+  content: "";
+  bottom: -10px;
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: rgba(191, 212, 228, 0.4);
+}
+
+.plan-summary-details-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+.plan-summary-details-text h3 {
+  color: #7e8299;
+  font-family: "DM Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 115%; /* 16.1px */
+}
+.plan-summary-details-text p {
+  color: #7e8299;
+  font-family: "DM Sans";
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 115%; /* 11.5px */
+}
+.plan-summary-details-cost {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+.plan-summary-details-cost h3 {
+  width: 40px;
+  height: 15px;
+  color: #3f4254;
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 115%; /* 18.4px */
+}
+.plan-summary-details-cost p {
+  color: #7e8299;
+  font-family: "DM Sans";
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 115%; /* 11.5px */
+}
+
+.plan-type-summary > p:last-child {
+  text-align: center;
+  color: #7e8299;
+  font-family: "DM Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 115%; /* 13.8px */
+  margin-top: 2px;
+}
+.plan-type-summary > p:last-child span {
+  color: #0660fc;
+  font-family: "DM Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 115%;
+}

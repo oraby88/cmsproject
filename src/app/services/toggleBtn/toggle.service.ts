@@ -11,7 +11,6 @@ export class ToggleService {
 
   toggle() {
     this.toggler.next(!this.toggler.value);
-    console.log(this.toggler.value);
   }
 
   getToggleValue(): BehaviorSubject<Boolean> {

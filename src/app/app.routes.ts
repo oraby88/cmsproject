@@ -10,6 +10,7 @@ import { CmsMainComponent } from './components/core/cms-main/cms-main.component'
 import { authGuard } from './guards/auth.guard';
 import { isLoggedInGuard } from './guards/is-logged-in.guard';
 import { SettingComponent } from './components/core/Setting/setting.component';
+import { SubscriptionPlanComponent } from './shared/subscription-plan/subscription-plan.component';
 
 
 
@@ -22,6 +23,7 @@ export const routes: Routes = [
   { path: 'signupverification', canActivate: [isLoggedInGuard], component: SignupverificationComponent },
   { path: 'setnewpassword', canActivate: [isLoggedInGuard], component: SetnewpasswordComponent },
   { path: 'correctchange', canActivate: [isLoggedInGuard], component: CorrectchagesComponent },
+  { path: 'plan', component: SubscriptionPlanComponent },
   { path: 'cms', redirectTo: '/cms/management', pathMatch: 'full' },
   {
     path: 'cms',

@@ -24,7 +24,11 @@ export class SidebarComponent {
     this.sidebarToggler = false;
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this._Toggle.getToggleValue().subscribe({
+      next: (value) => { this.sidebarToggler = value; }
+    })
+  }
 
   togglesidebar() {
     this._Toggle.toggle();

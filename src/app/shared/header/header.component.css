@@ -1,5 +1,6 @@
 .container {
   width: 100%;
+  position: relative;
 }
 
 .row {
@@ -36,6 +37,44 @@
 .breadcrumb img,
 span {
   margin: 0px 5px;
+}
+
+.toggle-sidebar-btn {
+  position: absolute;
+  top: 10px;
+  left: -25px;
+  background-color: #fff;
+  border: 1px solid #e7e7e9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 5px 5px 30px #e4e4e4;
+  transition: all 1s;
+}
+
+.toggle-sidebar-btn {
+  width: 30px;
+  height: 30px;
+}
+
+.toggle-sidebar-btn-rotated {
+  position: absolute;
+  top: 10px;
+  left: -25px;
+  background-color: #fff;
+  border: 1px solid #e7e7e9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 5px 5px 30px #e4e4e4;
+  width: 30px;
+  height: 30px;
+  transform: rotate(180deg);
+  transition: all 1s;
 }
 
 /* SEARCH */

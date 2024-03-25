@@ -194,7 +194,6 @@ ul li div {
   transition: transform 1s;
   z-index: 2;
   margin-left: 33px !important;
-  margin-top: 10px !important;
 }
 
 .sub-links ul {
@@ -788,7 +787,6 @@ input:checked + .slider:before {
   }
 
   .sub-links {
-    position: absolute;
     top: 35px;
     left: 25px;
     width: 95%;

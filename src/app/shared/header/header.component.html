@@ -1,4 +1,15 @@
 <div class="container">
+  <div
+    [ngClass]="
+      sidebarToggler ? 'toggle-sidebar-btn-rotated' : 'toggle-sidebar-btn'
+    "
+    (click)="togglesidebar()"
+  >
+    <div class="arrow">
+      <img src="assets/images/toggle-sidebar.svg" alt="toggle-sidebar" />
+    </div>
+  </div>
+
   <div class="row">
     <div class="col-4 breadcrumb-col">
       <div class="breadcrumb">
