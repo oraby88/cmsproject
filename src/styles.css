@@ -11,6 +11,12 @@ body {
   font-family: "DM sans", "Roboto", "Helvetica Neue", sans-serif;
 }
 :root {
+  /* Colors */
   --white: #ffffff;
   --green: green;
+
+
+
+  /* font sizes */
+  --header-size: 32px;
 }

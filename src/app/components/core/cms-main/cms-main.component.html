@@ -17,7 +17,9 @@
         </div>
         <div class="content">
           @if(request){
-          <app-spinner></app-spinner>
+            <div class="spinner">
+              <app-spinner></app-spinner>
+            </div>
           }@else {
           <router-outlet></router-outlet>
           }

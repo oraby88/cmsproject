@@ -1,9 +1,10 @@
 import { Component, OnDestroy, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { CommonModule, DecimalPipe } from '@angular/common';
+
 import { BreadcrumbService } from '../../../../services/breadcrumb/breadcrumb.service';
+import { SpinnerComponent } from '../../../../shared/spinner/spinner/spinner.component';
 import { SettingsService } from '../services/settings.service';
 import { SubscriptionPlan } from '../interfaces/subscriptionPlan';
-import { SpinnerComponent } from '../../../../shared/spinner/spinner/spinner.component';
-import { CommonModule, DecimalPipe } from '@angular/common';
 
 @Component({
   selector: 'app-subscription',

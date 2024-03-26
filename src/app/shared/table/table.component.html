@@ -17,28 +17,21 @@
         <td><input type="checkbox" (click)="onChecked($event)" /></td>
         <td>{{ i + 1 }}</td>
         <td>
-          <img
-            [src]="
+          <img [src]="
               data.profileImagePath
                 ? data.profileImagePath
                 : 'assets/images/table-communication.png'
-            "
-            alt=""
-          />{{ data.fullName }}
+            " alt="" />{{ data.fullName }}
         </td>
         <td>
-          <span class="status"
-            ><span class="{{ data.userStatus ? 'active' : 'deactive' }}"></span
-            >{{ data.userStatus ? "Active" : "Deactive" }}</span
-          >
+          <span class="status"><span class="{{ data.userStatus ? 'active' : 'deactive' }}"></span>{{ data.userStatus ?
+            "Active" : "Deactive" }}</span>
         </td>
         <td>{{ data.roleName }}</td>
         <td>{{ data.email }}</td>
         <td>{{ data.createdAt | date }}</td>
         <td>
-          <span
-            ><img src="assets/images/edit-user-management.svg" alt="edit"
-          /></span>
+          <span><img src="assets/images/edit-user-management.svg" alt="edit" /></span>
           <div class="dots">
             <div class="dot"></div>
             <div class="dot"></div>
@@ -51,7 +44,8 @@
     <tfoot></tfoot>
   </table>
 </div>
-<app-paginator
-  (rowsCount)="getCount($event)"
-  [all]="bodyRow.length ? bodyRow.length : 0"
-/>
+<app-paginator (rowsCount)="getCount($event)" [all]="bodyRow.length ? bodyRow.length : 0" />
+
+<span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis aperiam
+  corrupti iste odio, nisi quisquam ab aliquam adipisci accusamus ex, ipsum,
+  fugit quam dolorem vitae impedit nesciunt temporibus sunt sapiente.</span>
