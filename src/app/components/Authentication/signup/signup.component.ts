@@ -4,7 +4,9 @@ import {
   Component,
   DoCheck,
   ElementRef,
+  EventEmitter,
   OnInit,
+  Output,
 } from '@angular/core';
 import {
   FormBuilder,
@@ -67,8 +69,21 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
   specialChar: boolean = false;
   Number: boolean = false;
   numberLength: boolean = false;
-  signUpRequest: ISignupRequest = {} as ISignupRequest;
+  signUpRequest: any = {} as ISignupRequest;
   spinner!: Boolean
+
+  // NEW FORM****************
+  match: boolean = true;
+  // password pass 4 validity conditions
+  validity: boolean = true;
+  passedHints: (boolean | number)[] = [];
+  count: number = 0;
+  displayPassword = false;
+  displayConfirm = false;
+  displayHints = false;
+  hPass: string = '';
+  hConf: string = '';
+  // NEW FORM*****************
 
   constructor(
     private formBuilder: FormBuilder,
@@ -82,19 +97,21 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
   ngAfterViewInit(): void { }
 
   ngDoCheck(): void {
-    this.numberLength = /.{8,}/.test(this.formInfo.controls.password.value!);
-    this.uppercase = /[A-Z]/.test(this.formInfo.controls.password.value!);
-    this.specialChar = /[#?!@$%^&*-]/.test(
-      this.formInfo.controls.password.value!
-    );
-    this.Number = /[0-9]/.test(this.formInfo.controls.password.value!);
+
+    console.log(this.numberLength);
+    console.log(this.uppercase);
+    console.log(this.specialChar);
+    console.log(this.Number);
+
   }
 
   formInfo = new FormGroup({
     fullName: new FormControl(''),
     email: new FormControl(''),
     password: new FormControl(''),
-    confirmPassword: new FormControl(''),
+    passwordHide: new FormControl(''),
+    confirm: new FormControl(''),
+    confirmHide: new FormControl(''),
   });
   validateAreEqual(pass: string, confimPass: string) {
     return (group: FormGroup) => {
@@ -133,9 +150,20 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
             ),
           ],
         ],
-        confirmPassword: ['', [Validators.required]],
+        passwordHide: ['', [Validators.required,
+        Validators.maxLength(40),
+        Validators.minLength(8),
+        ]],
+        confirm: ['', [Validators.maxLength(40),
+        Validators.minLength(8),
+        Validators.required,]],
+        confirmHide: ['', [
+          Validators.maxLength(40),
+          Validators.minLength(8),
+          Validators.required,
+        ]]
       },
-      { validator: this.validateAreEqual('password', 'confirmPassword') }
+      // { validator: this.validateAreEqual('password', 'confirmPassword') }
     );
   }
 
@@ -158,10 +186,10 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
     }
     const fv = this.formInfo.value!;
     this.signUpRequest = {
-      fullName: fv.fullName?.toString() ?? '',
-      email: fv.email?.toString() ?? '',
-      password: fv.password?.toString() ?? '',
-      confirmPassword: fv.confirmPassword?.toString() ?? ''
+      // fullName: fv.fullName?.toString() ?? '',
+      // email: fv.email?.toString() ?? '',
+      // password: fv.password?.toString() ?? '',
+      // confirmPassword: fv.confirmPassword?.toString() ?? ''
     }
     console.log(this.signUpRequest);
     this._authService.signUp(this.signUpRequest).subscribe({
@@ -247,5 +275,146 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
   shooww(event: any, controlName: string) {
     this.formInfo.get(controlName)?.patchValue(event)
   }
+
+
+
+
+
+
+
+  // NEW FORM***************
+  // form group for password
+  passwordFormGroup = new FormGroup({
+    password: new FormControl('', [
+      Validators.maxLength(40),
+      Validators.minLength(8),
+      Validators.required,
+    ]),
+    passwordHide: new FormControl('', [
+      Validators.maxLength(40),
+      Validators.minLength(8),
+      Validators.required,
+    ]),
+    confirm: new FormControl('', [
+      Validators.maxLength(40),
+      Validators.minLength(8),
+      Validators.required,
+    ]),
+    confirmHide: new FormControl('', [
+      Validators.maxLength(40),
+      Validators.minLength(8),
+      Validators.required,
+    ]),
+  });
+
+  // validator function
+  validPassword(pass: any) {
+
+    this.passedHints = [];
+
+    this.numberLength = /.{8,}/.test(pass);
+    this.uppercase = /[A-Z]{1,}/.test(pass);
+    this.specialChar = /[#?!@$%^&*-]{1,}/.test(
+      pass
+    );
+    this.Number = /[0-9]{1,}/.test(pass);
+
+
+    this.passedHints.push(/.{8,}/.test(pass));
+    this.passedHints.push(/[A-Z]{1,}/.test(pass));
+    this.passedHints.push(/[#?!@$%^&*-]{1,}/.test(
+      pass
+    ));
+    this.passedHints.push(
+      /[0-9]{1,}/.test(pass)
+    );
+
+    // count passed to define password strength
+    this.count = this.passedHints.filter((e) => e).length;
+
+    // check if all passed tests (the validity)
+    this.passedHints.includes(false) === false
+      ? (this.validity = true)
+      : (this.validity = false);
+  }
+
+  // display last character for 3 seconds
+  onEnterPassword(e: Event) {
+    let showLength = 1,
+      delay = 3000,
+      hideAll = setTimeout(function () { }, 0);
+    const password = e.target as HTMLInputElement,
+      hidden = (e.target as HTMLInputElement)
+        .nextElementSibling as HTMLInputElement;
+
+    let offset = password.value.length - hidden.value.length;
+    if (offset > 0) {
+      hidden.value =
+        hidden.value +
+        password.value.substring(
+          hidden.value.length,
+          hidden.value.length + offset,
+        );
+    } else if (offset < 0) {
+      hidden.value = hidden.value.substring(0, hidden.value.length + offset);
+    }
+    if (password.value.length > showLength) {
+      password.value =
+        password.value
+          .substring(0, password.value.length - showLength)
+          .replace(/./g, '•') +
+        password.value.substring(
+          password.value.length - showLength,
+          password.value.length,
+        );
+    }
+    if (password.classList.contains('pass')) {
+      this.hPass = hidden.value;
+    } else {
+      this.hConf = hidden.value;
+      // match or not
+      if (this.hPass === this.hConf) {
+        this.match = true;
+      } else {
+        this.match = false;
+      }
+    }
+    // call function to check password validity
+    this.validPassword(this.hPass);
+    // Set the timer
+    clearTimeout(hideAll);
+    hideAll = setTimeout(function () {
+      password.value = password.value.replace(/./g, '•');
+    }, delay);
+  }
+
+  // Store Values When Password Displayed
+  onDisplayedPassword(e: Event) {
+    // take the value of the Displayed Password
+    if ((e.target as HTMLInputElement).classList.contains('hPass')) {
+      this.hPass = (e.target as HTMLInputElement).value;
+      // Make number of dots equal to the length of the displayed password
+      this.passwordFormGroup
+        .get('password')
+        ?.setValue('•'.repeat(this.hPass.length));
+    } else {
+      this.hConf = (e.target as HTMLInputElement).value;
+      // Make number of dots equal to the length of the displayed Confirmation
+      this.passwordFormGroup
+        .get('confirm')
+        ?.setValue('•'.repeat(this.hConf.length));
+      // Compare two values to define match or not
+      if (this.hPass === this.hConf) {
+        // match or not
+        this.match = true;
+      } else {
+        this.match = false;
+      }
+    }
+    // call function to check password validity
+    this.validPassword(this.hPass);
+  }
+
+  // NEW FORM***************
 }
 

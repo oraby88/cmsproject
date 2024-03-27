@@ -1,13 +1,16 @@
 import { HttpInterceptorFn } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { InterceptorLoaderRequestService } from '../services/request/interceptor-loader-request.service';
-import { finalize } from 'rxjs';
+import { finalize, tap } from 'rxjs';
 
 export const loadingInterceptor: HttpInterceptorFn = (req, next) => {
-  inject(InterceptorLoaderRequestService).setIncomingRequests();
+  const loader = inject(InterceptorLoaderRequestService);
+  loader.setIncomingRequests();
 
 
-  return next(req).pipe(finalize(() => {
-    inject(InterceptorLoaderRequestService).setIncomingRequests();
+  return next(req).pipe(tap(() => {
+    // loader.setIncomingRequests();
+    // console.log(loader.getIncomingRequests());
+
   }));
 };

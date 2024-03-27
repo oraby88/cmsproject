@@ -230,15 +230,17 @@ hr {
   transition: ease all 1s;
 }
 .EyeIcon {
-  margin-left: -30px;
-  margin-top: -25px;
-  position: relative;
+  bottom: 12px;
+  right: 5px;
+  position: absolute;
   width: 25px !important;
   display: inline-block;
   transition: ease all 0.5s;
   color: rgb(201, 198, 198);
 }
-
+.c-password {
+  position: relative;
+}
 input[type="password"]::-ms-reveal,
 input[type="password"]::-ms-clear {
   display: none;
@@ -1401,3 +1403,5 @@ hr {
     display: inline-block;
   }
 }
+
+/*  */

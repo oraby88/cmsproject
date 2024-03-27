@@ -11,6 +11,8 @@ export class InterceptorLoaderRequestService {
 
   setIncomingRequests() {
     this.incomingRequests.next(!this.incomingRequests.value);
+    console.log(this.incomingRequests.value);
+    
   }
 
   getIncomingRequests(): Observable<Boolean> {

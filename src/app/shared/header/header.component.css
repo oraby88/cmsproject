@@ -231,6 +231,7 @@ input[type="search"]::-webkit-search-results-decoration {
   border-radius: 10px;
   top: 55px;
   width: 14rem;
+  z-index: 999999;
   height: 9rem;
   right: 0rem;
   border: 0.75px solid rgba(231, 231, 233, 1);
