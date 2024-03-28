@@ -111,23 +111,24 @@
           <input passRules id="password" type="text" placeholder="*******************"
             class="pass form-control form-input passwordCheck" formControlName="password" maxlength="40" [ngClass]="{
               'is-invalid':
-            (  formInfo.controls.passwordHide.touched &&
-              formInfo.controls.passwordHide.errors)||!validity,
+            (  (formInfo.controls.password.touched) &&
+              formInfo.controls.password.errors)||!validity,
               'is-valid':
-              formInfo.controls.passwordHide.touched && 
-              formInfo.controls.passwordHide.errors == null ,
+              formInfo.controls.password.touched && 
+              formInfo.controls.password.errors == null ,
               'is-touched':
-              formInfo.controls.passwordHide.untouched && 
-              formInfo.controls.passwordHide.errors == null,
+              formInfo.controls.password.untouched && 
+              formInfo.controls.password.errors == null,
           }" (focusin)="test()" (focusout)="test()" [ngStyle]="{ display: displayPassword ? 'none' : 'block' }"
             (input)="[onEnterPassword($event), checkPasswordLength('password')]" />
 
 
           <input passRules (input)="[onDisplayedPassword($event), checkPasswordLength('passwordHide')]" type="text"
-            maxlength="40" formControlName="passwordHide" class="hPass hidden form-control form-input passwordCheck"
+            maxlength="40" formControlName="passwordHide" placeholder="*******************"
+            class="hPass hidden form-control form-input passwordCheck"
             [ngStyle]="{ display: !displayPassword ? 'none' : 'block' }" [ngClass]="{
               'is-invalid':
-            (  formInfo.controls.passwordHide.touched &&
+            (  (formInfo.controls.passwordHide.touched || formInfo.controls.password.touched) &&
               formInfo.controls.passwordHide.errors)||!validity,
               'is-valid':
               formInfo.controls.passwordHide.touched && 
@@ -146,111 +147,127 @@
           </span>
         </div>
 
-        @if (formInfo.controls.passwordHide.touched &&
-        formInfo.controls.passwordHide.errors) {
-        <div class="invalid-feedback">
-          @if (formInfo.controls.passwordHide.errors['required']) {
-          <p>Password is required</p>
-          }
-        </div>
-        }
+
+
+
 
 
         <div [ngClass]="{ passContainerSmallSize: passwordHint == true }" class="passwordCheckContainer">
           <div class="invalid-feedback" [hidden]="!passwordHint">
             <div class="strongth-password">
-              @if(hPass.length < 8 && count <=4){ <div class="bar" id="week">
+              @if(hPass.length < 8 && count < 4){ <div class="bar" id="week">
             </div>
             <div class="bar" id="mediumH"></div>
             <div class="bar" id="strongH"></div>
 
-            } @if( hPass.length >= 8 && hPass.length < 15 && count<=4){ <div class="bar" id="mediumS">
+            } @if( hPass.length >= 8 && count<4 || hPass.length < 8 && count===4){ <div class="bar" id="mediumS">
           </div>
           <div class="bar" id="medium" #medium></div>
           <div class="bar" id="strongH"></div>
 
-          } @if( hPass.length >= 15 && count<=4){ <div class="bar" id="weekH">
+          } @if( hPass.length >= 8 && count==4){
+          <div class="bar" id="weekH">
+          </div>
+          <div class="bar" id="strongS" #medium></div>
+          <div class="bar" id="strong" #strong></div>
+          }
         </div>
-        <div class="bar" id="strongS" #medium></div>
-        <div class="bar" id="strong" #strong></div>
-        }
       </div>
-  </div>
-  <p id="passHint" [ngClass]="{ show: passwordHint }" [ngClass]="{ hide: passwordHint }">
-    Password hint : 8 characters minimum
-  </p>
-  <div class="passwordValidation" style="
+      <p id="passHint" [ngClass]="{ show: passwordHint }" [ngClass]="{ hide: passwordHint }">
+        Password hint : 8 characters minimum
+      </p>
+      <div class="passwordValidation" style="
               display: flex;
               align-items: center;
               justify-content: space-between;
             ">
-    <div [hidden]="!passwordHint" class="passwordHint">
-      @if( hPass.length < 8 && count <=4){ <p class="passCheckWord">Password: Week</p>
-        }
-        @if( hPass.length >= 8 && hPass.length < 15 && count<=4){ <p class="passCheckWord">Password:
-          Meduim</p>
-          } @if( hPass.length >= 15 && count<=4){ <p class="passCheckWord">Password: Strong</p>
+        <div [hidden]="!passwordHint" class="passwordHint">
+          @if(hPass.length < 8 && count < 4){ <p class="passCheckWord">Password: Week</p>
             }
-    </div>
-    <button type="button" class="tooltip">
-      !
-      <ul class="tooltiptext">
-        Your Password Must Contain:
-        <li>
-          <span class="correctIcon" [ngClass]="{
+            @if( hPass.length >= 8 && count<4 || hPass.length < 8 && count===4){ <p class="passCheckWord">
+              Password:
+              Meduim</p>
+              } @if(hPass.length >= 8 && count==4){ <p class="passCheckWord">Password: Strong</p>
+              }
+        </div>
+        <button type="button" class="tooltip">
+          !
+          <ul class="tooltiptext">
+            Your Password Must Contain:
+            <li>
+              <span class="correctIcon" [ngClass]="{
                       changeBG: numberLength
                     }">✔</span>At least 8 characters
-        </li>
-        <li>
-          <span class="correctIcon" [ngClass]="{
+            </li>
+            <li>
+              <span class="correctIcon" [ngClass]="{
                       changeBG: uppercase
                     }">✔</span>At least One Capital Letter
-        </li>
-        <li>
-          <span class="correctIcon" [ngClass]="{
+            </li>
+            <li>
+              <span class="correctIcon" [ngClass]="{
                       changeBG: Number
                     }">✔</span>At least One Number
-        </li>
-        <li>
-          <span class="correctIcon" [ngClass]="{
+            </li>
+            <li>
+              <span class="correctIcon" [ngClass]="{
                       changeBG: specialChar
                     }">✔</span>At least One Special
-          <span style="margin-left: 12%">Character:!#$%^&*()_+.</span>
-        </li>
-      </ul>
-    </button>
+              <span style="margin-left: 12%">Character:!#$%^&*()_+.</span>
+            </li>
+          </ul>
+        </button>
+      </div>
   </div>
+
+  <!-- @if ((formInfo.controls.passwordHide.touched
+|| formInfo.controls.password.touched) &&
+(formInfo.controls.passwordHide.errors || formInfo.controls.password.errors) )
+{
+<div class="invalid-feedback">
+  @if (formInfo.get('password')?.hasError('required') || formInfo.get('passwordHide')?.hasError('required')) {
+  <p>Password is required</p>
+  }
 </div>
+} -->
+
+  @if(formInfo.controls.password.touched&&hPass === ""){
+  <div class="invalid-feedback">
+    <p>Password is required</p>
+  </div>
+  }
+
 </div>
 <div class="label-div">
   <label class="form-label" for="confirm">Confirm password</label>
   <div class="c-password">
     <input passRules id="confirm" type="text" class="conf form-control form-input passwordCheck"
       formControlName="confirm" maxlength="40" [ngClass]="{
-              'is-invalid':
-            (  formInfo.controls.confirm.touched &&
-              formInfo.controls.confirm.errors)||!match,
-              'is-valid':
-              formInfo.controls.confirm.touched && 
-              formInfo.controls.confirm.errors == null ,
-              'is-touched':
-              formInfo.controls.confirm.untouched && 
-              formInfo.controls.confirm.errors == null,
-          }" placeholder="*******************" [ngStyle]="{ display: displayConfirm ? 'none' : 'block' }"
+        'is-invalid':
+      ((formInfo.controls.confirmHide.touched) &&
+        formInfo.controls.confirm.errors)||!validity,
+        'is-valid':
+        formInfo.controls.confirm.touched && 
+        formInfo.controls.confirm.errors == null ,
+        'is-touched':
+        formInfo.controls.confirm.untouched && 
+        formInfo.controls.confirm.errors == null,
+    }" placeholder="*******************" [ngStyle]="{ display: displayConfirm ? 'none' : 'block' }"
       (input)="onEnterPassword($event)" />
-    <input passRules (input)="onDisplayedPassword($event)" formControlName="confirmHide" type="text" maxlength="40"
+    <input passRules (input)="onDisplayedPassword($event)" placeholder="*******************"
+      formControlName="confirmHide" type="text" maxlength="40"
       class="hConf hidden form-control form-input passwordCheck"
       [ngStyle]="{ display: !displayConfirm ? 'none' : 'block' }" [ngClass]="{
-          'is-invalid':
-        (  formInfo.controls.confirmHide.touched &&
-          formInfo.controls.confirmHide.errors)||!match,
-          'is-valid':
-          formInfo.controls.confirmHide.touched && 
-          formInfo.controls.confirmHide.errors == null ,
-          'is-touched':
-          formInfo.controls.confirmHide.untouched && 
-          formInfo.controls.confirmHide.errors == null,
-      }" />
+        'is-invalid':
+        ((formInfo.controls.confirmHide.touched || formInfo.controls.confirm.touched) &&
+        formInfo.controls.confirmHide.errors)||!validity,
+        'is-valid':
+        formInfo.controls.confirmHide.touched && 
+        formInfo.controls.confirmHide.errors == null ,
+        'is-touched':
+        formInfo.controls.confirmHide.untouched && 
+        formInfo.controls.confirmHide.errors == null,
+    }" />
     <span (click)="displayConfirm = !displayConfirm" class="">
       @if (!displayConfirm) {
       <fa-icon [icon]="faEyaSlash" class="EyeIcon" (click)="showConfirmPassword()"></fa-icon>
@@ -261,7 +278,7 @@
   </div>
 
   <!-- messages passed on validation -->
-  @if (!match) {
+  @if (!match ) {
   <span class="required1"> Passwords do NOT match * </span>
   }
 </div>

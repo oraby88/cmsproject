@@ -55,7 +55,7 @@ import { SpinnerComponent } from '../../../shared/spinner/spinner/spinner.compon
     ]),
   ],
 })
-export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
+export class SignupComponent implements OnInit {
   [x: string]: any;
   filmIcon = faFilm;
   faFacebook = faFacebook;
@@ -92,17 +92,6 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
     private element: ElementRef
   ) {
     this.spinner = false;
-  }
-
-  ngAfterViewInit(): void { }
-
-  ngDoCheck(): void {
-
-    console.log(this.numberLength);
-    console.log(this.uppercase);
-    console.log(this.specialChar);
-    console.log(this.Number);
-
   }
 
   formInfo = new FormGroup({
@@ -283,29 +272,6 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
 
 
   // NEW FORM***************
-  // form group for password
-  passwordFormGroup = new FormGroup({
-    password: new FormControl('', [
-      Validators.maxLength(40),
-      Validators.minLength(8),
-      Validators.required,
-    ]),
-    passwordHide: new FormControl('', [
-      Validators.maxLength(40),
-      Validators.minLength(8),
-      Validators.required,
-    ]),
-    confirm: new FormControl('', [
-      Validators.maxLength(40),
-      Validators.minLength(8),
-      Validators.required,
-    ]),
-    confirmHide: new FormControl('', [
-      Validators.maxLength(40),
-      Validators.minLength(8),
-      Validators.required,
-    ]),
-  });
 
   // validator function
   validPassword(pass: any) {
@@ -386,6 +352,9 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
     hideAll = setTimeout(function () {
       password.value = password.value.replace(/./g, '•');
     }, delay);
+
+    console.log("method: " + this.match);
+
   }
 
   // Store Values When Password Displayed
@@ -394,13 +363,13 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
     if ((e.target as HTMLInputElement).classList.contains('hPass')) {
       this.hPass = (e.target as HTMLInputElement).value;
       // Make number of dots equal to the length of the displayed password
-      this.passwordFormGroup
+      this.formInfo
         .get('password')
         ?.setValue('•'.repeat(this.hPass.length));
     } else {
       this.hConf = (e.target as HTMLInputElement).value;
       // Make number of dots equal to the length of the displayed Confirmation
-      this.passwordFormGroup
+      this.formInfo
         .get('confirm')
         ?.setValue('•'.repeat(this.hConf.length));
       // Compare two values to define match or not
@@ -411,6 +380,8 @@ export class SignupComponent implements OnInit, DoCheck, AfterViewInit {
         this.match = false;
       }
     }
+
+    console.log("Display: " + this.match);
     // call function to check password validity
     this.validPassword(this.hPass);
   }
